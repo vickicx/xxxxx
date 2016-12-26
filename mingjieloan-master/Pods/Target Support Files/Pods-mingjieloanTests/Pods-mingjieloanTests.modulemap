@@ -1,0 +1,6 @@
+framework module Pods_mingjieloanTests {
+  umbrella header "Pods-mingjieloanTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

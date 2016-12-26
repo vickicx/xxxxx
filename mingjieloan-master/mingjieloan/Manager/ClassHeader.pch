@@ -1,0 +1,55 @@
+
+//
+//  ClassHeader.pch
+//  mingjieloan
+//
+//  Created by vicki on 2016/12/19.
+//  Copyright © 2016年 vicki. All rights reserved.
+//
+
+#ifndef ClassHeader_pch
+#define ClassHeader_pch
+
+// 登录&注册
+#import "RegisterViewController.h"
+#import "LoginViewController.h"
+#import "BaseService.h"
+
+// 产品中心
+#import "ProductCenterViewController.h"
+
+// 我的账户
+#import "MyAccountViewController.h"
+
+// 更多信息
+#import "MoreInfoViewController.h"
+
+// 工具类
+#import "AFNetworking.h"
+#import "FMDB.h"
+#import "IQKeyboardManager.h"
+#import "JGProgressHUD.h"
+#import "JGProgressHUD+Add.h"
+#import "KKGestureLockView.h"
+#import "Masonry.h"
+#import "MJRefresh.h"
+#import "PICircularProgressView.h"
+#import "RegExCategories.h"
+#import "SDAutoLayout.h"
+#import "SDCycleScrollView-umbrella.h"
+#import "SDWebImage-umbrella.h"
+#import "shareSDK-umbrella.h"
+#import "UMSocial.h"
+#import "XXColor.h"
+#import "VVNetWorkTool.h"
+#import "GetColor16.h"
+#import "HeightWithString.h"
+
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+
+#endif /* ClassHeader_pch */

@@ -1,0 +1,54 @@
+
+//
+//  Confi&Para.pch
+//  mingjieloan
+//
+//  Created by vicki on 2016/12/19.
+//  Copyright © 2016年 vicki. All rights reserved.
+//
+
+#ifndef Confi_Para_pch
+#define Confi_Para_pch
+
+
+// 个人sid
+#define MySid [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]
+
+
+#define kWIDTH [UIScreen mainScreen].bounds.size.width
+#define kHEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define FitWidth [[UIScreen mainScreen] bounds].size.width / 414
+#define FitHeight [[UIScreen mainScreen] bounds].size.height / 736
+
+#define FitWidth6 [[UIScreen mainScreen] bounds].size.width / 320
+#define FitHeight6 [[UIScreen mainScreen] bounds].size.height / 568
+
+#define kNetHeight ([UIScreen mainScreen].bounds.size.height - 64 - 49)
+
+#define RealFont(fontValues) [UIFont systemFontOfSize:((fontValues)/414.0f*[UIScreen mainScreen].bounds.size.width)]
+
+#define RealValue(value) ((value)/414.0f*[UIScreen mainScreen].bounds.size.width)
+
+#define RGBColor(r, g, b, a) ([UIColor colorWithRed:r green:g blue:b alpha:a])
+
+#define COLORRGBA(c,a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0	\
+green:((c>>8)&0xFF)/255.0	\
+blue:(c&0xFF)/255.0         \
+alpha:a]
+#define COLORRGB(c)    [UIColor colorWithRed:((c>>16)&0xFF)/255.0	\
+green:((c>>8)&0xFF)/255.0	\
+blue:(c&0xFF)/255.0         \
+alpha:1.0]
+
+#define kGrayColor [UIColor colorWithRed: 244 / 255.0 green:244 / 255.0 blue: 244 / 255.0 alpha:1.0]
+
+#define WeakObj(o) __weak typeof(o) o##Weak = o
+
+
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* Confi_Para_pch */
