@@ -2,8 +2,8 @@
 //  JGProgressHUD+Add.h
 //  mingjieloan
 //
-//  Created by 王好帅 on 2016/12/23.
-//  Copyright © 2016年 mingjie. All rights reserved.
+//  Created by vicki on 2016/12/23.
+//  Copyright © 2016年 vicki. All rights reserved.
 //
 
 #import <JGProgressHUD/JGProgressHUD.h>
