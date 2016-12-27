@@ -10,7 +10,13 @@
 #import "LoginViewController.h"
 
 
+
 @interface AppDelegate ()
+
+@property (strong, nonatomic) UINavigationController * productNavi;
+@property (strong, nonatomic) UINavigationController * accountNavi;
+@property (strong, nonatomic) UINavigationController * moreNavi;
+@property (strong, nonatomic) UINavigationController * loginNavi;
 
 @end
 
@@ -23,46 +29,64 @@
     [self.window makeKeyAndVisible];
     
     ProductCenterViewController *proVC = [[ProductCenterViewController alloc] init];
-    UINavigationController *productNavi = [[UINavigationController alloc] initWithRootViewController:proVC];
-    productNavi.tabBarItem.image = [[UIImage imageNamed:@"tabX_producted"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    productNavi.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabX_producted_h"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    productNavi.title = @"产品中心";
+    self.productNavi = [[UINavigationController alloc] initWithRootViewController:proVC];
+    self.productNavi.tabBarItem.image = [[UIImage imageNamed:@"tabX_producted"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.productNavi.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabX_producted_h"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.productNavi.title = @"产品中心";
     
     
-//    MyAccountViewController *accountVC = [[MyAccountViewController alloc] init];
-//    UINavigationController *accountNavi = [[UINavigationController alloc] initWithRootViewController:accountVC];
+    MyAccountViewController *accountVC = [[MyAccountViewController alloc] init];
+    self.accountNavi = [[UINavigationController alloc] initWithRootViewController:accountVC];
+    self.accountNavi.tabBarItem.image = [[UIImage imageNamed:@"tabX_account"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.accountNavi.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabX_accounted_h"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.accountNavi.title = @"我的账户";
+    
+    
     LoginViewController *loginVC = [[LoginViewController alloc] init];
-     UINavigationController *accountNavi = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    self.loginNavi = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    self.loginNavi.tabBarItem.image = [[UIImage imageNamed:@"tabX_account"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.loginNavi.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabX_accounted_h"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.loginNavi.title = @"我的账户";
     
-    accountNavi.tabBarItem.image = [[UIImage imageNamed:@"tabX_account"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    accountNavi.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabX_accounted_h"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    accountNavi.title = @"我的账户";
     
     MoreInfoViewController *infoVC = [[MoreInfoViewController alloc] init];
-    UINavigationController *moreNavi = [[UINavigationController alloc] initWithRootViewController:infoVC];
-    moreNavi.tabBarItem.image = [[UIImage imageNamed:@"tabX_mored"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    moreNavi.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabX_mored_h"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.moreNavi = [[UINavigationController alloc] initWithRootViewController:infoVC];
+    self.moreNavi.tabBarItem.image = [[UIImage imageNamed:@"tabX_mored"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.moreNavi.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabX_mored_h"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    moreNavi.title = @"更多信息";
+    self.moreNavi.title = @"更多信息";
+    
+    // 键盘收回
+    IQKeyboardManager *manager                  = [IQKeyboardManager sharedManager];
+    manager.enable                              = YES;
+    manager.shouldResignOnTouchOutside          = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.enableAutoToolbar                   = YES;
+    manager.toolbarManageBehaviour              = IQAutoToolbarByTag;
     
     self.tabbar = [[UITabBarController alloc] init];
-    self.tabbar.viewControllers = @[productNavi,accountNavi,moreNavi];
+    // 判断是否登录
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"] length] > 0) {
+        self.tabbar.viewControllers     = @[self.productNavi,self.accountNavi,self.moreNavi];
+    } else {
+        self.tabbar.viewControllers     = @[self.productNavi,self.loginNavi,self.moreNavi];
+    }
     
-
-    self.tabbar.selectedIndex = 0;
-    self.tabbar.tabBar.tintColor = [XXColor goldenColor];
+    
+    
+    self.tabbar.selectedIndex       = 0;
+    self.tabbar.tabBar.tintColor    = [XXColor goldenColor];
     [self.tabbar.tabBarItem setTitlePositionAdjustment:UIOffsetMake(10, -5)];
-    self.tabbar.delegate = self;
-    self.window.rootViewController = self.tabbar;
-//    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
-//    manager.enable = YES;
-//    manager.shouldResignOnTouchOutside = YES;
-//    manager.shouldToolbarUsesTextFieldTintColor = YES;
-//    manager.enableAutoToolbar = YES;
-//    manager.toolbarManageBehaviour = IQAutoToolbarByTag;
+    self.tabbar.delegate            = self;
+    self.window.rootViewController  = self.tabbar;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNaviVC:) name:@"loginSuccess" object:nil];
     
     return YES;
+}
+
+- (void)changeNaviVC:(NSNotification *)notification {
+    self.tabbar.viewControllers      = @[self.productNavi,self.accountNavi,self.moreNavi];
 }
 
 
