@@ -10,6 +10,7 @@
 		3D1ED8201E0BCB8800C99500 /* DHFProductCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1ED81F1E0BCB8800C99500 /* DHFProductCenterCell.m */; };
 		3DA320F31E10F9E30029F745 /* NoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F21E10F9E30029F745 /* NoticeModel.m */; };
 		3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */; };
+		3DF8F5C11E123EF300D4922C /* DHFUserCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */; };
 		7E9FF8B60433E52238E8D8A4 /* Pods_mingjieloan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBAB3B4865752B3E365A667 /* Pods_mingjieloan.framework */; };
 		990872C81E1236B800354802 /* DHFUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872C71E1236B800354802 /* DHFUserCenterViewController.m */; };
 		990872CB1E12370000354802 /* AccTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872CA1E12370000354802 /* AccTopTableViewCell.m */; };
@@ -112,6 +113,8 @@
 		3DA320F21E10F9E30029F745 /* NoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeModel.m; path = mingjieloan/MoreInfo/Controller/NoticeModel.m; sourceTree = SOURCE_ROOT; };
 		3DA320F41E111A920029F745 /* DHFNoticeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFNoticeDetailViewController.h; sourceTree = "<group>"; };
 		3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFNoticeDetailViewController.m; sourceTree = "<group>"; };
+		3DF8F5BF1E123EF300D4922C /* DHFUserCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFUserCenterCell.h; sourceTree = "<group>"; };
+		3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFUserCenterCell.m; sourceTree = "<group>"; };
 		4E1407C00339397825BA70F6 /* Pods-mingjieloanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanUITests/Pods-mingjieloanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		78136D54AFFD20F4F0C6D733 /* Pods_mingjieloanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mingjieloanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEC8869677B5FDC1106F1A1 /* Pods-mingjieloanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanTests/Pods-mingjieloanTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 			children = (
 				990872C91E12370000354802 /* AccTopTableViewCell.h */,
 				990872CA1E12370000354802 /* AccTopTableViewCell.m */,
+				3DF8F5BF1E123EF300D4922C /* DHFUserCenterCell.h */,
+				3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1084,6 +1089,7 @@
 				EA6BB9181E0EF93C00F28E8C /* LewPopupViewAnimationSpring.m in Sources */,
 				EA49A4861E0FE8430079A8DB /* TBTableViewCell.m in Sources */,
 				EA49A4831E0FE4D30079A8DB /* DHFTBViewController.m in Sources */,
+				3DF8F5C11E123EF300D4922C /* DHFUserCenterCell.m in Sources */,
 				EA6BB9171E0EF93C00F28E8C /* LewPopupViewAnimationSlide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

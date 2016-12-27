@@ -14,6 +14,9 @@
 #import "AHAlertView.h"
 #import "DHFNoticeViewController.h"//平台公告
 #import "DHFInviteFriendViewController.h"//邀请好友
+
+#import "DHFUserCenterViewController.h"  //测试帐户中心页面 将来 要删除
+
 @interface MoreInfoViewController : BaseViewController
 
 @property (nonatomic, strong)UITableView *tableView;

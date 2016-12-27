@@ -21,6 +21,13 @@
     
     self.tabBarController.tabBar.hidden = false;
     
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"] length] > 0) {
+        self.logOutBtn.hidden = NO;
+    } else {
+        self.logOutBtn.hidden = YES;
+    }
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -64,6 +71,52 @@
 //退出登录
 - (void)logOutAction{
     
+    
+    
+    AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"
+                                                    message:@"确定要退出登陆吗"];
+    [alert setCancelButtonTitle:@"取消" block:nil];
+    __block MoreInfoViewController *blockSelf = self;
+    [alert addButtonWithTitle:@"确定" block:^{
+        
+        [blockSelf logOut];//也可以不加到
+    }];
+    [alert show];
+    
+    
+}
+
+- (void)logOut{
+    
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"退出中...";
+    
+    [hud showInView:self.view];
+    
+    NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] valueForKey:@"sid"]};
+    
+    [VVNetWorkTool postWithUrl:Url(LOGOUT) body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
+        if (result) {
+            [hud dismiss];
+            // 储存用户的信息
+            
+            if ([result[@"status"] integerValue] == 0) {
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"sid"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"uid"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"rtnUrl"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"isLogin"];
+                self.logOutBtn.hidden = YES;
+            }
+            
+        }
+        
+    } fail:^(NSError *error) {
+        [hud dismiss];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -139,17 +192,21 @@
         self.hidesBottomBarWhenPushed=NO;
     }
     else if (indexPath.row ==5){
-        AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"
-                                                        message:@"确定拨打客服电话400-807-6777"];
-        [alert setCancelButtonTitle:@"取消" block:nil];
-        [alert addButtonWithTitle:@"确定" block:^{
-            UIWebView *callWebView = [[UIWebView alloc]init];
-            
-            [callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"4008076777"]]];
-            
-            [self.view addSubview:callWebView];//也可以不加到
-        }];
-        [alert show];
+        
+        //        AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"
+        //                                                        message:@"确定拨打客服电话400-807-6777"];
+        //        [alert setCancelButtonTitle:@"取消" block:nil];
+        //        __block MoreInfoViewController *blockSelf = self;
+        //        [alert addButtonWithTitle:@"确定" block:^{
+        //            UIWebView *callWebView = [[UIWebView alloc]init];
+        //
+        //            [callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"4008076777"]]];
+        //
+        //            [blockSelf.view addSubview:callWebView];//也可以不加到
+        //        }];
+        //        [alert show];
+        DHFUserCenterViewController *shiyanVC = [[DHFUserCenterViewController alloc] init];
+        [self.navigationController pushViewController:shiyanVC animated:YES];
     }
 }
 

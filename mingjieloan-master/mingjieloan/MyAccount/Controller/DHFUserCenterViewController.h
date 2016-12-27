@@ -6,8 +6,12 @@
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "SubBaseViewController.h"
+#import "DHFUserCenterCell.h"
 
-@interface DHFUserCenterViewController : BaseViewController
+@interface DHFUserCenterViewController : SubBaseViewController
+
+@property (nonatomic, strong)UITableView *tableView;
 
 @end
+
