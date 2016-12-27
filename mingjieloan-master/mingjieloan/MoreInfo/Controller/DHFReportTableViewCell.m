@@ -7,8 +7,7 @@
 //
 
 #import "DHFReportTableViewCell.h"
-#define kWIDTH (self.contentView.bounds.size.width/375)
-#define kHEIGHT ([UIScreen mainScreen].bounds.size.height/667)
+
 @implementation DHFReportTableViewCell
 
 

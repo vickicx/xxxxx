@@ -79,6 +79,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNaviVC:) name:@"loginSuccess" object:nil];
     
+
+    
     return YES;
 }
 
