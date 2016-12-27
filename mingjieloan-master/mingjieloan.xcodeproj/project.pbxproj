@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3D1ED8201E0BCB8800C99500 /* DHFProductCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1ED81F1E0BCB8800C99500 /* DHFProductCenterCell.m */; };
+		3DA320F31E10F9E30029F745 /* NoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F21E10F9E30029F745 /* NoticeModel.m */; };
+		3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */; };
 		7E9FF8B60433E52238E8D8A4 /* Pods_mingjieloan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBAB3B4865752B3E365A667 /* Pods_mingjieloan.framework */; };
+		990872C81E1236B800354802 /* DHFUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872C71E1236B800354802 /* DHFUserCenterViewController.m */; };
+		990872CB1E12370000354802 /* AccTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872CA1E12370000354802 /* AccTopTableViewCell.m */; };
 		9934228D1E0A7E75004C8A2B /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9934228C1E0A7E75004C8A2B /* LoginUser.m */; };
 		993422931E0A806F004C8A2B /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 993422921E0A806F004C8A2B /* LoginModel.m */; };
 		9969969C1E0A257C00CEF850 /* XXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9969969B1E0A257C00CEF850 /* XXColor.m */; };
@@ -59,6 +63,7 @@
 		EA49A4801E0FB70F0079A8DB /* DHFNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA49A47F1E0FB70F0079A8DB /* DHFNoticeTableViewCell.m */; };
 		EA49A4831E0FE4D30079A8DB /* DHFTBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA49A4821E0FE4D30079A8DB /* DHFTBViewController.m */; };
 		EA49A4861E0FE8430079A8DB /* TBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA49A4851E0FE8430079A8DB /* TBTableViewCell.m */; };
+		EA5802371E11537800F1A144 /* DHFInviteFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5802361E11537800F1A144 /* DHFInviteFriendViewController.m */; };
 		EA6BB8F01E0EB71000F28E8C /* ProductIntroductionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA6BB8EF1E0EB71000F28E8C /* ProductIntroductionTableViewCell.m */; };
 		EA6BB8F31E0EC15F00F28E8C /* ProductUserInforTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA6BB8F21E0EC15F00F28E8C /* ProductUserInforTableViewCell.m */; };
 		EA6BB8FC1E0ED5CF00F28E8C /* ProductDetailThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA6BB8FB1E0ED5CF00F28E8C /* ProductDetailThreeTableViewCell.m */; };
@@ -103,9 +108,17 @@
 		26881E88DCFA1D6C6A4F40A0 /* Pods-mingjieloan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloan/Pods-mingjieloan.debug.xcconfig"; sourceTree = "<group>"; };
 		3D1ED81E1E0BCB8800C99500 /* DHFProductCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFProductCenterCell.h; path = mingjieloan/ProductCenter/Controller/DHFProductCenterCell.h; sourceTree = SOURCE_ROOT; };
 		3D1ED81F1E0BCB8800C99500 /* DHFProductCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductCenterCell.m; path = mingjieloan/ProductCenter/Controller/DHFProductCenterCell.m; sourceTree = SOURCE_ROOT; };
+		3DA320F11E10F9E30029F745 /* NoticeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeModel.h; path = mingjieloan/MoreInfo/Controller/NoticeModel.h; sourceTree = SOURCE_ROOT; };
+		3DA320F21E10F9E30029F745 /* NoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeModel.m; path = mingjieloan/MoreInfo/Controller/NoticeModel.m; sourceTree = SOURCE_ROOT; };
+		3DA320F41E111A920029F745 /* DHFNoticeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFNoticeDetailViewController.h; sourceTree = "<group>"; };
+		3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFNoticeDetailViewController.m; sourceTree = "<group>"; };
 		4E1407C00339397825BA70F6 /* Pods-mingjieloanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanUITests/Pods-mingjieloanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		78136D54AFFD20F4F0C6D733 /* Pods_mingjieloanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mingjieloanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEC8869677B5FDC1106F1A1 /* Pods-mingjieloanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanTests/Pods-mingjieloanTests.release.xcconfig"; sourceTree = "<group>"; };
+		990872C61E1236B800354802 /* DHFUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFUserCenterViewController.h; sourceTree = "<group>"; };
+		990872C71E1236B800354802 /* DHFUserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFUserCenterViewController.m; sourceTree = "<group>"; };
+		990872C91E12370000354802 /* AccTopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccTopTableViewCell.h; sourceTree = "<group>"; };
+		990872CA1E12370000354802 /* AccTopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccTopTableViewCell.m; sourceTree = "<group>"; };
 		9934228B1E0A7E75004C8A2B /* LoginUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUser.h; path = Model/LoginUser.h; sourceTree = "<group>"; };
 		9934228C1E0A7E75004C8A2B /* LoginUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUser.m; path = Model/LoginUser.m; sourceTree = "<group>"; };
 		993422911E0A806F004C8A2B /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = Model/LoginModel.h; sourceTree = "<group>"; };
@@ -205,6 +218,8 @@
 		EA49A4821E0FE4D30079A8DB /* DHFTBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFTBViewController.m; sourceTree = "<group>"; };
 		EA49A4841E0FE8430079A8DB /* TBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBTableViewCell.h; path = mingjieloan/ProductCenter/Controller/TBTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		EA49A4851E0FE8430079A8DB /* TBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBTableViewCell.m; path = mingjieloan/ProductCenter/Controller/TBTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		EA5802351E11537800F1A144 /* DHFInviteFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFInviteFriendViewController.h; sourceTree = "<group>"; };
+		EA5802361E11537800F1A144 /* DHFInviteFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFInviteFriendViewController.m; sourceTree = "<group>"; };
 		EA6BB8EE1E0EB71000F28E8C /* ProductIntroductionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductIntroductionTableViewCell.h; path = mingjieloan/ProductCenter/Controller/ProductIntroductionTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		EA6BB8EF1E0EB71000F28E8C /* ProductIntroductionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductIntroductionTableViewCell.m; path = mingjieloan/ProductCenter/Controller/ProductIntroductionTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		EA6BB8F11E0EC15F00F28E8C /* ProductUserInforTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductUserInforTableViewCell.h; path = mingjieloan/ProductCenter/Controller/ProductUserInforTableViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -481,12 +496,16 @@
 				EA49A43D1E0F8B710079A8DB /* DHFAboutMJViewController.m */,
 				EA49A4781E0FB34C0079A8DB /* DHFNoticeViewController.h */,
 				EA49A4791E0FB34C0079A8DB /* DHFNoticeViewController.m */,
+				3DA320F41E111A920029F745 /* DHFNoticeDetailViewController.h */,
+				3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */,
 				EA49A43F1E0F91940079A8DB /* DHFReportViewController.h */,
 				EA49A4401E0F91940079A8DB /* DHFReportViewController.m */,
 				EA49A44B1E0F92CE0079A8DB /* DHFReportDetailViewController.h */,
 				EA49A44C1E0F92CE0079A8DB /* DHFReportDetailViewController.m */,
 				EA49A46A1E0FAA270079A8DB /* DHFHelpCenterViewController.h */,
 				EA49A46B1E0FAA270079A8DB /* DHFHelpCenterViewController.m */,
+				EA5802351E11537800F1A144 /* DHFInviteFriendViewController.h */,
+				EA5802361E11537800F1A144 /* DHFInviteFriendViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -496,6 +515,8 @@
 			children = (
 				EA49A4481E0F924E0079A8DB /* MediaReportModel.h */,
 				EA49A4491E0F924E0079A8DB /* MediaReportModel.m */,
+				3DA320F11E10F9E30029F745 /* NoticeModel.h */,
+				3DA320F21E10F9E30029F745 /* NoticeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -528,6 +549,8 @@
 			children = (
 				C34FFF181E091E8D00FF8C05 /* MyAccountViewController.h */,
 				C34FFF191E091E8D00FF8C05 /* MyAccountViewController.m */,
+				990872C61E1236B800354802 /* DHFUserCenterViewController.h */,
+				990872C71E1236B800354802 /* DHFUserCenterViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -542,6 +565,8 @@
 		C34FFF1B1E091E8D00FF8C05 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				990872C91E12370000354802 /* AccTopTableViewCell.h */,
+				990872CA1E12370000354802 /* AccTopTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1007,6 +1032,7 @@
 				C34FFF291E091E8D00FF8C05 /* SubBaseViewController.m in Sources */,
 				C34FFF2F1E091E8D00FF8C05 /* MoreInfoViewController.m in Sources */,
 				EA49A4601E0F95EC0079A8DB /* MJRefreshBaseView.m in Sources */,
+				990872C81E1236B800354802 /* DHFUserCenterViewController.m in Sources */,
 				99C27CA01E10BE0800C0B013 /* LoginViewController.m in Sources */,
 				EA49A4351E0F5E680079A8DB /* HKJHTableViewCell.m in Sources */,
 				EA49A4471E0F91C40079A8DB /* DHFReportTableViewCell.m in Sources */,
@@ -1016,6 +1042,7 @@
 				C34FFF241E091E8D00FF8C05 /* AppDelegate.m in Sources */,
 				EA6BB8F01E0EB71000F28E8C /* ProductIntroductionTableViewCell.m in Sources */,
 				EA49A4611E0F95EC0079A8DB /* MJRefreshConst.m in Sources */,
+				3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */,
 				99C27CA41E10BEB000C0B013 /* JGProgressHUD+Add.m in Sources */,
 				C34FFF2A1E091E8D00FF8C05 /* BaseModel.m in Sources */,
 				9969969C1E0A257C00CEF850 /* XXColor.m in Sources */,
@@ -1023,9 +1050,11 @@
 				996996A01E0A2F7200CEF850 /* VVNetWorkTool.m in Sources */,
 				EA49A43E1E0F8B710079A8DB /* DHFAboutMJViewController.m in Sources */,
 				EA6BB91F1E0EF9F900F28E8C /* PopView.m in Sources */,
+				EA5802371E11537800F1A144 /* DHFInviteFriendViewController.m in Sources */,
 				EA6BB8FC1E0ED5CF00F28E8C /* ProductDetailThreeTableViewCell.m in Sources */,
 				3D1ED8201E0BCB8800C99500 /* DHFProductCenterCell.m in Sources */,
 				C34FFF311E091E8D00FF8C05 /* ProductCenterViewController.m in Sources */,
+				990872CB1E12370000354802 /* AccTopTableViewCell.m in Sources */,
 				C34FFF281E091E8D00FF8C05 /* BaseViewController.m in Sources */,
 				EA49A4801E0FB70F0079A8DB /* DHFNoticeTableViewCell.m in Sources */,
 				EAD6BCB61E0C0FC8005782AA /* HeightWithString.m in Sources */,
@@ -1037,6 +1066,7 @@
 				EA49A4621E0F95EC0079A8DB /* MJRefreshFooterView.m in Sources */,
 				EABA08841E0D841900B3CC61 /* ProductDetailFirstTableViewCell.m in Sources */,
 				EA49A47A1E0FB34C0079A8DB /* DHFNoticeViewController.m in Sources */,
+				3DA320F31E10F9E30029F745 /* NoticeModel.m in Sources */,
 				99C27CA11E10BE0800C0B013 /* RegisterViewController.m in Sources */,
 				EA6BB9191E0EF93C00F28E8C /* UIViewController+LewPopupViewController.m in Sources */,
 				EA49A46C1E0FAA270079A8DB /* DHFHelpCenterViewController.m in Sources */,

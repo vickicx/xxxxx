@@ -132,6 +132,12 @@
         [self.navigationController pushViewController:helpVC animated:YES];
         self.hidesBottomBarWhenPushed=NO;
     }
+    else if (indexPath.row == 4){
+        self.hidesBottomBarWhenPushed=YES;
+        DHFInviteFriendViewController  *InviteVC = [[DHFInviteFriendViewController alloc] init];
+        [self.navigationController pushViewController:InviteVC animated:YES];
+        self.hidesBottomBarWhenPushed=NO;
+    }
     else if (indexPath.row ==5){
         AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"
                                                         message:@"确定拨打客服电话400-807-6777"];

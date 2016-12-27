@@ -6,10 +6,10 @@
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "SubBaseViewController.h"
 #import "DHFReportDetailViewController.h"
 #import "DHFReportTableViewCell.h"
 #import "MJRefresh.h"
-@interface DHFReportViewController : BaseViewController
+@interface DHFReportViewController : SubBaseViewController
 
 @end

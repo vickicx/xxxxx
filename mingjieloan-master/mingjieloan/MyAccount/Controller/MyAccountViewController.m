@@ -8,7 +8,7 @@
 
 #import "MyAccountViewController.h"
 
-@interface MyAccountViewController ()
+@interface MyAccountViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -16,8 +16,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    [self initTableView];
+    
+    // Do any additional setup after loading the view.
+}
+
+- (void)initTableView{
+    self.MyAccountTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT - 45) style:UITableViewStylePlain];
+    _MyAccountTableView.separatorStyle = UITableViewCellAccessoryNone;
+    _MyAccountTableView.delegate = self;
+    _MyAccountTableView.dataSource = self;
+    
+    [self.view addSubview:_MyAccountTableView];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0)
+    {
+        return 135*FitHeight;
+    }else {
+        return 50;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        AccTopTableViewCell *cell = [[AccTopTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return  cell;
+    }else {
+        AccTopTableViewCell *cell = [[AccTopTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
 }
 
 - (void)didReceiveMemoryWarning {

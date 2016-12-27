@@ -41,6 +41,21 @@
     [self.contentView addSubview:_lineView];
 }
 
+- (void)setNoticeModel:(NoticeModel *)noticeModel{
+    
+    _noticeModel = noticeModel;
+    
+    _titleLab.text = noticeModel.title;
+    
+    NSDateFormatter *pickerFormatter1 = [[NSDateFormatter alloc] init];// 创建一个日期格式器
+        [pickerFormatter1 setDateFormat:@"YYYY-MM-dd"];
+
+        NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:(long)_noticeModel.dateline];
+        NSString *dateString = [pickerFormatter1 stringFromDate:confromTimesp];
+    
+        _dataLab.text = dateString;
+}
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];

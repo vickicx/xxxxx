@@ -7,8 +7,11 @@
 //
 
 #import "DHFReportTableViewCell.h"
-
+#define kWIDTH (self.contentView.bounds.size.width/375)
+#define kHEIGHT ([UIScreen mainScreen].bounds.size.height/667)
 @implementation DHFReportTableViewCell
+
+
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
@@ -56,8 +59,8 @@
 
 - (void)setModel:(MediaReportModel *)model {
     
-    NSLog(@"%@",model.img_path);
-    
+//    NSLog(@"%@",model.img_path);
+//    NSLog(@"sfsdfsdfsdfsdfsdf");
     _model = model;
     
     NSString *imageURLStr = [model.img_path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

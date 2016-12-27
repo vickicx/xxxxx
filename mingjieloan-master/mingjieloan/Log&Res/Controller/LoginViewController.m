@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.navigationItem.title = @"登录";
+    self.navigationItem.title = @"登录";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
@@ -34,7 +34,7 @@
     
     
     [self createView];
-
+    
     // Do any additional setup after loading the view.
 }
 
@@ -73,7 +73,7 @@
     self.longinButton.layer.borderWidth = 1;
     self.longinButton.layer.cornerRadius = 4;
     self.longinButton.layer.borderColor = [XXColor borderAllColor].CGColor;
-
+    
     [self.longinButton setTitle:@"登录" forState:UIControlStateNormal];
     [self.longinButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.longinButton.titleLabel.font = [UIFont systemFontOfSize:RealValue(18)];
@@ -90,7 +90,7 @@
     [self.registerButton setTitleColor:
      [XXColor btnGoldenColor] forState:UIControlStateNormal];
     self.registerButton.titleLabel.font = [UIFont systemFontOfSize:RealValue(18)];
-     self.registerButton.layer.borderWidth = 1;
+    self.registerButton.layer.borderWidth = 1;
     self.registerButton.layer.cornerRadius = 4;
     self.registerButton.backgroundColor = [UIColor whiteColor];
     self.registerButton.layer.borderColor =[XXColor borderAllColor].CGColor;

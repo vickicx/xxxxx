@@ -7,7 +7,83 @@
 //
 
 #import "BaseViewController.h"
+#import "AccTopTableViewCell.h"
 
 @interface MyAccountViewController : BaseViewController
 
+@property (nonatomic,strong) UILabel *leijishouyiLab;
+
+@property (nonatomic,strong) UILabel *wodetouziLab;
+
+@property (nonatomic,strong) UILabel *zhanghuyueLab;
+
+@property (nonatomic,strong) UILabel *dongjiezijin;
+
+@property (nonatomic,strong) UIButton *qiandaoBtn;
+
+@property (nonatomic,strong) UILabel *lianxuqiandaoLabel;
+
+@property (nonatomic,strong) UILabel *huiyuandengjiLabel;
+
+@property (nonatomic,strong) UITableView *MyAccountTableView;
+
+@property (nonatomic,strong) AccTopTableViewCell *topCell;
+
+
+
+// 存钱罐的显示
+@property (nonatomic,strong) UILabel *piggybankamountLabel;
+
+@property (nonatomic,copy) NSString *mySid;
+
+//懒加载
+
+@property (nonatomic,strong) UILabel *topTitle;
+
+@property (nonatomic, strong) UIView *titleViewXX;
+
+@property (nonatomic, strong) UIButton *wdxxButton;
+
+@property (nonatomic, strong) UIView *qiandaoView;
+
+@property (nonatomic, strong) UIImageView *qiandaoImageView;
+
+@property (nonatomic, strong) UIButton *qiandaoButton;
+
+@property (nonatomic,strong) UILabel *qiandaoTitleLabel;
+
+@property (nonatomic,strong) UILabel *qiandaojifenLabel;
+
+@property (nonatomic,strong) UILabel *qiandaoLabel;
+
+@property (nonatomic,strong) UILabel *qiandao2Label;
+
+@property (nonatomic, strong) UIView *redPointView;
+
+@property (nonatomic, strong) UIView *alertView;
+
+@property (nonatomic, assign) BOOL is_sign;
+
+@property (nonatomic, strong) UIButton *chongzhiBtn;
+
+@property (nonatomic, strong) UIButton *tixianBtn;
+
+
+
+
+
+
+
+
+
+
 @end
+
+
+
+
+
+
+
+
+

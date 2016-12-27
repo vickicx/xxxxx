@@ -10,14 +10,11 @@
 #import "LoginViewController.h"
 
 
-
 @interface AppDelegate ()
-
 @property (strong, nonatomic) UINavigationController * productNavi;
 @property (strong, nonatomic) UINavigationController * accountNavi;
 @property (strong, nonatomic) UINavigationController * moreNavi;
 @property (strong, nonatomic) UINavigationController * loginNavi;
-
 @end
 
 @implementation AppDelegate

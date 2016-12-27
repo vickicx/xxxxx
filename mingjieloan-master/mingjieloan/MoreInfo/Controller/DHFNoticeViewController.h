@@ -6,10 +6,12 @@
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "SubBaseViewController.h"
 #import "DHFNoticeTableViewCell.h"
-
-@interface DHFNoticeViewController : BaseViewController
+#import "DHFNoticeDetailViewController.h"
+#import "MJRefresh.h"
+#import "NoticeModel.h"
+@interface DHFNoticeViewController : SubBaseViewController
 
 @property (nonatomic, strong)UITableView *tableView;
 

@@ -6,10 +6,10 @@
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "SubBaseViewController.h"
 #import "MediaReportModel.h"
 
-@interface DHFReportDetailViewController : BaseViewController
+@interface DHFReportDetailViewController : SubBaseViewController
 @property (nonatomic, strong) MediaReportModel *model;
 
 

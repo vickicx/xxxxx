@@ -28,22 +28,22 @@
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBarTintColor:[XXColor labGoldenColor]];
-
+    
     [self createView];
     // Do any additional setup after loading the view.
 }
 
 - (void)createView {
     
-//    UIView *grayLineView = [[UIView alloc] initWithFrame:CGRectMake(21*FitWidth,84*FitHeight, 373*FitWidth, FitHeight)];
-//    grayLineView.backgroundColor = [UIColor grayColor];
-//    [self.view addSubview:grayLineView];
+    //    UIView *grayLineView = [[UIView alloc] initWithFrame:CGRectMake(21*FitWidth,84*FitHeight, 373*FitWidth, FitHeight)];
+    //    grayLineView.backgroundColor = [UIColor grayColor];
+    //    [self.view addSubview:grayLineView];
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(30*FitWidth, 109*FitHeight, 13*FitWidth, 20*FitHeight)];
     imageView1.image = [UIImage imageNamed:@"shoujihao"];
     [self.view addSubview:imageView1];
     
-
+    
     
     self.nameField = [[UITextField alloc] initWithFrame:CGRectMake(54*FitWidth, 109*FitHeight, self.view.width - 160*FitWidth, 20*FitHeight)];
     self.nameField.placeholder = @"请填写手机号";
@@ -56,8 +56,8 @@
     [self.view addSubview:grayLineView];
     
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(imageView1.left, grayLineView.bottom + 27*FitHeight, 14*FitWidth, 17*FitHeight)];
-        imageView2.image = [UIImage imageNamed:@"duanxinyanzhengma"];
-        [self.view addSubview:imageView2];
+    imageView2.image = [UIImage imageNamed:@"duanxinyanzhengma"];
+    [self.view addSubview:imageView2];
     
     self.duanxinField = [[UITextField alloc] initWithFrame:CGRectMake(54*FitWidth, imageView2.top, self.view.width - 160*FitWidth, 20*FitHeight)];
     self.duanxinField.placeholder = @"请输入短信验证码";
@@ -74,17 +74,17 @@
     
     self.sendYZMButton.backgroundColor = [XXColor btnGoldenColor];
     self.sendYZMButton.layer.cornerRadius = 20*FitWidth;
-
+    
     [self.view addSubview:self.sendYZMButton];
     
     UIView *grayLineView2 = [[UIView alloc] initWithFrame:CGRectMake(self.nameField.left - 2 *FitWidth ,self.duanxinField.bottom + 5 *FitHeight, 323*FitWidth, FitHeight)];
     grayLineView2.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:grayLineView2];
-
-
     
     
-
+    
+    
+    
     UIImageView *imageView3 = [[UIImageView alloc] initWithFrame:CGRectMake(imageView1.left, grayLineView2.bottom + 27*FitHeight, 14*FitWidth, 17*FitHeight)];
     imageView3.image = [UIImage imageNamed:@"mima"];
     [self.view addSubview:imageView3];
@@ -125,26 +125,26 @@
     [self.registerXYButton addTarget:self action:@selector(registerXYButton:) forControlEvents:UIControlEventTouchUpInside];
     self.registerXYButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.registerXYButton setTitle:@"注册协议" forState:UIControlStateNormal];
-        self.registerXYButton.titleLabel.font = [UIFont systemFontOfSize:RealValue(14)];
+    self.registerXYButton.titleLabel.font = [UIFont systemFontOfSize:RealValue(14)];
     [self.registerXYButton setTitleColor:[XXColor btnGoldenColor] forState:UIControlStateNormal];
     [self.view addSubview:self.registerXYButton];
     
     UIView *grayLineView5 = [[UIView alloc] initWithFrame:CGRectMake(self.registerXYButton.left  ,self.registerXYButton.bottom - 7 * FitHeight, self.registerXYButton.width -20 *FitWidth, FitHeight)];
     grayLineView5.backgroundColor = [XXColor btnGoldenColor];
     [self.view addSubview:grayLineView5];
-
+    
     self.registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.registerButton.frame = CGRectMake(label.left, label.bottom+14*FitHeight, label.width + grayLineView5.width + 3 *FitWidth, 45*FitHeight);
     [self.registerButton addTarget:self action:@selector(registerButton:) forControlEvents:UIControlEventTouchUpInside];
     self.registerButton.layer.masksToBounds = YES;
     self.registerButton.layer.borderColor = [XXColor borderAllColor].CGColor;
-
+    
     [self.registerButton setTitle:@"注册" forState:UIControlStateNormal];
     [self.registerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.registerButton.titleLabel.font = [UIFont systemFontOfSize:RealValue(18)];
     self.registerButton.backgroundColor = [XXColor btnGoldenColor];
     [self.view addSubview:self.registerButton];
-     self.nameField.font = self.duanxinField.font = self.passwordField.font = self.passwordAgainField.font = [UIFont systemFontOfSize:RealValue(14)];
+    self.nameField.font = self.duanxinField.font = self.passwordField.font = self.passwordAgainField.font = [UIFont systemFontOfSize:RealValue(14)];
 }
 
 - (void)sendYZMButton:(UIButton *)button {
@@ -188,7 +188,7 @@
         [hud dismissAfterDelay:1.5];
     }
 }
-    
+
 
 -(void)registerXYButton:(UIButton *)button {
     
@@ -220,7 +220,7 @@
     
     if ([self.passwordField.text isMatch:[NSRegularExpression regularExpressionWithPattern:@"^\\S{8,}$" options:NSRegularExpressionCaseInsensitive error:nil]]) {
         
-          NSDictionary *dic = @{@"phone":self.nameField.text,@"password":self.passwordField.text,@"phoneCode":self.duanxinField.text,@"captcha":@"",@"sid":@""};
+        NSDictionary *dic = @{@"phone":self.nameField.text,@"password":self.passwordField.text,@"phoneCode":self.duanxinField.text,@"captcha":@"",@"sid":@""};
         [VVNetWorkTool postWithUrl:Url(REGISTER) body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
             
         } success:^(id result) {
@@ -250,14 +250,14 @@
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-         @end
+@end
 

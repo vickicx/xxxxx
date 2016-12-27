@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NoticeModel.h"
 @interface DHFNoticeTableViewCell : UITableViewCell
 
 @property (nonatomic, strong)UIImageView *titleImage;
@@ -18,4 +18,5 @@
 
 @property (nonatomic, strong)UIView *lineView;
 
+@property (nonatomic, strong)NoticeModel *noticeModel;
 @end

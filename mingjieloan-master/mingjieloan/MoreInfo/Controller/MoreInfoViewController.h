@@ -13,6 +13,7 @@
 #import "DHFHelpCenterViewController.h"//帮助中心
 #import "AHAlertView.h"
 #import "DHFNoticeViewController.h"//平台公告
+#import "DHFInviteFriendViewController.h"//邀请好友
 @interface MoreInfoViewController : BaseViewController
 
 @property (nonatomic, strong)UITableView *tableView;

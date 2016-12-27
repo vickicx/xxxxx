@@ -13,7 +13,7 @@
 @property (nonatomic, assign)BOOL isUPLoad;//判断上下
 @property (nonatomic, assign) NSInteger page;
 
-@property (nonatomic, strong) NSArray *dataArr;
+
 
 @property (nonatomic, strong) NSMutableArray *mainArr;
 
@@ -25,13 +25,14 @@
 
 @implementation DHFReportViewController
 
+
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
     self.page = 1;
     
-    self.dataArr = [NSArray array];
     
     self.mainArr = [NSMutableArray array];
     
@@ -59,35 +60,37 @@
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", @"sid",@"1", @"page", nil];
     [VVNetWorkTool postWithUrl:url body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
-        NSLog(@"progress ===== %@", progress);
+//        NSLog(@"progress ===== %@", progress);
         
     } success:^(id result) {
-        NSLog(@"%@",result);
+       
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+         NSLog(@"%@",dic);
+        
+        NSMutableArray *dataArray = [[dic objectForKey:@"articles"] objectForKey:@"items"];
+        
+        for (NSDictionary *dic in dataArray) {
+            
+            MediaReportModel *model = [[MediaReportModel alloc] init];
+            
+            [model setValuesForKeysWithDictionary:dic];
+            
+            
+            [self.mainArr addObject:model];
+        }
+        
+        if (self.mainArr.count > 0) {
+            
+            [self.mediaReportTableView headerEndRefreshing];
+            [self.mediaReportTableView footerEndRefreshing];
+            [self.mediaReportTableView reloadData];
+        }
+
 
     } fail:^(NSError *error) {
         
-        NSLog(@"error ===== %@", error);
+       
     }];
-    
-//    [AppTools getPostWithURL:url Body:body Block:^(id resultX) {
-//        
-//        self.dataArr = [[resultX objectForKey:@"articles"] objectForKey:@"items"];
-//        
-//        for (NSDictionary *dic in self.dataArr) {
-//            
-//            MediaReportModel *model = [[MediaReportModel alloc] init];
-//            
-//            [model setValuesForKeysWithDictionary:dic];
-//            
-//            
-//            [self.mainArr addObject:model];
-//        }
-//        
-//        if (self.mainArr.count > 0) {
-//            
-//            [self.mediaReportTableView reloadData];
-//        }
-//    }];
 
 }
 
@@ -98,7 +101,7 @@
  */
 - (void)createTableView {
     
-    self.mediaReportTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64) style:UITableViewStyleGrouped];
+    self.mediaReportTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStyleGrouped];
     
     [self.view addSubview:self.mediaReportTableView];
     
@@ -220,7 +223,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DHFReportDetailViewController *mediaReportsDetailViewController = [[DHFReportDetailViewController alloc] init];
-    
+
     mediaReportsDetailViewController.model = [self.mainArr objectAtIndex:indexPath.section];
     
     UIBarButtonItem *backIetm = [[UIBarButtonItem alloc] init];

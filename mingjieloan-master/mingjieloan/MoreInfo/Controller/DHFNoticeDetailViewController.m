@@ -1,15 +1,14 @@
 //
-//  DHFReportDetailViewController.m
+//  DHFNoticeDetailViewController.m
 //  mingjieloan
 //
-//  Created by 杜虹锋 on 2016/12/25.
+//  Created by kang on 16/12/26.
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
-#import "DHFReportDetailViewController.h"
+#import "DHFNoticeDetailViewController.h"
 
-
-@interface DHFReportDetailViewController ()<UIWebViewDelegate>
+@interface DHFNoticeDetailViewController ()<UIWebViewDelegate>
 
 @property (nonatomic, strong) UIView *headerView;
 
@@ -17,37 +16,41 @@
 
 @end
 
-@implementation DHFReportDetailViewController
+@implementation DHFNoticeDetailViewController
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    self.tabBarController.tabBar.hidden = YES;
+    
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.hidden=YES;
     
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
-    [self createHeaderView];
-    
-    self.summaryWebView = [[UIWebView alloc] initWithFrame:CGRectMake(10 * FitWidth, self.headerView.frame.size.height + 64, [UIScreen mainScreen].bounds.size.width - 10 * FitWidth, [UIScreen mainScreen].bounds.size.height - self.headerView.frame.size.height - 64)];
+    self.summaryWebView = [[UIWebView alloc] initWithFrame:CGRectMake(10 * FitWidth, self.headerView.frame.size.height + 64, [UIScreen mainScreen].bounds.size.width - 10 * FitWidth, [UIScreen mainScreen].bounds.size.height - self.headerView.frame.size.height)];
+    _summaryWebView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.summaryWebView];
     
     self.summaryWebView.delegate = self;
     
     self.summaryWebView.scrollView.bounces = NO;
     
-    [self.summaryWebView loadHTMLString:self.model.summary baseURL:nil];
+    [self.summaryWebView loadHTMLString:self.noticeModel.content baseURL:nil];
+    [self createHeaderView];
 }
 
 - (void)createHeaderView
 {
-    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 100 * FitHeight)];
+    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 60 * FitHeight)];
     [self.view addSubview:self.headerView];
     
     //    self.headerView.backgroundColor = [UIColor redColor];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 * FitWidth, 15 * FitHeight, self.headerView.frame.size.width - 20 * FitWidth, 60 * FitHeight)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 * FitWidth, 0, self.headerView.frame.size.width - 20 * FitWidth, 60 * FitHeight)];
     [self.headerView addSubview:titleLabel];
     titleLabel.numberOfLines = 0;
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -55,21 +58,28 @@
     titleLabel.textColor = [UIColor colorWithRed:47 / 255.0 green:55 / 255.0 blue:85 / 255.0 alpha:1.0];
     titleLabel.font = [UIFont systemFontOfSize:13];
     
-    UILabel *sourceLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 * FitWidth, 15 * FitHeight + titleLabel.frame.size.height, 150 * FitWidth, 20 * FitHeight)];
-    [self.headerView addSubview:sourceLabel];
-    sourceLabel.textColor = [UIColor grayColor];
-    sourceLabel.font = [UIFont systemFontOfSize:10];
+//    UILabel *sourceLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 * FitWidth, 15 * FitHeight + titleLabel.frame.size.height, 150 * FitWidth, 20 * FitHeight)];
+//    [self.headerView addSubview:sourceLabel];
+//    sourceLabel.textColor = [UIColor grayColor];
+//    sourceLabel.font = [UIFont systemFontOfSize:10];
     //    sourceLabel.backgroundColor = [UIColor yellowColor];
     
-    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 * FitWidth + sourceLabel.frame.size.width, 15 * FitHeight + titleLabel.frame.size.height, 150 * FitWidth, 20 * FitHeight)];
+    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH - 150 - 20, titleLabel.frame.size.height, 150, 20 * FitHeight)];
+    dateLabel.textAlignment = NSTextAlignmentRight;
     [self.headerView addSubview:dateLabel];
     dateLabel.font = [UIFont systemFontOfSize:10];
     dateLabel.textColor = [UIColor grayColor];
     //    dateLabel.backgroundColor = [UIColor cyanColor];
     
-    titleLabel.text = self.model.title;
-    sourceLabel.text = [NSString stringWithFormat:@"来源：%@", self.model.source];
-    dateLabel.text = [NSString stringWithFormat:@"收录时间：%@", self.model.publish_date];
+    titleLabel.text = self.noticeModel.title;
+    
+    NSDateFormatter *pickerFormatter1 = [[NSDateFormatter alloc] init];// 创建一个日期格式器
+    [pickerFormatter1 setDateFormat:@"YYYY-MM-dd"];
+    
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:(long)_noticeModel.dateline];
+    NSString *dateString = [pickerFormatter1 stringFromDate:confromTimesp];
+    
+    dateLabel.text = [NSString stringWithFormat:@"时间：%@", dateString];
     
 }
 
