@@ -106,7 +106,9 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&month=%@", self.sid, self.month];
     
-    [NetWork networkPOSTRequestWithURL:url body:body result:^(id result) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
         
         self.dataDic = result;
         
@@ -135,33 +137,35 @@
         
         self.benyueshouyiLabel.text = [NSString stringWithFormat:@"本月收益%@元  (%@~%@)", [self.dataDic objectForKey:@"Income"], [self.dataDic objectForKey:@"FirstDay"], [self.dataDic objectForKey:@"LastDay"]];
         
-//        self.benyueshouyiDateLabel.text = [NSString stringWithFormat:@"(%@~%@)", [self.dataDic objectForKey:@"FirstDay"], [self.dataDic objectForKey:@"LastDay"]];
+        //        self.benyueshouyiDateLabel.text = [NSString stringWithFormat:@"(%@~%@)", [self.dataDic objectForKey:@"FirstDay"], [self.dataDic objectForKey:@"LastDay"]];
         
-//        NSString *str = [NSString stringWithFormat:@"%@月%@日", [[self.lastDay substringToIndex:7] substringFromIndex:5], [self.lastDay substringFromIndex:8]];
+        //        NSString *str = [NSString stringWithFormat:@"%@月%@日", [[self.lastDay substringToIndex:7] substringFromIndex:5], [self.lastDay substringFromIndex:8]];
         
         self.bottomStr = [NSString stringWithFormat:@"以上数据截止到%@，您对账单有任何疑问,请联系客服咨询（400-807-6777）", [self.dataDic objectForKey:@"LastDay"]];
         
         
-//        if (self.bottomLabel != nil) {
-//            
-//            self.bottomLabel.text = [NSString stringWithFormat:@"以上数据截止到%@，您对账单有任何疑问,请联系客服咨询（400-807-6777）", [self.dataDic objectForKey:@"LastDay"]];
-//            
-//            //改变行间距
-//            NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:self.bottomLabel.text];
-//            NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
-//            [paragraphStyle1 setLineSpacing:6];
-//            [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [self.bottomLabel.text length])];
-//            [self.bottomLabel setAttributedText:attributedString1];
-//            [self.bottomLabel sizeToFit];
-//            self.bottomLabel.textAlignment = NSTextAlignmentCenter;
-//        }
+        //        if (self.bottomLabel != nil) {
+        //
+        //            self.bottomLabel.text = [NSString stringWithFormat:@"以上数据截止到%@，您对账单有任何疑问,请联系客服咨询（400-807-6777）", [self.dataDic objectForKey:@"LastDay"]];
+        //
+        //            //改变行间距
+        //            NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:self.bottomLabel.text];
+        //            NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
+        //            [paragraphStyle1 setLineSpacing:6];
+        //            [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [self.bottomLabel.text length])];
+        //            [self.bottomLabel setAttributedText:attributedString1];
+        //            [self.bottomLabel sizeToFit];
+        //            self.bottomLabel.textAlignment = NSTextAlignmentCenter;
+        //        }
         
         self.xianjinquanLabel.text = [NSString stringWithFormat:@"(本月获得%@元现金券，使用%@元现金券，过期%@元现金券)", [self.dataDic objectForKey:@"RedPacketReceived"], [self.dataDic objectForKey:@"RedPacketUsed"], [self.dataDic objectForKey:@"RedPacketExpire"]];
-
-        
-            [self.monthlyReportTableView reloadData];
         
         
+        [self.monthlyReportTableView reloadData];
+        
+        
+        
+    } fail:^(NSError *error) {
         
     }];
 }
@@ -169,7 +173,7 @@
 
 - (void)creatTableView
 {
-    self.monthlyReportTableView = [[UITableView alloc] initWithFrame:CGRectMake(5 * KWIDTH, 64, KWIDTH * 375 - 10 * KWIDTH, KHEIGHT * 667 - 64) style:UITableViewStyleGrouped];
+    self.monthlyReportTableView = [[UITableView alloc] initWithFrame:CGRectMake(5 * FitWidth, 64, FitWidth * 375 - 10 * FitWidth, FitHeight * 667 - 64) style:UITableViewStyleGrouped];
     [self.view addSubview:self.monthlyReportTableView];
     self.monthlyReportTableView.backgroundColor = [UIColor whiteColor];
     
@@ -177,7 +181,7 @@
     self.monthlyReportTableView.dataSource = self;
     
     
-    self.ybTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20 * KHEIGHT, 200 * KWIDTH, 25 * KHEIGHT)];
+    self.ybTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20 * FitHeight, 200 * FitWidth, 25 * FitHeight)];
     [self.monthlyReportTableView addSubview:self.ybTitleLabel];
     
     self.ybTitleLabel.textColor = [XXColor goldenColor];
@@ -186,7 +190,7 @@
     
 //    self.ybTitleLabel.backgroundColor = [UIColor cyanColor];
     
-    self.ybDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(375 * KWIDTH - 20 * KWIDTH - 200 * KWIDTH, 20 * KHEIGHT, 200 * KWIDTH, 25 * KHEIGHT)];
+    self.ybDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(375 * FitWidth - 20 * FitWidth - 200 * FitWidth, 20 * FitHeight, 200 * FitWidth, 25 * FitHeight)];
     [self.monthlyReportTableView addSubview:self.ybDateLabel];
     self.ybDateLabel.textColor = [XXColor goldenColor];
     self.ybDateLabel.font = [UIFont systemFontOfSize:12];
@@ -197,12 +201,12 @@
 //    self.ybDateLabel.backgroundColor = [UIColor yellowColor];
     
     
-    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 30 * KHEIGHT + self.ybTitleLabel.frame.size.height, self.monthlyReportTableView.frame.size.width, 1.5 * KHEIGHT)];
+    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 30 * FitHeight + self.ybTitleLabel.frame.size.height, self.monthlyReportTableView.frame.size.width, 1.5 * FitHeight)];
     [self.monthlyReportTableView addSubview:self.lineView];
     self.lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     
-    self.benyueshouyiLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40 * KHEIGHT + self.ybTitleLabel.frame.size.height + self.lineView.frame.size.height, self.view.frame.size.width, 30 * KHEIGHT)];
+    self.benyueshouyiLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40 * FitHeight + self.ybTitleLabel.frame.size.height + self.lineView.frame.size.height, self.view.frame.size.width, 30 * FitHeight)];
     [self.monthlyReportTableView addSubview:self.benyueshouyiLabel];
     self.benyueshouyiLabel.font = [UIFont systemFontOfSize:12];
     
@@ -210,14 +214,14 @@
 //    self.benyueshouyiLabel.text = [NSString stringWithFormat:@"本月收益%@元", [self.dataDic objectForKey:@"Income"]];
 //    self.benyueshouyiLabel.backgroundColor = [UIColor redColor];
     
-    self.benyueshouyiDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.benyueshouyiLabel.frame.size.width, 40 * KHEIGHT + self.ybTitleLabel.frame.size.height + self.lineView.frame.size.height, 250 * KWIDTH, 30 * KHEIGHT)];
+    self.benyueshouyiDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.benyueshouyiLabel.frame.size.width, 40 * FitHeight + self.ybTitleLabel.frame.size.height + self.lineView.frame.size.height, 250 * FitWidth, 30 * FitHeight)];
     [self.monthlyReportTableView addSubview:self.benyueshouyiDateLabel];
     self.benyueshouyiDateLabel.font = [UIFont systemFontOfSize:12];
     self.benyueshouyiDateLabel.textColor = [UIColor grayColor];
     
 //    self.benyueshouyiDateLabel.text = @"(2016-04-04~2016-04-30)";
     
-    self.xianjinquanLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 260 * KHEIGHT, 375 * KWIDTH - 10 * KWIDTH, 30 * KHEIGHT)];
+    self.xianjinquanLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 260 * FitHeight, 375 * FitWidth - 10 * FitWidth, 30 * FitHeight)];
     self.xianjinquanLabel.backgroundColor = [UIColor colorWithRed:246 / 255.0 green:247 / 255.0 blue:248 / 255.0 alpha:1.0];
     [self.monthlyReportTableView addSubview:self.xianjinquanLabel];
     self.xianjinquanLabel.font = [UIFont systemFontOfSize:9.5];
@@ -668,10 +672,10 @@
 {
     if (indexPath.row == 0) {
         
-        return 25 * KHEIGHT;
+        return 25 * FitHeight;
     }else{
         
-        return 30 * KHEIGHT;
+        return 30 * FitHeight;
     }
 }
 
@@ -680,11 +684,11 @@
 {
     if (section == 0) {
         
-        return 150 * KWIDTH;
+        return 150 * FitWidth;
     }else{
         
         
-        return 40 * KHEIGHT;
+        return 40 * FitHeight;
     }
     
 }
@@ -722,7 +726,7 @@
 {
     if (section == 4) {
         
-        return 80 * KWIDTH;
+        return 80 * FitWidth;
     }
     
     return 0.1;
@@ -732,9 +736,9 @@
 {
     if (section == 4) {
         
-        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 80 * KHEIGHT)];
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 80 * FitHeight)];
         
-        self.bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(40 * KWIDTH, 10 * KHEIGHT, 375 * KWIDTH - 80 * KWIDTH, 60 * KHEIGHT)];
+        self.bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(40 * FitWidth, 10 * FitHeight, 375 * FitWidth - 80 * FitWidth, 60 * FitHeight)];
         [footerView addSubview:self.bottomLabel];
         self.bottomLabel.font = [UIFont systemFontOfSize:11.5];
         self.bottomLabel.numberOfLines = 2;

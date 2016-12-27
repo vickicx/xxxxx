@@ -469,8 +469,9 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, KZR];
     
-    [NetWork networkPOSTRequestWithURL:url body:body result:^(id result) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
+    } success:^(id result) {
         self.kzrOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.kzrOrdersArr) {
@@ -500,6 +501,7 @@
             
             self.kzrEmptyLabel.hidden = YES;
         }
+    } fail:^(NSError *error) {
         
     }];
     
@@ -515,8 +517,9 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, ZRZ];
     
-    [NetWork networkPOSTRequestWithURL:url body:body result:^(id result) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
+    } success:^(id result) {
         self.zrzOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.zrzOrdersArr) {
@@ -545,6 +548,7 @@
             
             self.zrzEmptyLabel.hidden = YES;
         }
+    } fail:^(NSError *error) {
         
     }];
     
@@ -560,8 +564,9 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, YZR];
     
-    [NetWork networkPOSTRequestWithURL:url body:body result:^(id result) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
+    } success:^(id result) {
         self.yzrOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.yzrOrdersArr) {
@@ -590,6 +595,7 @@
             
             self.yzrEmptyLabel.hidden = YES;
         }
+    } fail:^(NSError *error) {
         
     }];
     
@@ -653,8 +659,9 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, KZR];
     
-    [NetWork networkPOSTRequestWithURL:url body:body result:^(id result) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
+    } success:^(id result) {
         self.kzrOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.kzrOrdersArr) {
@@ -686,6 +693,7 @@
         
         [self.kZRTableView headerEndRefreshing];
         [self.kZRTableView footerEndRefreshing];
+    } fail:^(NSError *error) {
         
     }];
     
@@ -751,8 +759,9 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, ZRZ];
     
-    [NetWork networkPOSTRequestWithURL:url body:body result:^(id result) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
+    } success:^(id result) {
         self.zrzOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.zrzOrdersArr) {
@@ -784,6 +793,7 @@
         
         [self.zRZTableView headerEndRefreshing];
         [self.zRZTableView footerEndRefreshing];
+    } fail:^(NSError *error) {
         
     }];
 }
@@ -848,8 +858,9 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, YZR];
     
-    [NetWork networkPOSTRequestWithURL:url body:body result:^(id result) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
+    } success:^(id result) {
         self.yzrOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.yzrOrdersArr) {
@@ -881,6 +892,7 @@
         
         [self.yZRTableView headerEndRefreshing];
         [self.yZRTableView footerEndRefreshing];
+    } fail:^(NSError *error) {
         
     }];
     
