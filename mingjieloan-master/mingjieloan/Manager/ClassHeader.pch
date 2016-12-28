@@ -20,6 +20,7 @@
 
 // 我的账户
 #import "MyAccountViewController.h"
+#import "UserInfo.h"
 
 // 更多信息
 #import "MoreInfoViewController.h"

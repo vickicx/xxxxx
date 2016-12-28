@@ -34,10 +34,10 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.backIndicatorImage = [UIImage imageNamed:@"BJXX"];
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-    self.navigationController.navigationBar.barTintColor = [XXColor goldenColor];
-
-    
+    self.navigationController.navigationBar.shadowImage        = [[UIImage alloc] init];
+    self.navigationController.navigationBar.barTintColor       = [XXColor goldenColor];
+    self.userInfo                                              = [UserInfo sharedInstance];
+    self.basicInfo                                             = [BasicInfo sharedInstance];
 
     //    self.tabbar.navigationItem.titleView = imageV;
 }

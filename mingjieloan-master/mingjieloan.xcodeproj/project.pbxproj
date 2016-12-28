@@ -129,6 +129,8 @@
 		C34FFF2F1E091E8D00FF8C05 /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF131E091E8D00FF8C05 /* MoreInfoViewController.m */; };
 		C34FFF301E091E8D00FF8C05 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF191E091E8D00FF8C05 /* MyAccountViewController.m */; };
 		C34FFF311E091E8D00FF8C05 /* ProductCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF201E091E8D00FF8C05 /* ProductCenterViewController.m */; };
+		C354E2921E13579500C652B7 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C354E2911E13579500C652B7 /* UserInfo.m */; };
+		C38D526A1E13A30E0009E5A0 /* BasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C38D52691E13A30E0009E5A0 /* BasicInfo.m */; };
 		EA3C06801E129C1D009E02D4 /* IPAddressConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C067D1E129C1D009E02D4 /* IPAddressConfig.m */; };
 		EA3C06811E129C1D009E02D4 /* IPToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C067F1E129C1D009E02D4 /* IPToolManager.m */; };
 		EA3C06841E129E53009E02D4 /* DHFcommonWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C06831E129E53009E02D4 /* DHFcommonWebViewVC.m */; };
@@ -391,8 +393,8 @@
 		990873E71E12545F00354802 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		990873E91E1259BE00354802 /* UIhelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIhelper.h; sourceTree = "<group>"; };
 		990873EA1E1259BE00354802 /* UIhelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIhelper.m; sourceTree = "<group>"; };
-		990873EC1E1261BD00354802 /* BaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseCollectionViewCell.h; path = BaseView/BaseCollectionViewCell.h; sourceTree = "<group>"; };
-		990873ED1E1261BD00354802 /* BaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseCollectionViewCell.m; path = BaseView/BaseCollectionViewCell.m; sourceTree = "<group>"; };
+		990873EC1E1261BD00354802 /* BaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewCell.h; sourceTree = "<group>"; };
+		990873ED1E1261BD00354802 /* BaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewCell.m; sourceTree = "<group>"; };
 		9934228B1E0A7E75004C8A2B /* LoginUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUser.h; path = Model/LoginUser.h; sourceTree = "<group>"; };
 		9934228C1E0A7E75004C8A2B /* LoginUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUser.m; path = Model/LoginUser.m; sourceTree = "<group>"; };
 		993422911E0A806F004C8A2B /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = Model/LoginModel.h; sourceTree = "<group>"; };
@@ -449,6 +451,10 @@
 		C34FFF191E091E8D00FF8C05 /* MyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountViewController.m; sourceTree = "<group>"; };
 		C34FFF1F1E091E8D00FF8C05 /* ProductCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCenterViewController.h; sourceTree = "<group>"; };
 		C34FFF201E091E8D00FF8C05 /* ProductCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCenterViewController.m; sourceTree = "<group>"; };
+		C354E2901E13579500C652B7 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		C354E2911E13579500C652B7 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		C38D52681E13A30E0009E5A0 /* BasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfo.h; sourceTree = "<group>"; };
+		C38D52691E13A30E0009E5A0 /* BasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfo.m; sourceTree = "<group>"; };
 		D3B12F56096B5F62670A8211 /* Pods-mingjieloanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanUITests/Pods-mingjieloanUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA3C067C1E129C1D009E02D4 /* IPAddressConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddressConfig.h; sourceTree = "<group>"; };
 		EA3C067D1E129C1D009E02D4 /* IPAddressConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPAddressConfig.m; sourceTree = "<group>"; };
@@ -1102,6 +1108,10 @@
 				9934228C1E0A7E75004C8A2B /* LoginUser.m */,
 				993422911E0A806F004C8A2B /* LoginModel.h */,
 				993422921E0A806F004C8A2B /* LoginModel.m */,
+				C354E2901E13579500C652B7 /* UserInfo.h */,
+				C354E2911E13579500C652B7 /* UserInfo.m */,
+				C38D52681E13A30E0009E5A0 /* BasicInfo.h */,
+				C38D52691E13A30E0009E5A0 /* BasicInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1206,8 +1216,6 @@
 				C34FFEFB1E091E8D00FF8C05 /* BaseController */,
 				C34FFF001E091E8D00FF8C05 /* BaseModel */,
 				C34FFF031E091E8D00FF8C05 /* BaseView */,
-				990873EC1E1261BD00354802 /* BaseCollectionViewCell.h */,
-				990873ED1E1261BD00354802 /* BaseCollectionViewCell.m */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -1237,6 +1245,8 @@
 			children = (
 				990873E21E12464F00354802 /* BaseTableViewCell.h */,
 				990873E31E12464F00354802 /* BaseTableViewCell.m */,
+				990873EC1E1261BD00354802 /* BaseCollectionViewCell.h */,
+				990873ED1E1261BD00354802 /* BaseCollectionViewCell.m */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -1912,6 +1922,7 @@
 				990873B61E12455800354802 /* JFDetailModel.m in Sources */,
 				990873A71E12455800354802 /* TZJLDetailViewController.m in Sources */,
 				EA49A4611E0F95EC0079A8DB /* MJRefreshConst.m in Sources */,
+				C354E2921E13579500C652B7 /* UserInfo.m in Sources */,
 				990873B91E12455800354802 /* JFSRCell.m in Sources */,
 				990873C11E12455800354802 /* JFGZCell.m in Sources */,
 				3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */,
@@ -1928,6 +1939,7 @@
 				990873931E12455800354802 /* HYGZModel.m in Sources */,
 				EA49A43E1E0F8B710079A8DB /* DHFAboutMJViewController.m in Sources */,
 				EA6BB91F1E0EF9F900F28E8C /* PopView.m in Sources */,
+				C38D526A1E13A30E0009E5A0 /* BasicInfo.m in Sources */,
 				9908739D1E12455800354802 /* HYZXHead2View.m in Sources */,
 				EA5802371E11537800F1A144 /* DHFInviteFriendViewController.m in Sources */,
 				EA6BB8FC1E0ED5CF00F28E8C /* ProductDetailThreeTableViewCell.m in Sources */,

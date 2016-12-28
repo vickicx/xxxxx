@@ -13,12 +13,14 @@
 @property (nonatomic, strong)NSMutableArray *imageArray;
 
 
+
 @end
 
 @implementation MoreInfoViewController
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    NSLog(@"%@",self.basicInfo.idCard);
     self.tabBarController.tabBar.hidden = false;
     
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"] length] > 0) {
