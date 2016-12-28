@@ -93,10 +93,10 @@
     [self createHeadView];
     
     self.jfscButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.jfscButton.frame = CGRectMake(40 * KWIDTH, 430 * KHEIGHT, 375 * KWIDTH - 80 * KWIDTH, 50 * KHEIGHT);
+    self.jfscButton.frame = CGRectMake(40 * FitWidth, 430 * FitHeight, 375 * FitWidth - 80 * FitWidth, 50 * FitHeight);
     [self.view addSubview:self.jfscButton];
     self.jfscButton.backgroundColor = [XXColor btnGoldenColor];
-    self.jfscButton.layer.cornerRadius = 5 * KHEIGHT;
+    self.jfscButton.layer.cornerRadius = 5 * FitHeight;
     
     [self.jfscButton setTitle:@"积分商城" forState:UIControlStateNormal];
     [self.jfscButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -105,7 +105,7 @@
     [self.jfscButton addTarget:self action:@selector(jfscButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     self.jfgzButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.jfgzButton.frame = CGRectMake(80 * KWIDTH,667 * KHEIGHT - 35 * KHEIGHT, 375 * KWIDTH - 160 * KWIDTH, 25 * KHEIGHT);
+    self.jfgzButton.frame = CGRectMake(80 * FitWidth,667 * FitHeight - 35 * FitHeight, 375 * FitWidth - 160 * FitWidth, 25 * FitHeight);
     [self.view addSubview:self.jfgzButton];
     [self.jfgzButton setTitle:@"积分使用规则?" forState:UIControlStateNormal];
     [self.jfgzButton setTitleColor:[XXColor goldenColor] forState:UIControlStateNormal];
@@ -151,7 +151,9 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@", self.sid];
     
-    [NetWork networkPOSTRequestWithURL:url body:body result:^(id result) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
         
         //NSLog(@"积分 ====== %@", result);
         
@@ -183,6 +185,8 @@
         self.kyjfLabel.attributedText = AttributedStr;
         
         [self.jfTableView reloadData];
+         } fail:^(NSError *error) {
+             
     }];
 }
 
@@ -212,28 +216,28 @@
 
 - (void)createHeadView
 {
-    self.headBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KWIDTH * 375, 130 * KHEIGHT)];
+    self.headBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, 130 * FitHeight)];
     [self.jfTableView addSubview:self.headBackView];
     self.headBackView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KWIDTH * 375, KHEIGHT * 130)];
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, FitHeight * 130)];
     [self.headBackView addSubview:self.headView];
     self.headView.backgroundColor = [UIColor whiteColor];
     
-    self.kyjfView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KWIDTH * 375, KHEIGHT * 130)];
+    self.kyjfView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, FitHeight * 130)];
     
     [self.headView addSubview:self.kyjfView];
     
     //土豪金
     self.kyjfView.backgroundColor = [XXColor imagasAsetsSum];
     
-    self.kyjfTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 * KWIDTH, 30 * KHEIGHT, 150 * KWIDTH, 30 * KHEIGHT)];
+    self.kyjfTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 * FitWidth, 30 * FitHeight, 150 * FitWidth, 30 * FitHeight)];
     [self.kyjfView addSubview:self.kyjfTitleLabel];
     self.kyjfTitleLabel.text = @"可用积分";
     self.kyjfTitleLabel.font = [UIFont systemFontOfSize:17 weight:0.3];
     self.kyjfTitleLabel.textColor = [UIColor whiteColor];
     
-    self.kyjfLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 * KWIDTH, 30 * KHEIGHT + self.kyjfTitleLabel.frame.size.height, 375 * KWIDTH, 40 * KHEIGHT)];
+    self.kyjfLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 * FitWidth, 30 * FitHeight + self.kyjfTitleLabel.frame.size.height, 375 * FitWidth, 40 * FitHeight)];
     [self.kyjfView addSubview:self.kyjfLabel];
     self.kyjfLabel.textColor = [UIColor whiteColor];
     self.kyjfLabel.font = [UIFont systemFontOfSize:25];
@@ -260,7 +264,7 @@
 
 - (void)createTableView
 {
-    self.jfTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 375 * KWIDTH, 667 * KHEIGHT - 64) style:UITableViewStyleGrouped];
+    self.jfTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 375 * FitWidth, 667 * FitHeight - 64) style:UITableViewStyleGrouped];
     [self.view addSubview:self.jfTableView];
     
     self.jfTableView.delegate = self;
@@ -270,7 +274,7 @@
     
     self.jfTableView.backgroundColor = [UIColor whiteColor];
     
-    self.jfTableView.rowHeight = 40 * KHEIGHT;
+    self.jfTableView.rowHeight = 40 * FitHeight;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

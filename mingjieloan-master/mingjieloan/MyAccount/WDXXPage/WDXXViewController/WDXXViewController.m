@@ -11,7 +11,7 @@
 #import "WDXXDetailViewController.h"
 #import "MJRefresh.h"
 #import "WDXXYBViewController.h"
-//#import "ZZNoDataPromptVC.h"
+#import "ZZNoDataPromptVC.h"
 
 @interface WDXXViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -29,24 +29,24 @@
 
 @property (nonatomic, copy) NSString *myID;
 
-//@property (nonatomic, strong) ZZNoDataPromptVC *noDataPromptVC;
+@property (nonatomic, strong) ZZNoDataPromptVC *noDataPromptVC;
 
 @end
 //ZZNoDataPromptVC
 
 @implementation WDXXViewController
 
-//- (ZZNoDataPromptVC *)noDataPromptVC{
-//    
-//    if (_noDataPromptVC == nil) {
-//        
-//        _noDataPromptVC = [[ZZNoDataPromptVC alloc] init];
-//        
-//        [self addChildViewController:_noDataPromptVC];
-//    }
-//    
-//    return  _noDataPromptVC;
-//}
+- (ZZNoDataPromptVC *)noDataPromptVC{
+    
+    if (_noDataPromptVC == nil) {
+        
+        _noDataPromptVC = [[ZZNoDataPromptVC alloc] init];
+        
+        [self addChildViewController:_noDataPromptVC];
+    }
+    
+    return  _noDataPromptVC;
+}
 
 /**
  *加载控制器
@@ -193,17 +193,17 @@
         
         if (self.mainArr.count > 0) {
             
-//            [self.noDataPromptVC.view removeFromSuperview];
+            [self.noDataPromptVC.view removeFromSuperview];
             [self.wdxxTableView reloadData];
             
         }
         
         else {
             
-//            //加载没有数据的界面
-//            [self.view addSubview:self.noDataPromptVC.view];
-//            
-//            self.noDataPromptVC.view.frame = self.view.frame;
+            //加载没有数据的界面
+            [self.view addSubview:self.noDataPromptVC.view];
+            
+            self.noDataPromptVC.view.frame = self.view.frame;
         }
 
         
@@ -243,7 +243,7 @@
         
         if (self.mainArr > 0) {
             
-//            [self.noDataPromptVC.view removeFromSuperview];
+            [self.noDataPromptVC.view removeFromSuperview];
             
             [self.wdxxTableView reloadData];
 
@@ -252,9 +252,9 @@
         else {
             
             //加载没有数据的界面
-//            [self.view addSubview:self.noDataPromptVC.view];
-//            
-//            self.noDataPromptVC.view.frame = self.view.frame;
+            [self.view addSubview:self.noDataPromptVC.view];
+            
+            self.noDataPromptVC.view.frame = self.view.frame;
         }
         
         

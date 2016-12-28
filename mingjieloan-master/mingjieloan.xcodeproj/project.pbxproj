@@ -11,6 +11,11 @@
 		3DA320F31E10F9E30029F745 /* NoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F21E10F9E30029F745 /* NoticeModel.m */; };
 		3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */; };
 		3DF8F5C11E123EF300D4922C /* DHFUserCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */; };
+		3DF8F5C71E12549900D4922C /* DHFSetUserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C61E12549900D4922C /* DHFSetUserNameViewController.m */; };
+		3DF8F5CA1E1254F000D4922C /* DHFChangPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C91E1254F000D4922C /* DHFChangPhoneViewController.m */; };
+		3DF8F5CD1E12590E00D4922C /* DHFSetCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5CC1E12590E00D4922C /* DHFSetCardViewController.m */; };
+		3DF8F5D11E125FAE00D4922C /* ZZNoDataPromptVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5D01E125FAE00D4922C /* ZZNoDataPromptVC.m */; };
+		3DF8F5D71E12702300D4922C /* DHFChangeLogPassWordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5D61E12702300D4922C /* DHFChangeLogPassWordVC.m */; };
 		7E9FF8B60433E52238E8D8A4 /* Pods_mingjieloan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBAB3B4865752B3E365A667 /* Pods_mingjieloan.framework */; };
 		990872C81E1236B800354802 /* DHFUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872C71E1236B800354802 /* DHFUserCenterViewController.m */; };
 		990872CB1E12370000354802 /* AccTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872CA1E12370000354802 /* AccTopTableViewCell.m */; };
@@ -122,6 +127,13 @@
 		C34FFF2F1E091E8D00FF8C05 /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF131E091E8D00FF8C05 /* MoreInfoViewController.m */; };
 		C34FFF301E091E8D00FF8C05 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF191E091E8D00FF8C05 /* MyAccountViewController.m */; };
 		C34FFF311E091E8D00FF8C05 /* ProductCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF201E091E8D00FF8C05 /* ProductCenterViewController.m */; };
+		EA3C06801E129C1D009E02D4 /* IPAddressConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C067D1E129C1D009E02D4 /* IPAddressConfig.m */; };
+		EA3C06811E129C1D009E02D4 /* IPToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C067F1E129C1D009E02D4 /* IPToolManager.m */; };
+		EA3C06841E129E53009E02D4 /* DHFcommonWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C06831E129E53009E02D4 /* DHFcommonWebViewVC.m */; };
+		EA3C068A1E12A8A4009E02D4 /* KKGestureLockPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C06871E12A8A4009E02D4 /* KKGestureLockPreviewView.m */; };
+		EA3C068B1E12A8A4009E02D4 /* KKGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C06891E12A8A4009E02D4 /* KKGestureLockView.m */; };
+		EA3C068E1E12A8DF009E02D4 /* DHFGesturePassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C068D1E12A8DF009E02D4 /* DHFGesturePassVC.m */; };
+		EA3C06911E12B771009E02D4 /* DHFGestureCloseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C06901E12B771009E02D4 /* DHFGestureCloseVC.m */; };
 		EA49A4351E0F5E680079A8DB /* HKJHTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA49A4341E0F5E680079A8DB /* HKJHTableViewCell.m */; };
 		EA49A4381E0F6BA60079A8DB /* TBJLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA49A4371E0F6BA60079A8DB /* TBJLTableViewCell.m */; };
 		EA49A43B1E0F7E070079A8DB /* DHFMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA49A43A1E0F7E070079A8DB /* DHFMoreTableViewCell.m */; };
@@ -198,6 +210,16 @@
 		3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFNoticeDetailViewController.m; sourceTree = "<group>"; };
 		3DF8F5BF1E123EF300D4922C /* DHFUserCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFUserCenterCell.h; sourceTree = "<group>"; };
 		3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFUserCenterCell.m; sourceTree = "<group>"; };
+		3DF8F5C51E12549900D4922C /* DHFSetUserNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFSetUserNameViewController.h; sourceTree = "<group>"; };
+		3DF8F5C61E12549900D4922C /* DHFSetUserNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFSetUserNameViewController.m; sourceTree = "<group>"; };
+		3DF8F5C81E1254F000D4922C /* DHFChangPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFChangPhoneViewController.h; sourceTree = "<group>"; };
+		3DF8F5C91E1254F000D4922C /* DHFChangPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFChangPhoneViewController.m; sourceTree = "<group>"; };
+		3DF8F5CB1E12590E00D4922C /* DHFSetCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFSetCardViewController.h; sourceTree = "<group>"; };
+		3DF8F5CC1E12590E00D4922C /* DHFSetCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFSetCardViewController.m; sourceTree = "<group>"; };
+		3DF8F5CF1E125FAE00D4922C /* ZZNoDataPromptVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZNoDataPromptVC.h; sourceTree = "<group>"; };
+		3DF8F5D01E125FAE00D4922C /* ZZNoDataPromptVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZNoDataPromptVC.m; sourceTree = "<group>"; };
+		3DF8F5D51E12702300D4922C /* DHFChangeLogPassWordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFChangeLogPassWordVC.h; sourceTree = "<group>"; };
+		3DF8F5D61E12702300D4922C /* DHFChangeLogPassWordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFChangeLogPassWordVC.m; sourceTree = "<group>"; };
 		4E1407C00339397825BA70F6 /* Pods-mingjieloanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanUITests/Pods-mingjieloanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		78136D54AFFD20F4F0C6D733 /* Pods_mingjieloanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mingjieloanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEC8869677B5FDC1106F1A1 /* Pods-mingjieloanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanTests/Pods-mingjieloanTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -423,6 +445,20 @@
 		C34FFF1F1E091E8D00FF8C05 /* ProductCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCenterViewController.h; sourceTree = "<group>"; };
 		C34FFF201E091E8D00FF8C05 /* ProductCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCenterViewController.m; sourceTree = "<group>"; };
 		D3B12F56096B5F62670A8211 /* Pods-mingjieloanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanUITests/Pods-mingjieloanUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EA3C067C1E129C1D009E02D4 /* IPAddressConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddressConfig.h; sourceTree = "<group>"; };
+		EA3C067D1E129C1D009E02D4 /* IPAddressConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPAddressConfig.m; sourceTree = "<group>"; };
+		EA3C067E1E129C1D009E02D4 /* IPToolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPToolManager.h; sourceTree = "<group>"; };
+		EA3C067F1E129C1D009E02D4 /* IPToolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPToolManager.m; sourceTree = "<group>"; };
+		EA3C06821E129E53009E02D4 /* DHFcommonWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFcommonWebViewVC.h; sourceTree = "<group>"; };
+		EA3C06831E129E53009E02D4 /* DHFcommonWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFcommonWebViewVC.m; sourceTree = "<group>"; };
+		EA3C06861E12A8A4009E02D4 /* KKGestureLockPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGestureLockPreviewView.h; sourceTree = "<group>"; };
+		EA3C06871E12A8A4009E02D4 /* KKGestureLockPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGestureLockPreviewView.m; sourceTree = "<group>"; };
+		EA3C06881E12A8A4009E02D4 /* KKGestureLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGestureLockView.h; sourceTree = "<group>"; };
+		EA3C06891E12A8A4009E02D4 /* KKGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGestureLockView.m; sourceTree = "<group>"; };
+		EA3C068C1E12A8DF009E02D4 /* DHFGesturePassVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFGesturePassVC.h; sourceTree = "<group>"; };
+		EA3C068D1E12A8DF009E02D4 /* DHFGesturePassVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFGesturePassVC.m; sourceTree = "<group>"; };
+		EA3C068F1E12B771009E02D4 /* DHFGestureCloseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFGestureCloseVC.h; sourceTree = "<group>"; };
+		EA3C06901E12B771009E02D4 /* DHFGestureCloseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFGestureCloseVC.m; sourceTree = "<group>"; };
 		EA49A4331E0F5E680079A8DB /* HKJHTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKJHTableViewCell.h; path = mingjieloan/ProductCenter/Controller/HKJHTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		EA49A4341E0F5E680079A8DB /* HKJHTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKJHTableViewCell.m; path = mingjieloan/ProductCenter/Controller/HKJHTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		EA49A4361E0F6BA60079A8DB /* TBJLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBJLTableViewCell.h; path = mingjieloan/ProductCenter/Controller/TBJLTableViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -1302,6 +1338,20 @@
 				C34FFF191E091E8D00FF8C05 /* MyAccountViewController.m */,
 				990872C61E1236B800354802 /* DHFUserCenterViewController.h */,
 				990872C71E1236B800354802 /* DHFUserCenterViewController.m */,
+				3DF8F5C51E12549900D4922C /* DHFSetUserNameViewController.h */,
+				3DF8F5C61E12549900D4922C /* DHFSetUserNameViewController.m */,
+				3DF8F5C81E1254F000D4922C /* DHFChangPhoneViewController.h */,
+				3DF8F5C91E1254F000D4922C /* DHFChangPhoneViewController.m */,
+				3DF8F5CB1E12590E00D4922C /* DHFSetCardViewController.h */,
+				3DF8F5CC1E12590E00D4922C /* DHFSetCardViewController.m */,
+				EA3C06821E129E53009E02D4 /* DHFcommonWebViewVC.h */,
+				EA3C06831E129E53009E02D4 /* DHFcommonWebViewVC.m */,
+				EA3C068C1E12A8DF009E02D4 /* DHFGesturePassVC.h */,
+				EA3C068D1E12A8DF009E02D4 /* DHFGesturePassVC.m */,
+				EA3C068F1E12B771009E02D4 /* DHFGestureCloseVC.h */,
+				EA3C06901E12B771009E02D4 /* DHFGestureCloseVC.m */,
+				3DF8F5D51E12702300D4922C /* DHFChangeLogPassWordVC.h */,
+				3DF8F5D61E12702300D4922C /* DHFChangeLogPassWordVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1407,6 +1457,28 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		EA3C067B1E129C1D009E02D4 /* IPTool */ = {
+			isa = PBXGroup;
+			children = (
+				EA3C067C1E129C1D009E02D4 /* IPAddressConfig.h */,
+				EA3C067D1E129C1D009E02D4 /* IPAddressConfig.m */,
+				EA3C067E1E129C1D009E02D4 /* IPToolManager.h */,
+				EA3C067F1E129C1D009E02D4 /* IPToolManager.m */,
+			);
+			path = IPTool;
+			sourceTree = "<group>";
+		};
+		EA3C06851E12A8A4009E02D4 /* KKGestureLockView */ = {
+			isa = PBXGroup;
+			children = (
+				EA3C06861E12A8A4009E02D4 /* KKGestureLockPreviewView.h */,
+				EA3C06871E12A8A4009E02D4 /* KKGestureLockPreviewView.m */,
+				EA3C06881E12A8A4009E02D4 /* KKGestureLockView.h */,
+				EA3C06891E12A8A4009E02D4 /* KKGestureLockView.m */,
+			);
+			path = KKGestureLockView;
+			sourceTree = "<group>";
+		};
 		EA49A44E1E0F95EC0079A8DB /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -1481,6 +1553,8 @@
 		EAD6BCB01E0C0FC8005782AA /* DHFCommon */ = {
 			isa = PBXGroup;
 			children = (
+				EA3C06851E12A8A4009E02D4 /* KKGestureLockView */,
+				EA3C067B1E129C1D009E02D4 /* IPTool */,
 				EA49A46D1E0FAB6F0079A8DB /* AHAlertView */,
 				EA49A44E1E0F95EC0079A8DB /* MJRefresh */,
 				EA6BB9071E0EF93C00F28E8C /* popupViewController */,
@@ -1489,6 +1563,8 @@
 				EAD6BCB21E0C0FC8005782AA /* GetColor16.m */,
 				EAD6BCB31E0C0FC8005782AA /* HeightWithString.h */,
 				EAD6BCB41E0C0FC8005782AA /* HeightWithString.m */,
+				3DF8F5CF1E125FAE00D4922C /* ZZNoDataPromptVC.h */,
+				3DF8F5D01E125FAE00D4922C /* ZZNoDataPromptVC.m */,
 			);
 			path = DHFCommon;
 			sourceTree = "<group>";
@@ -1791,6 +1867,7 @@
 				990873BB1E12455800354802 /* YGQCell.m in Sources */,
 				EAD6BCB51E0C0FC8005782AA /* GetColor16.m in Sources */,
 				990873971E12455800354802 /* HYTQModel.m in Sources */,
+				3DF8F5CA1E1254F000D4922C /* DHFChangPhoneViewController.m in Sources */,
 				EA49A4651E0F95EC0079A8DB /* UIScrollView+MJRefresh.m in Sources */,
 				990873D41E12455800354802 /* ZRZmodel.m in Sources */,
 				990873AA1E12455800354802 /* TZJLDetail1Cell.m in Sources */,
@@ -1799,9 +1876,12 @@
 				990873AE1E12455800354802 /* TZJLTitleCell.m in Sources */,
 				993422931E0A806F004C8A2B /* LoginModel.m in Sources */,
 				C34FFF291E091E8D00FF8C05 /* SubBaseViewController.m in Sources */,
+				3DF8F5D71E12702300D4922C /* DHFChangeLogPassWordVC.m in Sources */,
+				EA3C06801E129C1D009E02D4 /* IPAddressConfig.m in Sources */,
 				C34FFF2F1E091E8D00FF8C05 /* MoreInfoViewController.m in Sources */,
 				EA49A4601E0F95EC0079A8DB /* MJRefreshBaseView.m in Sources */,
 				990873CF1E12455800354802 /* WDXXDetailViewController.m in Sources */,
+				EA3C068E1E12A8DF009E02D4 /* DHFGesturePassVC.m in Sources */,
 				990872C81E1236B800354802 /* DHFUserCenterViewController.m in Sources */,
 				99C27CA01E10BE0800C0B013 /* LoginViewController.m in Sources */,
 				EA49A4351E0F5E680079A8DB /* HKJHTableViewCell.m in Sources */,
@@ -1853,6 +1933,8 @@
 				C34FFF281E091E8D00FF8C05 /* BaseViewController.m in Sources */,
 				EA49A4801E0FB70F0079A8DB /* DHFNoticeTableViewCell.m in Sources */,
 				EAD6BCB61E0C0FC8005782AA /* HeightWithString.m in Sources */,
+				3DF8F5CD1E12590E00D4922C /* DHFSetCardViewController.m in Sources */,
+				3DF8F5D11E125FAE00D4922C /* ZZNoDataPromptVC.m in Sources */,
 				EA6BB9151E0EF93C00F28E8C /* LewPopupViewAnimationDrop.m in Sources */,
 				990873DC1E12455800354802 /* FBSuccessViewController.m in Sources */,
 				990873A51E12455800354802 /* JYJLViewController.m in Sources */,
@@ -1876,6 +1958,7 @@
 				990873BE1E12455800354802 /* WDJFModel.m in Sources */,
 				99C27CA11E10BE0800C0B013 /* RegisterViewController.m in Sources */,
 				990873E01E12455800354802 /* ZRGZViewController.m in Sources */,
+				EA3C06811E129C1D009E02D4 /* IPToolManager.m in Sources */,
 				EA6BB9191E0EF93C00F28E8C /* UIViewController+LewPopupViewController.m in Sources */,
 				990873BC1E12455800354802 /* JFDetialViewController.m in Sources */,
 				990873AD1E12455800354802 /* TZJLDetailContractCell.m in Sources */,
@@ -1891,10 +1974,14 @@
 				EA49A44A1E0F924E0079A8DB /* MediaReportModel.m in Sources */,
 				990873D51E12455800354802 /* KZRTableViewCell.m in Sources */,
 				99C27CAB1E10BEFE00C0B013 /* BaseService.m in Sources */,
+				EA3C068A1E12A8A4009E02D4 /* KKGestureLockPreviewView.m in Sources */,
 				EA49A4661E0F95EC0079A8DB /* UIView+MJExtension.m in Sources */,
+				EA3C068B1E12A8A4009E02D4 /* KKGestureLockView.m in Sources */,
 				99C27C9F1E10BE0800C0B013 /* ForgetViewController.m in Sources */,
 				990873CE1E12455800354802 /* WDXXTableViewCell.m in Sources */,
 				9908739B1E12455800354802 /* HYZXModel.m in Sources */,
+				EA3C06911E12B771009E02D4 /* DHFGestureCloseVC.m in Sources */,
+				3DF8F5C71E12549900D4922C /* DHFSetUserNameViewController.m in Sources */,
 				EA49A44D1E0F92CE0079A8DB /* DHFReportDetailViewController.m in Sources */,
 				990873C01E12455800354802 /* ExchangeView.m in Sources */,
 				EA49A4411E0F91940079A8DB /* DHFReportViewController.m in Sources */,
@@ -1904,6 +1991,7 @@
 				990873A81E12455800354802 /* ReturnItems.m in Sources */,
 				9908739C1E12455800354802 /* HYZXCell.m in Sources */,
 				EA6BB9061E0EF1E100F28E8C /* PICircularProgressView.m in Sources */,
+				EA3C06841E129E53009E02D4 /* DHFcommonWebViewVC.m in Sources */,
 				C34FFF2E1E091E8D00FF8C05 /* main.m in Sources */,
 				990873D31E12455800354802 /* ZQZRModel.m in Sources */,
 				C34FFF301E091E8D00FF8C05 /* MyAccountViewController.m in Sources */,

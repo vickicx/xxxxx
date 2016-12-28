@@ -8,6 +8,17 @@
 
 #import "SubBaseViewController.h"
 #import "DHFUserCenterCell.h"
+#import "DHFSetUserNameViewController.h"//设置用户名
+#import "DHFChangPhoneViewController.h"//更改手机号
+#import "DHFSetCardViewController.h"//设置身份证
+#import "DHFcommonWebViewVC.h"//绑定银行卡
+#import "DHFChangeLogPassWordVC.h"//修改登陆密码
+
+#import "DHFGesturePassVC.h"
+
+#import "ZZNoDataPromptVC.h"
+
+#import "IPToolManager.h"//获取IP
 
 @interface DHFUserCenterViewController : SubBaseViewController
 

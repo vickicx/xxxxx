@@ -75,11 +75,11 @@
     
     [self createTableView];
     
-    self.emptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * KWIDTH, 270 * KHEIGHT - 64, 375 * KWIDTH - 210 * KWIDTH, 110 * KHEIGHT)];
+    self.emptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, 375 * FitWidth - 210 * FitWidth, 110 * FitHeight)];
     [self.jfDetailTableView addSubview:self.emptyImageView];
     self.emptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * KWIDTH , 280 * KHEIGHT + self.emptyImageView.frame.size.height - 64, 375 * KWIDTH - 210 * KWIDTH, 40 * KHEIGHT)];
+    self.emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.emptyImageView.frame.size.height - 64, 375 * FitWidth - 210 * FitWidth, 40 * FitHeight)];
     [self.jfDetailTableView addSubview:self.emptyLabel];
     self.emptyLabel.text = @"暂无数据!";
     self.emptyLabel.textColor = [UIColor lightGrayColor];
@@ -137,12 +137,12 @@
 
 - (void)createTableView
 {
-    self.jfDetailTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, KWIDTH * 375, 667 * KHEIGHT - 64) style:UITableViewStyleGrouped];
+    self.jfDetailTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, FitWidth * 375, 667 * FitHeight - 64) style:UITableViewStyleGrouped];
     [self.view addSubview:self.jfDetailTableView];
     self.jfDetailTableView.dataSource = self;
     self.jfDetailTableView.delegate = self;
     
-    self.jfDetailTableView.rowHeight = 80 * KHEIGHT;
+    self.jfDetailTableView.rowHeight = 80 * FitHeight;
     
     [self.jfDetailTableView addHeaderWithTarget:self action:@selector(headerRefreshing)];
     
@@ -162,7 +162,9 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld&type=%ld", self.sid, self.page, self.detailType];
     
-    [NetWork networkPOSTRequestWithURL:url body:body result:^(id result) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
         
         self.dataArr = [result objectForKey:@"integralMapList"];
         
@@ -195,7 +197,9 @@
         }
         
         [self.jfDetailTableView headerEndRefreshing];
-        
+       
+         } fail:^(NSError *error) {
+             
     }];
     
 }

@@ -41,6 +41,8 @@
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
+
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -60,6 +62,47 @@
     }
     cell.titleImg.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     cell.titleLab.text = self.nameArray[indexPath.row];
+    cell.switchView.hidden = YES;
+    cell.textLab.hidden = NO;
+    cell.rightImg.hidden = NO;
+    cell.textLab.hidden = NO;
+    if (indexPath.row == 0) {
+        cell.rightImg.hidden = YES;
+        cell.textLab.frame = CGRectMake(kWIDTH - 216, 0, 200, 50);
+        cell.textLab.text = @"杜虹锋";
+    }
+    
+    if(indexPath.row == 1){
+        cell.titleImg.frame = CGRectMake(20, 12.5, 13, 25);
+        cell.textLab.frame = CGRectMake(kWIDTH - 200 - 50, 0, 200, 50);
+        cell.textLab.text = @"15241120510";
+
+    }
+    if(indexPath.row == 2){
+        cell.titleImg.frame = CGRectMake(20, 17.5, 22, 15);
+        cell.rightImg.hidden = YES;
+        cell.textLab.frame = CGRectMake(kWIDTH - 216, 0, 200, 50);
+        cell.textLab.text = @"23*************414";
+    }
+    if(indexPath.row == 3){
+        cell.titleImg.frame = CGRectMake(20, 17.5, 20, 15);
+        cell.textLab.frame = CGRectMake(kWIDTH - 200 - 50, 0, 200, 50);
+        cell.textLab.text = @"未绑卡";
+    }
+    if(indexPath.row == 4){
+        cell.titleImg.frame = CGRectMake(20, 12.5, 17, 25.5);
+        cell.switchView.hidden = NO;
+        cell.rightImg.hidden = YES;
+        cell.textLab.hidden = YES;
+    }
+    if(indexPath.row == 5){
+        cell.titleImg.frame = CGRectMake(20, 13.5, 18, 23);
+        cell.textLab.hidden = YES;
+    }
+    if(indexPath.row == 6){
+        cell.titleImg.frame = CGRectMake(20, 13.5, 18, 23);
+        cell.textLab.hidden = YES;
+    }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -68,6 +111,68 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+    if (indexPath.row == 0) {
+        DHFSetUserNameViewController *setUN = [[DHFSetUserNameViewController alloc] init];
+        [self.navigationController pushViewController:setUN animated:YES];
+    }
+    
+    else if(indexPath.row == 1){
+        DHFChangPhoneViewController *changeVC = [[DHFChangPhoneViewController alloc] init];
+        [self.navigationController pushViewController:changeVC animated:YES];
+        
+        
+    }
+    else if(indexPath.row == 2){
+        DHFSetCardViewController *setCard = [[DHFSetCardViewController alloc] init];
+        [self.navigationController pushViewController:setCard animated:YES];
+    }
+    else if(indexPath.row == 3){
+
+            //DHFcommonWebViewVC
+        [self getCommonWebViewVC];
+        
+    }
+    else if(indexPath.row == 4){
+        DHFGesturePassVC *GesturePassVC = [[DHFGesturePassVC alloc] init];
+        [self.navigationController pushViewController:GesturePassVC animated:YES];
+    }
+    else if(indexPath.row == 5){
+        
+        DHFChangeLogPassWordVC *changePassWordVC = [[DHFChangeLogPassWordVC alloc] init];
+        [self.navigationController pushViewController:changePassWordVC animated:YES];
+        
+    }
+    else if(indexPath.row == 6){
+        //如果身份证已经认证 则直接跳转到充值界面
+
+           // 和绑定银行卡 是一个页面
+        //银行卡是否有效
+    }
+
+    
+}
+
+
+
+- (void)getCommonWebViewVC{
+    IPToolManager *ipManager = [IPToolManager sharedManager];
+    
+    NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] valueForKey:@"sid"],@"clientIp":[ipManager currentIpAddress]};
+    [VVNetWorkTool postWithUrl:Url(BINDCARD) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        
+        
+    } success:^(id result) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"dic == %@", dic);
+        DHFcommonWebViewVC *commonVC = [[DHFcommonWebViewVC alloc] init];
+        commonVC.redirectUrl = [dic objectForKey:@"redirectUrl"];
+        [self.navigationController pushViewController:commonVC animated:YES];
+        
+        
+    } fail:^(NSError *error) {
+        
+        
+    }];
     
 }
 
