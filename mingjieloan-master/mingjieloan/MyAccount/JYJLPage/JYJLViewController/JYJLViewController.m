@@ -296,7 +296,7 @@
  */
 - (void)createMenuView {
     
-    self.menuBackView = [[JYJLViewXX alloc] initWithFrame:CGRectMake(0, 64, kWIDTH, kHEIGHT)];
+    self.menuBackView = [[JYJLViewXX alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];
     
     self.menuBackView.delegate = self;
     
@@ -304,7 +304,7 @@
     
     self.menuBackView.hidden = YES;
     
-    UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT-20)];
+    UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];
     
     [self.menuBackView addSubview:grayView];
     
@@ -393,7 +393,7 @@
  */
 - (void)createTableView {
     
-    self.jyjlTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, FitWidth * 375, FitHeight * 667 - 64) style:UITableViewStyleGrouped];
+    self.jyjlTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kWIDTH, kHEIGHT - 64) style:UITableViewStyleGrouped];
     
     [self.view addSubview:self.jyjlTableView];
     
