@@ -26,32 +26,57 @@
     AccountHeadView *headView = [[AccountHeadView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT * 0.584)];
     [self.view addSubview:headView];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
     self.tableView.tableHeaderView = headView;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.sectionHeaderHeight = 10 * FitHeight;
+    self.tableView.sectionFooterHeight = 0;
     UINib *nib = [UINib nibWithNibName:@"MyAccountTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"UITableViewCellIdentifier"];
     
     [self.view addSubview:self.tableView];
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        return 4;
+    }else {
+        return 2;
+    }
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 8;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *imagearr = @[@"sign-11",@"huiyuanzhongxin",@"jiaoyijilu",@"xianjinquan",@"zhaiquanzhuanrang",@"yaoqingma",@"touzijilu",@"zhanghuzhongxin"];
     NSArray *labelarr = @[@"签到获取积分",@"会员中心",@"我的积分",@"我的卡卷",@"债权转让",@"回款计划",@"我的邀请",@"账户中心"];
     
     MyAccountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCellIdentifier"];
-    [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imagearr[indexPath.row]]]];
-    cell.label.text = labelarr[indexPath.row];
+    
+    switch (indexPath.section) {
+        case 0:
+            [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imagearr[indexPath.row]]]];
+            cell.label.text = labelarr[indexPath.row];
+            break;
+        case 1:
+            [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imagearr[indexPath.row + 4]]]];
+            cell.label.text = labelarr[indexPath.row + 4];
+            break;
+            
+        case 2:
+            [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imagearr[indexPath.row + 6]]]];
+            cell.label.text = labelarr[indexPath.row + 6];
+            break;
+            
+        default:
+            break;
+    }
     
     return cell;
 }

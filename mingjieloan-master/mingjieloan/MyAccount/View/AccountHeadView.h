@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JYJLViewController.h"
+typedef void (^tiaozhuan)(void);
 @interface AccountHeadView : UIView
 
+@property (nonatomic, copy)tiaozhuan tiao;
 - (instancetype)initWithFrame:(CGRect)frame;
+
 
 @end

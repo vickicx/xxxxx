@@ -14,8 +14,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT * 0.18)];
         view.backgroundColor = [XXColor imagasAsetsSum];
+        
         
         //总资产
         UILabel *subLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, kWIDTH, kHEIGHT * 0.1)];
@@ -130,8 +132,8 @@
         [takeButton addTarget:self action:@selector(takeButton:) forControlEvents:UIControlEventTouchDown];
         [self addSubview:takeButton];
         
-        UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, kHEIGHT * 0.57, kWIDTH, 14)];
-        backView.backgroundColor = [UIColor blueColor];
+        UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, kHEIGHT * 0.57, kWIDTH, 10)];
+        backView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         [self addSubview:backView];
 
         
@@ -146,8 +148,10 @@
 }
 //交易记录点击事件
 - (void)recordsbutton:(UIButton *)yy{
+//    JYJLViewController * jyjlVc = [[JYJLViewController alloc] init];
+//    UINavigationController *nav =  (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+//    [nav pushViewController:jyjlVc animated:YES];
     
-    NSLog(@"%d",11);
     
 }
 
