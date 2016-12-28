@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductModel.h"
 
 @interface DHFProductCenterCell : UITableViewCell
 
@@ -47,7 +48,7 @@
 @property (nonatomic ,strong)UIButton *purchaseBtn;
 
 
-
+@property (nonatomic, strong)ProductModel *productModel;
 
 
 

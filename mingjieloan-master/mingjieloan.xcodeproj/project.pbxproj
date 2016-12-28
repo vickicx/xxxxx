@@ -10,6 +10,8 @@
 		3D1ED8201E0BCB8800C99500 /* DHFProductCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1ED81F1E0BCB8800C99500 /* DHFProductCenterCell.m */; };
 		3DA320F31E10F9E30029F745 /* NoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F21E10F9E30029F745 /* NoticeModel.m */; };
 		3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */; };
+		3DF312B51E1390E40038FC45 /* DHFGesOpenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF312B41E1390E40038FC45 /* DHFGesOpenVC.m */; };
+		3DF312D21E13AE540038FC45 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF312D11E13AE540038FC45 /* ProductModel.m */; };
 		3DF8F5C11E123EF300D4922C /* DHFUserCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */; };
 		3DF8F5C71E12549900D4922C /* DHFSetUserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C61E12549900D4922C /* DHFSetUserNameViewController.m */; };
 		3DF8F5CA1E1254F000D4922C /* DHFChangPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C91E1254F000D4922C /* DHFChangPhoneViewController.m */; };
@@ -212,6 +214,10 @@
 		3DA320F21E10F9E30029F745 /* NoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeModel.m; path = mingjieloan/MoreInfo/Controller/NoticeModel.m; sourceTree = SOURCE_ROOT; };
 		3DA320F41E111A920029F745 /* DHFNoticeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFNoticeDetailViewController.h; sourceTree = "<group>"; };
 		3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFNoticeDetailViewController.m; sourceTree = "<group>"; };
+		3DF312B31E1390E40038FC45 /* DHFGesOpenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFGesOpenVC.h; sourceTree = "<group>"; };
+		3DF312B41E1390E40038FC45 /* DHFGesOpenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFGesOpenVC.m; sourceTree = "<group>"; };
+		3DF312D01E13AE540038FC45 /* ProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductModel.h; path = mingjieloan/ProductModel.h; sourceTree = SOURCE_ROOT; };
+		3DF312D11E13AE540038FC45 /* ProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductModel.m; path = mingjieloan/ProductModel.m; sourceTree = SOURCE_ROOT; };
 		3DF8F5BF1E123EF300D4922C /* DHFUserCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFUserCenterCell.h; sourceTree = "<group>"; };
 		3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFUserCenterCell.m; sourceTree = "<group>"; };
 		3DF8F5C51E12549900D4922C /* DHFSetUserNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFSetUserNameViewController.h; sourceTree = "<group>"; };
@@ -1192,6 +1198,8 @@
 			children = (
 				C34FFEF31E091E8D00FF8C05 /* AppDelegate.h */,
 				C34FFEF41E091E8D00FF8C05 /* AppDelegate.m */,
+				3DF312B31E1390E40038FC45 /* DHFGesOpenVC.h */,
+				3DF312B41E1390E40038FC45 /* DHFGesOpenVC.m */,
 				C328FE011E09282F00F541FA /* Assets.xcassets */,
 				C34FFEF61E091E8D00FF8C05 /* LaunchScreen.storyboard */,
 				C34FFEF81E091E8D00FF8C05 /* Main.storyboard */,
@@ -1428,6 +1436,8 @@
 		C34FFF211E091E8D00FF8C05 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DF312D01E13AE540038FC45 /* ProductModel.h */,
+				3DF312D11E13AE540038FC45 /* ProductModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1901,6 +1911,7 @@
 				EA49A4601E0F95EC0079A8DB /* MJRefreshBaseView.m in Sources */,
 				990873CF1E12455800354802 /* WDXXDetailViewController.m in Sources */,
 				EA3C068E1E12A8DF009E02D4 /* DHFGesturePassVC.m in Sources */,
+				3DF312D21E13AE540038FC45 /* ProductModel.m in Sources */,
 				990872C81E1236B800354802 /* DHFUserCenterViewController.m in Sources */,
 				99C27CA01E10BE0800C0B013 /* LoginViewController.m in Sources */,
 				EA49A4351E0F5E680079A8DB /* HKJHTableViewCell.m in Sources */,
@@ -1974,6 +1985,7 @@
 				990873A11E12455800354802 /* HYZXViewController.m in Sources */,
 				EA49A47A1E0FB34C0079A8DB /* DHFNoticeViewController.m in Sources */,
 				990873D91E12455800354802 /* TitleCollectionCell.m in Sources */,
+				3DF312B51E1390E40038FC45 /* DHFGesOpenVC.m in Sources */,
 				3DA320F31E10F9E30029F745 /* NoticeModel.m in Sources */,
 				990873AB1E12455800354802 /* TZJLDetail2Cell.m in Sources */,
 				990873BE1E12455800354802 /* WDJFModel.m in Sources */,

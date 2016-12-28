@@ -209,6 +209,7 @@
     [VVNetWorkTool postWithUrl:Url(SENDCODE) body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
+        NSLog(@"%@",result);
         hud.textLabel.text = result[@"msg"];
         [hud dismissAfterDelay:0.3];
     } fail:^(NSError *error) {
@@ -225,7 +226,7 @@
             
         } success:^(id result) {
             
-            
+//            NSLog(@"%@", result);
             
         } fail:^(NSError *error) {
             

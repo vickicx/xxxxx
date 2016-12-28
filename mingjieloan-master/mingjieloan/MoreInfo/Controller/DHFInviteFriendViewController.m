@@ -7,12 +7,33 @@
 //
 
 #import "DHFInviteFriendViewController.h"
+//#import "UIImage+MDQRCode.h"
 
 @interface DHFInviteFriendViewController ()
 
 @end
 
 @implementation DHFInviteFriendViewController
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
+    // 2.恢复默认
+    [filter setDefaults];
+    // 3.给过滤器添加数据
+    NSString *dataString = [NSString stringWithFormat:@"http://%@", self.recommendationUrl];
+    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+    // 4.通过KVO设置滤镜inputMessage数据
+    [filter setValue:data forKeyPath:@"inputMessage"];
+    // 4.获取输出的二维码
+    CIImage *outputImage = [filter outputImage];
+    // 5.将CIImage转换成UIImage，并放大显示
+     self.codeImg.image = [UIImage imageWithCIImage:outputImage scale:20.0 orientation:UIImageOrientationUp];
+    
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

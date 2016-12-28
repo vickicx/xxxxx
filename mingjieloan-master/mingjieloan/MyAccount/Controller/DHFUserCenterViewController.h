@@ -14,7 +14,9 @@
 #import "DHFcommonWebViewVC.h"//绑定银行卡
 #import "DHFChangeLogPassWordVC.h"//修改登陆密码
 
+
 #import "DHFGesturePassVC.h"
+#import "DHFGestureCloseVC.h"
 
 #import "ZZNoDataPromptVC.h"
 
@@ -23,6 +25,9 @@
 @interface DHFUserCenterViewController : SubBaseViewController
 
 @property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong)UISwitch *switchView;
+
+@property (nonatomic, copy)NSString *passWord;
 
 @end
 

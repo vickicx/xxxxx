@@ -40,8 +40,7 @@
     _rightImg.image = [UIImage imageNamed:@"enter_1"];
     [self.contentView addSubview:_rightImg];
     
-    self.switchView = [[UISwitch alloc] initWithFrame:CGRectMake(kWIDTH - 70, 10, 40, 40)];
-    [self.contentView addSubview:_switchView];
+
     
     
     

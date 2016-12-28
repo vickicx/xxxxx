@@ -112,7 +112,21 @@
 }
 
 
-
+- (void)setProductModel:(ProductModel *)productModel{
+    _productModel = productModel;
+    self.nameLab.text = _productModel.name;
+    
+    
+    
+    
+    
+    self.rest.text = [NSString stringWithFormat:@"剩余可投%@", _productModel.remainingInvestmentAmount];
+    
+    
+    
+    
+    
+}
 
 
 
