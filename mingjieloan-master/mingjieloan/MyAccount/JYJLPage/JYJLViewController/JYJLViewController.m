@@ -312,7 +312,15 @@
     
     grayView.alpha = 0.3;
     
-    self.menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(150 * FitWidth, 0, kWIDTH - 150 * FitWidth, 200) style:UITableViewStyleGrouped];
+    self.menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(kWIDTH, 0, kWIDTH - 150 * FitWidth, 200) style:UITableViewStyleGrouped];
+    [UIView animateWithDuration:1.0 animations:^{
+        
+    }];
+    [UIView animateWithDuration: 1 delay: 0.35 options: UIViewAnimationOptionCurveEaseInOut animations: ^{
+        self.menuTableView.x = 150*FitWidth;
+    } completion: ^(BOOL finished) {
+        
+    }];
     
     
     [self.menuBackView addSubview:self.menuTableView];
