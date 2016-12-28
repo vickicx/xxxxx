@@ -8,6 +8,7 @@
 
 #import "MoreInfoViewController.h"
 
+
 @interface MoreInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong)NSMutableArray *titleArray;
 @property (nonatomic, strong)NSMutableArray *imageArray;
@@ -188,15 +189,26 @@
         self.hidesBottomBarWhenPushed=NO;
     }
     else if (indexPath.row == 4){
-        self.hidesBottomBarWhenPushed=YES;
-        DHFInviteFriendViewController  *InviteVC = [[DHFInviteFriendViewController alloc] init];
-        [self.navigationController pushViewController:InviteVC animated:YES];
-        self.hidesBottomBarWhenPushed=NO;
+        
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"username"] != nil) {
+            [self getInviteFriendViewVC];
+        }
+        else
+        {
+            AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"message:@"请先登陆"];
+            [alert setCancelButtonTitle:@"取消" block:nil];
+                [alert addButtonWithTitle:@"确定" block:^{
+                    
+                }];
+            [alert show];
+        }
+
+
     }
     else if (indexPath.row ==5){
         
-        //        AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"
-        //                                                        message:@"确定拨打客服电话400-807-6777"];
+//                AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"
+//                                                                message:@"确定拨打客服电话400-807-6777"];
         //        [alert setCancelButtonTitle:@"取消" block:nil];
         //        __block MoreInfoViewController *blockSelf = self;
         //        [alert addButtonWithTitle:@"确定" block:^{
@@ -210,6 +222,36 @@
         DHFUserCenterViewController *shiyanVC = [[DHFUserCenterViewController alloc] init];
         [self.navigationController pushViewController:shiyanVC animated:YES];
     }
+}
+
+
+
+- (void)getInviteFriendViewVC{
+    
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
+    NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] valueForKey:@"sid"],@"page":@"0"};
+    [VVNetWorkTool postWithUrl:Url(INVITATION) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        
+        
+    } success:^(id result) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        [hud dismiss];
+        NSLog(@"dic == %@", dic);
+        
+        DHFInviteFriendViewController  *InviteVC = [[DHFInviteFriendViewController alloc] init];
+        InviteVC.recommendationUrl = [dic objectForKey:@"recommendationUrl"];
+        [self.navigationController pushViewController:InviteVC animated:YES];
+        
+        
+    } fail:^(NSError *error) {
+        
+        [hud dismiss];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

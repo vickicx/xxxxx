@@ -49,10 +49,16 @@
     self.lockView.lineColor = GetColor(@"#19AFCC");
     self.lockView.lineWidth = 4;
     self.lockView.delegate = self;
-    self.lockView.contentInsets = UIEdgeInsetsMake(150, 20, 100, 20);
+    self.lockView.contentInsets = UIEdgeInsetsMake(120, 40, 250, 40);
     self.lockView.tag = 1;
     [self.view addSubview:_lockView];
     
+    
+    self.tipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 130, kWIDTH, 20)];
+    _tipLab.textColor = [UIColor whiteColor];
+    _tipLab.font = [UIFont systemFontOfSize:15];
+    _tipLab.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_tipLab];
     
     if(gesturePass == nil)
     {
@@ -62,6 +68,14 @@
         self.tipLab.text = @"请输入原手势密码";
         _gestureMoudle = changePassword;
     }
+    
+    UILabel *warningLab = [[UILabel alloc] initWithFrame:CGRectMake(0, kHEIGHT - 60, kWIDTH, 20)];
+    warningLab.textColor = [UIColor whiteColor];
+    warningLab.font = [UIFont systemFontOfSize:15];
+    warningLab.textAlignment = NSTextAlignmentCenter;
+    warningLab.text = @"设置手势密码防止他人未经授权查看";
+    [self.view addSubview:warningLab];
+    
 }
 
 - (void)gestureLockView:(KKGestureLockView *)gestureLockView didBeginWithPasscode:(NSString *)passcode{
@@ -74,6 +88,8 @@
 }
 
 - (void)gestureLockView:(KKGestureLockView *)gestureLockView didEndWithPasscode:(NSString *)passcode{
+    
+    NSLog(@"%@", passcode);
     
     if(passcode.length < 7)
     {
@@ -94,7 +110,7 @@
         else
         {
             
-            if (self.passwordPre == passcode)
+            if ([self.passwordPre isEqualToString: passcode])
             {
                 self.tipLab.text = @"手势密码设置成功";
                 [[NSUserDefaults standardUserDefaults ] setObject:passcode forKey:@"UserGesturePassword"];
@@ -109,7 +125,7 @@
                 hud.position = 0;
                 [hud showInView:self.view];
                 [hud dismissAfterDelay:2.0];
-                
+                [self.navigationController popViewControllerAnimated:YES];
                 
                 
                 return;
@@ -125,7 +141,8 @@
     else if (self.gestureMoudle == changePassword)
     {
         NSString *gesturePass = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
-        if (gesturePass == passcode)
+//        NSLog(@"%@", gesturePass);
+        if ([gesturePass isEqualToString: passcode])
         {
             self.tipLab.text = @"绘制解锁图案";
             self.gestureMoudle = newPassword;

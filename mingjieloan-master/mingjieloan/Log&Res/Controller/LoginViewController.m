@@ -182,6 +182,8 @@
         
     } success:^(id result) {
         if (result) {
+            
+            NSLog(@"%@", result);
             [hud dismiss];
             // 储存用户的信息
             [[NSUserDefaults standardUserDefaults] setObject:result[@"body"][@"sid"] forKey:@"sid"];

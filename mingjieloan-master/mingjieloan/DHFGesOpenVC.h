@@ -1,15 +1,14 @@
 //
-//  DHFGestureCloseVC.h
+//  DHFGesOpenVC.h
 //  mingjieloan
 //
-//  Created by 杜虹锋 on 2016/12/27.
+//  Created by kang on 16/12/28.
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
 #import "SubBaseViewController.h"
 #import "KKGestureLockView.h"
-
-@interface DHFGestureCloseVC : SubBaseViewController
+@interface DHFGesOpenVC : SubBaseViewController
 
 @property (nonatomic, strong)UILabel *tipLab;
 @property (nonatomic, strong)KKGestureLockView *lockView;
@@ -17,5 +16,6 @@
 @property (nonatomic, strong)UIButton *forgetBtn;
 @property (nonatomic, strong)UIButton *otherBtn;
 @property (nonatomic, strong)UILabel *welcomeLabel;
+
 
 @end

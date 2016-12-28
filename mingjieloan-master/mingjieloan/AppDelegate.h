@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DHFGesOpenVC.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,UIScrollViewDelegate,UITabBarControllerDelegate>

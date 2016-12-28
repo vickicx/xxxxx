@@ -10,7 +10,7 @@
 #import "MyAccountTableViewCell.h"
 #import "AccountHeadView.h"
 
-@interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource,TradeRecordDelegate>
+@interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -29,7 +29,6 @@
 
 - (void)createView {
     AccountHeadView *headView = [[AccountHeadView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT * 0.584)];
-    headView.delegate = self;
     [self.view addSubview:headView];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
@@ -44,6 +43,7 @@
     [self.view addSubview:self.tableView];
 }
 
+<<<<<<< HEAD
 - (void)tradeRecord {
     JYJLViewController * jyjlVc = [[JYJLViewController alloc] init];
     jyjlVc.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
@@ -51,6 +51,8 @@
     
 }
 
+=======
+>>>>>>> 821a1622eed6e62c840ba99f3f886eabc97b9eb9
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
 }

@@ -12,4 +12,8 @@
 
 @interface BaseCollectionViewCell : UICollectionViewCell
 
+
+
+
+
 @end

@@ -30,4 +30,7 @@
 @property (nonatomic, strong)UIImageView *codeImg;
 
 
+@property (nonatomic, copy)NSString *recommendationUrl;
+
+
 @end

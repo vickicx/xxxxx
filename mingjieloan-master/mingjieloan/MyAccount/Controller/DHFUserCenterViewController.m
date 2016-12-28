@@ -18,6 +18,18 @@
 @implementation DHFUserCenterViewController
 
 
+- (void)viewWillAppear:(BOOL)animated {
+
+    self.passWord = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
+    if (self.passWord == nil) {
+        self.switchView.on = NO;
+    }
+    else
+    {
+        self.switchView.on = YES;
+    }
+    
+}
 
 
 - (void)viewDidLoad {
@@ -34,6 +46,9 @@
     self.navigationController.navigationBar.titleTextAttributes = titleDict;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
+    
+    self.switchView = [[UISwitch alloc] initWithFrame:CGRectMake(kWIDTH - 70, 10, 40, 40)];
+    [self.switchView addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellAccessoryNone;
@@ -62,7 +77,6 @@
     }
     cell.titleImg.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     cell.titleLab.text = self.nameArray[indexPath.row];
-    cell.switchView.hidden = YES;
     cell.textLab.hidden = NO;
     cell.rightImg.hidden = NO;
     cell.textLab.hidden = NO;
@@ -91,9 +105,9 @@
     }
     if(indexPath.row == 4){
         cell.titleImg.frame = CGRectMake(20, 12.5, 17, 25.5);
-        cell.switchView.hidden = NO;
         cell.rightImg.hidden = YES;
         cell.textLab.hidden = YES;
+        [cell.contentView addSubview:self.switchView];
     }
     if(indexPath.row == 5){
         cell.titleImg.frame = CGRectMake(20, 13.5, 18, 23);
@@ -133,8 +147,10 @@
         
     }
     else if(indexPath.row == 4){
-        DHFGesturePassVC *GesturePassVC = [[DHFGesturePassVC alloc] init];
-        [self.navigationController pushViewController:GesturePassVC animated:YES];
+        if(self.switchView.on){
+            DHFGesturePassVC *passVC = [[DHFGesturePassVC alloc] init];
+            [self.navigationController pushViewController:passVC animated:YES];
+        }
     }
     else if(indexPath.row == 5){
         
@@ -153,17 +169,37 @@
 }
 
 
+- (void)switchAction:(UISwitch *)sender{
+    if(sender.on){
+        DHFGesturePassVC *passVC = [[DHFGesturePassVC alloc] init];
+        [self.navigationController pushViewController:passVC animated:YES];
+    }
+    else
+    {
+        DHFGestureCloseVC *closeVC = [[DHFGestureCloseVC alloc] init];
+        closeVC.isShutDownGesturePassword = true;
+        [self.navigationController pushViewController:closeVC animated:YES];
+    }
+}
+
 
 - (void)getCommonWebViewVC{
     IPToolManager *ipManager = [IPToolManager sharedManager];
     
+    
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
     NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] valueForKey:@"sid"],@"clientIp":[ipManager currentIpAddress]};
     [VVNetWorkTool postWithUrl:Url(BINDCARD) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
         
         
     } success:^(id result) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"dic == %@", dic);
+        [hud dismiss];
+//        NSLog(@"dic == %@", dic);
         DHFcommonWebViewVC *commonVC = [[DHFcommonWebViewVC alloc] init];
         commonVC.redirectUrl = [dic objectForKey:@"redirectUrl"];
         [self.navigationController pushViewController:commonVC animated:YES];
@@ -171,7 +207,7 @@
         
     } fail:^(NSError *error) {
         
-        
+        [hud dismiss];
     }];
     
 }

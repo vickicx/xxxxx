@@ -1,34 +1,23 @@
 //
-//  DHFGestureCloseVC.m
+//  DHFGesOpenVC.m
 //  mingjieloan
 //
-//  Created by 杜虹锋 on 2016/12/27.
+//  Created by kang on 16/12/28.
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
-#import "DHFGestureCloseVC.h"
+#import "DHFGesOpenVC.h"
 
-@interface DHFGestureCloseVC ()<KKGestureLockViewDelegate>
+@interface DHFGesOpenVC ()<KKGestureLockViewDelegate>
+
 @end
 
-@implementation DHFGestureCloseVC
-
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    
-    
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"跳过" style:UIBarButtonItemStyleDone target:self action:@selector(pass)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(noFunction)];
-    
-    
-}
+@implementation DHFGesOpenVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.title = @"手势密码解锁";
     self.view.backgroundColor = [UIColor whiteColor];
     NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
@@ -63,66 +52,44 @@
     _tipLab.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_tipLab];
     
-    
-    self.forgetBtn = [[UIButton alloc] initWithFrame:CGRectMake(25, 500 * FitHeight, kWIDTH / 2 -25, 20)];
-    [_forgetBtn  addTarget:self action:@selector(forgetPassAction) forControlEvents:UIControlEventTouchUpInside];
-    [_forgetBtn setTitle:@"忘记手势密码" forState:UIControlStateNormal];
-    _forgetBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [_forgetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.view addSubview:_forgetBtn];
-    
-    
-    self.otherBtn = [[UIButton alloc] initWithFrame:CGRectMake( kWIDTH / 2 -25, 500 * FitHeight, kWIDTH / 2 -25, 20)];
-    [_otherBtn  addTarget:self action:@selector(otherLoginAction) forControlEvents:UIControlEventTouchUpInside];
-    [_otherBtn setTitle:@"用其他帐户登陆" forState:UIControlStateNormal];
-    _otherBtn.titleLabel.font = [UIFont systemFontOfSize:12];
-    [_otherBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.view addSubview:_otherBtn];
-    
-    
-    
+//    self.forgetBtn = [UIButton alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>);
+//   self.otherBtn;
+//    
     
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (self.isShutDownGesturePassword == NO)
     {
         NSString *phoneNumber = [userDefaults objectForKey:@"username"];
-//        let realName = userDefaults.stringForKey(UserDefaults_KEY_BasicInfo.realName.rawValue)
-//        if realName != nil && realName != "" {
+        //        let realName = userDefaults.stringForKey(UserDefaults_KEY_BasicInfo.realName.rawValue)
+        //        if realName != nil && realName != "" {
         self.welcomeLabel.text = [NSString stringWithFormat:@"欢迎您，%@", phoneNumber];
-//        }else if phoneNumber != nil && phoneNumber != "" {
-//            let startIndex = phoneNumber!.startIndex.advancedBy(3) // Start at the second character
-//            let endIndex   = startIndex.advancedBy(4) // point ahead two characters
-//            let range      = Range(start:startIndex, end:endIndex)
-//            //      let validPhone = phoneNumber!.stringByReplacingCharactersInRange(range, withString: "****")
-//            let validPhone = phoneNumber!
+        //        }else if phoneNumber != nil && phoneNumber != "" {
+        //            let startIndex = phoneNumber!.startIndex.advancedBy(3) // Start at the second character
+        //            let endIndex   = startIndex.advancedBy(4) // point ahead two characters
+        //            let range      = Range(start:startIndex, end:endIndex)
+        //            //      let validPhone = phoneNumber!.stringByReplacingCharactersInRange(range, withString: "****")
+        //            let validPhone = phoneNumber!
         
-//        self.welcomeLabel.text = [NSString stringWithFormat:@""];
+        //        self.welcomeLabel.text = [NSString stringWithFormat:@""];
     }
-//            else
-//            {
-//            self.welcomeLabel.text = @"欢迎您";
-//            }
-//        
-//    }
+    //            else
+    //            {
+    //            self.welcomeLabel.text = @"欢迎您";
+    //            }
+    //
+    //    }
     else
     {
         self.welcomeLabel.text = @"";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"跳过" style:UIBarButtonItemStyleDone target:self action:@selector(pass)];
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStyleDone target:self action:@selector(noFunction)];
     }
-    
-    
 }
 
-//换号
-- (void)otherLoginAction{
-    
-}
-//忘记密码
-- (void)forgetPassAction{
-    
-}
+
+
+
 
 - (void)gestureLockView:(KKGestureLockView *)gestureLockView didBeginWithPasscode:(NSString *)passcode{
     
@@ -134,27 +101,25 @@
 }
 
 - (void)gestureLockView:(KKGestureLockView *)gestureLockView didEndWithPasscode:(NSString *)passcode{
-        NSString *gesturePass = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
+    NSString *gesturePass = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
     if ([gesturePass isEqualToString: passcode])
     {
         self.tipLab.text = @"手势密码解锁成功";
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"UserGesturePassword"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
         [self.navigationController popViewControllerAnimated:YES];
         
     }else{
         
         self.tipLab.text = @"手势密码错误";
     }
-
+    
 }
 
 
 
 - (void)pass{
-
-        [self.navigationController popViewControllerAnimated:YES];
-
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (void)noFunction{
