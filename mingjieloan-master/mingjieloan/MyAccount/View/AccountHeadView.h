@@ -8,10 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "JYJLViewController.h"
+
+
 typedef void (^tiaozhuan)(void);
+
+@protocol TradeRecordDelegate <NSObject>
+
+- (void)tradeRecord;
+
+@end
+
 @interface AccountHeadView : UIView
 
 @property (nonatomic, copy)tiaozhuan tiao;
+
+@property (weak, nonatomic) id<TradeRecordDelegate>delegate;
+
 - (instancetype)initWithFrame:(CGRect)frame;
 
 
