@@ -117,13 +117,13 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"caidan"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonCilcked:)];
     
-    self.emptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, 375 * FitWidth - 210 * FitWidth, 110 * FitHeight)];
+    self.emptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kWIDTH/ 2 -83*FitWidth, 270 * FitHeight - 64, 165 * FitWidth, 110 * FitHeight)];
     
     [self.jyjlTableView addSubview:self.emptyImageView];
     
     self.emptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 *  FitWidth , 280 * FitHeight + self.emptyImageView.frame.size.height - 64, 375 * FitWidth - 210 * FitWidth, 40 * FitHeight)];
+    self.emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH/2 -105*FitWidth , 280 * FitHeight + self.emptyImageView.frame.size.height - 64, 210 * FitWidth, 40 * FitHeight)];
     
     [self.jyjlTableView addSubview:self.emptyLabel];
     

@@ -116,9 +116,7 @@
         
         for (NSDictionary *dic in dataArray) {
             
-            NoticeModel *model = [[NoticeModel alloc] init];
-            
-            [model setValuesForKeysWithDictionary:dic];
+            ProductModel *model = [[ProductModel alloc] initWithDictionary:dic];
             
             
             [self.modelArray addObject:model];
@@ -165,7 +163,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return  10;
+    return  self.modelArray.count;
     
 }
 

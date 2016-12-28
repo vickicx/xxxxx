@@ -151,6 +151,7 @@
 //    JYJLViewController * jyjlVc = [[JYJLViewController alloc] init];
 //    UINavigationController *nav =  (UINavigationController *)[UIApplication sharedApplication].keyWindow.rootViewController;
 //    [nav pushViewController:jyjlVc animated:YES];
+    [self.delegate tradeRecord];
     
     
 }

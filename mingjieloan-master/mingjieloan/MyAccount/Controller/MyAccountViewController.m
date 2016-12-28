@@ -10,7 +10,7 @@
 #import "MyAccountTableViewCell.h"
 #import "AccountHeadView.h"
 
-@interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource,TrageRecordDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -29,6 +29,7 @@
 
 - (void)createView {
     AccountHeadView *headView = [[AccountHeadView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT * 0.584)];
+    headView.delegate = self;
     [self.view addSubview:headView];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];

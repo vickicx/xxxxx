@@ -113,14 +113,17 @@
 
 
 - (void)setProductModel:(ProductModel *)productModel{
-    _productModel = productModel;
-    self.nameLab.text = _productModel.name;
+    if (_productModel != productModel) {
+        _productModel = productModel;
+    }
+    
+    self.nameLab.text = productModel.name;
     
     
     
     
     
-    self.rest.text = [NSString stringWithFormat:@"剩余可投%@", _productModel.remainingInvestmentAmount];
+    self.rest.text = [NSString stringWithFormat:@"剩余可投%@", productModel.remainingInvestmentAmount];
     
     
     
