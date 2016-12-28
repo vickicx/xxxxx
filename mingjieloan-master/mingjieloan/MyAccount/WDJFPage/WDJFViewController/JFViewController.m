@@ -93,10 +93,17 @@
     [self createHeadView];
     
     self.jfscButton = [UIButton buttonWithType:UIButtonTypeCustom];
+<<<<<<< HEAD
     self.jfscButton.frame = CGRectMake(40 * kWIDTH, 430 * kHEIGHT, 375 * kWIDTH - 80 * kWIDTH, 50 * kHEIGHT);
     [self.view addSubview:self.jfscButton];
     self.jfscButton.backgroundColor = [XXColor btnGoldenColor];
     self.jfscButton.layer.cornerRadius = 5 * kHEIGHT;
+=======
+    self.jfscButton.frame = CGRectMake(40 * FitWidth, 430 * FitHeight, 375 * FitWidth - 80 * FitWidth, 50 * FitHeight);
+    [self.view addSubview:self.jfscButton];
+    self.jfscButton.backgroundColor = [XXColor btnGoldenColor];
+    self.jfscButton.layer.cornerRadius = 5 * FitHeight;
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
     
     [self.jfscButton setTitle:@"积分商城" forState:UIControlStateNormal];
     [self.jfscButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -105,7 +112,11 @@
     [self.jfscButton addTarget:self action:@selector(jfscButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     self.jfgzButton = [UIButton buttonWithType:UIButtonTypeCustom];
+<<<<<<< HEAD
     self.jfgzButton.frame = CGRectMake(80 * kWIDTH,667 * kHEIGHT - 35 * kHEIGHT, 375 * kWIDTH - 160 * kWIDTH, 25 * kHEIGHT);
+=======
+    self.jfgzButton.frame = CGRectMake(80 * FitWidth,667 * FitHeight - 35 * FitHeight, 375 * FitWidth - 160 * FitWidth, 25 * FitHeight);
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
     [self.view addSubview:self.jfgzButton];
     [self.jfgzButton setTitle:@"积分使用规则?" forState:UIControlStateNormal];
     [self.jfgzButton setTitleColor:[XXColor goldenColor] forState:UIControlStateNormal];
@@ -151,7 +162,15 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@", self.sid];
     
+<<<<<<< HEAD
     [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
+        
+        //NSLog(@"积分 ====== %@", result);
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
     } success:^(id result) {
         NSDictionary *dic = result;
@@ -182,8 +201,13 @@
         self.kyjfLabel.attributedText = AttributedStr;
         
         [self.jfTableView reloadData];
+<<<<<<< HEAD
     } fail:^(NSError *error) {
         
+=======
+         } fail:^(NSError *error) {
+             
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
     }];
     
     
@@ -215,6 +239,7 @@
 
 - (void)createHeadView
 {
+<<<<<<< HEAD
     self.headBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, 130 * kHEIGHT)];
     [self.jfTableView addSubview:self.headBackView];
     self.headBackView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -224,6 +249,17 @@
     self.headView.backgroundColor = [UIColor whiteColor];
     
     self.kyjfView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, kHEIGHT * 130)];
+=======
+    self.headBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, 130 * FitHeight)];
+    [self.jfTableView addSubview:self.headBackView];
+    self.headBackView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, FitHeight * 130)];
+    [self.headBackView addSubview:self.headView];
+    self.headView.backgroundColor = [UIColor whiteColor];
+    
+    self.kyjfView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, FitHeight * 130)];
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
     
     [self.headView addSubview:self.kyjfView];
     

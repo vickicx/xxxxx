@@ -106,7 +106,11 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&month=%@", self.sid, self.month];
     
+<<<<<<< HEAD
     [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
     } success:^(id result) {
         
@@ -165,8 +169,12 @@
         
         
         
+<<<<<<< HEAD
     } fail:^(NSError *error) {
         
+=======
+         } fail:^(NSError *error) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
     }];
 }
 

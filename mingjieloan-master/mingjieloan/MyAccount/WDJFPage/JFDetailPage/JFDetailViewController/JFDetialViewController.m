@@ -161,7 +161,14 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDJFDETAIL];
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld&type=%ld", self.sid, self.page, self.detailType];
+<<<<<<< HEAD
     [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
+    
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
     } success:^(id result) {
         self.dataArr = [result objectForKey:@"integralMapList"];
@@ -195,8 +202,14 @@
         }
         
         [self.jfDetailTableView headerEndRefreshing];
+<<<<<<< HEAD
     } fail:^(NSError *error) {
         
+=======
+       
+         } fail:^(NSError *error) {
+             
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
     }];
     
     

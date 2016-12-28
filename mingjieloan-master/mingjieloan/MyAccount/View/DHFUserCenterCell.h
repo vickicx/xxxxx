@@ -15,6 +15,7 @@
 @property (nonatomic, strong)UILabel *textLab;
 @property (nonatomic, strong)UIImageView *rightImg;
 @property (nonatomic, strong)UIView *bottomView;
+@property (nonatomic, strong)UISwitch *switchView;
 
 
 
