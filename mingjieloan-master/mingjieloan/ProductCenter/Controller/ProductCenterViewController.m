@@ -31,6 +31,7 @@
     // Do any additional setup after loading the view.
     
     self.modelArray = [NSMutableArray array];
+    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellAccessoryNone;
     _tableView.backgroundColor = [UIColor colorWithRed:239.0/255.0 green:239.0/255.0 blue:239.0/255.0 alpha:1];

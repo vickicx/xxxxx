@@ -44,19 +44,13 @@
     self.annualizedGainLab = [[UILabel alloc] initWithFrame:CGRectMake(15, 45, 60, 20)];
     _annualizedGainLab.textColor = [XXColor goldenColor];
     _annualizedGainLab.font = [UIFont systemFontOfSize:20];
-    NSMutableAttributedString *annualizedStr = [[NSMutableAttributedString alloc]initWithString:@"4.8%"];
-    NSRange redRangeTwo = NSMakeRange([[annualizedStr string] rangeOfString:@"%"].location, [[annualizedStr string] rangeOfString:@"%"].length);
-    [annualizedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:redRangeTwo];
-    _annualizedGainLab.attributedText = annualizedStr;
+    
     [self.contentView addSubview:_annualizedGainLab];
     
     self.extraRate = [[UILabel alloc] initWithFrame:CGRectMake(80, 45, 50, 20)];
     _extraRate.textColor = [XXColor goldenColor];
     _extraRate.font = [UIFont systemFontOfSize:20];
-    NSMutableAttributedString *extraRateStr = [[NSMutableAttributedString alloc]initWithString:@"8天"];
-    NSRange extraRangeTwo = NSMakeRange([[extraRateStr string] rangeOfString:@"天"].location, [[extraRateStr string] rangeOfString:@"天"].length);
-    [extraRateStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:extraRangeTwo];
-    _extraRate.attributedText = extraRateStr;
+   
     [self.contentView addSubview:_extraRate];
     
     self.repaymentMethodNameLab = [[UILabel alloc] initWithFrame:CGRectMake(130, 45, 100, 20)];
@@ -119,9 +113,19 @@
     
     self.nameLab.text = productModel.name;
     
+    //年化收益
+    NSMutableAttributedString *annualizedStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%.1f%%", _productModel.annualizedGain]];
+    NSRange redRangeTwo = NSMakeRange([[annualizedStr string] rangeOfString:@"%"].location, [[annualizedStr string] rangeOfString:@"%"].length);
+    [annualizedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:redRangeTwo];
+    _annualizedGainLab.attributedText = annualizedStr;
     
-    
-    
+   int dayNum = (int)[_productModel.investmentPeriodDesc objectAtIndex:0];
+    NSString *dayStr = (NSString *)[_productModel.investmentPeriodDesc objectAtIndex:1];
+    NSLog(@"%d  %@", dayNum, dayStr);
+    NSMutableAttributedString *extraRateStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%d%@", dayNum, dayStr]];
+    NSRange extraRangeTwo = NSMakeRange([[extraRateStr string] rangeOfString:dayStr].location, [[extraRateStr string] rangeOfString:dayStr].length);
+    [extraRateStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:extraRangeTwo];
+    _extraRate.attributedText = extraRateStr;
     
     self.rest.text = [NSString stringWithFormat:@"剩余可投%@", productModel.remainingInvestmentAmount];
     
