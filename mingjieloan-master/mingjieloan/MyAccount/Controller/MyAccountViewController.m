@@ -43,7 +43,7 @@
     [self.view addSubview:self.tableView];
 }
 
-<<<<<<< HEAD
+
 - (void)tradeRecord {
     JYJLViewController * jyjlVc = [[JYJLViewController alloc] init];
     jyjlVc.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
@@ -51,8 +51,7 @@
     
 }
 
-=======
->>>>>>> 821a1622eed6e62c840ba99f3f886eabc97b9eb9
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
 }
