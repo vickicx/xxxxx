@@ -17,6 +17,8 @@
 @property (strong, nonatomic) UINavigationController * loginNavi;
 @end
 
+
+
 @implementation AppDelegate
 
 
