@@ -113,6 +113,8 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"rtnUrl"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"isLogin"];
                 self.logOutBtn.hidden = YES;
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"logoutSuccess" object:nil];
             }
             
         }

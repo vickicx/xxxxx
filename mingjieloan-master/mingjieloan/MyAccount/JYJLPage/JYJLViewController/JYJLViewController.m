@@ -394,7 +394,7 @@
 - (void)createTableView {
     
     self.jyjlTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kWIDTH, kHEIGHT - 64) style:UITableViewStyleGrouped];
-    
+    self.jyjlTableView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.jyjlTableView];
     
     self.jyjlTableView.delegate = self;
