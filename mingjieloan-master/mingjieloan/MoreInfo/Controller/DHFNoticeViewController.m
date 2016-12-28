@@ -31,7 +31,7 @@
     
     self.mainArr = [NSMutableArray array];
     self.view.backgroundColor = [UIColor whiteColor];
-    NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
+    NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = titleDict;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     

@@ -31,9 +31,9 @@
 
 @property (nonatomic, strong) NSArray *menuArr;
 
-@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, copy  ) NSString * page;
 
-@property (nonatomic, assign) NSInteger typeFilter;
+@property (nonatomic, copy  ) NSString * typeFilter;
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
 
@@ -63,19 +63,12 @@
 /**
  * XXXXXXXX
  */
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (instancetype)init {
     
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     
     if (self) {
-        self.dataArr = [NSMutableArray array];
-        self.mainArr = [NSMutableArray array];
-        self.menuArr = [NSArray array];
-        self.my2Y = 0;
-        self.page = 0;
-        self.typeFilter = 0;
-        self.dateArr = [NSMutableArray array];
-        self.maxPageId = 100;
+        
     }
     
     return self;
@@ -96,7 +89,14 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    self.dataArr = [NSMutableArray array];
+    self.mainArr = [NSMutableArray array];
+    self.menuArr = [NSArray array];
+    self.my2Y = 0;
+    self.page = @"0";
+    self.typeFilter = @"0";
+    self.dateArr = [NSMutableArray array];
+    self.maxPageId = 100;
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -147,18 +147,16 @@
  */
 - (void)menuDataHandle {
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@", self.sid];
-    
     NSString *url = [NSString stringWithFormat:@"%@/account/isloan", HOSTURL];
-    
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    NSDictionary *dic = @{@"sid":self.sid};
+    [VVNetWorkTool postWithUrl:url body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
         
         self.listCount = [[result objectForKey:@"listCnt"] integerValue];
         
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        
         
         if (self.listCount > 0) {
             
@@ -166,13 +164,13 @@
             
             self.menuArr = @[@"全部", @"充值", @"提现", @"投资", @"回款", @"返现", @"服务费", @"还款"];
             
-            self.menuTableView.height = window.height - 44;
+            self.menuTableView.height = kHEIGHT - 44;
             
         }else{
             
             self.menuArr = @[@"全部", @"充值", @"提现", @"投资", @"回款", @"返现"];
             
-            self.menuTableView.height = window.height - 44;
+            self.menuTableView.height = kHEIGHT - 44;
         }
         
         [self.menuTableView reloadData];
@@ -188,11 +186,12 @@
  */
 - (void)dataHandle {
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld&typeFilter=%ld", self.sid, (long)self.page, (long)self.typeFilter];
+    //NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld&typeFilter=%ld", self.sid, (long)self.page, (long)self.typeFilter];
+    NSDictionary *dic = @{@"sid":self.sid,@"page":self.page,@"typeFilter":self.typeFilter};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, JYJL];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -297,7 +296,7 @@
  */
 - (void)createMenuView {
     
-    self.menuBackView = [[JYJLViewXX alloc] initWithFrame:CGRectMake(0, 64, FitWidth * 375, FitHeight * 667)];
+    self.menuBackView = [[JYJLViewXX alloc] initWithFrame:CGRectMake(0, 64, kWIDTH, kHEIGHT)];
     
     self.menuBackView.delegate = self;
     
@@ -305,7 +304,7 @@
     
     self.menuBackView.hidden = YES;
     
-    UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, FitHeight * 667 - 20)];
+    UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT-20)];
     
     [self.menuBackView addSubview:grayView];
     
@@ -325,7 +324,7 @@
     
     //self.menuTableView.scrollEnabled = NO;
     
-    UILabel *myTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, FitHeight * 3, FitWidth * 375 - 150 * FitWidth, FitHeight * 30)];
+    UILabel *myTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, FitHeight * 3, kWIDTH- 150 * FitWidth, FitHeight * 30)];
     
     [self.menuTableView addSubview:myTitleLabel];
     
@@ -613,7 +612,7 @@
         
         [self.mainArr removeAllObjects];
 
-        self.typeFilter = indexPath.row;
+        self.typeFilter = [NSString stringWithFormat:@"%ld",indexPath.row];
         
         [self dataHandle];
         

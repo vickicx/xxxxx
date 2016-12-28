@@ -46,7 +46,9 @@
 
 - (void)tradeRecord {
     JYJLViewController * jyjlVc = [[JYJLViewController alloc] init];
+    jyjlVc.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
     [self.navigationController pushViewController:jyjlVc animated:YES];
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
