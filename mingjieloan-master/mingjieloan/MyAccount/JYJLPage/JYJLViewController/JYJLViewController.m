@@ -312,7 +312,8 @@
     
     grayView.alpha = 0.3;
     
-    self.menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(150 * FitWidth, 0, FitWidth * 375 - 150 * FitWidth, 200) style:UITableViewStyleGrouped];
+    self.menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(150 * FitWidth, 0, kWIDTH - 150 * FitWidth, 200) style:UITableViewStyleGrouped];
+    
     
     [self.menuBackView addSubview:self.menuTableView];
     
