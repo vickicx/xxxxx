@@ -62,4 +62,9 @@
 
 + (UIColor *)labelGoldenColor;
 
+/**
+ *充值背景颜色
+ */
++ (UIColor *)chongzhiColor;
+
 @end

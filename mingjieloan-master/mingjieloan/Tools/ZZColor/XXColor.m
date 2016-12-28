@@ -111,6 +111,12 @@
     return [UIColor colorWithPatternImage:[UIImage imageNamed:@"BJXX"]];
 }
 
+
++ (UIColor *)chongzhiColor{
+    
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"chongzhibeijing"]];
+}
+
 /**
  * 全部的东北银
  */

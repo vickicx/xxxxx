@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "AccTopTableViewCell.h"
+
 
 @interface MyAccountViewController : BaseViewController
 
@@ -27,7 +27,6 @@
 
 @property (nonatomic,strong) UITableView *MyAccountTableView;
 
-@property (nonatomic,strong) AccTopTableViewCell *topCell;
 
 
 

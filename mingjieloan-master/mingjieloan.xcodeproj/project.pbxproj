@@ -18,7 +18,6 @@
 		3DF8F5D71E12702300D4922C /* DHFChangeLogPassWordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5D61E12702300D4922C /* DHFChangeLogPassWordVC.m */; };
 		7E9FF8B60433E52238E8D8A4 /* Pods_mingjieloan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBAB3B4865752B3E365A667 /* Pods_mingjieloan.framework */; };
 		990872C81E1236B800354802 /* DHFUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872C71E1236B800354802 /* DHFUserCenterViewController.m */; };
-		990872CB1E12370000354802 /* AccTopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872CA1E12370000354802 /* AccTopTableViewCell.m */; };
 		990873931E12455800354802 /* HYGZModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872D01E12455800354802 /* HYGZModel.m */; };
 		990873941E12455800354802 /* HYGZ2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872D31E12455800354802 /* HYGZ2Cell.m */; };
 		990873951E12455800354802 /* HYGZCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990872D51E12455800354802 /* HYGZCell.m */; };
@@ -104,6 +103,9 @@
 		990873EE1E1261BD00354802 /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 990873ED1E1261BD00354802 /* BaseCollectionViewCell.m */; };
 		9934228D1E0A7E75004C8A2B /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9934228C1E0A7E75004C8A2B /* LoginUser.m */; };
 		993422931E0A806F004C8A2B /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 993422921E0A806F004C8A2B /* LoginModel.m */; };
+		9957F70F1E134E27004A8F66 /* AccountHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9957F70B1E134E27004A8F66 /* AccountHeadView.m */; };
+		9957F7101E134E27004A8F66 /* MyAccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9957F70D1E134E27004A8F66 /* MyAccountTableViewCell.m */; };
+		9957F7111E134E27004A8F66 /* MyAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9957F70E1E134E27004A8F66 /* MyAccountTableViewCell.xib */; };
 		9969969C1E0A257C00CEF850 /* XXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9969969B1E0A257C00CEF850 /* XXColor.m */; };
 		996996A01E0A2F7200CEF850 /* VVNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9969969F1E0A2F7200CEF850 /* VVNetWorkTool.m */; };
 		99C27C9F1E10BE0800C0B013 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C27C9A1E10BE0800C0B013 /* ForgetViewController.m */; };
@@ -225,8 +227,6 @@
 		8BEC8869677B5FDC1106F1A1 /* Pods-mingjieloanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanTests/Pods-mingjieloanTests.release.xcconfig"; sourceTree = "<group>"; };
 		990872C61E1236B800354802 /* DHFUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFUserCenterViewController.h; sourceTree = "<group>"; };
 		990872C71E1236B800354802 /* DHFUserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFUserCenterViewController.m; sourceTree = "<group>"; };
-		990872C91E12370000354802 /* AccTopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccTopTableViewCell.h; sourceTree = "<group>"; };
-		990872CA1E12370000354802 /* AccTopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccTopTableViewCell.m; sourceTree = "<group>"; };
 		990872CF1E12455800354802 /* HYGZModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYGZModel.h; sourceTree = "<group>"; };
 		990872D01E12455800354802 /* HYGZModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYGZModel.m; sourceTree = "<group>"; };
 		990872D21E12455800354802 /* HYGZ2Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYGZ2Cell.h; sourceTree = "<group>"; };
@@ -397,6 +397,11 @@
 		9934228C1E0A7E75004C8A2B /* LoginUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUser.m; path = Model/LoginUser.m; sourceTree = "<group>"; };
 		993422911E0A806F004C8A2B /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = Model/LoginModel.h; sourceTree = "<group>"; };
 		993422921E0A806F004C8A2B /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = Model/LoginModel.m; sourceTree = "<group>"; };
+		9957F70A1E134E27004A8F66 /* AccountHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountHeadView.h; sourceTree = "<group>"; };
+		9957F70B1E134E27004A8F66 /* AccountHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountHeadView.m; sourceTree = "<group>"; };
+		9957F70C1E134E27004A8F66 /* MyAccountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountTableViewCell.h; sourceTree = "<group>"; };
+		9957F70D1E134E27004A8F66 /* MyAccountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountTableViewCell.m; sourceTree = "<group>"; };
+		9957F70E1E134E27004A8F66 /* MyAccountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAccountTableViewCell.xib; sourceTree = "<group>"; };
 		9969969A1E0A257C00CEF850 /* XXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXColor.h; sourceTree = "<group>"; };
 		9969969B1E0A257C00CEF850 /* XXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXColor.m; sourceTree = "<group>"; };
 		9969969E1E0A2F7200CEF850 /* VVNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VVNetWorkTool.h; path = VVNetWork/VVNetWorkTool.h; sourceTree = "<group>"; };
@@ -1366,10 +1371,13 @@
 		C34FFF1B1E091E8D00FF8C05 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				990872C91E12370000354802 /* AccTopTableViewCell.h */,
-				990872CA1E12370000354802 /* AccTopTableViewCell.m */,
 				3DF8F5BF1E123EF300D4922C /* DHFUserCenterCell.h */,
 				3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */,
+				9957F70A1E134E27004A8F66 /* AccountHeadView.h */,
+				9957F70B1E134E27004A8F66 /* AccountHeadView.m */,
+				9957F70C1E134E27004A8F66 /* MyAccountTableViewCell.h */,
+				9957F70D1E134E27004A8F66 /* MyAccountTableViewCell.m */,
+				9957F70E1E134E27004A8F66 /* MyAccountTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1691,6 +1699,7 @@
 				C328FE021E09282F00F541FA /* Assets.xcassets in Resources */,
 				EA49A4771E0FAB6F0079A8DB /* alert_right@2x.png in Resources */,
 				C34FFF271E091E8D00FF8C05 /* Main.storyboard in Resources */,
+				9957F7111E134E27004A8F66 /* MyAccountTableViewCell.xib in Resources */,
 				C34FFF261E091E8D00FF8C05 /* LaunchScreen.storyboard in Resources */,
 				EA49A4751E0FAB6F0079A8DB /* alert_bg@2x.png in Resources */,
 			);
@@ -1886,6 +1895,7 @@
 				99C27CA01E10BE0800C0B013 /* LoginViewController.m in Sources */,
 				EA49A4351E0F5E680079A8DB /* HKJHTableViewCell.m in Sources */,
 				990873B11E12455800354802 /* ReturningModel.m in Sources */,
+				9957F70F1E134E27004A8F66 /* AccountHeadView.m in Sources */,
 				9908739A1E12455800354802 /* SRHBViewController.m in Sources */,
 				EA49A4471E0F91C40079A8DB /* DHFReportTableViewCell.m in Sources */,
 				990873B01E12455800354802 /* ReturnedModel.m in Sources */,
@@ -1925,7 +1935,6 @@
 				3D1ED8201E0BCB8800C99500 /* DHFProductCenterCell.m in Sources */,
 				9908739E1E12455800354802 /* HYZXHeadView.m in Sources */,
 				C34FFF311E091E8D00FF8C05 /* ProductCenterViewController.m in Sources */,
-				990872CB1E12370000354802 /* AccTopTableViewCell.m in Sources */,
 				990873D01E12455800354802 /* WDXXViewController.m in Sources */,
 				990873A21E12455800354802 /* JYJLModel.m in Sources */,
 				990873A91E12455800354802 /* TZJLDetailModel.m in Sources */,
@@ -1991,6 +2000,7 @@
 				990873A81E12455800354802 /* ReturnItems.m in Sources */,
 				9908739C1E12455800354802 /* HYZXCell.m in Sources */,
 				EA6BB9061E0EF1E100F28E8C /* PICircularProgressView.m in Sources */,
+				9957F7101E134E27004A8F66 /* MyAccountTableViewCell.m in Sources */,
 				EA3C06841E129E53009E02D4 /* DHFcommonWebViewVC.m in Sources */,
 				C34FFF2E1E091E8D00FF8C05 /* main.m in Sources */,
 				990873D31E12455800354802 /* ZQZRModel.m in Sources */,

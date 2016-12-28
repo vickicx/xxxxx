@@ -7,8 +7,10 @@
 //
 
 #import "MyAccountViewController.h"
-
-@interface MyAccountViewController ()<UITableViewDelegate, UITableViewDataSource>
+#import "MyAccountTableViewCell.h"
+#import "AccountHeadView.h"
+@interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -16,56 +18,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    [self initTableView];
+    [self createView];
     
-    // Do any additional setup after loading the view.
 }
 
-- (void)getMyInfo {
-    NSString *bodyStr = [NSString stringWithFormat:@"%@"];
+- (void)createView {
+    AccountHeadView *headView = [[AccountHeadView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT * 0.584)];
+    [self.view addSubview:headView];
+    
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];
+    self.tableView.tableHeaderView = headView;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    UINib *nib = [UINib nibWithNibName:@"MyAccountTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"UITableViewCellIdentifier"];
+    
+    [self.view addSubview:self.tableView];
 }
 
-- (void)initTableView{
-    self.MyAccountTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT - 45) style:UITableViewStylePlain];
-    _MyAccountTableView.separatorStyle = UITableViewCellAccessoryNone;
-    _MyAccountTableView.delegate = self;
-    _MyAccountTableView.dataSource = self;
-    
-    [self.view addSubview:_MyAccountTableView];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0)
-    {
-        return 135*FitHeight;
-    }else {
-        return 50;
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        AccTopTableViewCell *cell = [[AccTopTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return  cell;
-    }else {
-        AccTopTableViewCell *cell = [[AccTopTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        return cell;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    return 8;
 }
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *imagearr = @[@"sign-11",@"huiyuanzhongxin",@"jiaoyijilu",@"xianjinquan",@"zhaiquanzhuanrang",@"yaoqingma",@"touzijilu",@"zhanghuzhongxin"];
+    NSArray *labelarr = @[@"签到获取积分",@"会员中心",@"我的积分",@"我的卡卷",@"债权转让",@"回款计划",@"我的邀请",@"账户中心"];
+    
+    MyAccountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCellIdentifier"];
+    [cell.imageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imagearr[indexPath.row]]]];
+    cell.label.text = labelarr[indexPath.row];
+    
+    return cell;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

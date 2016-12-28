@@ -18,7 +18,7 @@
     [super viewDidLoad];
     self.title = @"邀请好友";
     self.view.backgroundColor = [UIColor whiteColor];
-    NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes = titleDict;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
