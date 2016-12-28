@@ -78,7 +78,7 @@
     self.window.rootViewController  = self.tabbar;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNaviVC:) name:@"loginSuccess" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutSuccess:) name:@"logoutSuccess" object:nil];
 
     
     return YES;
@@ -86,6 +86,11 @@
 
 - (void)changeNaviVC:(NSNotification *)notification {
     self.tabbar.viewControllers      = @[self.productNavi,self.accountNavi,self.moreNavi];
+}
+
+- (void)logoutSuccess:(NSNotification *)notification {
+    self.tabbar.viewControllers      = @[self.productNavi,self.loginNavi,self.moreNavi];
+    self.tabbar.selectedIndex        = 0;
 }
 
 

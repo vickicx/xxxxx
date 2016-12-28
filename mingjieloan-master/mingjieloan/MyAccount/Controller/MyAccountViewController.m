@@ -9,7 +9,9 @@
 #import "MyAccountViewController.h"
 #import "MyAccountTableViewCell.h"
 #import "AccountHeadView.h"
+
 @interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource>
+
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -18,7 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self createView];
+    [self getMYInfo];
+    [self getBasicInfo];
     
 }
 
@@ -54,6 +59,28 @@
     cell.label.text = labelarr[indexPath.row];
     
     return cell;
+}
+
+- (void)getMYInfo {
+    NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]};
+    [VVNetWorkTool postWithUrl:Url(MY) body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
+        [self.userInfo setValuesForKeysWithDictionary:result];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)getBasicInfo {
+    NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]};
+    [VVNetWorkTool postWithUrl:Url(MYBASIC) body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
+        [self.basicInfo setValuesForKeysWithDictionary:result];
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 

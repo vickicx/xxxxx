@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfo.h"
+#import "BasicInfo.h"
 
 @interface BaseViewController : UIViewController
+
+@property (strong, nonatomic) UserInfo * userInfo;
+
+@property (strong, nonatomic) BasicInfo * basicInfo;
 
 @end
