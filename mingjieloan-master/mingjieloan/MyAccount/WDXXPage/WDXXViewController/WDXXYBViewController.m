@@ -106,7 +106,11 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&month=%@", self.sid, self.month];
     
+<<<<<<< HEAD
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
     } success:^(id result) {
         
@@ -137,34 +141,40 @@
         
         self.benyueshouyiLabel.text = [NSString stringWithFormat:@"本月收益%@元  (%@~%@)", [self.dataDic objectForKey:@"Income"], [self.dataDic objectForKey:@"FirstDay"], [self.dataDic objectForKey:@"LastDay"]];
         
-//        self.benyueshouyiDateLabel.text = [NSString stringWithFormat:@"(%@~%@)", [self.dataDic objectForKey:@"FirstDay"], [self.dataDic objectForKey:@"LastDay"]];
+        //        self.benyueshouyiDateLabel.text = [NSString stringWithFormat:@"(%@~%@)", [self.dataDic objectForKey:@"FirstDay"], [self.dataDic objectForKey:@"LastDay"]];
         
-//        NSString *str = [NSString stringWithFormat:@"%@月%@日", [[self.lastDay substringToIndex:7] substringFromIndex:5], [self.lastDay substringFromIndex:8]];
+        //        NSString *str = [NSString stringWithFormat:@"%@月%@日", [[self.lastDay substringToIndex:7] substringFromIndex:5], [self.lastDay substringFromIndex:8]];
         
         self.bottomStr = [NSString stringWithFormat:@"以上数据截止到%@，您对账单有任何疑问,请联系客服咨询（400-807-6777）", [self.dataDic objectForKey:@"LastDay"]];
         
         
-//        if (self.bottomLabel != nil) {
-//            
-//            self.bottomLabel.text = [NSString stringWithFormat:@"以上数据截止到%@，您对账单有任何疑问,请联系客服咨询（400-807-6777）", [self.dataDic objectForKey:@"LastDay"]];
-//            
-//            //改变行间距
-//            NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:self.bottomLabel.text];
-//            NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
-//            [paragraphStyle1 setLineSpacing:6];
-//            [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [self.bottomLabel.text length])];
-//            [self.bottomLabel setAttributedText:attributedString1];
-//            [self.bottomLabel sizeToFit];
-//            self.bottomLabel.textAlignment = NSTextAlignmentCenter;
-//        }
+        //        if (self.bottomLabel != nil) {
+        //
+        //            self.bottomLabel.text = [NSString stringWithFormat:@"以上数据截止到%@，您对账单有任何疑问,请联系客服咨询（400-807-6777）", [self.dataDic objectForKey:@"LastDay"]];
+        //
+        //            //改变行间距
+        //            NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:self.bottomLabel.text];
+        //            NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
+        //            [paragraphStyle1 setLineSpacing:6];
+        //            [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [self.bottomLabel.text length])];
+        //            [self.bottomLabel setAttributedText:attributedString1];
+        //            [self.bottomLabel sizeToFit];
+        //            self.bottomLabel.textAlignment = NSTextAlignmentCenter;
+        //        }
         
         self.xianjinquanLabel.text = [NSString stringWithFormat:@"(本月获得%@元现金券，使用%@元现金券，过期%@元现金券)", [self.dataDic objectForKey:@"RedPacketReceived"], [self.dataDic objectForKey:@"RedPacketUsed"], [self.dataDic objectForKey:@"RedPacketExpire"]];
-
-        
-            [self.monthlyReportTableView reloadData];
         
         
+        [self.monthlyReportTableView reloadData];
+        
+        
+        
+<<<<<<< HEAD
+    } fail:^(NSError *error) {
+        
+=======
          } fail:^(NSError *error) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
     }];
 }
 

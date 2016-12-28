@@ -22,6 +22,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)getMyInfo {
+    NSString *bodyStr = [NSString stringWithFormat:@"%@"];
+}
+
 - (void)initTableView{
     self.MyAccountTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT - 45) style:UITableViewStylePlain];
     _MyAccountTableView.separatorStyle = UITableViewCellAccessoryNone;

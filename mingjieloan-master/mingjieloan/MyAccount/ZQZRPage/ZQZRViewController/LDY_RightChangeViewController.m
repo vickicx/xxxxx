@@ -469,10 +469,15 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, KZR];
     
+<<<<<<< HEAD
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
+    } success:^(id result) {
         self.kzrOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.kzrOrdersArr) {
@@ -502,9 +507,15 @@
             
             self.kzrEmptyLabel.hidden = YES;
         }
+<<<<<<< HEAD
+    } fail:^(NSError *error) {
+        
+    }];
+=======
            } fail:^(NSError *error) {
            
            }];
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
     
 }
 
@@ -518,10 +529,15 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, ZRZ];
     
+<<<<<<< HEAD
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
+    } success:^(id result) {
         self.zrzOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.zrzOrdersArr) {
@@ -550,9 +566,14 @@
             
             self.zrzEmptyLabel.hidden = YES;
         }
+<<<<<<< HEAD
+    } fail:^(NSError *error) {
+        
+=======
        
            } fail:^(NSError *error) {
                
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
     }];
     
 }
@@ -567,10 +588,15 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, YZR];
     
+<<<<<<< HEAD
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
+    } success:^(id result) {
         self.yzrOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.yzrOrdersArr) {
@@ -599,6 +625,7 @@
             
             self.yzrEmptyLabel.hidden = YES;
         }
+    } fail:^(NSError *error) {
         
             } fail:^(NSError *error) {
                 
@@ -664,10 +691,15 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, KZR];
     
+<<<<<<< HEAD
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
+    } success:^(id result) {
         self.kzrOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.kzrOrdersArr) {
@@ -699,6 +731,7 @@
         
         [self.kZRTableView headerEndRefreshing];
         [self.kZRTableView footerEndRefreshing];
+    } fail:^(NSError *error) {
         
             } fail:^(NSError *error) {
     }];
@@ -765,10 +798,15 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, ZRZ];
     
+<<<<<<< HEAD
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
+    } success:^(id result) {
         self.zrzOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.zrzOrdersArr) {
@@ -800,8 +838,14 @@
         
         [self.zRZTableView headerEndRefreshing];
         [self.zRZTableView footerEndRefreshing];
+<<<<<<< HEAD
+    } fail:^(NSError *error) {
+        
+    }];
+=======
           } fail:^(NSError *error) {
           }];
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
 }
 
 
@@ -864,10 +908,15 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, YZR];
     
+<<<<<<< HEAD
+    [VVNetWorkTool postWithUrl:url body:body bodyType:0 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+=======
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
+>>>>>>> 856e8b060fd71650b68b1f2f8a71eb6ab6b0934f
         
+    } success:^(id result) {
         self.yzrOrdersArr = [result objectForKey:@"orders"];
         
         for (NSDictionary *dic in self.yzrOrdersArr) {
@@ -899,6 +948,7 @@
         
         [self.yZRTableView headerEndRefreshing];
         [self.yZRTableView footerEndRefreshing];
+    } fail:^(NSError *error) {
         
     } fail:^(NSError *error) {
               
