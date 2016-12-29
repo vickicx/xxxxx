@@ -390,7 +390,7 @@
     NSString *body = [NSString stringWithFormat:@"sid=%@&products_title=%@&oid_tender_id=%@&transfer_capital=%@&discount_amount=%@&tender_from=%@", self.sid, self.products_title, self.oid_tender_id, self.tender_amount, self.zheRangLXJETextField.text, self.tender_from];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, FBZR];
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
        
@@ -703,7 +703,7 @@
                     //NSLog(@"body ===== %@", body);
                     
                     
-                    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+                    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
                         
                     } success:^(id result) {
                         
@@ -779,7 +779,7 @@
     }
 
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 

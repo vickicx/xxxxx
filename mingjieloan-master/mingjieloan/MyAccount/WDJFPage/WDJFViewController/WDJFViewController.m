@@ -180,7 +180,7 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&commodity_id=%@&red_packet_id=%@&cost_point=%@", self.sid, self.commodity_id, self.red_packet_id, self.cost_point];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         NSString *is_success = [result objectForKey:@"is_success"];
@@ -238,7 +238,7 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&type=%ld", self.sid, (long)self.type];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -292,13 +292,13 @@
     
     [self.wdjfCollectionView registerClass:[WDJFCollectionViewCell class] forCellWithReuseIdentifier:@"WDJFCollectionViewCell"];
     
-    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, FitHeight * 150)];
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, FitHeight * 150)];
     
     [self.wdjfCollectionView addSubview:self.headView];
     
     self.headView.backgroundColor = [UIColor whiteColor];
     
-    self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, 100 * FitHeight)];
+    self.headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 100 * FitHeight)];
     
     [self.headView addSubview:self.headImageView];
     
@@ -365,7 +365,7 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&type=%ld", self.sid, (long)self.type];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -511,7 +511,7 @@
  */
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    return CGSizeMake((FitWidth * 375 - 5) / 2, FitHeight * 220);
+    return CGSizeMake((kWIDTH - 5) / 2, FitHeight * 220);
 }
 
 

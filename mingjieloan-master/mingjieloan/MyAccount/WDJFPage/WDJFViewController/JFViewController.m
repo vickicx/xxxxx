@@ -151,7 +151,7 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@", self.sid];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -216,15 +216,15 @@
 
 - (void)createHeadView
 {
-    self.headBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, 130 * FitHeight)];
+    self.headBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 130 * FitHeight)];
     [self.jfTableView addSubview:self.headBackView];
     self.headBackView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, FitHeight * 130)];
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, FitHeight * 130)];
     [self.headBackView addSubview:self.headView];
     self.headView.backgroundColor = [UIColor whiteColor];
     
-    self.kyjfView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, FitWidth * 375, FitHeight * 130)];
+    self.kyjfView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, FitHeight * 130)];
     
     [self.headView addSubview:self.kyjfView];
     

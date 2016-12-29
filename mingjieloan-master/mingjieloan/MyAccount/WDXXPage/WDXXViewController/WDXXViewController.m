@@ -114,7 +114,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
                   self.dataArr = [result objectForKey:@"messageList"];
@@ -176,7 +176,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
@@ -226,7 +226,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
@@ -378,7 +378,7 @@
     
     if (section == self.mainArr.count) {
     
-        self.tishiLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0 , FitWidth * 375, 50 * FitHeight)];
+        self.tishiLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0 , kWIDTH, 50 * FitHeight)];
         [tableView addSubview:self.tishiLabel];
         
         self.tishiLabel.textColor = [UIColor darkGrayColor];
@@ -407,7 +407,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXXREAD];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
     }fail:^(NSError *error) {

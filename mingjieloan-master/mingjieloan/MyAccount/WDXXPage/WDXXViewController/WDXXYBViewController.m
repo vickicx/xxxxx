@@ -106,7 +106,7 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&month=%@", self.sid, self.month];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -171,7 +171,7 @@
 
 - (void)creatTableView
 {
-    self.monthlyReportTableView = [[UITableView alloc] initWithFrame:CGRectMake(5 * FitWidth, 64, FitWidth * 375 - 10 * FitWidth, FitHeight * 667 - 64) style:UITableViewStyleGrouped];
+    self.monthlyReportTableView = [[UITableView alloc] initWithFrame:CGRectMake(5 * FitWidth, 64, kWIDTH - 10 * FitWidth, FitHeight * 667 - 64) style:UITableViewStyleGrouped];
     [self.view addSubview:self.monthlyReportTableView];
     self.monthlyReportTableView.backgroundColor = [UIColor whiteColor];
     

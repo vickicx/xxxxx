@@ -34,7 +34,7 @@
     
     [super layoutSubviews];
     
-    CGFloat height =[[self class] heightOfLabel:self.str andWith:FitWidth * 375];
+    CGFloat height =[[self class] heightOfLabel:self.str andWith:kWIDTH];
     
     if ([self.str containsString:@"1. 每月1日0点，铭捷贷根据会员上一月度日均总资产调整会员等级，并享受相应的特权；"]) {
         

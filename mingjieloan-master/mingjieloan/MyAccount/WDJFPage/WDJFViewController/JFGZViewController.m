@@ -119,7 +119,7 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL,INTEGRALX];
     
     NSString *body = [NSString stringWithFormat:@"sid=%@", self.sid];
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
     
     }success:^(id result){
         
@@ -176,7 +176,7 @@
  */
 - (void)createTableView{
     
-    self.jfgzTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, FitWidth * 375, FitHeight * 667 - 64) style:UITableViewStyleGrouped];
+    self.jfgzTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
     
     [self.view addSubview:self.jfgzTableView];
     
@@ -277,7 +277,7 @@
     
     cellButton.tag = section + 10000;
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * FitWidth, 0, FitWidth * 375, FitHeight * 40)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * FitWidth, 0, kWIDTH, FitHeight * 40)];
     
     [cellButton addSubview:titleLabel];
     

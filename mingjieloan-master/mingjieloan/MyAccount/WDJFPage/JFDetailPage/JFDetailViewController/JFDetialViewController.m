@@ -96,7 +96,7 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDJFDETAIL];
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld&type=%ld", self.sid, self.page, self.detailType];
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -162,7 +162,7 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld&type=%ld", self.sid, self.page, self.detailType];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -212,7 +212,7 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld&type=%ld", self.sid, self.page, self.detailType];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
