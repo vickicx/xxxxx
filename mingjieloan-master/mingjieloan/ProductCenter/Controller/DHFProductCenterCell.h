@@ -45,7 +45,7 @@
 @property (nonatomic ,strong)UILabel *rest;
 
 /** 投资按钮 */
-@property (nonatomic ,strong)UIButton *purchaseBtn;
+@property (nonatomic ,strong)UILabel *purchaseBtn;
 
 
 @property (nonatomic, strong)ProductModel *productModel;

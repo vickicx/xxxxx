@@ -20,6 +20,8 @@
         NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
         self.navigationController.navigationBar.titleTextAttributes = titleDict;
         self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        
+        [self getProductDetail];
     }
     
 - (void)viewDidLoad {
@@ -313,6 +315,39 @@
     self.navigationItem.backBarButtonItem = backbutton;
     DHFTBViewController *tbVC = [[DHFTBViewController alloc] init];
     [self.navigationController pushViewController:tbVC animated:YES];
+    
+}
+
+
+- (void)getProductDetail{
+    
+    NSString *sid = @"id";
+    
+    NSDictionary *dic = @{sid:_idNumber,
+                          @"sid" : [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"],
+                          @"page" : @"0"};
+    NSLog(@"%@", dic);
+    
+    NSDictionary *headerDic = [NSDictionary dictionaryWithObject:@"text/html" forKey:@"Content-Type"];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@", Url(PRODUCTDETAIL), self.idNumber];
+    //    NSString *csStr = [NSString stringWithFormat:@"jiahairan123.55555.io:19883/mapp/product/personal-loan/detail/%@", _idNumber];
+    NSLog(@"urlStr=========%@",urlStr);
+    [VVNetWorkTool postWithUrl:urlStr body:dic bodyType:BodyTypeDictionary httpHeader:headerDic responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        //        NSLog(@"progress ===== %@", progress);
+        
+    } success:^(id result) {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@",dic);
+        //        NSLog(@"dic = %@", dic);
+        
+        
+        
+        
+    } fail:^(NSError *error) {
+        NSLog(@"error  %@",error);
+    }];
     
 }
 

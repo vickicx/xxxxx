@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "HYZXViewController.h"
 #import "JFViewController.h"
-
+#import "DHFUserCenterViewController.h"
 
 @interface MyAccountViewController : BaseViewController
 

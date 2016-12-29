@@ -166,6 +166,8 @@
                 
             }else if (indexPath.row  ==1){
                 //账户中心
+                DHFUserCenterViewController *shiyanVC = [[DHFUserCenterViewController alloc] init];
+                [self.navigationController pushViewController:shiyanVC animated:YES];
                 
             }
             break;

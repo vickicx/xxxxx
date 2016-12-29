@@ -19,7 +19,7 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-
+    
     self.passWord = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
     if (self.passWord == nil) {
         self.switchView.on = NO;
@@ -28,6 +28,7 @@
     {
         self.switchView.on = YES;
     }
+    [self getUserInfo];
     
 }
 
@@ -56,7 +57,7 @@
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
-
+    
     
 }
 
@@ -90,7 +91,7 @@
         cell.titleImg.frame = CGRectMake(20, 12.5, 13, 25);
         cell.textLab.frame = CGRectMake(kWIDTH - 200 - 50, 0, 200, 50);
         cell.textLab.text = @"15241120510";
-
+        
     }
     if(indexPath.row == 2){
         cell.titleImg.frame = CGRectMake(20, 17.5, 22, 15);
@@ -141,8 +142,8 @@
         [self.navigationController pushViewController:setCard animated:YES];
     }
     else if(indexPath.row == 3){
-
-            //DHFcommonWebViewVC
+        
+        //DHFcommonWebViewVC
         [self getCommonWebViewVC];
         
     }
@@ -160,11 +161,11 @@
     }
     else if(indexPath.row == 6){
         //如果身份证已经认证 则直接跳转到充值界面
-
-           // 和绑定银行卡 是一个页面
+        
+        // 和绑定银行卡 是一个页面
         //银行卡是否有效
     }
-
+    
     
 }
 
@@ -199,7 +200,7 @@
     } success:^(id result) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         [hud dismiss];
-//        NSLog(@"dic == %@", dic);
+        //        NSLog(@"dic == %@", dic);
         DHFcommonWebViewVC *commonVC = [[DHFcommonWebViewVC alloc] init];
         commonVC.redirectUrl = [dic objectForKey:@"redirectUrl"];
         [self.navigationController pushViewController:commonVC animated:YES];
@@ -213,19 +214,62 @@
 }
 
 
+- (void)getUserInfo {
+    
+    //    NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, MEDIAREPORTS];
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"同步信息...";
+    
+    [hud showInView:self.view];
+    
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"], @"sid", nil];
+    [VVNetWorkTool postWithUrl:Url(MYBASIC) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        //        NSLog(@"progress ===== %@", progress);
+        
+    } success:^(id result) {
+        
+        [hud dismiss];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@",dic);
+        NSMutableArray *dataArray = [dic objectForKey:@"product_list"];
+        
+        for (NSDictionary *dic in dataArray) {
+            
+        }
+        
+        //        if (self.modelArray.count > 0) {
+        //
+        //            [_tableView headerEndRefreshing];
+        //            [_tableView footerEndRefreshing];
+        //            [_tableView reloadData];
+        //        }
+        
+        
+    } fail:^(NSError *error) {
+        [hud dismiss];
+        NSLog(@"%@",error);
+    }];
+}
+
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

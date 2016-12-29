@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign)BOOL isUPLoad;//判断上下
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) NSInteger maxPage;
 
 @end
 
@@ -20,7 +21,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     self.tabBarController.tabBar.hidden = false;
-        [self dataHandle];
+    [self dataDownHandle];
 }
 
 
@@ -40,19 +41,12 @@
     
     [self.view addSubview:_tableView];
     
-    self.sdcScrollView = [[SDCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 160)];
-    _sdcScrollView.delegate = self;
-    _sdcScrollView.autoScrollTimeInterval = 4.0;
-    _sdcScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleClassic;
-    _sdcScrollView.currentPageDotColor = [XXColor goldenColor];
-    _sdcScrollView.pageDotColor = [UIColor whiteColor];
-    _sdcScrollView.imageURLStringsGroup = self.netImages;
+    [self  createBanner];
     
-    _tableView.tableHeaderView = self.sdcScrollView;
     
-    [_tableView reloadData];
-
-
+    
+    
+    
     //默认不是上拉
     self.isUPLoad = NO;
     //上下拉刷新
@@ -64,14 +58,14 @@
 //设置下拉刷新
 -(void)addHeaderRefresh
 {
-    [self.modelArray removeAllObjects];
-    __block ProductCenterViewController *blockSelf = self;
+    //    [self.modelArray removeAllObjects];
+    __weak ProductCenterViewController *blockSelf = self;
     [self.tableView addHeaderWithCallback:^{
         _isUPLoad = NO;
         _page = 1;
         
         //重新请求数据
-        [blockSelf dataHandle];
+        [blockSelf dataDownHandle];
     }];
     //    [self.JonolTableView headerBeginRefreshing];
 }
@@ -80,14 +74,18 @@
 //上拉
 - (void)addFooterRefresh
 {
-    __block ProductCenterViewController *blockSelf = self;
+    __weak ProductCenterViewController *blockSelf = self;
     self.page++;
-    [self.tableView addFooterWithCallback:^{
-        
-        _isUPLoad = YES;
-        
-        [blockSelf dataHandle];
-    }];
+    if (self.page < self.maxPage) {
+        [self.tableView addFooterWithCallback:^{
+            
+            _isUPLoad = YES;
+            
+            [blockSelf dataHandle];
+        }];
+    }
+    
+    
     //    [self.JonolTableView footerBeginRefreshing];
     
 }
@@ -95,15 +93,14 @@
 
 - (void)dataHandle {
     
-    //    NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, MEDIAREPORTS];
-    
+        NSString *page = [NSString stringWithFormat:@"%ld", self.page];
     JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
     
     hud.textLabel.text = @"loading...";
     
     [hud showInView:self.view];
     
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", @"sid",@"1", @"page", nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", @"sid",page, @"page", nil];
     [VVNetWorkTool postWithUrl:Url(PRODUCTALL) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
         //        NSLog(@"progress ===== %@", progress);
         
@@ -111,16 +108,58 @@
         
         [hud dismiss];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"%@",dic);
-        
+        //        NSLog(@"%@",dic);
+        self.maxPage = [[[dic objectForKey:@"pagerParam"] objectForKey:@"maxPage"] intValue];
         NSMutableArray *dataArray = [dic objectForKey:@"product_list"];
         
         for (NSDictionary *dic in dataArray) {
             
-            ProductModel *model = [[ProductModel alloc] initWithDictionary:dic];
+            ProductModel *productModel = [[ProductModel alloc] init];
+            [productModel setValuesForKeysWithDictionary:dic];
+            [self.modelArray addObject:productModel];
+        }
+        
+        if (self.modelArray.count > 0) {
             
+            [_tableView headerEndRefreshing];
+            [_tableView footerEndRefreshing];
+            [_tableView reloadData];
+        }
+        
+        
+    } fail:^(NSError *error) {
+        [hud dismiss];
+        
+    }];
+}
+
+
+- (void)dataDownHandle {
+    
+    NSString *page = [NSString stringWithFormat:@"%ld", self.page];
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", @"sid",page, @"page", nil];
+    [VVNetWorkTool postWithUrl:Url(PRODUCTALL) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        //        NSLog(@"progress ===== %@", progress);
+        
+    } success:^(id result) {
+        [self.modelArray removeAllObjects];
+        [hud dismiss];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        //        NSLog(@"%@",dic);
+        self.maxPage = [[[dic objectForKey:@"pagerParam"] objectForKey:@"maxPage"] intValue];
+        NSMutableArray *dataArray = [dic objectForKey:@"product_list"];
+        
+        for (NSDictionary *dic in dataArray) {
             
-            [self.modelArray addObject:model];
+            ProductModel *productModel = [[ProductModel alloc] init];
+            [productModel setValuesForKeysWithDictionary:dic];
+            [self.modelArray addObject:productModel];
         }
         
         if (self.modelArray.count > 0) {
@@ -139,27 +178,13 @@
     
 }
 
+
 /** 点击图片回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     
     //NSLog(@"%ld",index);
 }
 
-/**
- *  懒加载网络图片数据
- */
--(NSArray *)netImages{
-    
-    if (!_netImages) {
-        _netImages = @[
-                       @"http://d.hiphotos.baidu.com/zhidao/pic/item/72f082025aafa40f507b2e99aa64034f78f01930.jpg",
-                       @"http://b.hiphotos.baidu.com/zhidao/pic/item/4b90f603738da9770889666fb151f8198718e3d4.jpg",
-                       @"http://g.hiphotos.baidu.com/zhidao/pic/item/f2deb48f8c5494ee4e84ef5d2cf5e0fe98257ed4.jpg",
-                       @"http://d.hiphotos.baidu.com/zhidao/pic/item/9922720e0cf3d7ca104edf32f31fbe096b63a93e.jpg"
-                       ];
-    }
-    return _netImages;
-}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -186,14 +211,62 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.hidesBottomBarWhenPushed=YES;
+    
+    ProductModel *productModel = [self.modelArray objectAtIndex:indexPath.row];
+    
+    
     DHFThreeProductDetailViewController *ThreeVC = [[DHFThreeProductDetailViewController alloc] init];
     UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]init];
     backbutton.title = @"产品中心";
+    ThreeVC.idNumber = productModel.strId;
     self.navigationItem.backBarButtonItem = backbutton;
     [self.navigationController pushViewController:ThreeVC animated:YES];
     self.hidesBottomBarWhenPushed=NO;
 }
 
+- (void)createBanner{
+    
+    self.sdcScrollView = [[SDCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 160)];
+    _sdcScrollView.delegate = self;
+    _sdcScrollView.autoScrollTimeInterval = 4.0;
+    _sdcScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleClassic;
+    _sdcScrollView.currentPageDotColor = [XXColor goldenColor];
+    _sdcScrollView.pageDotColor = [UIColor whiteColor];
+    //    _sdcScrollView.imageURLStringsGroup = self.netImages;
+    
+    
+    
+    [VVNetWorkTool postWithUrl:Url(BANNER) body:nil bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        //        NSLog(@"progress ===== %@", progress);
+        
+    } success:^(id result) {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        //        NSLog(@"%@",dic);
+        //        NSLog(@"dic = %@", dic);
+        NSMutableArray *bigArray = [dic objectForKey:@"data"];
+        NSMutableArray *imgArray = [NSMutableArray array];
+        if(bigArray.count == 0){
+            self.sdcScrollView.frame = CGRectZero;
+            self.tableView.tableHeaderView = _sdcScrollView;
+            [_tableView reloadData];
+        }
+        else{
+            for(int i = 0; i<bigArray.count; i++){
+                [imgArray addObject:[[bigArray[i] objectForKey:@"extra"] objectForKey:@"img"]];
+                _sdcScrollView.imageURLStringsGroup = [imgArray copy];
+                
+                _tableView.tableHeaderView = self.sdcScrollView;
+                [_tableView reloadData];
+            }
+        }
+        
+        
+    } fail:^(NSError *error) {
+        
+    }];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -201,13 +274,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

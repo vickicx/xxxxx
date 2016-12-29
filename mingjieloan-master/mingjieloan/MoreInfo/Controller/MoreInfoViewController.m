@@ -209,20 +209,19 @@
     }
     else if (indexPath.row ==5){
         
-//                AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"
-//                                                                message:@"确定拨打客服电话400-807-6777"];
-        //        [alert setCancelButtonTitle:@"取消" block:nil];
-        //        __block MoreInfoViewController *blockSelf = self;
-        //        [alert addButtonWithTitle:@"确定" block:^{
-        //            UIWebView *callWebView = [[UIWebView alloc]init];
-        //
-        //            [callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"4008076777"]]];
-        //
-        //            [blockSelf.view addSubview:callWebView];//也可以不加到
-        //        }];
-        //        [alert show];
-        DHFUserCenterViewController *shiyanVC = [[DHFUserCenterViewController alloc] init];
-        [self.navigationController pushViewController:shiyanVC animated:YES];
+                AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"
+                                                                message:@"确定拨打客服电话400-807-6777"];
+                [alert setCancelButtonTitle:@"取消" block:nil];
+                __block MoreInfoViewController *blockSelf = self;
+                [alert addButtonWithTitle:@"确定" block:^{
+                    UIWebView *callWebView = [[UIWebView alloc]init];
+        
+                    [callWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"4008076777"]]];
+        
+                    [blockSelf.view addSubview:callWebView];//也可以不加到
+                }];
+                [alert show];
+
     }
 }
 

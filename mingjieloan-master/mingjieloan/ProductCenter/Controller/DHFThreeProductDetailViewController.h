@@ -30,5 +30,6 @@
 @property (nonatomic, strong)UIButton *touBiaoBtn;
 @property (nonatomic, strong)UILabel *warningLab;
 
+@property (nonatomic, copy)NSString *idNumber;
 
 @end

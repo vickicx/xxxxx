@@ -29,5 +29,11 @@
 
 @property (nonatomic, copy)NSString *passWord;
 
+
+@property (nonatomic, assign)NSInteger nameValidated;//呢称标示，1.有效 0.无效
+@property (nonatomic, assign)NSInteger cardStatus;//银行卡的状态
+@property (nonatomic, assign)NSInteger accountStatus;// 身份证有效标识 2：有效：0审核中 1：未绑身份证
+
+
 @end
 

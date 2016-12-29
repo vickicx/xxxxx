@@ -12,6 +12,12 @@
 		3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */; };
 		3DF312B51E1390E40038FC45 /* DHFGesOpenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF312B41E1390E40038FC45 /* DHFGesOpenVC.m */; };
 		3DF312D21E13AE540038FC45 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF312D11E13AE540038FC45 /* ProductModel.m */; };
+		3DF4466E1E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF446651E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.m */; };
+		3DF4466F1E14F5C9005FFF85 /* DHFProductDetail_GRZZXXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF446671E14F5C9005FFF85 /* DHFProductDetail_GRZZXXCell.m */; };
+		3DF446701E14F5C9005FFF85 /* DHFProductDetail_GZXXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF446691E14F5C9005FFF85 /* DHFProductDetail_GZXXCell.m */; };
+		3DF446711E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4466B1E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.m */; };
+		3DF446721E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4466D1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m */; };
+		3DF446751E14F63A005FFF85 /* HDFInviteFriendOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF446741E14F63A005FFF85 /* HDFInviteFriendOtherViewController.m */; };
 		3DF8F5C11E123EF300D4922C /* DHFUserCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */; };
 		3DF8F5C71E12549900D4922C /* DHFSetUserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C61E12549900D4922C /* DHFSetUserNameViewController.m */; };
 		3DF8F5CA1E1254F000D4922C /* DHFChangPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C91E1254F000D4922C /* DHFChangPhoneViewController.m */; };
@@ -218,6 +224,18 @@
 		3DF312B41E1390E40038FC45 /* DHFGesOpenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFGesOpenVC.m; sourceTree = "<group>"; };
 		3DF312D01E13AE540038FC45 /* ProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductModel.h; path = mingjieloan/ProductModel.h; sourceTree = SOURCE_ROOT; };
 		3DF312D11E13AE540038FC45 /* ProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductModel.m; path = mingjieloan/ProductModel.m; sourceTree = SOURCE_ROOT; };
+		3DF446641E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFProductDetail_GRXXCell.h; path = mingjieloan/ProductCenter/Controller/DHFProductDetail_GRXXCell.h; sourceTree = SOURCE_ROOT; };
+		3DF446651E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductDetail_GRXXCell.m; path = mingjieloan/ProductCenter/Controller/DHFProductDetail_GRXXCell.m; sourceTree = SOURCE_ROOT; };
+		3DF446661E14F5C9005FFF85 /* DHFProductDetail_GRZZXXCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFProductDetail_GRZZXXCell.h; path = mingjieloan/ProductCenter/Controller/DHFProductDetail_GRZZXXCell.h; sourceTree = SOURCE_ROOT; };
+		3DF446671E14F5C9005FFF85 /* DHFProductDetail_GRZZXXCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductDetail_GRZZXXCell.m; path = mingjieloan/ProductCenter/Controller/DHFProductDetail_GRZZXXCell.m; sourceTree = SOURCE_ROOT; };
+		3DF446681E14F5C9005FFF85 /* DHFProductDetail_GZXXCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFProductDetail_GZXXCell.h; path = mingjieloan/ProductCenter/Controller/DHFProductDetail_GZXXCell.h; sourceTree = SOURCE_ROOT; };
+		3DF446691E14F5C9005FFF85 /* DHFProductDetail_GZXXCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductDetail_GZXXCell.m; path = mingjieloan/ProductCenter/Controller/DHFProductDetail_GZXXCell.m; sourceTree = SOURCE_ROOT; };
+		3DF4466A1E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFProductDetailCompanyInfoCell.h; path = mingjieloan/ProductCenter/Controller/DHFProductDetailCompanyInfoCell.h; sourceTree = SOURCE_ROOT; };
+		3DF4466B1E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductDetailCompanyInfoCell.m; path = mingjieloan/ProductCenter/Controller/DHFProductDetailCompanyInfoCell.m; sourceTree = SOURCE_ROOT; };
+		3DF4466C1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFProductDtail_DYQKCell.h; path = mingjieloan/ProductCenter/Controller/DHFProductDtail_DYQKCell.h; sourceTree = SOURCE_ROOT; };
+		3DF4466D1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductDtail_DYQKCell.m; path = mingjieloan/ProductCenter/Controller/DHFProductDtail_DYQKCell.m; sourceTree = SOURCE_ROOT; };
+		3DF446731E14F63A005FFF85 /* HDFInviteFriendOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDFInviteFriendOtherViewController.h; sourceTree = "<group>"; };
+		3DF446741E14F63A005FFF85 /* HDFInviteFriendOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDFInviteFriendOtherViewController.m; sourceTree = "<group>"; };
 		3DF8F5BF1E123EF300D4922C /* DHFUserCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFUserCenterCell.h; sourceTree = "<group>"; };
 		3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFUserCenterCell.m; sourceTree = "<group>"; };
 		3DF8F5C51E12549900D4922C /* DHFSetUserNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFSetUserNameViewController.h; sourceTree = "<group>"; };
@@ -1310,6 +1328,8 @@
 				EA49A46B1E0FAA270079A8DB /* DHFHelpCenterViewController.m */,
 				EA5802351E11537800F1A144 /* DHFInviteFriendViewController.h */,
 				EA5802361E11537800F1A144 /* DHFInviteFriendViewController.m */,
+				3DF446731E14F63A005FFF85 /* HDFInviteFriendOtherViewController.h */,
+				3DF446741E14F63A005FFF85 /* HDFInviteFriendOtherViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1457,6 +1477,16 @@
 				EA6BB8FB1E0ED5CF00F28E8C /* ProductDetailThreeTableViewCell.m */,
 				EA6BB8FD1E0ED9E300F28E8C /* ProductDetailCollectionViewCell.h */,
 				EA6BB8FE1E0ED9E300F28E8C /* ProductDetailCollectionViewCell.m */,
+				3DF446641E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.h */,
+				3DF446651E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.m */,
+				3DF446661E14F5C9005FFF85 /* DHFProductDetail_GRZZXXCell.h */,
+				3DF446671E14F5C9005FFF85 /* DHFProductDetail_GRZZXXCell.m */,
+				3DF446681E14F5C9005FFF85 /* DHFProductDetail_GZXXCell.h */,
+				3DF446691E14F5C9005FFF85 /* DHFProductDetail_GZXXCell.m */,
+				3DF4466A1E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.h */,
+				3DF4466B1E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.m */,
+				3DF4466C1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.h */,
+				3DF4466D1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m */,
 				EA6BB91D1E0EF9F900F28E8C /* PopView.h */,
 				EA6BB91E1E0EF9F900F28E8C /* PopView.m */,
 				EA6BB9001E0EE71000F28E8C /* ProductShenheTableViewCell.h */,
@@ -1914,6 +1944,7 @@
 				3DF312D21E13AE540038FC45 /* ProductModel.m in Sources */,
 				990872C81E1236B800354802 /* DHFUserCenterViewController.m in Sources */,
 				99C27CA01E10BE0800C0B013 /* LoginViewController.m in Sources */,
+				3DF446721E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m in Sources */,
 				EA49A4351E0F5E680079A8DB /* HKJHTableViewCell.m in Sources */,
 				990873B11E12455800354802 /* ReturningModel.m in Sources */,
 				9957F70F1E134E27004A8F66 /* AccountHeadView.m in Sources */,
@@ -1941,6 +1972,7 @@
 				99C27CA41E10BEB000C0B013 /* JGProgressHUD+Add.m in Sources */,
 				990873E41E12464F00354802 /* BaseTableViewCell.m in Sources */,
 				990873B21E12455800354802 /* DQRCell.m in Sources */,
+				3DF4466F1E14F5C9005FFF85 /* DHFProductDetail_GRZZXXCell.m in Sources */,
 				990873BA1E12455800354802 /* JFZCCell.m in Sources */,
 				C34FFF2A1E091E8D00FF8C05 /* BaseModel.m in Sources */,
 				990873CD1E12455800354802 /* WDXXDetailTableViewCell.m in Sources */,
@@ -1968,6 +2000,7 @@
 				3DF8F5CD1E12590E00D4922C /* DHFSetCardViewController.m in Sources */,
 				3DF8F5D11E125FAE00D4922C /* ZZNoDataPromptVC.m in Sources */,
 				EA6BB9151E0EF93C00F28E8C /* LewPopupViewAnimationDrop.m in Sources */,
+				3DF446751E14F63A005FFF85 /* HDFInviteFriendOtherViewController.m in Sources */,
 				990873DC1E12455800354802 /* FBSuccessViewController.m in Sources */,
 				990873A51E12455800354802 /* JYJLViewController.m in Sources */,
 				990873991E12455800354802 /* JFJLViewController.m in Sources */,
@@ -1976,6 +2009,7 @@
 				EABA08781E0D6AB100B3CC61 /* DHFTwoProductDetailViewController.m in Sources */,
 				9908739F1E12455800354802 /* OTPageScrollView.m in Sources */,
 				990873C61E12455800354802 /* WDJFViewController.m in Sources */,
+				3DF4466E1E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.m in Sources */,
 				EA6BB9161E0EF93C00F28E8C /* LewPopupViewAnimationFade.m in Sources */,
 				990873A61E12455800354802 /* ContractWebViewController.m in Sources */,
 				990873B81E12455800354802 /* JFMXCell.m in Sources */,
@@ -2018,6 +2052,7 @@
 				EA49A44D1E0F92CE0079A8DB /* DHFReportDetailViewController.m in Sources */,
 				990873C01E12455800354802 /* ExchangeView.m in Sources */,
 				EA49A4411E0F91940079A8DB /* DHFReportViewController.m in Sources */,
+				3DF446701E14F5C9005FFF85 /* DHFProductDetail_GZXXCell.m in Sources */,
 				990873B31E12455800354802 /* HKZCell.m in Sources */,
 				990873DD1E12455800354802 /* LDY_RightChangeViewController.m in Sources */,
 				990873CA1E12455800354802 /* MonthlyReporthFiveCell.m in Sources */,
@@ -2034,6 +2069,7 @@
 				EA49A4381E0F6BA60079A8DB /* TBJLTableViewCell.m in Sources */,
 				990873C31E12455800354802 /* ExchangeViewController.m in Sources */,
 				EA6BB9181E0EF93C00F28E8C /* LewPopupViewAnimationSpring.m in Sources */,
+				3DF446711E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.m in Sources */,
 				990873CB1E12455800354802 /* MonthlyReportSixCell.m in Sources */,
 				EA49A4861E0FE8430079A8DB /* TBTableViewCell.m in Sources */,
 				990873981E12455800354802 /* HYTQCell.m in Sources */,
