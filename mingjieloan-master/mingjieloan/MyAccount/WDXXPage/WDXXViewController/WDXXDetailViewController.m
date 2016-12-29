@@ -50,7 +50,7 @@
  */
 - (void)createTableView {
     
-    self.wdxxDetailTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 375 * FitWidth, 667 * FitHeight - 64) style:UITableViewStyleGrouped];
+    self.wdxxDetailTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
     [self.view addSubview:self.wdxxDetailTableView];
     self.wdxxDetailTableView.dataSource = self;
     self.wdxxDetailTableView.delegate = self;

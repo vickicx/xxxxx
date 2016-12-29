@@ -75,11 +75,11 @@
     
     [self createTableView];
     
-    self.emptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, 375 * FitWidth - 210 * FitWidth, 110 * FitHeight)];
+    self.emptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, kWIDTH- 210 * FitWidth, 110 * FitHeight)];
     [self.jfDetailTableView addSubview:self.emptyImageView];
     self.emptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.emptyImageView.frame.size.height - 64, 375 * FitWidth - 210 * FitWidth, 40 * FitHeight)];
+    self.emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.emptyImageView.frame.size.height - 64, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     [self.jfDetailTableView addSubview:self.emptyLabel];
     self.emptyLabel.text = @"暂无数据!";
     self.emptyLabel.textColor = [UIColor lightGrayColor];
@@ -137,7 +137,7 @@
 
 - (void)createTableView
 {
-    self.jfDetailTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, FitWidth * 375, 667 * FitHeight - 64) style:UITableViewStyleGrouped];
+    self.jfDetailTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
     [self.view addSubview:self.jfDetailTableView];
     self.jfDetailTableView.dataSource = self;
     self.jfDetailTableView.delegate = self;

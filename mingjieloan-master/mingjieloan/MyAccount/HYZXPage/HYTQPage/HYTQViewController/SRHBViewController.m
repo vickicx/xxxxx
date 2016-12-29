@@ -76,7 +76,7 @@
     
     [self createTableView];
     
-    self.blueView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375 * FitWidth, 90 * FitHeight)];
+    self.blueView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 90 * FitHeight)];
     [self.srhbTableView addSubview:self.blueView];
     self.blueView.image = [UIImage imageNamed:@"jifen_topBJ"];
 //    self.blueView.backgroundColor = [UIColor colorWithRed:67 / 255.0 green:134 / 255.0 blue:214 / 255.0 alpha:1.0];
@@ -99,7 +99,7 @@
     
     //领取提示按钮
     self.lingquButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.lingquButton.frame = CGRectMake(375 * FitWidth - 10 * FitWidth - 130 * FitWidth, 25 * FitHeight, 130 * FitWidth, 35 * FitHeight);
+    self.lingquButton.frame = CGRectMake(kWIDTH - 10 * FitWidth - 130 * FitWidth, 25 * FitHeight, 130 * FitWidth, 35 * FitHeight);
     [self.srhbTableView addSubview:self.lingquButton];
     [self.lingquButton setTitle:[NSString stringWithFormat:@"V%ld会员专享", self.vip] forState:UIControlStateNormal];
     [self.lingquButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -109,7 +109,7 @@
     self.lingquButton.layer.borderWidth = 1.5;
     [self.lingquButton addTarget:self action:@selector(lingquButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.lingqutishiImageView = [[UIImageView alloc] initWithFrame:CGRectMake(375 * FitWidth - 15 * FitWidth - 120 * FitWidth, 0, 120 * FitWidth, 25 * FitHeight)];
+    self.lingqutishiImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kWIDTH - 15 * FitWidth - 120 * FitWidth, 0, 120 * FitWidth, 25 * FitHeight)];
     [self.srhbTableView addSubview:self.lingqutishiImageView];
 //    self.lingqutishiImageView.backgroundColor = [UIColor whiteColor];
     self.lingqutishiImageView.hidden = YES;
@@ -127,7 +127,7 @@
 //    [self.srhbTableView addSubview:self.whiteBackImageView];
 //    self.whiteBackImageView.backgroundColor = [UIColor yellowColor];
     
-    self.bigGiftImageView = [[UIImageView alloc] initWithFrame:CGRectMake((375 - 200) * FitWidth / 2, 120 * FitHeight, 200 * FitWidth, 160 * FitHeight)];
+    self.bigGiftImageView = [[UIImageView alloc] initWithFrame:CGRectMake((kWIDTH - 200 * FitWidth) / 2, 120 * FitHeight, 200 * FitWidth, 160 * FitHeight)];
     [self.srhbTableView addSubview:self.bigGiftImageView];
 //    self.bigGiftImageView.image = [UIImage imageNamed:@"can-receive"];
     self.bigGiftImageView.userInteractionEnabled = YES;
@@ -161,7 +161,7 @@
     self.lijilingquView.backgroundColor = [UIColor blackColor];
     self.lijilingquView.alpha = 0.4;
     
-    self.lijilingquImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30 * FitWidth, 220 * FitHeight, 375 * FitWidth - 60 * FitWidth, 220 * FitHeight)];
+    self.lijilingquImageView = [[UIImageView alloc] initWithFrame:CGRectMake(30 * FitWidth, 220 * FitHeight, kWIDTH - 60 * FitWidth, 220 * FitHeight)];
     [self.view addSubview:self.lijilingquImageView];
     self.lijilingquImageView.image = [UIImage imageNamed:@"receiving"];
     self.lijilingquImageView.userInteractionEnabled = YES;
@@ -347,7 +347,7 @@
 
 - (void)createTableView
 {
-    self.srhbTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, FitWidth * 375, 667 * FitHeight - 64) style:UITableViewStyleGrouped];
+    self.srhbTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
     [self.view addSubview:self.srhbTableView];
     self.srhbTableView.delegate = self;
     self.srhbTableView.dataSource = self;

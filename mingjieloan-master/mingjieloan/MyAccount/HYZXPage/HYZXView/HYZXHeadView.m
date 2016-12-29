@@ -8,9 +8,6 @@
 
 #import "HYZXHeadView.h"
 
-#define KWIDTH ([UIScreen mainScreen].bounds.size.width/375)
-#define KHEIGHT ([UIScreen mainScreen].bounds.size.height/667)
-
 @implementation HYZXHeadView
 
 
@@ -93,31 +90,31 @@
     
     self.backScrollView.frame = self.frame;
     
-    self.headLineView.frame = CGRectMake(100 * KWIDTH, 53* KHEIGHT, 375 * KWIDTH - 100 * KWIDTH, 5 * KHEIGHT);
+    self.headLineView.frame = CGRectMake(100 * FitWidth, 53* FitHeight, kWIDTH - 100 * FitWidth, 5 * FitHeight);
     self.headLineView.backgroundColor = [UIColor blackColor];
     
-    self.headImageView.frame = CGRectMake(50 * KWIDTH, 30 * KHEIGHT, 80 * KWIDTH, 80 * KHEIGHT);
+    self.headImageView.frame = CGRectMake(50 * FitWidth, 30 * FitHeight, 80 * FitWidth, 80 * FitHeight);
     self.headImageView.backgroundColor = [UIColor orangeColor];
     
-    self.head2ImageView.frame = CGRectMake(180 * KWIDTH, 80 * KHEIGHT, 50 * KWIDTH, 50 * KHEIGHT);
+    self.head2ImageView.frame = CGRectMake(180 * FitWidth, 80 * FitHeight, 50 * FitWidth, 50 * FitHeight);
     self.head2ImageView.backgroundColor = [UIColor redColor];
     
-    self.head3ImageView.frame = CGRectMake(270 * KWIDTH, 80 * KHEIGHT, 50 * KWIDTH, 50 * KHEIGHT);
+    self.head3ImageView.frame = CGRectMake(270 * FitWidth, 80 * FitHeight, 50 * FitWidth, 50 * FitHeight);
     self.head3ImageView.backgroundColor = [UIColor redColor];
     
-    self.head4ImageView.frame = CGRectMake(300 * KWIDTH, 80 * KHEIGHT, 50 * KWIDTH, 50 * KHEIGHT);
+    self.head4ImageView.frame = CGRectMake(300 * FitWidth, 80 * FitHeight, 50 * FitWidth, 50 * FitHeight);
     self.head4ImageView.backgroundColor = [UIColor redColor];
     
-    self.nameLabel.frame = CGRectMake(50 * KWIDTH, 30 * KHEIGHT + self.headImageView.frame.size.height, 100 * KWIDTH, 25 * KHEIGHT);
+    self.nameLabel.frame = CGRectMake(50 * FitWidth, 30 * FitHeight + self.headImageView.frame.size.height, 100 * FitWidth, 25 * FitHeight);
     self.nameLabel.backgroundColor = [UIColor yellowColor];
     
-    self.jifen2Label.frame = CGRectMake(180 * KWIDTH, 80 * KHEIGHT + self.jifen2Label.frame.size.height, 50 * KWIDTH, 20 * KHEIGHT);
+    self.jifen2Label.frame = CGRectMake(180 * FitWidth, 80 * FitHeight + self.jifen2Label.frame.size.height, 50 * FitWidth, 20 * FitHeight);
     self.jifen2Label.backgroundColor = [UIColor yellowColor];
     
-    self.jifen3Label.frame = CGRectMake(270 * KWIDTH, 80 * KHEIGHT + self.jifen3Label.frame.size.height, 50 * KWIDTH, 20 * KHEIGHT);
+    self.jifen3Label.frame = CGRectMake(270 * FitWidth, 80 * FitHeight + self.jifen3Label.frame.size.height, 50 * FitWidth, 20 * FitHeight);
     self.jifen3Label.backgroundColor = [UIColor yellowColor];
     
-    self.jifen4Label.frame = CGRectMake(300 * KWIDTH, 80 * KHEIGHT + self.jifen4Label.frame.size.height, 50 * KWIDTH, 20 * KHEIGHT);
+    self.jifen4Label.frame = CGRectMake(300 * FitWidth, 80 * FitHeight + self.jifen4Label.frame.size.height, 50 * FitWidth, 20 * FitHeight);
     self.jifen4Label.backgroundColor = [UIColor yellowColor];
     
 }

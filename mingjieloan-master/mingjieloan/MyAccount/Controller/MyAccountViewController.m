@@ -10,30 +10,51 @@
 #import "MyAccountTableViewCell.h"
 #import "AccountHeadView.h"
 
+
 @interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource,TrageRecordDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong)  UILabel *titleText;
+
+@property (nonatomic,strong)  UIImageView *levelImgV;
+
+@property (nonatomic, strong) AccountHeadView *headView;
 @end
 
 @implementation MyAccountViewController
 
 - (void)viewDidLoad {
+    
+  
+    
     [super viewDidLoad];
     
     [self createView];
     [self getMYInfo];
     [self getBasicInfo];
     
+    
 }
 
 - (void)createView {
-    AccountHeadView *headView = [[AccountHeadView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT * 0.584)];
-    headView.delegate = self;
-    [self.view addSubview:headView];
+    self.titleText = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 100*FitWidth, 20 * FitHeight)];
+    _titleText.textColor = [UIColor whiteColor];
+   [_titleText setTextAlignment:NSTextAlignmentRight];
+    self.levelImgV = [[UIImageView alloc] initWithFrame:CGRectMake(_titleText.right, _titleText.top, 60 * FitWidth, _titleText.font.lineHeight)];
+    
+    UIView * titleViews = [[UIView alloc] initWithFrame:CGRectMake(160*FitWidth, 0, _titleText.width + _levelImgV.width,_titleText.height)];
+    [titleViews addSubview:_titleText];
+    [titleViews addSubview:_levelImgV];
+    
+    self.navigationItem.titleView=titleViews;
+
+    self.headView = [[AccountHeadView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT * 0.584)];
+    _headView.delegate = self;
+    [self.view addSubview:_headView];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
-    self.tableView.tableHeaderView = headView;
+    self.tableView.tableHeaderView = _headView;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.sectionHeaderHeight = 10 * FitHeight;
@@ -42,6 +63,8 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:@"UITableViewCellIdentifier"];
     
     [self.view addSubview:self.tableView];
+    
+    
 }
 
 
@@ -96,16 +119,67 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case 0:
+            if (indexPath.row == 0) {
+                //签到获取积分
+                
+            }else if (indexPath.row  ==1){
+                //会员中心
+                HYZXViewController *hyzxVC = [[HYZXViewController alloc] init];
+                [self.navigationController pushViewController:hyzxVC animated:YES];
+                
+            }else if (indexPath.row  ==2){
+                //我的积分
+                JFViewController *wdjfVC = [[JFViewController alloc] init];
+                [self.navigationController pushViewController:wdjfVC animated:YES];
+                
+            }else {
+                //我的卡卷
+            }
+           
+            break;
+        case 1:
+            if (indexPath.row == 0) {
+                //债权转让
+                
+            }else if (indexPath.row  ==1){
+                //回款计划
+                
+            }
+            break;
+            
+        case 2:
+            if (indexPath.row == 0) {
+                //我的邀请
+                
+            }else if (indexPath.row  ==1){
+                //账户中心
+                
+            }
+            break;
+            
+        default:
+            break;
+    }
+
+}
+
 - (void)getMYInfo {
     NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]};
     [VVNetWorkTool postWithUrl:Url(MY) body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         [self.userInfo setValuesForKeysWithDictionary:result];
+        self.headView.userInfo = self.userInfo;
+        
     } fail:^(NSError *error) {
         
     }];
 }
+
+
 
 - (void)getBasicInfo {
     NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]};
@@ -113,10 +187,17 @@
         
     } success:^(id result) {
         [self.basicInfo setValuesForKeysWithDictionary:result];
+        self.headView.basicInfo = self.basicInfo;
+        _titleText.text = self.basicInfo.name;
+        NSString *VipImageName = [NSString stringWithFormat:@"vip_%@",self.basicInfo.member_level];
+        _levelImgV.image = [UIImage imageNamed:VipImageName];
+        
+        
     } fail:^(NSError *error) {
         
     }];
 }
+
 
 
 - (void)didReceiveMemoryWarning {

@@ -7,17 +7,12 @@
 //
 
 #import "BaseViewController.h"
+#import "HYZXViewController.h"
+#import "JFViewController.h"
 
 
 @interface MyAccountViewController : BaseViewController
 
-@property (nonatomic,strong) UILabel *leijishouyiLab;
-
-@property (nonatomic,strong) UILabel *wodetouziLab;
-
-@property (nonatomic,strong) UILabel *zhanghuyueLab;
-
-@property (nonatomic,strong) UILabel *dongjiezijin;
 
 @property (nonatomic,strong) UIButton *qiandaoBtn;
 

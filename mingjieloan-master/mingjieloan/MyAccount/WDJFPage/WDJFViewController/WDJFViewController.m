@@ -100,7 +100,7 @@
     
     [self createCollectionView];
     
-    self.exchangeView = [[ExchangeView alloc] initWithFrame:CGRectMake(0, 64, 375 * FitWidth, 667 * FitHeight - 64)];
+    self.exchangeView = [[ExchangeView alloc] initWithFrame:CGRectMake(0, 64, kWIDTH, kHEIGHT- 64)];
     [self.view addSubview:self.exchangeView];
     
     self.exchangeView.hidden = YES;
@@ -113,7 +113,7 @@
     [self.exchangeView.okButton addTarget:self action:@selector(okButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    self.didExchangedView = [[DidExchangedView alloc] initWithFrame:CGRectMake(0, 64, 375 * FitWidth, 667 * FitHeight - 64)];
+    self.didExchangedView = [[DidExchangedView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];
     
     [self.view addSubview:self.didExchangedView];
     
@@ -280,7 +280,7 @@
     
     flowLayout.sectionInset = UIEdgeInsetsMake(5 * FitHeight, 0, 0, 0);
 
-    self.wdjfCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 667 * FitHeight - 64) collectionViewLayout:flowLayout];
+    self.wdjfCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, kHEIGHT) collectionViewLayout:flowLayout];
     
     [self.view addSubview:self.wdjfCollectionView];
     
@@ -322,10 +322,10 @@
     
     [self.headView addSubview:self.headSegmentedControl];
     
-    self.headSegmentedControl.frame = CGRectMake(15 * FitWidth, 10 * FitHeight + self.headImageView.frame.size.height, 375 * FitWidth - 30 * FitWidth, 30 * FitHeight);
+    self.headSegmentedControl.frame = CGRectMake(15 * FitWidth, 10 * FitHeight + self.headImageView.frame.size.height, kWIDTH - 30 * FitWidth, 30 * FitHeight);
     self.viewXX1 = [[UIView alloc] init];
     self.viewXX1.backgroundColor = [UIColor clearColor];
-    self.viewXX1.frame = CGRectMake(15 * FitWidth + 20, 10 * FitHeight + self.headImageView.frame.size.height + self.headSegmentedControl.frame.size.height, (375 * FitWidth - 30 * FitWidth - 40),2);
+    self.viewXX1.frame = CGRectMake(15 * FitWidth + 20, 10 * FitHeight + self.headImageView.frame.size.height + self.headSegmentedControl.frame.size.height, (kWIDTH - 30 * FitWidth - 40),2);
     [self.headView addSubview:self.viewXX1];
     
     self.viewXX2 = [[UIView alloc] init];

@@ -80,7 +80,7 @@
     
     
     UIButton *agreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    agreeButton.frame = CGRectMake(15 * FitWidth, 667 * FitHeight - 45 * FitHeight, 375 * FitWidth - 30 * FitWidth, 40 * FitHeight);
+    agreeButton.frame = CGRectMake(15 * FitWidth, kHEIGHT - 45 * FitHeight, kWIDTH - 30 * FitWidth, 40 * FitHeight);
     [self.view addSubview:agreeButton];
     agreeButton.backgroundColor = [XXColor btnGoldenColor];
     [agreeButton setTitle:@"同意并继续" forState:UIControlStateNormal];

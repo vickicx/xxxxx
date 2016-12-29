@@ -188,7 +188,7 @@
     
 //    self.ybTitleLabel.backgroundColor = [UIColor cyanColor];
     
-    self.ybDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(375 * FitWidth - 20 * FitWidth - 200 * FitWidth, 20 * FitHeight, 200 * FitWidth, 25 * FitHeight)];
+    self.ybDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH - 20 * FitWidth - 200 * FitWidth, 20 * FitHeight, 200 * FitWidth, 25 * FitHeight)];
     [self.monthlyReportTableView addSubview:self.ybDateLabel];
     self.ybDateLabel.textColor = [XXColor goldenColor];
     self.ybDateLabel.font = [UIFont systemFontOfSize:12];
@@ -219,7 +219,7 @@
     
 //    self.benyueshouyiDateLabel.text = @"(2016-04-04~2016-04-30)";
     
-    self.xianjinquanLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 260 * FitHeight, 375 * FitWidth - 10 * FitWidth, 30 * FitHeight)];
+    self.xianjinquanLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 260 * FitHeight, kWIDTH - 10 * FitWidth, 30 * FitHeight)];
     self.xianjinquanLabel.backgroundColor = [UIColor colorWithRed:246 / 255.0 green:247 / 255.0 blue:248 / 255.0 alpha:1.0];
     [self.monthlyReportTableView addSubview:self.xianjinquanLabel];
     self.xianjinquanLabel.font = [UIFont systemFontOfSize:9.5];
@@ -736,7 +736,7 @@
         
         UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 80 * FitHeight)];
         
-        self.bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(40 * FitWidth, 10 * FitHeight, 375 * FitWidth - 80 * FitWidth, 60 * FitHeight)];
+        self.bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(40 * FitWidth, 10 * FitHeight, kWIDTH - 80 * FitWidth, 60 * FitHeight)];
         [footerView addSubview:self.bottomLabel];
         self.bottomLabel.font = [UIFont systemFontOfSize:11.5];
         self.bottomLabel.numberOfLines = 2;

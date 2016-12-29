@@ -30,12 +30,12 @@
 {
     [super layoutSubviews];
     
-    self.titleLabel.frame = CGRectMake(10 * kWIDTH, 0, 375 * kWIDTH, 30 * kHEIGHT);
-    self.titleLabel.font = [UIFont systemFontOfSize:15.5 * kWIDTH];
+    self.titleLabel.frame = CGRectMake(10 * FitWidth, 0, kWIDTH, 30 * FitHeight);
+    self.titleLabel.font = [UIFont systemFontOfSize:15.5 * FitWidth];
 //    self.titleLabel.backgroundColor = [UIColor cyanColor];
     
-    self.describeLabel.frame = CGRectMake(10 * kWIDTH, self.titleLabel.frame.size.height, 375 * kWIDTH, 30 * kHEIGHT);
-    self.describeLabel.font = [UIFont systemFontOfSize:14 * kWIDTH];
+    self.describeLabel.frame = CGRectMake(10 * FitWidth, self.titleLabel.frame.size.height, kWIDTH, 30 * FitHeight);
+    self.describeLabel.font = [UIFont systemFontOfSize:14 * FitWidth];
     self.describeLabel.textColor = [UIColor darkGrayColor];
 //    self.describeLabel.backgroundColor = [UIColor yellowColor];
 }

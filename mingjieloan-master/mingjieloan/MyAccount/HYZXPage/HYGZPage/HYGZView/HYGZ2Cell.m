@@ -45,41 +45,41 @@
     
 //    self.boxImageView.frame = CGRectMake(20 * kWIDTH, 30 * kHEIGHT, 40 * kWIDTH, 40 * kHEIGHT);
     
-    CGFloat boxTitleHeight =[[self class] heightOfLabel:self.boxTitleStr andWith:kWIDTH * 200];
+    CGFloat boxTitleHeight =[[self class] heightOfLabel:self.boxTitleStr andWith:FitWidth * 200];
     
-    self.boxTitleLabel.frame = CGRectMake(110 * kWIDTH, 20 * kHEIGHT, 200 * kWIDTH, boxTitleHeight);
+    self.boxTitleLabel.frame = CGRectMake(110 * FitWidth, 20 * FitHeight, 200 * FitWidth, boxTitleHeight);
     self.boxTitleLabel.font = [UIFont systemFontOfSize:13];
     
 //    self.boxTitleLabel.backgroundColor = [UIColor redColor];
     
     
-    CGFloat boxHeight =[[self class] heightOfLabel:self.boxStr andWith:kWIDTH * 250];
+    CGFloat boxHeight =[[self class] heightOfLabel:self.boxStr andWith:FitWidth * 250];
     
     if ([self.boxStr containsString:@"V3，V4，V5，V6， V7和V8会员在每月1-10号，"]) {
-        boxHeight = 70 * kHEIGHT;
+        boxHeight = 70 * FitHeight;
     }
     
-    self.boxLabel.frame = CGRectMake(110 * kWIDTH, 20 * kHEIGHT + self.boxTitleLabel.frame.size.height, 250 * kWIDTH, boxHeight);
+    self.boxLabel.frame = CGRectMake(110 * FitWidth, 20 * FitHeight + self.boxTitleLabel.frame.size.height, 250 * FitWidth, boxHeight);
     self.boxLabel.font = [UIFont systemFontOfSize:11];
     self.boxLabel.numberOfLines = 0;
     
 //    self.boxLabel.backgroundColor = [UIColor yellowColor];
     
-    CGFloat cakeTitleHeight =[[self class] heightOfLabel:self.cakeTitleStr andWith:kWIDTH * 200];
+    CGFloat cakeTitleHeight =[[self class] heightOfLabel:self.cakeTitleStr andWith:FitWidth * 200];
     
-    self.cakeTitleLabel.frame = CGRectMake(110 * kWIDTH, 30 * kHEIGHT + self.boxTitleLabel.frame.size.height + self.boxLabel.frame.size.height, 200 * kWIDTH, cakeTitleHeight);
+    self.cakeTitleLabel.frame = CGRectMake(110 * FitWidth, 30 * FitHeight + self.boxTitleLabel.frame.size.height + self.boxLabel.frame.size.height, 200 * FitWidth, cakeTitleHeight);
     self.cakeTitleLabel.font = [UIFont systemFontOfSize:13];
     
 //    self.cakeTitleLabel.backgroundColor = [UIColor cyanColor];
     
     
-    CGFloat cakeHeight =[[self class] heightOfLabel:self.cakeStr andWith:kWIDTH * 250];
+    CGFloat cakeHeight =[[self class] heightOfLabel:self.cakeStr andWith:FitWidth * 250];
     
     if ([self.cakeStr containsString:@"V3，V4，V5，V6， V7和V8会员在生日当月，"]) {
-        cakeHeight = 50 * kHEIGHT;
+        cakeHeight = 50 * FitHeight;
     }
     
-    self.cakeLabel.frame = CGRectMake(110 * kWIDTH, 30 * kHEIGHT + self.boxTitleLabel.frame.size.height + self.boxLabel.frame.size.height + self.cakeTitleLabel.frame.size.height, 250 * kWIDTH, cakeHeight);
+    self.cakeLabel.frame = CGRectMake(110 * FitWidth, 30 * FitHeight + self.boxTitleLabel.frame.size.height + self.boxLabel.frame.size.height + self.cakeTitleLabel.frame.size.height, 250 * FitWidth, cakeHeight);
     self.cakeLabel.font = [UIFont systemFontOfSize:11];
     self.cakeLabel.numberOfLines = 0;
     

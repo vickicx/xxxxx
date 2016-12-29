@@ -8,8 +8,7 @@
 
 #import "HYZXHead2View.h"
 
-#define KWIDTH ([UIScreen mainScreen].bounds.size.width/375)
-#define KHEIGHT ([UIScreen mainScreen].bounds.size.height/667)
+
 
 @implementation HYZXHead2View
 
@@ -60,29 +59,29 @@
     
     self.carBackImageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     
-    self.tequanLabel.frame = CGRectMake(10 * KWIDTH, 10 * KHEIGHT, 60 * KWIDTH, 25 * KHEIGHT);
-    self.tequanLabel.font = [UIFont systemFontOfSize:13 * KWIDTH];
+    self.tequanLabel.frame = CGRectMake(10 * FitWidth, 10 * FitHeight, 60 * FitWidth, 25 * FitHeight);
+    self.tequanLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.tequanLabel.textColor = [UIColor darkGrayColor];
     //    self.tequanLabel.backgroundColor = [UIColor redColor];
     
-    self.tequanNumLabel.frame = CGRectMake(self.tequanLabel.frame.size.width + 5 * KWIDTH, 13 * KHEIGHT, 50 * KWIDTH, 20 * KHEIGHT);
-    self.tequanNumLabel.font = [UIFont systemFontOfSize:11 * KWIDTH];
+    self.tequanNumLabel.frame = CGRectMake(self.tequanLabel.frame.size.width + 5 * FitWidth, 13 * FitHeight, 50 * FitWidth, 20 * FitHeight);
+    self.tequanNumLabel.font = [UIFont systemFontOfSize:11 * FitWidth];
     self.tequanNumLabel.textColor = [UIColor grayColor];
     //    self.tequanNumLabel.backgroundColor = [UIColor yellowColor];
     
-    self.huiyuanguizeButton.frame = CGRectMake(375 * KWIDTH - 100 * KWIDTH, 10 * KHEIGHT, 100 * KWIDTH, 20 * KHEIGHT);
+    self.huiyuanguizeButton.frame = CGRectMake(kWIDTH - 100 * FitWidth, 10 * FitHeight, 100 * FitWidth, 20 * FitHeight);
     [self.huiyuanguizeButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [self.huiyuanguizeButton setTitle:@"会员规则>>" forState:UIControlStateNormal];
-    self.huiyuanguizeButton.titleLabel.font = [UIFont systemFontOfSize:13 * KWIDTH];
+    self.huiyuanguizeButton.titleLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.huiyuanguizeButton.titleLabel.textColor = [UIColor darkGrayColor];
     //    self.huiyuanguizeButton.backgroundColor = [UIColor cyanColor];
     
-    self.jifenjiangliButton.frame = CGRectMake(40 * KWIDTH, 50 * KHEIGHT, 75 * KWIDTH, 70 * KHEIGHT);
+    self.jifenjiangliButton.frame = CGRectMake(40 * FitWidth, 50 * FitHeight, 75 * FitWidth, 70 * FitHeight);
     [self.jifenjiangliButton setImage:[UIImage imageNamed:@"box"] forState:UIControlStateNormal];
     //    self.jifenjiangliButton.backgroundColor = [UIColor orangeColor];
     
-    self.jifenjiangliLabel.frame = CGRectMake(40 * KWIDTH, 50 * KHEIGHT + self.jifenjiangliButton.frame.size.height, 70 * KWIDTH, 25 * KHEIGHT);
-    self.jifenjiangliLabel.font = [UIFont systemFontOfSize:13 * KWIDTH];
+    self.jifenjiangliLabel.frame = CGRectMake(40 * FitWidth, 50 * FitHeight + self.jifenjiangliButton.frame.size.height, 70 * FitWidth, 25 * FitHeight);
+    self.jifenjiangliLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.jifenjiangliLabel.textAlignment = NSTextAlignmentCenter;
     self.jifenjiangliLabel.textColor = [UIColor darkGrayColor];
     self.jifenjiangliLabel.text = @"积分奖励";
@@ -93,7 +92,7 @@
     //    self.shengrihongbaoButton.backgroundColor = [UIColor greenColor];
     
     //    self.shengrihongbaoLabel.frame = CGRectMake(152 * KWIDTH, 50 * KHEIGHT + self.shengrihongbaoButton.frame.size.height, 70 * KWIDTH, 25 * KWIDTH);
-    self.shengrihongbaoLabel.font = [UIFont systemFontOfSize:13 * KWIDTH];
+    self.shengrihongbaoLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.shengrihongbaoLabel.textAlignment = NSTextAlignmentCenter;
     self.shengrihongbaoLabel.textColor = [UIColor darkGrayColor];
     self.shengrihongbaoLabel.text = @"生日红包";
@@ -104,7 +103,7 @@
     //    self.moreImageView.backgroundColor = [UIColor lightGrayColor];
     
     //    self.jingqingqidaiLabel.frame = CGRectMake(375 * KWIDTH - 110 * KWIDTH, 50 * KHEIGHT + self.moreImageView.frame.size.height, 70 * KWIDTH, 25 * KHEIGHT);
-    self.jingqingqidaiLabel.font = [UIFont systemFontOfSize:13 * KWIDTH];
+    self.jingqingqidaiLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.jingqingqidaiLabel.textAlignment = NSTextAlignmentCenter;
     self.jingqingqidaiLabel.textColor = [UIColor darkGrayColor];
     self.jingqingqidaiLabel.text = @"敬请期待";

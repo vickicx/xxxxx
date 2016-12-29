@@ -34,21 +34,21 @@
     
     [super layoutSubviews];
     
-    CGFloat height =[[self class] heightOfLabel:self.str andWith:kWIDTH * 375];
+    CGFloat height =[[self class] heightOfLabel:self.str andWith:FitWidth * 375];
     
     if ([self.str containsString:@"1. 每月1日0点，铭捷贷根据会员上一月度日均总资产调整会员等级，并享受相应的特权；"]) {
         
-        height = 250 * kHEIGHT;
+        height = 250 * FitHeight;
     }
     
     if ([self.str containsString:@"在每一个自然月内，铭捷贷每日会统计用户账户里的总资产，取该"]) {
         
-        height = 60 * kHEIGHT;
+        height = 60 * FitHeight;
     }
     
-    self.describeLabel.frame = CGRectMake(15 * kWIDTH, 15 * kHEIGHT, 375 * kWIDTH - 30 * kHEIGHT, height);
+    self.describeLabel.frame = CGRectMake(15 * FitWidth, 15 * FitHeight, kWIDTH - 30 * FitHeight, height);
     
-    self.describeLabel.font = [UIFont systemFontOfSize:13 * kWIDTH];
+    self.describeLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     
     self.describeLabel.numberOfLines = 0;
     

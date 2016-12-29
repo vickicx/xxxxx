@@ -174,7 +174,7 @@
     
     [self headerDataHandle];
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64 + 120 * FitHeight, 375 * FitWidth, [UIScreen mainScreen].bounds.size.height - 64 - 120 * FitHeight)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64 + 120 * FitHeight, kWIDTH, [UIScreen mainScreen].bounds.size.height - 64 - 120 * FitHeight)];
     
     [self.view addSubview:self.scrollView];
     
@@ -209,11 +209,11 @@
     [self createYJQTableView];
     
     
-    self.kzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 100 * FitHeight, 375 * FitWidth - 210 * FitWidth, 110 * FitHeight)];
+    self.kzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 100 * FitHeight, kWIDTH - 210 * FitWidth, 110 * FitHeight)];
     [self.hkzTableView addSubview:self.kzrEmptyImageView];
     self.kzrEmptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.kzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 100 * FitHeight + self.kzrEmptyImageView.frame.size.height, 375 * FitWidth - 210 * FitWidth, 40 * FitHeight)];
+    self.kzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 100 * FitHeight + self.kzrEmptyImageView.frame.size.height, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     
     [self.hkzTableView addSubview:self.kzrEmptyLabel];
     
@@ -223,11 +223,11 @@
     self.kzrEmptyLabel.textAlignment = NSTextAlignmentCenter;
     
     
-    self.zrzEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 100 * FitHeight, 375 * FitWidth - 210 * FitWidth, 110 * FitHeight)];
+    self.zrzEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 100 * FitHeight, kWIDTH - 210 * FitWidth, 110 * FitHeight)];
     [self.dqrTableView addSubview:self.zrzEmptyImageView];
     self.zrzEmptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.zrzEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 100 * FitHeight + self.zrzEmptyImageView.frame.size.height, 375 * FitWidth - 210 * FitWidth, 40 * FitHeight)];
+    self.zrzEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 100 * FitHeight + self.zrzEmptyImageView.frame.size.height, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     [self.dqrTableView addSubview:self.zrzEmptyLabel];
     
     self.zrzEmptyLabel.text = @"暂无数据!";
@@ -236,11 +236,11 @@
     self.zrzEmptyLabel.textAlignment = NSTextAlignmentCenter;
     
     
-    self.yzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 100 * FitHeight, 375 * FitWidth - 210 * FitWidth, 110 * FitHeight)];
+    self.yzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 100 * FitHeight, kWIDTH - 210 * FitWidth, 110 * FitHeight)];
     [self.yjqTableView addSubview:self.yzrEmptyImageView];
     self.yzrEmptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.yzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 100 * FitHeight + self.yzrEmptyImageView.frame.size.height, 375 * FitWidth - 210 * FitWidth, 40 * FitHeight)];
+    self.yzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 100 * FitHeight + self.yzrEmptyImageView.frame.size.height, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     [self.yjqTableView addSubview:self.yzrEmptyLabel];
     
     self.yzrEmptyLabel.text = @"暂无数据!";

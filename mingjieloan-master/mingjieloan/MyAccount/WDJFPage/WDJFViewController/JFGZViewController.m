@@ -289,7 +289,7 @@
     
     titleLabel.textColor = [UIColor colorWithRed:27 / 255.0 green:28 / 255.0 blue:88 / 255.0 alpha:1.0];
     
-    UIImageView *xiajiantouImageView = [[UIImageView alloc] initWithFrame:CGRectMake(375 * FitWidth - 10 * FitWidth - 30 * FitWidth, 15 * FitHeight, 18 , 10)];
+    UIImageView *xiajiantouImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kWIDTH - 10 * FitWidth - 30 * FitWidth, 15 * FitHeight, 18 , 10)];
     
     [cellButton addSubview:xiajiantouImageView];
     
@@ -422,7 +422,7 @@
         
         if (self.firstStr == nil) {
             
-            CGFloat height = [JFGZCell heightOfLabel:self.firstStr andWith:375 * FitWidth];
+            CGFloat height = [JFGZCell heightOfLabel:self.firstStr andWith:kWIDTH];
             
             return height ;
             
@@ -437,12 +437,12 @@
         
         if (self.secondStr == nil) {
             
-            CGFloat height = [JFGZCell heightOfLabel:self.secondStr andWith:375 * FitWidth];
+            CGFloat height = [JFGZCell heightOfLabel:self.secondStr andWith:kWIDTH];
             
             return height;
         }else{
             
-            CGFloat height = [JFGZCell heightOfLabel:self.secondStr andWith:375 * FitWidth];
+            CGFloat height = [JFGZCell heightOfLabel:self.secondStr andWith:kWIDTH];
             
             return 220 * FitHeight;
         }
@@ -452,12 +452,12 @@
     }else{
         
         if (self.thirdStr == nil) {
-            CGFloat height = [JFGZCell heightOfLabel:self.thirdStr andWith:375 * FitWidth];
+            CGFloat height = [JFGZCell heightOfLabel:self.thirdStr andWith:kWIDTH];
             
             return height;
         }else{
             
-            CGFloat height = [JFGZCell heightOfLabel:self.thirdStr andWith:375 * FitWidth];
+            CGFloat height = [JFGZCell heightOfLabel:self.thirdStr andWith:kWIDTH];
             
             return height + 10 * FitHeight;
         }
@@ -487,9 +487,9 @@
 {
     if (section == 2) {
         
-        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375 * FitWidth, 470 * FitHeight)];
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 470 * FitHeight)];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, footerView.frame.size.height - 30 * FitHeight, 375 * FitWidth, 30 * FitHeight)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, footerView.frame.size.height - 30 * FitHeight, kWIDTH, 30 * FitHeight)];
         
         [footerView addSubview:label];
         

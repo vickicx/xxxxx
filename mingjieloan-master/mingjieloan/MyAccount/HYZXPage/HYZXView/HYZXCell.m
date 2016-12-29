@@ -39,24 +39,24 @@
 {
     [super layoutSubviews];
     
-    self.huiyuanImageView.frame = CGRectMake(30 * kWIDTH, 10 * kHEIGHT, 20 * kWIDTH, 15 * kHEIGHT);
+    self.huiyuanImageView.frame = CGRectMake(30 * FitWidth, 10 * FitHeight, 20 * FitWidth, 15 * FitHeight);
 //    self.huiyuanImageView.backgroundColor = [UIColor  redColor];
     
-    self.huiyuandengjiLabel.frame = CGRectMake(20 * kWIDTH, 0, cWIDTH, self.contentView.frame.size.height);
+    self.huiyuandengjiLabel.frame = CGRectMake(20 * FitWidth, 0, cWIDTH, self.contentView.frame.size.height);
     self.huiyuandengjiLabel.textColor = [UIColor darkGrayColor];
-    self.huiyuandengjiLabel.font = [UIFont systemFontOfSize:13 * kWIDTH];
+    self.huiyuandengjiLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.huiyuandengjiLabel.textAlignment = NSTextAlignmentLeft;
 //    self.huiyuandengjiLabel.backgroundColor = [UIColor blueColor];
     
     self.jifenjiangliLabel.frame = CGRectMake(cWIDTH, 0, cWIDTH, self.contentView.frame.size.height);
     self.jifenjiangliLabel.textColor = [UIColor darkGrayColor];
-    self.jifenjiangliLabel.font = [UIFont systemFontOfSize:13 * kWIDTH];
+    self.jifenjiangliLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.jifenjiangliLabel.textAlignment = NSTextAlignmentCenter;
 //    self.jifenjiangliLabel.backgroundColor = [UIColor cyanColor];
     
     self.shengrijuanLabel.frame = CGRectMake(cWIDTH * 2, 0, cWIDTH, self.contentView.frame.size.height);
     self.shengrijuanLabel.textColor = [UIColor darkGrayColor];
-    self.shengrijuanLabel.font = [UIFont systemFontOfSize:13 * kWIDTH];
+    self.shengrijuanLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.shengrijuanLabel.textAlignment = NSTextAlignmentCenter;
 //    self.shengrijuanLabel.backgroundColor = [UIColor yellowColor];
 }

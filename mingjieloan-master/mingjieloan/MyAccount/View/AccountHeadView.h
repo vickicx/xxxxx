@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "JYJLViewController.h"
-typedef void (^tiaozhuan)(void);
 
 @protocol TrageRecordDelegate <NSObject>
 
@@ -18,7 +17,29 @@ typedef void (^tiaozhuan)(void);
 
 @interface AccountHeadView : UIView
 
-@property (nonatomic, copy)tiaozhuan tiao;
+@property(nonatomic, strong) BasicInfo *basicInfo;
+
+@property(nonatomic, strong) UserInfo *userInfo;
+
+//总资产
+@property (nonatomic,strong) UILabel *zongzichanLab;
+
+//预期收益
+@property (nonatomic,strong) UILabel *yuqishouyiLab;
+
+//累计收益
+@property (nonatomic,strong) UILabel *leijishouyiLab;
+
+//我的投资
+@property (nonatomic,strong) UILabel *wodetouziLab;
+
+//账户余额
+@property (nonatomic,strong) UILabel *zhanghuyueLab;
+
+//冻结资金
+@property (nonatomic,strong) UILabel *dongjiezijin;
+//存钱罐
+@property (nonatomic, strong) UILabel *boxlabel;
 
 @property (weak, nonatomic) id<TrageRecordDelegate>delegate;
 - (instancetype)initWithFrame:(CGRect)frame;

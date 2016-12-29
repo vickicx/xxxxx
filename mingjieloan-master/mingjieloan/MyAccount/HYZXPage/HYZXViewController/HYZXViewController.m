@@ -81,17 +81,17 @@
 /**
  * XXXXX
  */
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        
-        _dataArray = [NSMutableArray array];
-    }
-    
-    return self;
-}
+//- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+//    
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    
+//    if (self) {
+//        
+//      
+//    }
+//    
+//    return self;
+//}
 
 
 /**
@@ -100,6 +100,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+      _dataArray = [NSMutableArray array];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -128,7 +129,7 @@
     
     NSString *body = [NSString stringWithFormat:@"sid=%@", self.sid];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
@@ -210,8 +211,8 @@
             
             self.hyzxHead2View.moreImageView.hidden = NO;
             self.hyzxHead2View.jingqingqidaiLabel.hidden = NO;
-            self.hyzxHead2View.moreImageView.frame = CGRectMake(375 * FitWidth - 110 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitHeight);
-            self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(375 * FitWidth - 110 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitHeight);
+            self.hyzxHead2View.moreImageView.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitHeight);
+            self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitHeight);
             
             self.hyzxHead2View.tequanLabel.text = [NSString stringWithFormat:@"V%ld特权", self.currentSelect + 1];
             self.hyzxHead2View.tequanNumLabel.text = @"共2项";
@@ -318,7 +319,7 @@
  */
 - (void)createTableView {
     
-    self.huiyuanzhongxinTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 375 * FitWidth, 667 * FitHeight - 64) style:UITableViewStyleGrouped];
+    self.huiyuanzhongxinTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
     
     [self.view addSubview:self.huiyuanzhongxinTableView];
     
@@ -360,7 +361,7 @@
     [self.huiyuanzhongxinTableView addSubview:arrowView];
     
     //资产的值view
-    self.diaphanous1View = [[UIView alloc] initWithFrame:CGRectMake(0, 180 * FitHeight - 30 * FitHeight, 124 * FitWidth, 60 * FitHeight)];
+    self.diaphanous1View = [[UIView alloc] initWithFrame:CGRectMake(0, 150 * FitHeight , kWIDTH / 3, 60 * FitHeight)];
     
     [self.huiyuanzhongxinTableView addSubview:self.diaphanous1View];
     
@@ -368,71 +369,71 @@
     
     self.diaphanous1View.alpha = 0.1;
     
-    self.diaphanous2View = [[UIView alloc] initWithFrame:CGRectMake(125 * FitWidth, 180 * FitHeight - 30 * FitHeight, 124 * FitWidth, 60 * FitHeight)];
+    self.diaphanous2View = [[UIView alloc] initWithFrame:CGRectMake(self.diaphanous1View.right + 1*FitWidth, 180 * FitHeight - 30 * FitHeight, kWIDTH / 3, 60 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.diaphanous2View];
     self.diaphanous2View.backgroundColor = [XXColor goldenColor];
     self.diaphanous2View.alpha = 0.1;
     
-    self.diaphanous3View = [[UIView alloc] initWithFrame:CGRectMake(250 * FitWidth, 180 * FitHeight - 30 * FitHeight, 124 * FitWidth, 60 * FitHeight)];
+    self.diaphanous3View = [[UIView alloc] initWithFrame:CGRectMake(self.diaphanous2View.right + 1*FitWidth, 180 * FitHeight - 30 * FitHeight, kWIDTH / 3, 60 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.diaphanous3View];
     self.diaphanous3View.backgroundColor = [XXColor goldenColor];
     self.diaphanous3View.alpha = 0.1;
     
-    self.zongzichanTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 180 * FitHeight - 25 * FitHeight, 124 * FitWidth, 30 * FitHeight)];
+    self.zongzichanTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 180 * FitHeight - 25 * FitHeight, kWIDTH / 3, 30 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.zongzichanTitleLabel];
     self.zongzichanTitleLabel.font = [UIFont systemFontOfSize:13.5 * FitWidth];
     self.zongzichanTitleLabel.textColor = [UIColor whiteColor];
     self.zongzichanTitleLabel.textAlignment = NSTextAlignmentCenter;
     self.zongzichanTitleLabel.text = @"本月日均总资产";
     
-    self.kaquanTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(125 * FitWidth, 180 * FitHeight - 25 * FitHeight, 124 * FitWidth, 30 * FitHeight)];
+    self.kaquanTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.diaphanous1View.right + 1*FitWidth ,180 * FitHeight - 25 * FitHeight, kWIDTH / 3, 30 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.kaquanTitleLabel];
     self.kaquanTitleLabel.font = [UIFont systemFontOfSize:13.5 * FitWidth];
     self.kaquanTitleLabel.textColor = [UIColor whiteColor];
     self.kaquanTitleLabel.textAlignment = NSTextAlignmentCenter;
     self.kaquanTitleLabel.text = @"我的卡券";
     
-    self.wodejifenTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(250 * FitWidth, 180 * FitHeight - 25 * FitHeight, 124 * FitWidth, 30 * FitHeight)];
+    self.wodejifenTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.diaphanous2View.right + 1*FitWidth, 180 * FitHeight - 25 * FitHeight, kWIDTH / 3, 30 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.wodejifenTitleLabel];
     self.wodejifenTitleLabel.font = [UIFont systemFontOfSize:13.5 * FitWidth];
     self.wodejifenTitleLabel.textColor = [UIColor whiteColor];
     self.wodejifenTitleLabel.textAlignment = NSTextAlignmentCenter;
     self.wodejifenTitleLabel.text = @"我的积分";
     
-    self.zongzichanLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 180 * FitHeight - 30 * FitHeight + 30 * FitHeight, 124 * FitWidth, 30 * FitHeight)];
+    self.zongzichanLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 180 * FitHeight, kWIDTH / 3, 30 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.zongzichanLabel];
     self.zongzichanLabel.textAlignment = NSTextAlignmentCenter;
     self.zongzichanLabel.textColor = [UIColor whiteColor];
     self.zongzichanLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.zongzichanLabel.font = [UIFont fontWithName:@"Avenir" size:13];
     
-    self.kaquanLabel = [[UILabel alloc] initWithFrame:CGRectMake(125 * FitWidth, 180 * FitHeight - 30 * FitHeight + 30 * FitHeight, 124 * FitWidth, 30 * FitHeight)];
+    self.kaquanLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.diaphanous1View.right + 1*FitWidth, 180 * FitHeight , kWIDTH / 3, 30 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.kaquanLabel];
     self.kaquanLabel.textAlignment = NSTextAlignmentCenter;
     self.kaquanLabel.textColor = [UIColor whiteColor];
     self.kaquanLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.kaquanLabel.font = [UIFont fontWithName:@"Avenir" size:13];
     
-    self.wodejifenLabel = [[UILabel alloc] initWithFrame:CGRectMake(250 * FitWidth, 180 * FitHeight - 30 * FitHeight + 30 * FitHeight, 124 * FitWidth, 30 * FitHeight)];
+    self.wodejifenLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.diaphanous2View.right + 1*FitWidth, 180 * FitHeight, kWIDTH / 3, 30 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.wodejifenLabel];
     self.wodejifenLabel.textAlignment = NSTextAlignmentCenter;
     self.wodejifenLabel.textColor = [UIColor whiteColor];
     self.wodejifenLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.wodejifenLabel.font = [UIFont fontWithName:@"Avenir" size:13];
     
-    self.zongzichanButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 180 * FitHeight - 30 * FitHeight, 124 * FitWidth, 60 * FitHeight)];
+    self.zongzichanButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 180 * FitHeight - 30 * FitHeight, kWIDTH / 3, 60 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.zongzichanButton];
     [self.zongzichanButton addTarget:self action:@selector(zongzichanButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.wodekaquanButton = [[UIButton alloc] initWithFrame:CGRectMake(125 * FitWidth, 180 * FitHeight - 30 * FitHeight, 124 * FitWidth, 60 * FitHeight)];
+    self.wodekaquanButton = [[UIButton alloc] initWithFrame:CGRectMake(self.diaphanous1View.right + 1*FitWidth, 180 * FitHeight - 30 * FitHeight, kWIDTH / 3, 60 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.wodekaquanButton];
     [self.wodekaquanButton addTarget:self action:@selector(wodekaquanButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.wodejifenButton = [[UIButton alloc] initWithFrame:CGRectMake(250 * FitWidth, 180 * FitHeight - 30 * FitHeight, 124 * FitWidth, 60 * FitHeight)];
+    self.wodejifenButton = [[UIButton alloc] initWithFrame:CGRectMake(self.diaphanous2View.right + 1*FitWidth, 180 * FitHeight - 30 * FitHeight, kWIDTH / 3, 60 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.wodejifenButton];
     [self.wodejifenButton addTarget:self action:@selector(wodejifenButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.hyzxHead2View = [[HYZXHead2View alloc] initWithFrame:CGRectMake(0, 210 * FitHeight, 375 * FitWidth, 180 * FitHeight)];
+    self.hyzxHead2View = [[HYZXHead2View alloc] initWithFrame:CGRectMake(0, 210 * FitHeight, kWIDTH, 180 * FitHeight)];
     [self.huiyuanzhongxinTableView addSubview:self.hyzxHead2View];
     self.hyzxHead2View.backgroundColor = [UIColor whiteColor];
     
@@ -789,8 +790,8 @@
             
             self.hyzxHead2View.moreImageView.hidden = NO;
             self.hyzxHead2View.jingqingqidaiLabel.hidden = NO;
-            self.hyzxHead2View.moreImageView.frame = CGRectMake(375 * FitWidth - 110 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitHeight);
-            self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(375 * FitWidth - 110 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitHeight);
+            self.hyzxHead2View.moreImageView.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitHeight);
+            self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitHeight);
             
             self.hyzxHead2View.tequanLabel.text = [NSString stringWithFormat:@"V%ld特权", self.currentSelect + 1];
             self.hyzxHead2View.tequanNumLabel.text = @"共2项";

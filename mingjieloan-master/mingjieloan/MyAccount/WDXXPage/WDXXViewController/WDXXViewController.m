@@ -147,7 +147,7 @@
  */
 - (void)createTableView {
     
-    self.wdxxTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, FitHeight * 375, 667 * FitHeight - 64) style:UITableViewStyleGrouped];
+    self.wdxxTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
     
     [self.view addSubview:self.wdxxTableView];
     
@@ -361,7 +361,7 @@
         
         model = [self.mainArr objectAtIndex:indexPath.section];
         
-        CGFloat height = [WDXXTableViewCell heightOfLabel:[NSString stringWithFormat:@"%@", model.subject] andWith:375 * FitWidth - 170 * FitWidth];
+        CGFloat height = [WDXXTableViewCell heightOfLabel:[NSString stringWithFormat:@"%@", model.subject] andWith:kWIDTH - 170 * FitWidth];
         
         return height + 110 * FitHeight;
     }

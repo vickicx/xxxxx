@@ -63,22 +63,22 @@
 
 @implementation HYGZViewController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        
-        self.sectionTitleArr = [NSArray array];
-    }
-    
-    return self;
-}
+//- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+//    
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    
+//    if (self) {
+//        
+//           }
+//    
+//    return self;
+//}
 
 
 
 - (void)viewDidLoad {
-    
+    self.sectionTitleArr = [NSArray array];
+
     [super viewDidLoad];
     
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
@@ -140,7 +140,7 @@
 
 - (void)createTableView
 {
-    self.hygzTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, FitWidth * 375, 667 * FitHeight - 64) style:UITableViewStyleGrouped];
+    self.hygzTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
     [self.view addSubview:self.hygzTableView];
     self.hygzTableView.delegate = self;
     self.hygzTableView.dataSource = self;
@@ -196,15 +196,15 @@
             
             cell.str = self.firstStr;
             cell.huiyuanImageView.image = [UIImage imageNamed:@"vip-grade"];
-            cell.huiyuanImageView.frame = CGRectMake(15 * FitWidth, 100 * FitHeight + cell.describeLabel.frame.size.height + 15, 375 * FitWidth - 30 * FitHeight, self.firstHeight);
+            cell.huiyuanImageView.frame = CGRectMake(15 * FitWidth, 100 * FitHeight + cell.describeLabel.frame.size.height + 15, kWIDTH - 30 * FitHeight, self.firstHeight);
         }
         if (indexPath.section == 1) {
             
             cell.str = self.secondStr;
             cell.huiyuanImageView.image = [UIImage imageNamed:@"money-count"];
-            cell.huiyuanImageView.frame = CGRectMake(15 * FitWidth, 100 * FitHeight, 375 * FitWidth - 30 * FitWidth, self.secondHeight);
+            cell.huiyuanImageView.frame = CGRectMake(15 * FitWidth, 100 * FitHeight, kWIDTH - 30 * FitWidth, self.secondHeight);
             
-            cell.hyzxButton.frame = CGRectMake(375 * FitWidth - 150 * FitWidth, 170 * FitHeight, 150 * FitWidth, self.buttonHeihgt);
+            cell.hyzxButton.frame = CGRectMake(kWIDTH - 150 * FitWidth, 170 * FitHeight, 150 * FitWidth, self.buttonHeihgt);
             
             cell.hyzxButton.hidden = self.close;
             
@@ -277,7 +277,7 @@
     [cellButton addSubview:headImageView];
     headImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"cellHead%ld", (long)section]];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 * FitWidth + headImageView.frame.size.width, 5 * FitHeight, FitWidth * 375, FitHeight * 40)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 * FitWidth + headImageView.frame.size.width, 5 * FitHeight, kWIDTH, FitHeight * 40)];
     
     [cellButton addSubview:titleLabel];
     
@@ -286,7 +286,7 @@
     titleLabel.font = [UIFont systemFontOfSize:15];
     titleLabel.textColor = [UIColor blackColor];
     
-    UIImageView *xiajiantouImageView = [[UIImageView alloc] initWithFrame:CGRectMake(375 * FitWidth - 10 * FitWidth - 35 * FitWidth, 25 * FitHeight, 18, 10)];
+    UIImageView *xiajiantouImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kWIDTH - 10 * FitWidth - 35 * FitWidth, 25 * FitHeight, 18, 10)];
     [cellButton addSubview:xiajiantouImageView];
     
     if (section == 0) {
@@ -329,7 +329,7 @@
                 
                 self.firstStr = self.firstStr;
                 
-                self.firstHeight = 350 * FitHeight;
+                self.firstHeight = kHEIGHT;
                 
                 self.jiantou1Name = @"top-arrow";
                 
@@ -441,7 +441,7 @@
         
         if (self.firstStr == nil) {
             
-            CGFloat height = [HYGZCell heightOfLabel:self.firstStr andWith:375 * FitWidth - 30 * FitWidth];
+            CGFloat height = [HYGZCell heightOfLabel:self.firstStr andWith:kWIDTH - 30 * FitWidth];
             
             //NSLog(@"%f",height);
             
@@ -449,7 +449,7 @@
             
         }else{
             
-            CGFloat height = [HYGZCell heightOfLabel:self.firstStr andWith:375 * FitWidth - 30 * FitWidth];
+            CGFloat height = [HYGZCell heightOfLabel:self.firstStr andWith:kWIDTH - 30 * FitWidth];
             
             //NSLog(@"%f",height);
             
@@ -462,7 +462,7 @@
     }else if (indexPath.section == 1){
         
         if (self.secondStr == nil) {
-            CGFloat height = [HYGZCell heightOfLabel:self.secondStr andWith:375 * FitWidth - 30 * FitWidth];
+            CGFloat height = [HYGZCell heightOfLabel:self.secondStr andWith:kWIDTH - 30 * FitWidth];
             
             return height;
         }else{
@@ -477,18 +477,18 @@
     }else if (indexPath.section == 2){
         
         if (self.boxTitleStr == nil) {
-            CGFloat height = [HYGZCell heightOfLabel:self.boxTitleStr andWith:375 * FitWidth - 30 * FitWidth];
+            CGFloat height = [HYGZCell heightOfLabel:self.boxTitleStr andWith:kWIDTH - 30 * FitWidth];
             
             return height;
         }else{
             
-            CGFloat height1 = [HYGZCell heightOfLabel:self.boxTitleStr andWith:375 * FitWidth];
+            CGFloat height1 = [HYGZCell heightOfLabel:self.boxTitleStr andWith:kHEIGHT];
             
-            CGFloat height2 = [HYGZCell heightOfLabel:self.boxStr andWith:375 * FitWidth];
+            CGFloat height2 = [HYGZCell heightOfLabel:self.boxStr andWith:kWIDTH];
             
-            CGFloat height3 = [HYGZCell heightOfLabel:self.cakeTitleStr andWith:375 * FitWidth];
+            CGFloat height3 = [HYGZCell heightOfLabel:self.cakeTitleStr andWith:kWIDTH];
             
-            CGFloat height4 = [HYGZCell heightOfLabel:self.cakeStr andWith:375 * FitWidth];
+            CGFloat height4 = [HYGZCell heightOfLabel:self.cakeStr andWith:kWIDTH];
             
             return 230 * FitHeight;
             
@@ -502,7 +502,7 @@
         
         
         if (self.fourthStr == nil) {
-            CGFloat height = [HYGZCell heightOfLabel:self.fourthStr andWith:375 * FitWidth - 30 * FitWidth];
+            CGFloat height = [HYGZCell heightOfLabel:self.fourthStr andWith:kWIDTH - 30 * FitWidth];
             
             return height;
         }else{
@@ -536,9 +536,9 @@
 {
     if (section == 2) {
         
-        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375 * FitWidth, 420 * FitHeight)];
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 420 * FitHeight)];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, footerView.frame.size.height - 30 * FitHeight, 375 * FitWidth, 30 * FitHeight)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, footerView.frame.size.height - 30 * FitHeight, kWIDTH, 30 * FitHeight)];
         [footerView addSubview:label];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor grayColor];

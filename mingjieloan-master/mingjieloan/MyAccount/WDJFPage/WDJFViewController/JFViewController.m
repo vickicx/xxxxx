@@ -93,7 +93,7 @@
     [self createHeadView];
     
     self.jfscButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.jfscButton.frame = CGRectMake(40 * FitWidth, 430 * FitHeight, 375 * FitWidth - 80 * FitWidth, 50 * FitHeight);
+    self.jfscButton.frame = CGRectMake(40 * FitWidth, 430 * FitHeight, kWIDTH - 80 * FitWidth, 50 * FitHeight);
     [self.view addSubview:self.jfscButton];
     self.jfscButton.backgroundColor = [XXColor btnGoldenColor];
     self.jfscButton.layer.cornerRadius = 5 * FitHeight;
@@ -105,7 +105,7 @@
     [self.jfscButton addTarget:self action:@selector(jfscButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     self.jfgzButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.jfgzButton.frame = CGRectMake(80 * FitWidth,667 * FitHeight - 35 * FitHeight, 375 * FitWidth - 160 * FitWidth, 25 * FitHeight);
+    self.jfgzButton.frame = CGRectMake(80 * FitWidth,kHEIGHT - 35 * FitHeight, kWIDTH - 160 * FitWidth, 25 * FitHeight);
     [self.view addSubview:self.jfgzButton];
     [self.jfgzButton setTitle:@"积分使用规则?" forState:UIControlStateNormal];
     [self.jfgzButton setTitleColor:[XXColor goldenColor] forState:UIControlStateNormal];
@@ -237,7 +237,7 @@
     self.kyjfTitleLabel.font = [UIFont systemFontOfSize:17 weight:0.3];
     self.kyjfTitleLabel.textColor = [UIColor whiteColor];
     
-    self.kyjfLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 * FitWidth, 30 * FitHeight + self.kyjfTitleLabel.frame.size.height, 375 * FitWidth, 40 * FitHeight)];
+    self.kyjfLabel = [[UILabel alloc] initWithFrame:CGRectMake(20 * FitWidth, 30 * FitHeight + self.kyjfTitleLabel.frame.size.height, kWIDTH, 40 * FitHeight)];
     [self.kyjfView addSubview:self.kyjfLabel];
     self.kyjfLabel.textColor = [UIColor whiteColor];
     self.kyjfLabel.font = [UIFont systemFontOfSize:25];
@@ -264,7 +264,7 @@
 
 - (void)createTableView
 {
-    self.jfTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 375 * FitWidth, 667 * FitHeight - 64) style:UITableViewStyleGrouped];
+    self.jfTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
     [self.view addSubview:self.jfTableView];
     
     self.jfTableView.delegate = self;
