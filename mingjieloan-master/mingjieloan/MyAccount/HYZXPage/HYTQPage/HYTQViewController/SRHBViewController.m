@@ -221,8 +221,8 @@
 {
     NSString *url = [NSString stringWithFormat:@"%@/birthday/get_red2", HOSTURL];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@", self.sid];
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid, nil];
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result)  {
         
@@ -272,9 +272,10 @@
 {
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, SRTQ];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&vip=%ld", self.sid, self.vip];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"vip",self.vip, nil];
+    
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result)  {
 

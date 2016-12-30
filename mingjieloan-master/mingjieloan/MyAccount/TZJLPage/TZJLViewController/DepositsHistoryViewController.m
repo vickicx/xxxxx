@@ -260,7 +260,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, INVEST];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@", self.sid];
+    NSDictionary *body = @{@"sid":MySid};
     
     JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
     
@@ -268,7 +268,7 @@
     
     [hud showInView:self.view];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType: 0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType: 0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         [hud dismiss];
@@ -297,8 +297,7 @@
  */
 - (void)returningDataHandle {
 
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=1", self.sid];
-    
+    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNING];
     
     JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
@@ -307,7 +306,7 @@
     
     [hud showInView:self.view];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         [hud dismiss];
@@ -373,7 +372,7 @@
  */
 - (void)confirmDataHandle {
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=1", self.sid];
+    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, CONFIRM];
     
@@ -383,7 +382,7 @@
     
     [hud showInView:self.view];
 
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
@@ -442,7 +441,7 @@
  */
 - (void)returnedDataHandle {
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=1", self.sid];
+    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNED];
     
@@ -452,7 +451,7 @@
     
     [hud showInView:self.view];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
@@ -870,8 +869,8 @@
     [self.returningMainArr removeAllObjects];
     
     [self.returningArr removeAllObjects];
-    
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=1", self.sid];
+    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
+//    NSString *body = [NSString stringWithFormat:@"sid=%@&page=1", self.sid];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNING];
     
@@ -883,7 +882,7 @@
    
         
     
-[VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+[VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
     
 } success:^(id result) {
     
@@ -948,8 +947,8 @@
     
     [self.returningArr removeAllObjects];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld", self.sid, (long)self.returningPage];
-        
+
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(long)self.returningPage, nil];
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNING];
     
     JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
@@ -958,7 +957,7 @@
     
     [hud showInView:self.view];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
@@ -1052,7 +1051,7 @@
     
     [self.confirmArr removeAllObjects];
 
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=1", self.sid];
+    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, CONFIRM];
     
@@ -1062,7 +1061,7 @@
     
     [hud showInView:self.view];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -1128,7 +1127,8 @@
     
     [self.confirmArr removeAllObjects];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld", self.sid, (long)self.confirmPage];
+
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",self.confirmPage, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, CONFIRM];
     
@@ -1138,7 +1138,7 @@
     
     [hud showInView:self.view];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -1232,7 +1232,7 @@
     
     [self.returnedArr removeAllObjects];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=1", self.sid];
+    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNED];
     
@@ -1242,7 +1242,7 @@
     
     [hud showInView:self.view];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -1308,8 +1308,8 @@
     
     [self.returnedArr removeAllObjects];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld", self.sid, (long)self.returnedPage];
-    
+  
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",self.returnedPage, nil];
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNED];
     
     JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
@@ -1318,7 +1318,7 @@
     
     [hud showInView:self.view];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         

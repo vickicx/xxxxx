@@ -178,9 +178,9 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, JFMALLEXCHANGE];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&commodity_id=%@&red_packet_id=%@&cost_point=%@", self.sid, self.commodity_id, self.red_packet_id, self.cost_point];
-    
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"commodity_id",self.commodity_id,@"red_packet_id",self.red_packet_id,@"cost_point",self.cost_point, nil];
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         NSString *is_success = [result objectForKey:@"is_success"];
@@ -236,9 +236,10 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, JFMALL];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&type=%ld", self.sid, (long)self.type];
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"type", (long)self.type, nil];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -363,9 +364,10 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, JFMALL];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&type=%ld", self.sid, (long)self.type];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"type", (long)self.type, nil];
+    
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         

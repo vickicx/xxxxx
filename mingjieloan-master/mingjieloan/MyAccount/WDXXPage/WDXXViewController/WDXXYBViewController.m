@@ -104,9 +104,10 @@
 {
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXXYB];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&month=%@", self.sid, self.month];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"month", self.month, nil];
+    
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         

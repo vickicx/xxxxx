@@ -149,9 +149,9 @@
 {
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDJF];
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@", self.sid];
+    NSDictionary *body = @{@"sid":MySid};
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         

@@ -465,11 +465,12 @@
  */
 - (void)KZRDataHandle {
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%d", self.sid, (int)self.kzrPage];
+   
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.kzrPage, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, KZR];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -514,11 +515,11 @@
  */
 - (void)ZRZDataHandle {
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%d", self.sid, (int)self.zrzPage];
+   NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",self.zrzPage, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, ZRZ];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -563,11 +564,11 @@
  */
 - (void)YZRDataHandle {
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%d", self.sid, (int)self.yzrPage];
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.yzrPage, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, YZR];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -660,11 +661,11 @@
         [self.kzrArr removeAllObjects];
     }
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%d", self.sid, (int)self.kzrPage];
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.kzrPage, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, KZR];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -761,11 +762,11 @@
         [self.zrzArr removeAllObjects];
     }
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%d", self.sid, (int)self.zrzPage];
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.zrzPage, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, ZRZ];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -860,11 +861,11 @@
         [self.yzrArr removeAllObjects];
     }
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%d", self.sid, (int)self.yzrPage];
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.yzrPage, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, YZR];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         

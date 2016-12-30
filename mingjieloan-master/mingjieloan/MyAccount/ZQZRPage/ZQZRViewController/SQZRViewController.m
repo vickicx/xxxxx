@@ -387,10 +387,11 @@
 
 - (void)publishDataHandle {
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&products_title=%@&oid_tender_id=%@&transfer_capital=%@&discount_amount=%@&tender_from=%@", self.sid, self.products_title, self.oid_tender_id, self.tender_amount, self.zheRangLXJETextField.text, self.tender_from];
+  
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"products_title",self.products_title,@"oid_tender_id",self.oid_tender_id,@"transfer_capital",self.tender_amount,@"discount_amount",self.zheRangLXJETextField.text,@"tender_from",self.tender_from, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, FBZR];
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
        
@@ -695,7 +696,8 @@
                 
                 UIAlertAction *defautAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                     
-                    NSString *body = [NSString stringWithFormat:@"sid=%@&products_title=%@&oid_tender_id=%@&transfer_capital=%@&discount_amount=%@&tender_from=%@", self.sid, self.products_title, self.oid_tender_id, self.tender_amount, self.zheRangLXJETextField.text, self.tender_from];
+                    
+                     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"products_title",self.products_title,@"oid_tender_id",self.oid_tender_id,@"transfer_capital",self.tender_amount,@"discount_amount",self.zheRangLXJETextField.text,@"tender_from",self.tender_from, nil];
                     
                     
                     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, FBZR];
@@ -703,7 +705,7 @@
                     //NSLog(@"body ===== %@", body);
                     
                     
-                    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+                    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
                         
                     } success:^(id result) {
                         
@@ -766,20 +768,21 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, SQZR];
     
-    NSString *body = [NSString string];
+    NSDictionary *body = [NSDictionary dictionary];
     
     if ([self.zheRangLXJETextField.text isEqualToString:@""]) {
         
-        body = [NSString stringWithFormat:@"tenderFrom=%@&oid_tender_id=%@&discount=%d&sid=%@", self.tender_from, self.oid_tender_id, 0, self.sid];
+        body = [NSDictionary dictionaryWithObjectsAndKeys:@"tender_from",self.tender_from,@"oid_tender_id",self.oid_tender_id,@"discount",0,@"sid",MySid, nil];
         
     }else{
         
-        body = [NSString stringWithFormat:@"tenderFrom=%@&oid_tender_id=%@&discount=%@&sid=%@", self.tender_from, self.oid_tender_id, self.zheRangLXJETextField.text, self.sid];
+        
+         body = [NSDictionary dictionaryWithObjectsAndKeys:@"tender_from",self.tender_from,@"oid_tender_id",self.oid_tender_id,@"discount",self.zheRangLXJETextField.text,@"sid",MySid, nil];
 
     }
 
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 

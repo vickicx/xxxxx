@@ -110,11 +110,12 @@
  */
 - (void)dataHandle {
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld", self.sid, (long)self.page];
+    
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"page", (long)self.page, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
                   self.dataArr = [result objectForKey:@"messageList"];
@@ -172,11 +173,11 @@
     
     self.page = 1;
     
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld", self.sid, (long)self.page];
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"page", (long)self.page, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
@@ -222,11 +223,11 @@
 - (void)footerRefreshing
 {
     self.page++;
-    NSString *body = [NSString stringWithFormat:@"sid=%@&page=%ld", self.sid, self.page];
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"page", self.page, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
@@ -403,11 +404,12 @@
  */
 - (void)sendData {
     
-    NSString *body = [NSString stringWithFormat:@"id=%@", self.myID];
+    
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"id", self.myID,nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXXREAD];
     
-    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
     }fail:^(NSError *error) {
