@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductOrdersModel.h"
+
 
 @interface TBJLTableViewCell : UITableViewCell
 
@@ -14,6 +16,6 @@
 @property (nonatomic, strong)UILabel *moneyLab;
 @property (nonatomic, strong)UILabel *timeLab;
 @property (nonatomic, strong)UIView *lineView;
-
+@property (nonatomic, strong)ProductOrdersModel *ordersModel;
 
 @end

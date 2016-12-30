@@ -50,7 +50,14 @@
     
 }
 
-
+- (void)setOrdersModel:(ProductOrdersModel *)ordersModel{
+    _ordersModel = ordersModel;
+    
+    _peopleLab.text = _ordersModel.realName;
+    _moneyLab.text = [NSString stringWithFormat:@"￥%@", _ordersModel.price];
+    _timeLab.text = _ordersModel.createData;
+    
+}
 
 
 

@@ -32,6 +32,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    self.TBJLArray = [NSMutableArray array];
+    
+    
     [self initButton];
     [self initTableView];
     [self initBottomView];
@@ -117,7 +120,7 @@
     }
     else
     {
-        return 11;
+        return (self.TBJLArray.count + 1);
     }
     }
     
@@ -233,9 +236,7 @@
         }
         else
         {
-            cell.peopleLab.text = @"杜**";
-            cell.moneyLab.text = @"¥10000.00";
-            cell.timeLab.text = @"2017-01-01 10:24:43";
+            cell.ordersModel = [self.TBJLArray objectAtIndex:(indexPath.row - 1)];
         }
         return  cell;
     }
@@ -321,31 +322,40 @@
 
 - (void)getProductDetail{
     
-    NSString *sid = @"id";
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
     
-    NSDictionary *dic = @{sid:_idNumber,
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
+    
+    NSString *idStr = @"id";
+    NSDictionary *dic = @{idStr:_idNumber,
                           @"sid" : [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"],
                           @"page" : @"0"};
-    NSLog(@"%@", dic);
-    
-    NSDictionary *headerDic = [NSDictionary dictionaryWithObject:@"text/html" forKey:@"Content-Type"];
-    
+
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@", Url(PRODUCTDETAIL), self.idNumber];
     //    NSString *csStr = [NSString stringWithFormat:@"jiahairan123.55555.io:19883/mapp/product/personal-loan/detail/%@", _idNumber];
-    NSLog(@"urlStr=========%@",urlStr);
-    [VVNetWorkTool postWithUrl:urlStr body:dic bodyType:BodyTypeDictionary httpHeader:headerDic responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+//    NSLog(@"urlStr=========%@",urlStr);
+    [VVNetWorkTool postWithUrl:urlStr body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
         //        NSLog(@"progress ===== %@", progress);
         
     } success:^(id result) {
-        
+        [hud dismiss];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@",dic);
         //        NSLog(@"dic = %@", dic);
         
+        //投标记录的数据 
+        NSMutableArray *orderArray = [[dic objectForKey:@"productOrders"] objectForKey:@"items"];
+        for (NSDictionary *dic in orderArray) {
+            ProductOrdersModel *orderModel = [[ProductOrdersModel alloc] init];
+            [orderModel setValuesForKeysWithDictionary:dic];
+            [self.TBJLArray addObject:orderModel];
+        }
         
-        
-        
+        [self.tableView reloadData];
     } fail:^(NSError *error) {
+        [hud dismiss];
         NSLog(@"error  %@",error);
     }];
     

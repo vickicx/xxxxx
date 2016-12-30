@@ -329,7 +329,7 @@
                 
                 self.firstStr = self.firstStr;
                 
-                self.firstHeight = kHEIGHT;
+                self.firstHeight = 335 * FitHeight;
                 
                 self.jiantou1Name = @"top-arrow";
                 

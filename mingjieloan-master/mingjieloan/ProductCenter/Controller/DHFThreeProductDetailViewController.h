@@ -17,6 +17,9 @@
 #import "HKJHTableViewCell.h"//还款计划
 #import "TBJLTableViewCell.h"//投标记录
 #import "DHFTBViewController.h"//投标
+
+#import "ProductOrdersModel.h"
+
 @interface DHFThreeProductDetailViewController : BaseViewController
     
 @property (nonatomic, strong)UIButton *CPXQButton;
@@ -31,5 +34,7 @@
 @property (nonatomic, strong)UILabel *warningLab;
 
 @property (nonatomic, copy)NSString *idNumber;
+
+@property (nonatomic, strong)NSMutableArray *TBJLArray;
 
 @end
