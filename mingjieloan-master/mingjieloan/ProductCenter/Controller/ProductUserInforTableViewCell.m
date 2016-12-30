@@ -38,19 +38,19 @@
     self.nameLab = [[UILabel alloc] initWithFrame:CGRectMake(13, 37, 100, 15)];
     _nameLab.font = [UIFont systemFontOfSize:13];
     _nameLab.textColor = GetColor(@"#555555");
-    _nameLab.text = @"姓名：郭**";
+    _nameLab.text = @"姓名：";
     [self.contentView addSubview:_nameLab];
     
     self.sexLab = [[UILabel alloc] initWithFrame:CGRectMake(115, 37, 60, 15)];
     _sexLab.font = [UIFont systemFontOfSize:13];
     _sexLab.textColor = GetColor(@"#555555");
-    _sexLab.text = @"性别：男";
+    _sexLab.text = @"性别：";
     [self.contentView addSubview:_sexLab];
     
     self.ageLab = [[UILabel alloc] initWithFrame:CGRectMake(13, 55, 100, 15)];
     _ageLab.font = [UIFont systemFontOfSize:13];
     _ageLab.textColor = GetColor(@"#555555");
-    _ageLab.text = @"年龄：41";
+    _ageLab.text = @"年龄：";
     [self.contentView addSubview:_ageLab];
     
     self.yongtuLab = [[UILabel alloc] initWithFrame:CGRectMake(13, 80, kWIDTH - 24, 70)];
@@ -58,7 +58,6 @@
     _yongtuLab.font = [UIFont systemFontOfSize:13];
     _yongtuLab.textColor = GetColor(@"#555555");
     _yongtuLab.numberOfLines = 0;
-    _yongtuLab.text = @"资金用途：资金周转";
     [self.contentView addSubview:_yongtuLab];
     CGFloat hight = [HeightWithString heightForTextLable:_yongtuLab.text width:kWIDTH - 24 fontSize:13];
     _yongtuLab.frame = CGRectMake(13, 80, kWIDTH - 26, hight);
@@ -68,6 +67,22 @@
     [self.contentView addSubview:_bottomView];
     
     }
+
+
+- (void)setPApplocationModel:(PApplicationModel *)pApplocationModel{
+    _pApplocationModel = pApplocationModel;
+    
+    
+    _ageLab.text = [NSString stringWithFormat:@"年龄：%ld", _pApplocationModel.pFinancePersonAge];
+    _sexLab.text = [NSString stringWithFormat:@"性别：%@", _pApplocationModel.pFinancePersonSex];
+    _nameLab.text = [NSString stringWithFormat:@"姓名：%@", _pApplocationModel.pFinancePersonName];
+    _yongtuLab.text = [NSString stringWithFormat: @"资金用途：%@", _pApplocationModel.pPurpose];
+    
+    CGFloat hight = [HeightWithString heightForTextLable:_yongtuLab.text width:kWIDTH - 24 fontSize:13];
+    _yongtuLab.frame = CGRectMake(13, 80, kWIDTH - 26, hight);
+    
+    self.bottomView.frame = CGRectMake(0, 80+hight+20, kWIDTH, 10);
+}
     
 - (void)awakeFromNib {
     [super awakeFromNib];

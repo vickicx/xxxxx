@@ -172,7 +172,47 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+
+
+- (void)setDetailPModel:(ProductDetailModel *)detailPModel{
+    _detailPModel = detailPModel;
     
+    _danbaoDetailLab.text = _detailPModel.description;
+    CGFloat hight1 = [HeightWithString heightForTextLable:_danbaoDetailLab.text width:kWIDTH - 24 fontSize:13];
+    _danbaoDetailLab.frame = CGRectMake(13, 47, kWIDTH - 26, hight1);
+    
+    self.bottomView1.frame = CGRectMake(0, 47+hight1+10, kWIDTH, 10);
+    CGFloat danbaoHight = 47 + hight1 + 10 +10;
+    self.anquanTitleImg.frame = CGRectMake(12, 12 + danbaoHight, 15, 15);
+    self.anquanTitleLab.frame = CGRectMake(35, 12 + danbaoHight, 100, 15);
+    self.lineView2.frame = CGRectMake(12, 32 + danbaoHight, kWIDTH - 24, 1);
+    self.anquanDetailLab.frame = CGRectMake(13, 55 + danbaoHight, kWIDTH - 24, 70);
+
+    _anquanDetailLab.text = _detailPModel.descriptionRiskDescri;
+    CGFloat hight2 = [HeightWithString heightForTextLable:_anquanDetailLab.text width:kWIDTH - 24 fontSize:13];
+    _anquanDetailLab.frame = CGRectMake(13, 50 + danbaoHight, kWIDTH - 26, hight2);
+    
+    self.bottomView2.frame = CGRectMake(0, 50+hight2+25 + danbaoHight, kWIDTH, 10);
+
+    CGFloat anquanHeight =  50+hight2+25 + danbaoHight + 10;
+    
+    
+    self.ziliaoTitleImg.frame = CGRectMake(12, 12 + anquanHeight, 14.5, 12.5);
+    self.ziliaoTitleLab.frame = CGRectMake(35, 12 +anquanHeight, 100, 15);
+    
+    self.lineView3.frame = CGRectMake(12, 32 +anquanHeight, kWIDTH - 24, 1);
+
+    self.collectionView.frame = CGRectMake(0, anquanHeight + 33, kWIDTH, 130 * FitHeight);
+    self.bottomView3.frame = CGRectMake(0, anquanHeight + 130 * FitHeight + 33 , kWIDTH, 10);
+    self.ziliaoTitleImg.frame = CGRectMake(12, 12 + anquanHeight + 33 + 130 * FitHeight + 10, 15, 15);
+    self.ziliaoTitleLab.frame = CGRectMake(35, 12 +anquanHeight + 33  + 130 * FitHeight + 10, 100, 15);
+    self.lineView4.frame = CGRectMake(12, 12 + anquanHeight + 33 + 130 * FitHeight + 10 + 24, kWIDTH - 24, 1);
+    
+    self.tableView.frame = CGRectMake(0,  12 + anquanHeight + 33 + 130 * FitHeight + 10 + 25, kWIDTH, 150);
+    NSLog(@"cell height ===== %f", 12 + anquanHeight + 33 + 130 * FitHeight + 10 + 25);
+}
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

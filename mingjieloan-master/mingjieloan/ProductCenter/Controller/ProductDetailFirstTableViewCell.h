@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PICircularProgressView.h"
+#import "ProductDetailModel.h"
 @interface ProductDetailFirstTableViewCell : UITableViewCell
 
     @property (nonatomic, strong)UIImageView *titlePic;
@@ -36,7 +37,7 @@
     @property (nonatomic, strong)UIImageView *manBiaoPic;
     @property (nonatomic, strong)UILabel *baifenbiLabel;
     @property (nonatomic, strong)UIView *botView;
-//    @property (nonatomic, )
+@property (nonatomic, strong)ProductDetailModel *detailPModel;
     
     
     

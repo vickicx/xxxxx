@@ -12,6 +12,6 @@
 
 @property (nonatomic, copy)NSString *realName;
 @property (nonatomic, copy)NSString *price;
-@property (nonatomic, copy)NSString *createData;
+@property (nonatomic, copy)NSString *createDate;
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ProductDetailCollectionViewCell.h"
 #import "ProductShenheTableViewCell.h"
-
+#import "ProductDetailModel.h"
 @protocol PopUpViewDelegate <NSObject>
 
 - (void)popViewAction;
@@ -43,4 +43,6 @@
     @property (nonatomic, strong)UILabel *shenheTitleLab;
     @property (nonatomic, strong)UIView *lineView4;
     @property (nonatomic, strong)UITableView *tableView;
+    @property (nonatomic, strong)ProductDetailModel *detailPModel;
+
 @end

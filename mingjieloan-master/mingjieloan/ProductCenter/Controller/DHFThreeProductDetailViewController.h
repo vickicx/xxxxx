@@ -19,6 +19,9 @@
 #import "DHFTBViewController.h"//投标
 
 #import "ProductOrdersModel.h"
+#import "ProductRepayPlanModel.h"
+#import "ProductDetailModel.h"//项目详情Model
+#import "PApplicationModel.h"//借款 人信息Model
 
 @interface DHFThreeProductDetailViewController : BaseViewController
     
@@ -36,5 +39,7 @@
 @property (nonatomic, copy)NSString *idNumber;
 
 @property (nonatomic, strong)NSMutableArray *TBJLArray;
-
+@property (nonatomic, strong)NSMutableArray *HKJHArray;
+@property (nonatomic, strong)ProductDetailModel *detailModel;
+@property (nonatomic, strong)PApplicationModel *pApplocationModel;
 @end

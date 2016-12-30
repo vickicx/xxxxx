@@ -49,6 +49,24 @@
     _bottomView.backgroundColor = GetColor(@"e8e8e8");
     [self.contentView addSubview:_bottomView];
 }
+
+
+- (void)setDetailPModel:(ProductDetailModel *)detailPModel{
+    _detailPModel = detailPModel;
+    
+    _detailLab.text = _detailPModel.detailDescription;
+    
+    
+    CGFloat hight = [HeightWithString heightForTextLable:_detailLab.text width:kWIDTH - 24 fontSize:13];
+    _detailLab.frame = CGRectMake(13, 47, kWIDTH - 26, hight);
+    
+    self.bottomView.frame = CGRectMake(0, 47+hight+30, kWIDTH, 10);
+    
+    
+    
+}
+
+
     
 - (void)awakeFromNib {
     [super awakeFromNib];

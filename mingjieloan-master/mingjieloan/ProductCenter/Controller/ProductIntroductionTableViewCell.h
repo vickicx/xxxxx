@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ProductDetailModel.h"
 @interface ProductIntroductionTableViewCell : UITableViewCell
     @property (nonatomic, strong)UIImageView *titleImg;
     @property (nonatomic, strong)UILabel *titleLab;
     @property (nonatomic, strong)UIView *lineView;
     @property (nonatomic, strong)UILabel *detailLab;
     @property (nonatomic, strong)UIView *bottomView;
-    
+    @property (nonatomic, strong)ProductDetailModel *detailPModel;
     
     
 @end

@@ -57,6 +57,29 @@
 }
 
 
+- (void)setPlanModel:(ProductRepayPlanModel *)planModel{
+    _planModel = planModel;
+    
+    NSLog(@"%lld", _planModel.pdate);
+    NSDateFormatter *pickerFormatter1 = [[NSDateFormatter alloc] init];// 创建一个日期格式器
+    [pickerFormatter1 setDateFormat:@"YYYY-MM-dd"];
+    
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:(long)(_planModel.pdate / 1000)];
+    NSString *dateString = [pickerFormatter1 stringFromDate:confromTimesp];
+    
+    _timeLab.text = dateString;
+
+    
+    CGFloat benjin = _planModel.principal / 100.00;
+    self.benjinLab.text = [NSString stringWithFormat:@"￥%.2f", benjin];
+    CGFloat lixi = _planModel.interest / 100.00;
+    self.lixiLab.text = [NSString stringWithFormat:@"￥%.2f", lixi];
+    CGFloat zongge = _planModel.principal / 100.00;
+    self.zongeLab.text = [NSString stringWithFormat:@"￥%.2f",zongge];
+    
+    
+}
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];

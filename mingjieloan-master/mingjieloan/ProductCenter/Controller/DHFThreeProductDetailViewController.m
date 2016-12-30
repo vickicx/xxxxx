@@ -33,7 +33,9 @@
     // Do any additional setup after loading the view.
 
     self.TBJLArray = [NSMutableArray array];
-    
+    self.HKJHArray = [NSMutableArray array];
+    self.detailModel = [[ProductDetailModel alloc]init];
+    self.pApplocationModel = [[PApplicationModel alloc] init];
     
     [self initButton];
     [self initTableView];
@@ -116,7 +118,7 @@
         return  4;
     }
     else if (self.HKJHButton.selected == YES){
-        return 2;
+        return (self.HKJHArray.count + 1);
     }
     else
     {
@@ -133,24 +135,24 @@
         }
         else if (indexPath.row == 1)
         {
-            NSString *str = @"借款人经营一家汽车美容商行，有多年经营管理经验。车行有固定会员数百人。消费群体为中高档车主，群体稳定。商行经营状况良好，有员工数十人，收益稳定。本地有房产，具有良好的还款意愿和还款能力。\n该自然人在本平台借款余额未超过人民币20万元。";
-            CGFloat hight = [HeightWithString heightForTextLable:str width:kWIDTH - 24 fontSize:13];
+            CGFloat hight = [HeightWithString heightForTextLable:_detailModel.detailDescription width:kWIDTH - 24 fontSize:13];
             return 47+hight+30+10;
         }
         else if (indexPath.row == 2)
         {
-            NSString *str = @"资金用途：资金周转";
+            NSString *str = [NSString stringWithFormat:@"资金用途：%@", self.pApplocationModel.pPurpose];
             CGFloat hight = [HeightWithString heightForTextLable:str width:kWIDTH - 24 fontSize:13];
             return 80+hight+20+10;
         }
         else     {
-            NSString *str1 = @"大连亿嘉担保有限公司，成立于2008年06月30日，注册资本壹亿元，工作深入细致，业务开展有方，与银行合作默契，风险控制有力，社会一小明显。以“卓越、创新、执着”为企业精神，主张“专业沟通、实效营销”的服务理念。展望未来，一家担保将进一步加强与客户以及协作单位的友好合作，力求在充满机遇、挑战、希望的市场中成为大连地区担保行业的第一品牌";
+            NSString *str1 = self.detailModel.description;
             CGFloat hight = [HeightWithString heightForTextLable:str1 width:kWIDTH - 24 fontSize:13];
             
             CGFloat danbaoHight = 47 + hight + 10+10;
-            NSString *str2 = @"1.明杰贷不触碰用户资金，交易资金完全由第三方支付机构监管。\n2.项目推荐方审核、筛选优质资产\n3.抵押物价值充足，足以支撑还款";
+            NSString *str2 = self.detailModel.descriptionRiskDescri;
             CGFloat hight1 = [HeightWithString heightForTextLable:str2 width:kWIDTH - 24 fontSize:13];
-            return 50+hight1+25+10 + danbaoHight + 130 * FitHeight + 33  + 10 + 150+33+20;
+            NSLog(@"cell height cell ===== %f", 50+hight1+25+10 + danbaoHight + 130 * FitHeight + 33  + 10 + 150+33+20);
+            return 50+hight1+25+10 + danbaoHight + 130 * FitHeight + 33  + 10 + 150+33+20 + 50;
         }
     }
     //还款计划和投标记录的高度是一样的
@@ -168,7 +170,7 @@
     if (self.CPXQButton.selected == YES) {
     if (indexPath.row == 0) {
         ProductDetailFirstTableViewCell *cell = [[ProductDetailFirstTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        
+        cell.detailPModel = self.detailModel;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return  cell;
     }
@@ -182,7 +184,7 @@
     else if (indexPath.row == 2)
     {
     ProductUserInforTableViewCell *cell = [[ProductUserInforTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    
+        cell.pApplocationModel = self.pApplocationModel;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return  cell;
     }
@@ -212,10 +214,7 @@
         }
         else
         {
-            cell.timeLab.text = @"2017-01-01";
-            cell.benjinLab.text = @"¥3000.00";
-            cell.lixiLab.text = @"¥31.56";
-            cell.zongeLab.text = @"¥3031.56";
+            cell.planModel = [self.HKJHArray objectAtIndex:indexPath.row - 1];
         }
         return  cell;
     }
@@ -344,6 +343,11 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@",dic);
         //        NSLog(@"dic = %@", dic);
+        //借款人信息Model
+        [self.pApplocationModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplication"]];
+        
+        //项目详情Model
+        [self.detailModel setValuesForKeysWithDictionary:[dic objectForKey:@"product"]];
         
         //投标记录的数据 
         NSMutableArray *orderArray = [[dic objectForKey:@"productOrders"] objectForKey:@"items"];
@@ -352,6 +356,14 @@
             [orderModel setValuesForKeysWithDictionary:dic];
             [self.TBJLArray addObject:orderModel];
         }
+        //还款计划的数据
+        NSMutableArray *planArray = [dic objectForKey:@"productRepayPlan"];
+        for (NSDictionary *dic in planArray) {
+            ProductRepayPlanModel *planModel = [[ProductRepayPlanModel alloc] init];
+            [planModel setValuesForKeysWithDictionary:dic];
+            [self.HKJHArray addObject:planModel];
+        }
+        
         
         [self.tableView reloadData];
     } fail:^(NSError *error) {

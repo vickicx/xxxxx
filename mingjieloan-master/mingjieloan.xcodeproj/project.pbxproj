@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3D1ED8201E0BCB8800C99500 /* DHFProductCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1ED81F1E0BCB8800C99500 /* DHFProductCenterCell.m */; };
 		3D7A3B0D1E15F54100B176A4 /* ProductOrdersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B0C1E15F54100B176A4 /* ProductOrdersModel.m */; };
+		3D7A3B101E16016E00B176A4 /* ProductRepayPlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B0F1E16016E00B176A4 /* ProductRepayPlanModel.m */; };
+		3D7A3B131E160AD100B176A4 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B121E160AD100B176A4 /* ProductDetailModel.m */; };
+		3D7A3B161E163F6C00B176A4 /* PApplicationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B151E163F6C00B176A4 /* PApplicationModel.m */; };
 		3DA320F31E10F9E30029F745 /* NoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F21E10F9E30029F745 /* NoticeModel.m */; };
 		3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */; };
 		3DF312B51E1390E40038FC45 /* DHFGesOpenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF312B41E1390E40038FC45 /* DHFGesOpenVC.m */; };
@@ -221,6 +224,12 @@
 		3D1ED81F1E0BCB8800C99500 /* DHFProductCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductCenterCell.m; path = mingjieloan/ProductCenter/Controller/DHFProductCenterCell.m; sourceTree = SOURCE_ROOT; };
 		3D7A3B0B1E15F54100B176A4 /* ProductOrdersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductOrdersModel.h; path = mingjieloan/MoreInfo/Controller/ProductOrdersModel.h; sourceTree = SOURCE_ROOT; };
 		3D7A3B0C1E15F54100B176A4 /* ProductOrdersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductOrdersModel.m; path = mingjieloan/MoreInfo/Controller/ProductOrdersModel.m; sourceTree = SOURCE_ROOT; };
+		3D7A3B0E1E16016E00B176A4 /* ProductRepayPlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductRepayPlanModel.h; path = mingjieloan/MoreInfo/Controller/ProductRepayPlanModel.h; sourceTree = SOURCE_ROOT; };
+		3D7A3B0F1E16016E00B176A4 /* ProductRepayPlanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductRepayPlanModel.m; path = mingjieloan/MoreInfo/Controller/ProductRepayPlanModel.m; sourceTree = SOURCE_ROOT; };
+		3D7A3B111E160AD100B176A4 /* ProductDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetailModel.h; path = mingjieloan/MoreInfo/Controller/ProductDetailModel.h; sourceTree = SOURCE_ROOT; };
+		3D7A3B121E160AD100B176A4 /* ProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetailModel.m; path = mingjieloan/MoreInfo/Controller/ProductDetailModel.m; sourceTree = SOURCE_ROOT; };
+		3D7A3B141E163F6C00B176A4 /* PApplicationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PApplicationModel.h; path = mingjieloan/MoreInfo/Controller/PApplicationModel.h; sourceTree = SOURCE_ROOT; };
+		3D7A3B151E163F6C00B176A4 /* PApplicationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PApplicationModel.m; path = mingjieloan/MoreInfo/Controller/PApplicationModel.m; sourceTree = SOURCE_ROOT; };
 		3DA320F11E10F9E30029F745 /* NoticeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeModel.h; path = mingjieloan/MoreInfo/Controller/NoticeModel.h; sourceTree = SOURCE_ROOT; };
 		3DA320F21E10F9E30029F745 /* NoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeModel.m; path = mingjieloan/MoreInfo/Controller/NoticeModel.m; sourceTree = SOURCE_ROOT; };
 		3DA320F41E111A920029F745 /* DHFNoticeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFNoticeDetailViewController.h; sourceTree = "<group>"; };
@@ -1471,8 +1480,14 @@
 			children = (
 				3DF312D01E13AE540038FC45 /* ProductModel.h */,
 				3DF312D11E13AE540038FC45 /* ProductModel.m */,
+				3D7A3B111E160AD100B176A4 /* ProductDetailModel.h */,
+				3D7A3B121E160AD100B176A4 /* ProductDetailModel.m */,
+				3D7A3B141E163F6C00B176A4 /* PApplicationModel.h */,
+				3D7A3B151E163F6C00B176A4 /* PApplicationModel.m */,
 				3D7A3B0B1E15F54100B176A4 /* ProductOrdersModel.h */,
 				3D7A3B0C1E15F54100B176A4 /* ProductOrdersModel.m */,
+				3D7A3B0E1E16016E00B176A4 /* ProductRepayPlanModel.h */,
+				3D7A3B0F1E16016E00B176A4 /* ProductRepayPlanModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1952,6 +1967,7 @@
 				C34FFF291E091E8D00FF8C05 /* SubBaseViewController.m in Sources */,
 				3DF8F5D71E12702300D4922C /* DHFChangeLogPassWordVC.m in Sources */,
 				EA3C06801E129C1D009E02D4 /* IPAddressConfig.m in Sources */,
+				3D7A3B101E16016E00B176A4 /* ProductRepayPlanModel.m in Sources */,
 				C34FFF2F1E091E8D00FF8C05 /* MoreInfoViewController.m in Sources */,
 				EA49A4601E0F95EC0079A8DB /* MJRefreshBaseView.m in Sources */,
 				990873CF1E12455800354802 /* WDXXDetailViewController.m in Sources */,
@@ -1992,6 +2008,7 @@
 				3DF4466F1E14F5C9005FFF85 /* DHFProductDetail_GRZZXXCell.m in Sources */,
 				990873BA1E12455800354802 /* JFZCCell.m in Sources */,
 				C34FFF2A1E091E8D00FF8C05 /* BaseModel.m in Sources */,
+				3D7A3B131E160AD100B176A4 /* ProductDetailModel.m in Sources */,
 				990873CD1E12455800354802 /* WDXXDetailTableViewCell.m in Sources */,
 				9969969C1E0A257C00CEF850 /* XXColor.m in Sources */,
 				EA6BB8F31E0EC15F00F28E8C /* ProductUserInforTableViewCell.m in Sources */,
@@ -2030,6 +2047,7 @@
 				3DF4466E1E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.m in Sources */,
 				EA6BB9161E0EF93C00F28E8C /* LewPopupViewAnimationFade.m in Sources */,
 				990873A61E12455800354802 /* ContractWebViewController.m in Sources */,
+				3D7A3B161E163F6C00B176A4 /* PApplicationModel.m in Sources */,
 				990873B81E12455800354802 /* JFMXCell.m in Sources */,
 				EA49A4621E0F95EC0079A8DB /* MJRefreshFooterView.m in Sources */,
 				990873BF1E12455800354802 /* DidExchangedView.m in Sources */,

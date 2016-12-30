@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductRepayPlanModel.h"
 
 @interface HKJHTableViewCell : UITableViewCell
 
@@ -15,5 +16,5 @@
 @property (nonatomic, strong)UILabel *lixiLab;
 @property (nonatomic, strong)UILabel *zongeLab;
 @property (nonatomic, strong)UIView *lineView;
-
+@property (nonatomic, strong)ProductRepayPlanModel *planModel;
 @end

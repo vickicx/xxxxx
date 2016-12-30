@@ -114,7 +114,6 @@
     
     self.huankuanLab = [[UILabel alloc] initWithFrame:CGRectMake(150, 81.5, 100, 13.5)];
     _huankuanLab.font = [UIFont systemFontOfSize:12];
-    _huankuanLab.text = @"到期还本付息";
     _huankuanLab.textColor = textColor;
     [self.contentView addSubview:_huankuanLab];
     self.timePic = [[UIImageView alloc] initWithFrame:CGRectMake(15, 106.5, 12, 11.5)];
@@ -150,7 +149,7 @@
     [self.contentView addSubview:_zhuanrangLab];
     
     
-    self.ketouLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH - 110, 106, 100, 14)];
+    self.ketouLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH - 110, 110, 100, 14)];
     _ketouLabel.textColor = [XXColor goldenColor];
     _ketouLabel.font = [UIFont systemFontOfSize:13];
 
@@ -161,7 +160,7 @@
     self.ketouLabel.attributedText = ketoustr;
     
     
-    self.qitouLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH - 110, 126, 100, 14)];
+    self.qitouLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH - 110, 130, 100, 14)];
     
     _qitouLabel.textColor = [XXColor goldenColor];
     _qitouLabel.font = [UIFont systemFontOfSize:13];
@@ -184,7 +183,7 @@
     _progressView.progressFillColor = [XXColor goldenColor];
     [self.contentView addSubview:_progressView];
     
-    self.baifenbiLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH - 76.5, 62, 66.5, 20)];
+    self.baifenbiLabel = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH - 76.5, 65, 66.5, 20)];
     _baifenbiLabel.font = [UIFont systemFontOfSize:16];
     _baifenbiLabel.textAlignment = NSTextAlignmentCenter;
     _baifenbiLabel.text = @"89%";
@@ -194,7 +193,163 @@
     _botView.backgroundColor = GetColor(@"#e8e8e8");
     [self.contentView addSubview:_botView];
 }
+
+- (void)setDetailPModel:(ProductDetailModel *)detailPModel{
+    _detailPModel = detailPModel;
     
+    _titleLab.text = _detailPModel.name;
+   
+    switch (_detailPModel.status) {
+        case 1:
+            _zhuangtaiLab.text = @"还款中";
+            break;
+        case 2:
+            _zhuangtaiLab.text = @"满标";
+            break;
+            
+        case 3:
+            _zhuangtaiLab.text = @"预约";
+            break;
+        case 4:
+            _zhuangtaiLab.text = @"已结束";
+            break;
+        case 5:
+            _zhuangtaiLab.text = @"正在售卖";
+            break;
+        case 6:
+            _zhuangtaiLab.text = @"已还款";
+            break;
+         
+        case 7:
+            _zhuangtaiLab.text = @"审核中";
+            break;
+        case 8:
+            _zhuangtaiLab.text = @"转让成功";
+            break;
+        default:
+            break;
+    }
+    
+    //年化收益
+    NSMutableAttributedString *annualizedStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@%%", _detailPModel.annualizedGain]];
+    NSRange redRangeTwo = NSMakeRange([[annualizedStr string] rangeOfString:@"%"].location, [[annualizedStr string] rangeOfString:@"%"].length);
+    [annualizedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:redRangeTwo];
+    _shouyibaifenLab.attributedText = annualizedStr;
+    
+    
+    //项目期限
+    if(_detailPModel.investmentPeriodDesc.count > 0){
+    int dayNum = [[_detailPModel.investmentPeriodDesc objectAtIndex:0] intValue];
+    NSString *dayStr = (NSString *)[_detailPModel.investmentPeriodDesc objectAtIndex:1];
+    NSMutableAttributedString *extraRateStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%d%@", dayNum, dayStr]];
+    NSRange extraRangeTwo = NSMakeRange([[extraRateStr string] rangeOfString:dayStr].location, [[extraRateStr string] rangeOfString:dayStr].length);
+    [extraRateStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:extraRangeTwo];
+    _xiangmutianshuLab.attributedText = extraRateStr;
+    
+    }
+    //投资总额
+    float money = _detailPModel.totalInvestment / 100 / 10000.0;
+    //显示 万
+    if (money > 0) {
+        NSMutableAttributedString *touziStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%.0f万", money]];
+        NSRange touziRangeTwo = NSMakeRange([[touziStr string] rangeOfString:@"万"].location, [[touziStr string] rangeOfString:@"万"].length);
+        [touziStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:10] range:touziRangeTwo];
+        _touzishuziLab.attributedText = touziStr;
+        [self.contentView addSubview:_touzishuziLab];
+    }
+    //显示元
+    else
+    {
+        NSMutableAttributedString *touziStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%.0f元", money * 10000]];
+        NSRange touziRangeTwo = NSMakeRange([[touziStr string] rangeOfString:@"元"].location, [[touziStr string] rangeOfString:@"元"].length);
+        [touziStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:10] range:touziRangeTwo];
+        _touzishuziLab.attributedText = touziStr;
+        [self.contentView addSubview:_touzishuziLab];
+    }
+    
+    //时间
+    if (_detailPModel.status == 1) {
+        
+        _timeLab.text = [NSString stringWithFormat:@"计息开始时间%@", _detailPModel.expirationDate];
+        
+    }else if (_detailPModel.status == 4){
+        
+        _timeLab.text = [NSString stringWithFormat:@"计息开始时间%@", _detailPModel.expirationDate];
+        
+    }else if (_detailPModel.status == 6){
+        
+        _timeLab.text = [NSString stringWithFormat:@"计息开始时间%@", _detailPModel.expirationDate];
+        
+    }
+    else {
+        
+        _timeLab.text = [NSString stringWithFormat:@"剩余投资时间%@", _detailPModel.expirationDate];
+        
+    }
+    
+    _baozhangLab.text = _detailPModel.guaranteeModeName;
+    _huankuanLab.text = _detailPModel.repaymentMethodName;
+    if (_detailPModel.transfer_froze_time.length > 0) {
+        
+        _zhuanrangLab.hidden = NO;
+        _zhuanrangLab.text = _detailPModel.transfer_froze_time;
+        
+    }else{
+        
+        _zhuanrangLab.hidden = true;
+        
+        _zhuanrangPic.hidden = true;
+    }
+    
+    UIColor *textColor = GetColor(@"#555555");
+    
+    NSMutableAttributedString *ketoustr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"可投  %.0f元", _detailPModel.totalInvestment /100.0]];
+    [ketoustr addAttribute:NSForegroundColorAttributeName value:textColor range:NSMakeRange(0,2)];
+    
+    self.ketouLabel.attributedText = ketoustr;
+    
+    
+    _qitouLabel.textColor = [XXColor goldenColor];
+    _qitouLabel.font = [UIFont systemFontOfSize:13];
+    [self.contentView addSubview:_qitouLabel];
+    NSMutableAttributedString *qitoustr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"起投  %.0f元", _detailPModel.singlePurchaseLowerLimit /100.0]];
+    [qitoustr addAttribute:NSForegroundColorAttributeName value:textColor range:NSMakeRange(0,2)];
+    
+    self.qitouLabel.attributedText = qitoustr;
+    
+    if (_detailPModel.investmentProgress == 100) {
+        
+        self.manBiaoPic.hidden = NO;
+        
+        self.progressView.hidden = YES;
+        
+        self.baifenbiLabel.hidden = YES;
+        
+    }else{
+        
+        self.manBiaoPic.hidden = YES;
+        
+        self.progressView.hidden = NO;
+        
+        self.baifenbiLabel.hidden = NO;
+        
+        
+        NSMutableAttributedString *text = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld%%", (long)_detailPModel.investmentProgress]];
+        
+//        text.setAttributes([NSFontAttributeName:UIFont.systemFontOfSize(12)], range: NSMakeRange(text.length-1, 1));
+        
+        NSRange touziRangeTwo = NSMakeRange([[text string] rangeOfString:@"%%"].location, [[text string] rangeOfString:@"%%"].length);
+        [text addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:touziRangeTwo];
+        
+        self.baifenbiLabel.attributedText = text;
+        
+        self.progressView.progress = (double)(_detailPModel.investmentProgress) / 100.0;
+    }
+    
+    
+}
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

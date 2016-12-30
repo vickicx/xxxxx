@@ -55,7 +55,7 @@
     
     _peopleLab.text = _ordersModel.realName;
     _moneyLab.text = [NSString stringWithFormat:@"￥%@", _ordersModel.price];
-    _timeLab.text = _ordersModel.createData;
+    _timeLab.text = _ordersModel.createDate;
     
 }
 

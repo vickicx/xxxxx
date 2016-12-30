@@ -110,17 +110,36 @@
     
     self.nameLab.text = productModel.name;
     
-    if(_productModel.newstatus == 1){
-        self.purchaseBtn.backgroundColor = [XXColor grayAllColor];
-        self.purchaseBtn.text = @"还款中";
-    }
-    else if (_productModel.newstatus == 6){
-        self.purchaseBtn.backgroundColor = [XXColor grayAllColor];
-        self.purchaseBtn.text = @"已还清";
-    }
-    else{
-        _purchaseBtn.text = @"投资";
-        _purchaseBtn.backgroundColor = [XXColor purchaseBtnBgrdColor];
+    
+    switch (_productModel.newstatus) {
+        case 1:
+            _purchaseBtn.text = @"还款中";
+            self.purchaseBtn.backgroundColor = [XXColor grayAllColor];
+            break;
+        case 2:
+            _purchaseBtn.text = @"满标";
+            self.purchaseBtn.backgroundColor = [XXColor grayAllColor];
+            break;
+            
+        case 3:
+            _purchaseBtn.text = @"预约";
+            _purchaseBtn.backgroundColor = [XXColor purchaseBtnBgrdColor];
+            break;
+        case 4:
+            _purchaseBtn.text = @"已结束";
+            self.purchaseBtn.backgroundColor = [XXColor grayAllColor];
+            break;
+        case 5:
+            _purchaseBtn.text = @"投资";
+            _purchaseBtn.backgroundColor = [XXColor purchaseBtnBgrdColor];
+            break;
+        case 6:
+            _purchaseBtn.text = @"已还款";
+            self.purchaseBtn.backgroundColor = [XXColor grayAllColor];
+            break;
+            
+        default:
+            break;
     }
     
     //年化收益

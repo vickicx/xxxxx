@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PApplicationModel.h"//借款 人信息Model
 
 @interface ProductUserInforTableViewCell : UITableViewCell
     
@@ -18,4 +19,6 @@
 @property (nonatomic, strong)UILabel *ageLab;
 @property (nonatomic, strong)UILabel *yongtuLab;
 @property (nonatomic, strong)UIView *bottomView;
+@property (nonatomic, strong)PApplicationModel *pApplocationModel;
+
 @end
