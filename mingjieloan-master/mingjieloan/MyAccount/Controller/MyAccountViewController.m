@@ -33,7 +33,7 @@
   
     
     [super viewDidLoad];
-    
+
     [self createView];
     [self getMYInfo];
     [self getBasicInfo];
@@ -175,7 +175,7 @@
         default:
             break;
     }
-
+    NSLog(@"%ld, %ld", indexPath.row, indexPath.section);
 }
 
 - (void)getMYInfo {

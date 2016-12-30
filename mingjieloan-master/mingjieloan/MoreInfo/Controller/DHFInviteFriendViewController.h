@@ -7,7 +7,7 @@
 //
 
 #import "SubBaseViewController.h"
-
+#import "DHFInviteHistoryViewController.h"
 @interface DHFInviteFriendViewController : SubBaseViewController
 
 @property (nonatomic, strong)UIImageView *headBackView;

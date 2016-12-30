@@ -48,7 +48,8 @@
 
 //跳到历史记录
 - (void)InviteHistoryAction{
-    
+    DHFInviteHistoryViewController *InviteVC = [[DHFInviteHistoryViewController alloc] init];
+    [self.navigationController pushViewController:InviteVC animated:YES];
 }
 
 //邀请好友
@@ -126,7 +127,7 @@
     _yaoQingMatext.text = @"4KZC";
     [_yaoQingMalab addSubview:_yaoQingMatext];
     
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(5, 49, kWIDTH - 20, 1)];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(5, 49 * FitHeight, kWIDTH - 20, 1)];
     lineView.backgroundColor = GetColor(@"e8e8e8");
     [_yaoQingMalab addSubview:lineView];
     
@@ -146,7 +147,7 @@
     _lookLabel.text = @"查看";
     [_InviteHisBtn addSubview:_lookLabel];
     
-    self.rightImg = [[UIImageView alloc] initWithFrame:CGRectMake(kWIDTH - 30, 17, 16, 16)];
+    self.rightImg = [[UIImageView alloc] initWithFrame:CGRectMake(kWIDTH - 30, 17 * FitHeight, 16, 16)];
     _rightImg.image = [UIImage imageNamed:@"enter_1"];
     [_InviteHisBtn addSubview:_rightImg];
     
@@ -162,7 +163,7 @@
     label1.text = @"新手礼包火热升级，邀请朋友一起来赚钱";
     [self.view addSubview:label1];
     
-    UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(5, 49, kWIDTH - 20, 1)];
+    UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(5, 49 * FitHeight, kWIDTH - 20, 1)];
     lineView2.backgroundColor = GetColor(@"#e9e9e9");
     [label1 addSubview:lineView2];
     

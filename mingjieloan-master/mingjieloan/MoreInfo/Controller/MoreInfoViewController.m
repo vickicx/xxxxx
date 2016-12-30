@@ -9,7 +9,7 @@
 #import "MoreInfoViewController.h"
 
 
-@interface MoreInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface MoreInfoViewController ()<UITableViewDelegate, UITableViewDataSource, JGProgressHUDDelegate>
 @property (nonatomic, strong)NSMutableArray *titleArray;
 @property (nonatomic, strong)NSMutableArray *imageArray;
 
@@ -197,12 +197,14 @@
         }
         else
         {
-            AHAlertView *alert = [[AHAlertView alloc] initWithTitle:@"温馨提示"message:@"请先登陆"];
-            [alert setCancelButtonTitle:@"取消" block:nil];
-                [alert addButtonWithTitle:@"确定" block:^{
-                    
-                }];
-            [alert show];
+            JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+            hud.tag = 1;
+            hud.indicatorView = nil;
+            hud.textLabel.text = @"请先登陆";
+            hud.delegate = self;
+            hud.position = 0;
+            [hud showInView:self.view];
+            [hud dismissAfterDelay:2.0];
         }
 
 

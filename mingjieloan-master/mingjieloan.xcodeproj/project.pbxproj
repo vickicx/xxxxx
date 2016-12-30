@@ -18,6 +18,8 @@
 		3DF446711E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4466B1E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.m */; };
 		3DF446721E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4466D1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m */; };
 		3DF446751E14F63A005FFF85 /* HDFInviteFriendOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF446741E14F63A005FFF85 /* HDFInviteFriendOtherViewController.m */; };
+		3DF446781E15124A005FFF85 /* DHFInviteHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF446771E15124A005FFF85 /* DHFInviteHistoryViewController.m */; };
+		3DF4467B1E1512D5005FFF85 /* DHFInviteHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4467A1E1512D5005FFF85 /* DHFInviteHistoryTableViewCell.m */; };
 		3DF8F5C11E123EF300D4922C /* DHFUserCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */; };
 		3DF8F5C71E12549900D4922C /* DHFSetUserNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C61E12549900D4922C /* DHFSetUserNameViewController.m */; };
 		3DF8F5CA1E1254F000D4922C /* DHFChangPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF8F5C91E1254F000D4922C /* DHFChangPhoneViewController.m */; };
@@ -236,6 +238,10 @@
 		3DF4466D1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductDtail_DYQKCell.m; path = mingjieloan/ProductCenter/Controller/DHFProductDtail_DYQKCell.m; sourceTree = SOURCE_ROOT; };
 		3DF446731E14F63A005FFF85 /* HDFInviteFriendOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDFInviteFriendOtherViewController.h; sourceTree = "<group>"; };
 		3DF446741E14F63A005FFF85 /* HDFInviteFriendOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDFInviteFriendOtherViewController.m; sourceTree = "<group>"; };
+		3DF446761E15124A005FFF85 /* DHFInviteHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFInviteHistoryViewController.h; sourceTree = "<group>"; };
+		3DF446771E15124A005FFF85 /* DHFInviteHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFInviteHistoryViewController.m; sourceTree = "<group>"; };
+		3DF446791E1512D5005FFF85 /* DHFInviteHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFInviteHistoryTableViewCell.h; path = mingjieloan/MoreInfo/Controller/DHFInviteHistoryTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		3DF4467A1E1512D5005FFF85 /* DHFInviteHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFInviteHistoryTableViewCell.m; path = mingjieloan/MoreInfo/Controller/DHFInviteHistoryTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		3DF8F5BF1E123EF300D4922C /* DHFUserCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFUserCenterCell.h; sourceTree = "<group>"; };
 		3DF8F5C01E123EF300D4922C /* DHFUserCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFUserCenterCell.m; sourceTree = "<group>"; };
 		3DF8F5C51E12549900D4922C /* DHFSetUserNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFSetUserNameViewController.h; sourceTree = "<group>"; };
@@ -1330,6 +1336,8 @@
 				EA5802361E11537800F1A144 /* DHFInviteFriendViewController.m */,
 				3DF446731E14F63A005FFF85 /* HDFInviteFriendOtherViewController.h */,
 				3DF446741E14F63A005FFF85 /* HDFInviteFriendOtherViewController.m */,
+				3DF446761E15124A005FFF85 /* DHFInviteHistoryViewController.h */,
+				3DF446771E15124A005FFF85 /* DHFInviteHistoryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1354,6 +1362,8 @@
 				EA49A47F1E0FB70F0079A8DB /* DHFNoticeTableViewCell.m */,
 				EA49A4451E0F91C40079A8DB /* DHFReportTableViewCell.h */,
 				EA49A4461E0F91C40079A8DB /* DHFReportTableViewCell.m */,
+				3DF446791E1512D5005FFF85 /* DHFInviteHistoryTableViewCell.h */,
+				3DF4467A1E1512D5005FFF85 /* DHFInviteHistoryTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1942,9 +1952,11 @@
 				990873CF1E12455800354802 /* WDXXDetailViewController.m in Sources */,
 				EA3C068E1E12A8DF009E02D4 /* DHFGesturePassVC.m in Sources */,
 				3DF312D21E13AE540038FC45 /* ProductModel.m in Sources */,
+				3DF446781E15124A005FFF85 /* DHFInviteHistoryViewController.m in Sources */,
 				990872C81E1236B800354802 /* DHFUserCenterViewController.m in Sources */,
 				99C27CA01E10BE0800C0B013 /* LoginViewController.m in Sources */,
 				3DF446721E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m in Sources */,
+				3DF4467B1E1512D5005FFF85 /* DHFInviteHistoryTableViewCell.m in Sources */,
 				EA49A4351E0F5E680079A8DB /* HKJHTableViewCell.m in Sources */,
 				990873B11E12455800354802 /* ReturningModel.m in Sources */,
 				9957F70F1E134E27004A8F66 /* AccountHeadView.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "DHFUserCenterViewController.h"
 
-@interface DHFUserCenterViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface DHFUserCenterViewController ()<UITableViewDelegate, UITableViewDataSource, JGProgressHUDDelegate>
 
 @property (nonatomic, strong)NSArray *imageArray;
 @property (nonatomic, strong)NSArray *nameArray;
@@ -84,20 +84,20 @@
     if (indexPath.row == 0) {
         cell.rightImg.hidden = YES;
         cell.textLab.frame = CGRectMake(kWIDTH - 216, 0, 200, 50);
-        cell.textLab.text = @"杜虹锋";
+        cell.textLab.text = _nameStr;
     }
     
     if(indexPath.row == 1){
         cell.titleImg.frame = CGRectMake(20, 12.5, 13, 25);
         cell.textLab.frame = CGRectMake(kWIDTH - 200 - 50, 0, 200, 50);
-        cell.textLab.text = @"15241120510";
+        cell.textLab.text = [NSString stringWithFormat:@"%lld ", _phoneNumber];
         
     }
     if(indexPath.row == 2){
         cell.titleImg.frame = CGRectMake(20, 17.5, 22, 15);
         cell.rightImg.hidden = YES;
         cell.textLab.frame = CGRectMake(kWIDTH - 216, 0, 200, 50);
-        cell.textLab.text = @"23*************414";
+        cell.textLab.text = _idCard;
     }
     if(indexPath.row == 3){
         cell.titleImg.frame = CGRectMake(20, 17.5, 20, 15);
@@ -127,8 +127,21 @@
     
     
     if (indexPath.row == 0) {
+        if (self.nameStr.length > 0) {
+            JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+            hud.tag = 1;
+            hud.indicatorView = nil;
+            hud.textLabel.text = @"用户名不能修改";
+            hud.delegate = self;
+            hud.position = 0;
+            [hud showInView:self.view];
+            [hud dismissAfterDelay:2.0];
+        }
+        else
+        {
         DHFSetUserNameViewController *setUN = [[DHFSetUserNameViewController alloc] init];
         [self.navigationController pushViewController:setUN animated:YES];
+        }
     }
     
     else if(indexPath.row == 1){
@@ -138,13 +151,66 @@
         
     }
     else if(indexPath.row == 2){
-        DHFSetCardViewController *setCard = [[DHFSetCardViewController alloc] init];
-        [self.navigationController pushViewController:setCard animated:YES];
+        //2：有效：0审核中 1：未绑身份证
+        if(self.accountStatus == 0)
+        {
+            JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+            hud.tag = 1;
+            hud.indicatorView = nil;
+            hud.textLabel.text = @"审核中请耐心等待";
+            hud.delegate = self;
+            hud.position = 0;
+            [hud showInView:self.view];
+            [hud dismissAfterDelay:2.0];
+        }
+        if(self.accountStatus == 1)
+        {
+            DHFSetCardViewController *setCard = [[DHFSetCardViewController alloc] init];
+            [self.navigationController pushViewController:setCard animated:YES];
+        }
+        if (self.accountStatus == 2)
+        {
+            JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+            hud.tag = 1;
+            hud.indicatorView = nil;
+            hud.textLabel.text = @"无法更改身份证信息";
+            hud.delegate = self;
+            hud.position = 0;
+            [hud showInView:self.view];
+            [hud dismissAfterDelay:2.0];
+        }
+
     }
     else if(indexPath.row == 3){
-        
-        //DHFcommonWebViewVC
-        [self getCommonWebViewVC];
+        //2：有效：0审核中 1：未绑身份证
+        if(self.accountStatus == 0)
+        {
+            JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+            hud.tag = 1;
+            hud.indicatorView = nil;
+            hud.textLabel.text = @"审核通过方可绑卡";
+            hud.delegate = self;
+            hud.position = 0;
+            [hud showInView:self.view];
+            [hud dismissAfterDelay:2.0];
+        }
+        if(self.accountStatus == 1)
+        {
+            JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+            hud.tag = 1;
+            hud.indicatorView = nil;
+            hud.textLabel.text = @"请先绑定身份证";
+            hud.delegate = self;
+            hud.position = 0;
+            [hud showInView:self.view];
+            [hud dismissAfterDelay:2.0];
+        }
+        if (self.accountStatus == 2)
+        {
+            //DHFcommonWebViewVC 网页
+            [self getCommonWebViewVC];
+        }
+
         
     }
     else if(indexPath.row == 4){
@@ -161,7 +227,22 @@
     }
     else if(indexPath.row == 6){
         //如果身份证已经认证 则直接跳转到充值界面
-        
+        if(self.cardStatus == 2)
+        {
+            //应该是充值页面
+            [self getCommonWebViewVC];
+        }
+        else
+        {
+            JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+            hud.tag = 1;
+            hud.indicatorView = nil;
+            hud.textLabel.text = @"请先绑定身份证";
+            hud.delegate = self;
+            hud.position = 0;
+            [hud showInView:self.view];
+            [hud dismissAfterDelay:2.0];
+        }
         // 和绑定银行卡 是一个页面
         //银行卡是否有效
     }
@@ -232,20 +313,16 @@
         
         [hud dismiss];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"%@",dic);
-        NSMutableArray *dataArray = [dic objectForKey:@"product_list"];
+//        NSLog(@"%@",dic);
+    
         
-        for (NSDictionary *dic in dataArray) {
-            
-        }
-        
-        //        if (self.modelArray.count > 0) {
-        //
-        //            [_tableView headerEndRefreshing];
-        //            [_tableView footerEndRefreshing];
-        //            [_tableView reloadData];
-        //        }
-        
+        self.nameValidated = [[[dic objectForKey:@"user"] objectForKey:@"nameValidated"] integerValue];//呢称标示，1.有效 0.无效
+            self.phoneNumber = [[[dic objectForKey:@"user"] objectForKey:@"phone"] integerValue];
+            self.cardStatus = [[[dic objectForKey:@"account"] objectForKey:@"cardStatus"] integerValue];//银行卡的状态
+            self.accountStatus = [[[dic objectForKey:@"account"] objectForKey:@"accountStatus"] integerValue];// 身份证有效标识 2：有效：0审核中 1：未绑身份证
+            self.nameStr = [[dic objectForKey:@"user"] objectForKey:@"name"];//名字
+            self.idCard = [[dic objectForKey:@"account"] objectForKey:@"idCard"];//银行卡
+        [self.tableView reloadData];
         
     } fail:^(NSError *error) {
         [hud dismiss];

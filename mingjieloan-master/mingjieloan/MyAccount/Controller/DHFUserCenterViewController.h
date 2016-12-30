@@ -33,6 +33,23 @@
 @property (nonatomic, assign)NSInteger nameValidated;//呢称标示，1.有效 0.无效
 @property (nonatomic, assign)NSInteger cardStatus;//银行卡的状态
 @property (nonatomic, assign)NSInteger accountStatus;// 身份证有效标识 2：有效：0审核中 1：未绑身份证
+@property (nonatomic, assign)long long int phoneNumber;
+@property (nonatomic, copy)NSString *nameStr;//名字
+@property (nonatomic, copy)NSString *idCard;//银行卡
+//ccountStatus = 2;
+//asset = 0;
+//autoRepay = 0;
+//autoTransfer = 0;
+//available = 0;
+//bankAccount = "";
+//bankName = "";
+//cardStatus = 0;
+//cashPrice = 0;
+//frozen = 0;
+//idCard = "23*************414";
+//realName = "\U675c\U8679\U950b";
+
+
 
 
 @end
