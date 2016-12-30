@@ -95,32 +95,18 @@
 /**
  *加载这个NIB文件
  */
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        
-        self.returningDataArr = [NSArray array];
-        self.returningArr = [NSMutableArray array];
-        self.returningMainArr = [NSMutableArray array];
-        
-        self.confirmDataArr = [NSArray array];
-        self.confirmArr = [NSMutableArray array];
-        self.confirmMainArr = [NSMutableArray array];
-        
-        self.returnedDataArr = [NSArray array];
-        self.returnedArr = [NSMutableArray array];
-        self.returnedMainArr = [NSMutableArray array];
-        
-        self.returningPage = 1;
-        self.confirmPage = 1;
-        self.returnedPage = 1;
-
-    }
-    
-    return self;
-}
+//- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+//    
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    
+//    if (self) {
+//        
+//        
+//
+//    }
+//    
+//    return self;
+//}
 
 
 /**
@@ -149,6 +135,22 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.returningDataArr = [NSArray array];
+    self.returningArr = [NSMutableArray array];
+    self.returningMainArr = [NSMutableArray array];
+    
+    self.confirmDataArr = [NSArray array];
+    self.confirmArr = [NSMutableArray array];
+    self.confirmMainArr = [NSMutableArray array];
+    
+    self.returnedDataArr = [NSArray array];
+    self.returnedArr = [NSMutableArray array];
+    self.returnedMainArr = [NSMutableArray array];
+    
+    self.returningPage = 1;
+    self.confirmPage = 1;
+    self.returnedPage = 1;
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -881,7 +883,7 @@
    
         
     
-[VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+[VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeString httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
     
 } success:^(id result) {
     

@@ -10,6 +10,7 @@
 #import "HYZXViewController.h"
 #import "JFViewController.h"
 #import "DHFUserCenterViewController.h"
+#import "DepositsHistoryViewController.h"
 
 @interface MyAccountViewController : BaseViewController
 

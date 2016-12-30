@@ -132,7 +132,7 @@
             }else if (indexPath.row  ==1){
                 //会员中心
                 HYZXViewController *hyzxVC = [[HYZXViewController alloc] init];
-                
+                hyzxVC.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
                 [self.navigationController pushViewController:hyzxVC animated:YES];
                 
             }else if (indexPath.row  ==2){
@@ -141,8 +141,6 @@
                 JFViewController *jfViewController = [[JFViewController alloc] init];
                 
                 jfViewController.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
-                
-                
                 
                 [self.navigationController pushViewController:jfViewController animated:YES];
             }else {
@@ -156,6 +154,9 @@
                 
             }else if (indexPath.row  ==1){
                 //回款计划
+                DepositsHistoryViewController *depositsHVC = [[DepositsHistoryViewController alloc] init];
+                  depositsHVC.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
+                 [self.navigationController pushViewController:depositsHVC animated:YES];
                 
             }
             break;
