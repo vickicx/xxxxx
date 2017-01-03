@@ -8,7 +8,10 @@
 
 #import "DHFThreeProductDetailViewController.h"
 
-@interface DHFThreeProductDetailViewController ()<UITableViewDelegate, UITableViewDataSource, PopUpViewDelegate>
+@interface DHFThreeProductDetailViewController ()<UITableViewDelegate, UITableViewDataSource, PopUpViewDelegate, JGProgressHUDDelegate>
+@property (nonatomic, assign)BOOL isUPLoad;//判断上下
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) NSInteger maxPageId;
 
 @end
 
@@ -34,12 +37,53 @@
 
     self.TBJLArray = [NSMutableArray array];
     self.HKJHArray = [NSMutableArray array];
-    self.detailModel = [[ProductDetailModel alloc]init];
-    self.pApplocationModel = [[PApplicationModel alloc] init];
+    self.informaModel = [[NSMutableArray alloc] init];
     
     [self initButton];
     [self initTableView];
     [self initBottomView];
+    
+    _isUPLoad = NO;
+
+}
+
+//设置下拉刷新
+-(void)addHeaderRefresh
+{
+//    if (self.TBJLButton.selected == YES) {
+//        [self.TBJLArray removeAllObjects];
+        __block DHFThreeProductDetailViewController *blockSelf = self;
+        [self.tableView addHeaderWithCallback:^{
+            _isUPLoad = NO;
+            _page = 1;
+            
+            //重新请求数据
+            [blockSelf getProductDetail];
+        }];
+//        [self.tableView headerBeginRefreshing];
+//
+//    }
+
+}
+
+
+//上拉
+- (void)addFooterRefresh
+{
+//    if (self.TBJLButton.selected == YES) {
+        if (self.page < self.maxPageId) {
+            __block DHFThreeProductDetailViewController *blockSelf = self;
+            self.page++;
+            [self.tableView addFooterWithCallback:^{
+                
+                _isUPLoad = YES;
+                
+                [blockSelf getProductDetail];
+             }];
+            [self.tableView footerBeginRefreshing];
+        }
+        
+//    }
 }
 
 - (void)initButton{
@@ -84,6 +128,8 @@
     _CPXQButton.selected = YES;
     _TBJLButton.selected = NO;
     _HKJHButton.selected = NO;
+    [self.tableView removeFooter];
+    [self.tableView removeHeader];
     [self.tableView reloadData];
     [UIView animateWithDuration:0.3 animations:^{
         self.bottomView.frame = CGRectMake((kWIDTH - 280) / 2, 64+43, 280/3, 2);
@@ -95,6 +141,8 @@
     _CPXQButton.selected = NO;
     _TBJLButton.selected = NO;
     _HKJHButton.selected = YES;
+    [self.tableView removeFooter];
+    [self.tableView removeHeader];
     [self.tableView reloadData];
     [UIView animateWithDuration:0.3 animations:^{
         self.bottomView.frame = CGRectMake((kWIDTH - 280) / 2 + 280/3, 64+43, 280/3, 2);
@@ -106,6 +154,9 @@
     _CPXQButton.selected = NO;
     _TBJLButton.selected = YES;
     _HKJHButton.selected = NO;
+    //上下拉刷新
+    [self addHeaderRefresh];
+    [self addFooterRefresh];
     [self.tableView reloadData];
     [UIView animateWithDuration:0.3 animations:^{
         self.bottomView.frame = CGRectMake((kWIDTH - 280) / 2 + 280/3*2, 64+43, 280/3, 2);
@@ -135,8 +186,8 @@
         }
         else if (indexPath.row == 1)
         {
-            CGFloat hight = [HeightWithString heightForTextLable:_detailModel.detailDescription width:kWIDTH - 24 fontSize:13];
-            return 47+hight+30+10;
+            CGFloat hight = [HeightWithString heightForTextLable:_detailModel.detailDescription width:kWIDTH - 26 fontSize:13];
+            return 47+hight+20;
         }
         else if (indexPath.row == 2)
         {
@@ -145,14 +196,13 @@
             return 80+hight+20+10;
         }
         else     {
-            NSString *str1 = self.detailModel.description;
+            NSString *str1 = self.detailModel.descriptionJS;
             CGFloat hight = [HeightWithString heightForTextLable:str1 width:kWIDTH - 24 fontSize:13];
             
             CGFloat danbaoHight = 47 + hight + 10+10;
             NSString *str2 = self.detailModel.descriptionRiskDescri;
             CGFloat hight1 = [HeightWithString heightForTextLable:str2 width:kWIDTH - 24 fontSize:13];
-            NSLog(@"cell height cell ===== %f", 50+hight1+25+10 + danbaoHight + 130 * FitHeight + 33  + 10 + 150+33+20);
-            return 50+hight1+25+10 + danbaoHight + 130 * FitHeight + 33  + 10 + 150+33+20 + 50;
+            return 50+hight1+25+10 + danbaoHight + 130 + 33  + 10 + 150+33+20;
         }
     }
     //还款计划和投标记录的高度是一样的
@@ -177,7 +227,7 @@
     else if (indexPath.row == 1)
     {
         ProductIntroductionTableViewCell *cell = [[ProductIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        
+        cell.detailPModel = self.detailModel;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return  cell;
     }
@@ -192,6 +242,9 @@
     {
     ProductDetailThreeTableViewCell *cell = [[ProductDetailThreeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
         cell.delegate = self;
+        cell.detailPModel = self.detailModel;
+        cell.checkModel = self.checkModel;
+        cell.informaModel = _informaModel;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return  cell;
     }
@@ -241,8 +294,10 @@
     }
 }
 
-- (void)popViewAction{
+- (void)popViewAction:(NSInteger )num{
     self.popView = [PopView defaultPopupView];
+    InformationModel *model = [_informaModel objectAtIndex:num];
+    _popView.imgUrlArray = model.informationImageList;
     self.popView.parentVC = self;
 
     [self lew_presentPopupView:self.popView animation:[LewPopupViewAnimationSlide new] dismissed:^{
@@ -310,11 +365,31 @@
 //    submitOrderTableViewController.product = product!
 //    
 //    self.navigationController!.showViewController(submitOrderTableViewController, sender: nil)
-    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]init];
-    backbutton.title = @"产品中心";
-    self.navigationItem.backBarButtonItem = backbutton;
-    DHFTBViewController *tbVC = [[DHFTBViewController alloc] init];
-    [self.navigationController pushViewController:tbVC animated:YES];
+    NSString *longinStr =[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
+    if (longinStr.length > 0) {
+        
+        if(self.detailModel.newstatus == 5){
+            UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]init];
+            backbutton.title = @"产品中心";
+            self.navigationItem.backBarButtonItem = backbutton;
+            DHFTBViewController *tbVC = [[DHFTBViewController alloc] init];
+            [self.navigationController pushViewController:tbVC animated:YES];
+        }
+        
+       
+    }
+    else
+    {
+        JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+        hud.tag = 1;
+        hud.indicatorView = nil;
+        hud.textLabel.text = @"请先登陆";
+        hud.delegate = self;
+        hud.position = 0;
+        [hud showInView:self.view];
+        [hud dismissAfterDelay:2.0];
+    }
+    
     
 }
 
@@ -329,7 +404,7 @@
     
     NSString *idStr = @"id";
     NSDictionary *dic = @{idStr:_idNumber,
-                          @"sid" : [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"],
+                          @"sid" : @"",
                           @"page" : @"0"};
 
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@", Url(PRODUCTDETAIL), self.idNumber];
@@ -342,13 +417,27 @@
         [hud dismiss];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@",dic);
-        //        NSLog(@"dic = %@", dic);
+                NSLog(@"dic = %@", dic);
+        //项目资料
+        NSMutableArray *inforArray = [dic objectForKey:@"information"];
+        for (NSDictionary *dic in inforArray) {
+            InformationModel *inforModel = [[InformationModel alloc] init];
+            [inforModel setValuesForKeysWithDictionary:dic];
+            [self.informaModel addObject:inforModel];
+        }
+        
+        
         //借款人信息Model
         [self.pApplocationModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplication"]];
         
         //项目详情Model
         [self.detailModel setValuesForKeysWithDictionary:[dic objectForKey:@"product"]];
         
+        //审核信息model
+        [self.checkModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplicationCheck"]];
+        if(_isUPLoad == NO){
+            [self.TBJLArray removeAllObjects];
+        }
         //投标记录的数据 
         NSMutableArray *orderArray = [[dic objectForKey:@"productOrders"] objectForKey:@"items"];
         for (NSDictionary *dic in orderArray) {
@@ -364,10 +453,23 @@
             [self.HKJHArray addObject:planModel];
         }
         
-        
+        //最大页数
+        self.maxPageId = [[[dic objectForKey:@"productOrders"] objectForKey:@"maxPage"] intValue];
+        if (self.detailModel.newstatus == 5)
+        {
+            self.touBiaoBtn.backgroundColor = GetColor(@"#805919");
+        }
+        else
+        {
+            self.touBiaoBtn.backgroundColor = [XXColor grayAllColor];
+        }
+        [_tableView headerEndRefreshing];
+        [_tableView footerEndRefreshing];
         [self.tableView reloadData];
     } fail:^(NSError *error) {
         [hud dismiss];
+        [_tableView headerEndRefreshing];
+        [_tableView footerEndRefreshing];
         NSLog(@"error  %@",error);
     }];
     

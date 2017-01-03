@@ -303,7 +303,7 @@
     
     UIColor *textColor = GetColor(@"#555555");
     
-    NSMutableAttributedString *ketoustr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"可投  %.0f元", _detailPModel.totalInvestment /100.0]];
+    NSMutableAttributedString *ketoustr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"可投  %.0f元", _detailPModel.remainingInvestmentAmount /100.0]];
     [ketoustr addAttribute:NSForegroundColorAttributeName value:textColor range:NSMakeRange(0,2)];
     
     self.ketouLabel.attributedText = ketoustr;

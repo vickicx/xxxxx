@@ -35,17 +35,17 @@
     [self.contentView addSubview:_lineView];
     
     
-    self.detailLab = [[UILabel alloc] initWithFrame:CGRectMake(13, 47, kWIDTH - 24, 70)];
+    self.detailLab = [[UILabel alloc] initWithFrame:CGRectMake(13, 47, kWIDTH - 26, 70)];
 //    _detailLab.backgroundColor = [UIColor greenColor];
     _detailLab.font = [UIFont systemFontOfSize:13];
     _detailLab.textColor = GetColor(@"#555555");
     _detailLab.numberOfLines = 0;
     _detailLab.text = @"借款人经营一家汽车美容商行，有多年经营管理经验。车行有固定会员数百人。消费群体为中高档车主，群体稳定。商行经营状况良好，有员工数十人，收益稳定。本地有房产，具有良好的还款意愿和还款能力。\n该自然人在本平台借款余额未超过人民币20万元。";
     [self.contentView addSubview:_detailLab];
-    CGFloat hight = [HeightWithString heightForTextLable:_detailLab.text width:kWIDTH - 24 fontSize:13];
+    CGFloat hight = [HeightWithString heightForTextLable:_detailLab.text width:kWIDTH - 26 fontSize:13];
     _detailLab.frame = CGRectMake(13, 47, kWIDTH - 26, hight);
 
-    self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 47+hight+30, kWIDTH, 10)];
+    self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 47, kWIDTH, 10)];
     _bottomView.backgroundColor = GetColor(@"e8e8e8");
     [self.contentView addSubview:_bottomView];
 }
@@ -57,10 +57,10 @@
     _detailLab.text = _detailPModel.detailDescription;
     
     
-    CGFloat hight = [HeightWithString heightForTextLable:_detailLab.text width:kWIDTH - 24 fontSize:13];
+    CGFloat hight = [HeightWithString heightForTextLable:_detailLab.text width:kWIDTH - 26 fontSize:13];
     _detailLab.frame = CGRectMake(13, 47, kWIDTH - 26, hight);
     
-    self.bottomView.frame = CGRectMake(0, 47+hight+30, kWIDTH, 10);
+    _bottomView.frame = CGRectMake(0, 47+hight+10, kWIDTH, 10);
     
     
     

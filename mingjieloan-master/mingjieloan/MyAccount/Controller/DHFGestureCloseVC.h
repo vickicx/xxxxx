@@ -8,6 +8,7 @@
 
 #import "SubBaseViewController.h"
 #import "KKGestureLockView.h"
+#import "DHFForgerhandVC.h"
 
 @interface DHFGestureCloseVC : SubBaseViewController
 

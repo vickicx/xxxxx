@@ -35,7 +35,7 @@
     self.lockView.lineColor = GetColor(@"#19AFCC");
     self.lockView.lineWidth = 4;
     self.lockView.delegate = self;
-    self.lockView.contentInsets = UIEdgeInsetsMake(120, 40, 250, 40);
+    self.lockView.contentInsets = UIEdgeInsetsMake(120 * FitWidth, 40 * FitHeight, 250 * FitWidth, 40 * FitHeight);
     self.lockView.tag = 1;
     [self.view addSubview:_lockView];
     
@@ -105,7 +105,8 @@
     if ([gesturePass isEqualToString: passcode])
     {
         self.tipLab.text = @"手势密码解锁成功";
-        [self.navigationController popViewControllerAnimated:YES];
+        // 切换页面
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
         
     }else{
         
@@ -114,6 +115,9 @@
     
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 
 - (void)pass{
@@ -124,6 +128,8 @@
 
 - (void)noFunction{
     
+    DHFForgerhandVC *forgertVC = [[DHFForgerhandVC alloc] init];
+    [self.navigationController pushViewController:forgertVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

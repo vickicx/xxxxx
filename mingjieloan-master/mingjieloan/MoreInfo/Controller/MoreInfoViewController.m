@@ -112,6 +112,8 @@
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"rtnUrl"];
                 [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"isLogin"];
+                
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"UserGesturePassword"];
                 self.logOutBtn.hidden = YES;
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"logoutSuccess" object:nil];
@@ -243,13 +245,32 @@
     } success:^(id result) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         [hud dismiss];
-        NSLog(@"dic == %@", dic);
+//        NSLog(@"dic == %@", dic);
         
+        if([[dic objectForKey:@"uid_level"] intValue] == 3){
         DHFInviteFriendViewController  *InviteVC = [[DHFInviteFriendViewController alloc] init];
         InviteVC.recommendationUrl = [dic objectForKey:@"recommendationUrl"];
+        InviteVC.cashReturned = [[dic objectForKey:@"cashReturned"] integerValue];//邀请人数
+        InviteVC.cashToReturn = [[dic objectForKey:@"cashToReturn"] integerValue];//已返现金
+        InviteVC.couponCashSum = [[dic objectForKey:@"couponCashSum"] integerValue];//待返现金
+        InviteVC.incentive_commission = [[dic objectForKey:@"incentive_commission"] integerValue];//获得现金券
+        InviteVC.invitationCount = [[dic objectForKey:@"invitationCount"] integerValue];//已返积分
+        InviteVC.refCode = [dic objectForKey:@"refCode"];
         [self.navigationController pushViewController:InviteVC animated:YES];
-        
-        
+        }
+        else if ([[dic objectForKey:@"uid_level"] intValue] == 2)
+        {
+        HDFInviteFriendOtherViewController *otherVc = [[HDFInviteFriendOtherViewController alloc] init];
+            otherVc.recommendationUrl = [dic objectForKey:@"recommendationUrl"];
+            otherVc.cashReturned = [[dic objectForKey:@"cashReturned"] integerValue];//邀请人数
+            otherVc.cashToReturn = [[dic objectForKey:@"cashToReturn"] integerValue];//已返现金
+            otherVc.couponCashSum = [[dic objectForKey:@"couponCashSum"] integerValue];//待返现金
+            otherVc.incentive_commission = [[dic objectForKey:@"incentive_commission"] integerValue];//获得现金券
+            otherVc.invitationCount = [[dic objectForKey:@"invitationCount"] integerValue];//已返积分
+            otherVc.refCode = [dic objectForKey:@"refCode"];
+        [self.navigationController pushViewController:otherVc animated:YES];
+            
+        }
     } fail:^(NSError *error) {
         
         [hud dismiss];

@@ -74,7 +74,7 @@
     self.benjinLab.text = [NSString stringWithFormat:@"￥%.2f", benjin];
     CGFloat lixi = _planModel.interest / 100.00;
     self.lixiLab.text = [NSString stringWithFormat:@"￥%.2f", lixi];
-    CGFloat zongge = _planModel.principal / 100.00;
+    CGFloat zongge = _planModel.ptotal  / 100.00;
     self.zongeLab.text = [NSString stringWithFormat:@"￥%.2f",zongge];
     
     

@@ -8,8 +8,17 @@
 
 #import "DHFChangPhoneViewController.h"
 
-@interface DHFChangPhoneViewController ()
+@interface DHFChangPhoneViewController ()<JGProgressHUDDelegate>
 
+@property (nonatomic, copy) NSString *req;
+
+@property (nonatomic, copy) NSString *sign;
+
+@property (nonatomic, copy) NSString *uri;
+
+@property (nonatomic, copy) NSString *msg;
+
+@property (nonatomic, strong) NSMutableArray *arr;
 
 @end
 
@@ -56,6 +65,84 @@
                                    delegate:nil
                           cancelButtonTitle:@"确定"
                           otherButtonTitles:nil, nil] show];
+    }
+    else
+    {
+        if ([self.numberField.text isEqualToString:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]]) {
+            JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+            hud.tag = 1;
+            hud.indicatorView = nil;
+            hud.textLabel.text = @"手机号已存在";
+            hud.delegate = self;
+            hud.position = 0;
+            [hud showInView:self.view];
+            [hud dismissAfterDelay:2.0];
+        }
+        else
+        {
+        JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+        
+        hud.textLabel.text = @"loading...";
+        
+        [hud showInView:self.view];
+        NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] valueForKey:@"sid"],@"newtel":_numberField.text};
+        [VVNetWorkTool postWithUrl:Url(YZPHONE) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+            
+            
+        } success:^(id result) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+            [hud dismiss];
+            //        NSLog(@"dic == %@", dic);
+            NSString *str = [NSString stringWithFormat:@"%@", [dic objectForKey:@"status"]];
+            
+            //NSLog(@"%@",result);
+            
+            if ([str isEqualToString:@"0"]) {
+                
+                
+                NSString *provider = [result objectForKey:@"pay.provider"];
+                
+                if ([provider isEqualToString:@"SINAPAY"]) {
+                    
+                    self.req = [result objectForKey:@"redirectUrl"];
+                    self.sign = [result objectForKey:@"pay.provider"];
+                    self.uri = [result objectForKey:@"uri"];
+                    NSString *url = [NSString stringWithFormat:@"%@", [result objectForKey:@"modifyVerifyMobile"]];
+                    
+                    ZZChangeBoundPhoneNumVC *changeBoundPhoneNumVC = [[ZZChangeBoundPhoneNumVC alloc] init];
+                    
+                    changeBoundPhoneNumVC.urlStr = url;
+                    
+                    [self.navigationController pushViewController:changeBoundPhoneNumVC animated:YES];
+                    
+                    
+                }
+                
+                
+            }
+            else
+            {
+                
+                NSString *str = [NSString stringWithFormat:@"%@", [result objectForKey:@"msg"]];
+                
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message: str preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *defautAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    [self dismissViewControllerAnimated:alert completion:nil];
+                }];
+                
+                [alert addAction:defautAction];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            }
+            
+        } fail:^(NSError *error) {
+            
+            [hud dismiss];
+        }];
+        }
     }
     
     

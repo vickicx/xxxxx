@@ -8,7 +8,7 @@
 
 #import "HeightWithString.h"
 
-#define UILABEL_LINE_SPACE 6
+#define UILABEL_LINE_SPACE 4
 
 #define HEIGHTLABEL [[ UIScreen mainScreen ] bounds ].size.height
 

@@ -49,7 +49,7 @@
     self.lockView.lineColor = GetColor(@"#19AFCC");
     self.lockView.lineWidth = 4;
     self.lockView.delegate = self;
-    self.lockView.contentInsets = UIEdgeInsetsMake(120, 40, 250, 40);
+    self.lockView.contentInsets = UIEdgeInsetsMake(120 * FitWidth, 40 * FitHeight, 250 * FitWidth, 40 * FitHeight);
     self.lockView.tag = 1;
     [self.view addSubview:_lockView];
     

@@ -94,6 +94,9 @@
     self.passwordField.secureTextEntry = YES;
     [self.view addSubview:self.passwordField];
     
+    
+    
+    
     UIView *grayLineView3 = [[UIView alloc] initWithFrame:CGRectMake(self.nameField.left - 2 *FitWidth ,self.passwordField.bottom + 5 *FitHeight, 323*FitWidth, FitHeight)];
     grayLineView3.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:grayLineView3];
@@ -108,13 +111,36 @@
     self.passwordAgainField.secureTextEntry = YES;
     [self.view addSubview:self.passwordAgainField];
     
-    self.nameField.font = self.duanxinField.font = self.passwordField.font = self.passwordAgainField.font = RealFont(14);
     
     UIView *grayLineView4 = [[UIView alloc] initWithFrame:CGRectMake(self.nameField.left - 2 *FitWidth ,self.passwordAgainField.bottom + 5 *FitHeight, 323*FitWidth, FitHeight)];
     grayLineView4.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:grayLineView4];
     
-    UILabel *label  = [[UILabel alloc] initWithFrame:CGRectMake(66*FitWidth, grayLineView4.bottom + 12*FitHeight, 190*FitWidth, 20*FitHeight)];
+    //缺一张图片
+    UIImageView *imageView5 = [[UIImageView alloc] initWithFrame:CGRectMake(imageView1.left, grayLineView4.bottom + 27*FitHeight, 14*FitWidth, 17*FitHeight)];
+    imageView5.image = [UIImage imageNamed:@"mima"];
+    [self.view addSubview:imageView5];
+    
+    
+    self.codeField = [[UITextField alloc] initWithFrame:CGRectMake(54*FitWidth, imageView5.top, self.view.width - 160*FitWidth, 20*FitHeight)];
+    self.codeField.borderStyle = UITextBorderStyleNone;
+    self.codeField.placeholder = @"请输入邀请码";
+    [self.view addSubview:self.codeField];
+    
+    
+    self.warnLabel =  [[UILabel alloc] initWithFrame:CGRectMake(54*FitWidth, imageView5.top + 25* FitHeight, self.view.width - 100*FitWidth, 20*FitHeight)];
+    _warnLabel.font = [UIFont systemFontOfSize:12 * FitHeight];
+    _warnLabel.textColor = [UIColor redColor];
+    _warnLabel.text = @"如果您的邀请人提供了邀请码，请务必填写，无责不填";
+    [self.view addSubview:_warnLabel];
+    
+    self.codeField.font = self.nameField.font = self.duanxinField.font = self.passwordField.font = self.passwordAgainField.font = RealFont(14);
+    
+    UIView *grayLineView5 = [[UIView alloc] initWithFrame:CGRectMake(self.nameField.left - 2 *FitWidth ,self.codeField.bottom + 5 *FitHeight, 323*FitWidth, FitHeight)];
+    grayLineView5.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:grayLineView5];
+    
+    UILabel *label  = [[UILabel alloc] initWithFrame:CGRectMake(66*FitWidth, grayLineView5.bottom + 12*FitHeight + 40 * FitHeight, 190*FitWidth, 20*FitHeight)];
     label.text = @"创建账户代表同意并接受铭捷贷的";
     label.font = [UIFont systemFontOfSize:RealValue(12)];
     [self.view addSubview:label];
@@ -129,12 +155,12 @@
     [self.registerXYButton setTitleColor:[XXColor btnGoldenColor] forState:UIControlStateNormal];
     [self.view addSubview:self.registerXYButton];
     
-    UIView *grayLineView5 = [[UIView alloc] initWithFrame:CGRectMake(self.registerXYButton.left  ,self.registerXYButton.bottom - 7 * FitHeight, self.registerXYButton.width -20 *FitWidth, FitHeight)];
+    UIView *grayLineView6 = [[UIView alloc] initWithFrame:CGRectMake(self.registerXYButton.left  ,self.registerXYButton.bottom - 7 * FitHeight, self.registerXYButton.width -20 *FitWidth, FitHeight)];
     grayLineView5.backgroundColor = [XXColor btnGoldenColor];
-    [self.view addSubview:grayLineView5];
+    [self.view addSubview:grayLineView6];
     
     self.registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.registerButton.frame = CGRectMake(label.left, label.bottom+14*FitHeight, label.width + grayLineView5.width + 3 *FitWidth, 45*FitHeight);
+    self.registerButton.frame = CGRectMake(label.left, label.bottom+14*FitHeight, label.width + grayLineView6.width + 3 *FitWidth, 45*FitHeight);
     [self.registerButton addTarget:self action:@selector(registerButton:) forControlEvents:UIControlEventTouchUpInside];
     self.registerButton.layer.masksToBounds = YES;
     self.registerButton.layer.borderColor = [XXColor borderAllColor].CGColor;
@@ -210,10 +236,11 @@
         
     } success:^(id result) {
         NSLog(@"%@",result);
-        hud.textLabel.text = result[@"msg"];
+        [hud dismiss];
+        _warnLabel.text = result[@"msg"];
         [hud dismissAfterDelay:0.3];
     } fail:^(NSError *error) {
-        
+        [hud dismiss];
     }];
 }
 

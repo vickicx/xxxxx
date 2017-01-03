@@ -1,14 +1,18 @@
 //
-//  DHFTwoProductDetailViewController.m
+//  DHFThreeProductDetailViewController.m
 //  mingjieloan
 //
 //  Created by 杜虹锋 on 2016/12/23.
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
-#import "DHFTwoProductDetailViewController.h"
+#import "DHFThreeProductDetailViewController.h"
 
-@interface DHFTwoProductDetailViewController ()<UITableViewDelegate, UITableViewDataSource, PopUpViewDelegate>
+@interface DHFTwoProductDetailViewController ()<UITableViewDelegate, UITableViewDataSource, PopUpViewDelegate, JGProgressHUDDelegate>
+
+@property (nonatomic, assign)BOOL isUPLoad;//判断上下
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) NSInteger maxPageId;
 
 @end
 
@@ -20,20 +24,72 @@
     NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes = titleDict;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    [self getProductDetail];
 }
 
-
 - (void)viewDidLoad {
+    
+    
+    
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.TBJLArray = [NSMutableArray array];
+    self.HKJHArray = [NSMutableArray array];
+    self.informaModel = [[NSMutableArray alloc] init];
+    
     [self initButton];
     [self initTableView];
     [self initBottomView];
+    //默认不是上拉
+    _isUPLoad = NO;
+    
+}
+
+//设置下拉刷新
+-(void)addHeaderRefresh
+{
+    //    if (self.TBJLButton.selected == YES) {
+    //        [self.TBJLArray removeAllObjects];
+    __block DHFTwoProductDetailViewController *blockSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        _isUPLoad = NO;
+        _page = 1;
+        
+        //重新请求数据
+        [blockSelf getProductDetail];
+    }];
+    //        [self.tableView headerBeginRefreshing];
+    //
+    //    }
+    
+}
+
+
+//上拉
+- (void)addFooterRefresh
+{
+    //    if (self.TBJLButton.selected == YES) {
+    if (self.page < self.maxPageId) {
+        __block DHFTwoProductDetailViewController *blockSelf = self;
+        self.page++;
+        [self.tableView addFooterWithCallback:^{
+            
+            _isUPLoad = YES;
+            
+            [blockSelf getProductDetail];
+        }];
+        [self.tableView footerBeginRefreshing];
+    }
+    
+    //    }
 }
 
 - (void)initButton{
     //产品详情Button
-    self.CPXQButton = [[UIButton alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2, 64, 280 / 3, 45)];
+    self.CPXQButton = [[UIButton alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2, 64, 280 / 2, 45)];
     [self.CPXQButton setTitle:@"产品详情" forState:UIControlStateNormal];
     UIColor *selectColor = [XXColor goldenColor];
     [self.CPXQButton setTitleColor:selectColor forState:UIControlStateSelected];
@@ -43,17 +99,17 @@
     _CPXQButton.selected = YES;
     [self.view addSubview:self.CPXQButton];
     
-    //还款计划Button
-    self.HKJHButton = [[UIButton alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2 + 280/3, 64, 280 / 3, 45)];
-    [self.HKJHButton setTitle:@"还款计划" forState:UIControlStateNormal];
-    [self.HKJHButton setTitleColor:selectColor forState:UIControlStateSelected];
-    [self.HKJHButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    self.HKJHButton.titleLabel.font = [UIFont systemFontOfSize:17];
-    [self.HKJHButton addTarget:self action:@selector(HKJHAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.HKJHButton];
+    //投标记录Button
+    self.TBJLButton = [[UIButton alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2 + 280/2, 64, 280 / 2, 45)];
+    [self.TBJLButton setTitle:@"投标记录" forState:UIControlStateNormal];
+    [self.TBJLButton setTitleColor:selectColor forState:UIControlStateSelected];
+    [self.TBJLButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.TBJLButton.titleLabel.font = [UIFont systemFontOfSize:17];
+    [self.TBJLButton addTarget:self action:@selector(TBJLAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.TBJLButton];
+
     
-    
-    self.bottomView = [[UIView alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2, 64+43, 280/3, 2)];
+    self.bottomView = [[UIView alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2, 64+43, 280/2, 2)];
     _bottomView.backgroundColor = selectColor;
     [self.view addSubview:_bottomView];
     
@@ -62,31 +118,37 @@
 //产品详情
 -(void)CPXQAction:(UIButton *)btn{
     _CPXQButton.selected = YES;
-    _HKJHButton.selected = NO;
+    _TBJLButton.selected = NO;
+    [self.tableView removeFooter];
+    [self.tableView removeHeader];
     [self.tableView reloadData];
     [UIView animateWithDuration:0.3 animations:^{
-        self.bottomView.frame = CGRectMake((kWIDTH - 280) / 2, 64+43, 280/3, 2);
+        self.bottomView.frame = CGRectMake((kWIDTH - 280) / 2, 64+43, 280/2, 2);
     }];
 }
 
-//还款计划
--(void)HKJHAction:(UIButton *)btn{
+
+//投标记录
+-(void)TBJLAction:(UIButton *)btn{
     _CPXQButton.selected = NO;
-    _HKJHButton.selected = YES;
+    _TBJLButton.selected = YES;
+    [self addHeaderRefresh];
+    [self addFooterRefresh];
     [self.tableView reloadData];
     [UIView animateWithDuration:0.3 animations:^{
-        self.bottomView.frame = CGRectMake((kWIDTH - 280) / 2 + 280/3, 64+43, 280/3, 2);
+        
+        self.bottomView.frame = CGRectMake((kWIDTH - 280) / 2 + 280 /2, 64+43, 280/2, 2);
     }];
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //产品详情
     if (self.CPXQButton.selected == YES) {
         return  4;
     }
-    else{
-        return 2;
+    else
+    {
+        return (self.TBJLArray.count + 1);
     }
 }
 
@@ -99,24 +161,23 @@
         }
         else if (indexPath.row == 1)
         {
-            NSString *str = @"借款人经营一家汽车美容商行，有多年经营管理经验。车行有固定会员数百人。消费群体为中高档车主，群体稳定。商行经营状况良好，有员工数十人，收益稳定。本地有房产，具有良好的还款意愿和还款能力。\n该自然人在本平台借款余额未超过人民币20万元。";
-            CGFloat hight = [HeightWithString heightForTextLable:str width:kWIDTH - 24 fontSize:13];
-            return 47+hight+30+10;
+            CGFloat hight = [HeightWithString heightForTextLable:_detailModel.detailDescription width:kWIDTH - 26 fontSize:13];
+            return 47+hight+20;
         }
         else if (indexPath.row == 2)
         {
-            NSString *str = @"资金用途：资金周转";
+            NSString *str = [NSString stringWithFormat:@"资金用途：%@", self.pApplocationModel.pPurpose];
             CGFloat hight = [HeightWithString heightForTextLable:str width:kWIDTH - 24 fontSize:13];
             return 80+hight+20+10;
         }
         else     {
-            NSString *str1 = @"大连亿嘉担保有限公司，成立于2008年06月30日，注册资本壹亿元，工作深入细致，业务开展有方，与银行合作默契，风险控制有力，社会一小明显。以“卓越、创新、执着”为企业精神，主张“专业沟通、实效营销”的服务理念。展望未来，一家担保将进一步加强与客户以及协作单位的友好合作，力求在充满机遇、挑战、希望的市场中成为大连地区担保行业的第一品牌";
+            NSString *str1 = self.detailModel.descriptionJS;
             CGFloat hight = [HeightWithString heightForTextLable:str1 width:kWIDTH - 24 fontSize:13];
             
             CGFloat danbaoHight = 47 + hight + 10+10;
-            NSString *str2 = @"1.明杰贷不触碰用户资金，交易资金完全由第三方支付机构监管。\n2.项目推荐方审核、筛选优质资产\n3.抵押物价值充足，足以支撑还款";
+            NSString *str2 = self.detailModel.descriptionRiskDescri;
             CGFloat hight1 = [HeightWithString heightForTextLable:str2 width:kWIDTH - 24 fontSize:13];
-            return 50+hight1+25+10 + danbaoHight + 130 * FitHeight + 33  + 10 + 150+33+20;
+            return 50+hight1+25+10 + danbaoHight + 130 * FitHeight + 33  + 10 + 150+33+20+ 10;
         }
     }
     //还款计划和投标记录的高度是一样的
@@ -134,21 +195,21 @@
     if (self.CPXQButton.selected == YES) {
         if (indexPath.row == 0) {
             ProductDetailFirstTableViewCell *cell = [[ProductDetailFirstTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-            
+            cell.detailPModel = self.detailModel;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return  cell;
         }
         else if (indexPath.row == 1)
         {
             ProductIntroductionTableViewCell *cell = [[ProductIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-            
+            cell.detailPModel = self.detailModel;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return  cell;
         }
         else if (indexPath.row == 2)
         {
             ProductUserInforTableViewCell *cell = [[ProductUserInforTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-            
+            cell.pApplocationModel = self.pApplocationModel;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return  cell;
         }
@@ -156,40 +217,40 @@
         {
             ProductDetailThreeTableViewCell *cell = [[ProductDetailThreeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
             cell.delegate = self;
+            cell.detailPModel = self.detailModel;
+            cell.checkModel = self.checkModel;
+            cell.informaModel = _informaModel;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return  cell;
         }
     }
-    else if(self.HKJHButton.selected == YES)
+    else
     {
-        
-        static NSString *cellIdentifier = @"HKJHcell";
-        HKJHTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        static NSString *cellIdentifier = @"TBJLcell";
+        TBJLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil) {
-            cell = [[HKJHTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+            cell = [[TBJLTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (indexPath.row == 0)
         {
-            cell.timeLab.text = @"还款时间";
-            cell.benjinLab.text = @"应还本金";
-            cell.lixiLab.text = @"应还利息";
-            cell.zongeLab.text = @"应还总额";
+            cell.peopleLab.text = @"投资人";
+            cell.moneyLab.text = @"投资金额";
+            cell.timeLab.text = @"投标时间";
+            
         }
         else
         {
-            cell.timeLab.text = @"2017-01-01";
-            cell.benjinLab.text = @"¥3000.00";
-            cell.lixiLab.text = @"¥31.56";
-            cell.zongeLab.text = @"¥3031.56";
+            cell.ordersModel = [self.TBJLArray objectAtIndex:(indexPath.row - 1)];
         }
         return  cell;
     }
-    return nil;
 }
 
-- (void)popViewAction{
+- (void)popViewAction:(NSInteger )num{
     self.popView = [PopView defaultPopupView];
+    InformationModel *model = [_informaModel objectAtIndex:num];
+    _popView.imgUrlArray = model.informationImageList;
     self.popView.parentVC = self;
     
     [self lew_presentPopupView:self.popView animation:[LewPopupViewAnimationSlide new] dismissed:^{
@@ -255,10 +316,117 @@
     //    submitOrderTableViewController.productInfo = productInfo!
     //
     //    submitOrderTableViewController.product = product!
-    //    
+    //
     //    self.navigationController!.showViewController(submitOrderTableViewController, sender: nil)
+    NSString *longinStr =[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
+    if (longinStr.length > 0) {
+        
+        if(self.detailModel.newstatus == 5){
+            UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]init];
+            backbutton.title = @"产品中心";
+            self.navigationItem.backBarButtonItem = backbutton;
+            DHFTBViewController *tbVC = [[DHFTBViewController alloc] init];
+            [self.navigationController pushViewController:tbVC animated:YES];
+        }
+        
+        
+    }
+    else
+    {
+        JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+        hud.tag = 1;
+        hud.indicatorView = nil;
+        hud.textLabel.text = @"请先登陆";
+        hud.delegate = self;
+        hud.position = 0;
+        [hud showInView:self.view];
+        [hud dismissAfterDelay:2.0];
+    }
+    
 }
 
+
+- (void)getProductDetail{
+    
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
+    
+    NSString *idStr = @"id";
+    NSDictionary *dic = @{idStr:_idNumber,
+                          @"sid" : @"",
+                          @"page" : @"0"};
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@", Url(PRODUCTDETAIL), self.idNumber];
+    //    NSString *csStr = [NSString stringWithFormat:@"jiahairan123.55555.io:19883/mapp/product/personal-loan/detail/%@", _idNumber];
+    //    NSLog(@"urlStr=========%@",urlStr);
+    [VVNetWorkTool postWithUrl:urlStr body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        //        NSLog(@"progress ===== %@", progress);
+        
+    } success:^(id result) {
+        [hud dismiss];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@",dic);
+        //        NSLog(@"dic = %@", dic);
+        //项目资料
+        NSMutableArray *inforArray = [dic objectForKey:@"information"];
+        for (NSDictionary *dic in inforArray) {
+            InformationModel *inforModel = [[InformationModel alloc] init];
+            [inforModel setValuesForKeysWithDictionary:dic];
+            [self.informaModel addObject:inforModel];
+        }
+        
+        
+        //借款人信息Model
+        [self.pApplocationModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplication"]];
+        
+        //项目详情Model
+        [self.detailModel setValuesForKeysWithDictionary:[dic objectForKey:@"product"]];
+        
+        //审核信息model
+        [self.checkModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplicationCheck"]];
+        
+        if(_isUPLoad == NO){
+            [self.TBJLArray removeAllObjects];
+        }
+        //投标记录的数据
+        NSMutableArray *orderArray = [[dic objectForKey:@"productOrders"] objectForKey:@"items"];
+        for (NSDictionary *dic in orderArray) {
+            ProductOrdersModel *orderModel = [[ProductOrdersModel alloc] init];
+            [orderModel setValuesForKeysWithDictionary:dic];
+            [self.TBJLArray addObject:orderModel];
+        }
+//        //还款计划的数据
+//        NSMutableArray *planArray = [dic objectForKey:@"productRepayPlan"];
+//        for (NSDictionary *dic in planArray) {
+//            ProductRepayPlanModel *planModel = [[ProductRepayPlanModel alloc] init];
+//            [planModel setValuesForKeysWithDictionary:dic];
+//            [self.HKJHArray addObject:planModel];
+//        }
+        
+        //最大页数
+        self.maxPageId = [[[dic objectForKey:@"productOrders"] objectForKey:@"maxPage"] intValue];
+        if (self.detailModel.newstatus == 5)
+        {
+            self.touBiaoBtn.backgroundColor = GetColor(@"#805919");
+        }
+        else
+        {
+            self.touBiaoBtn.backgroundColor = [XXColor grayAllColor];
+        }
+        [_tableView headerEndRefreshing];
+        [_tableView footerEndRefreshing];
+        [self.tableView reloadData];
+    } fail:^(NSError *error) {
+        [hud dismiss];
+        [_tableView headerEndRefreshing];
+        [_tableView footerEndRefreshing];
+        NSLog(@"error  %@",error);
+    }];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -266,13 +434,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

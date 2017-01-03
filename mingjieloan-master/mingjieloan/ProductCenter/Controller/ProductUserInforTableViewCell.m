@@ -81,7 +81,7 @@
     CGFloat hight = [HeightWithString heightForTextLable:_yongtuLab.text width:kWIDTH - 24 fontSize:13];
     _yongtuLab.frame = CGRectMake(13, 80, kWIDTH - 26, hight);
     
-    self.bottomView.frame = CGRectMake(0, 80+hight+20, kWIDTH, 10);
+    self.bottomView.frame = CGRectMake(0, 80+hight+10, kWIDTH, 10);
 }
     
 - (void)awakeFromNib {

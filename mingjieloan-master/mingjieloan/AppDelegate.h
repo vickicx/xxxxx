@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DHFGesOpenVC.h"
+#import "DHFGesturePassVC.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,UIScrollViewDelegate,UITabBarControllerDelegate>

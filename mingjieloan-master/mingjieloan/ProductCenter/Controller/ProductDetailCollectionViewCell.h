@@ -10,4 +10,8 @@
 
 @interface ProductDetailCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, strong)UIImageView *titleImg;
+@property (nonatomic, strong)UILabel *titleLab;
+
+
 @end

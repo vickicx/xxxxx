@@ -10,10 +10,14 @@
 #import"UIViewController+LewPopupViewController.h"
 #import "LewPopupViewAnimationFade.h"
 #import "LewPopupViewAnimationSlide.h"
-@interface PopView : UIView
+#import "UIImageView+WebCache.h"
+#import "PopViewTableViewCell.h"
+@interface PopView : UIView<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong)UIView *innerView;
+@property (nonatomic, strong)NSMutableArray *imgUrlArray;
 @property (nonatomic, weak)UIViewController *parentVC;
 @property (nonatomic, strong)UIImageView *picView;
+@property (nonatomic, strong)UITableView *tableView;
 + (instancetype)defaultPopupView;
 @end

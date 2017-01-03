@@ -13,5 +13,7 @@
 
 
 @property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong)UIImageView *backImage;
+@property (nonatomic, strong)UILabel *textLabel;
 
 @end

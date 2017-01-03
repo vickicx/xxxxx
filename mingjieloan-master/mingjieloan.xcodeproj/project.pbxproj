@@ -12,6 +12,7 @@
 		3D7A3B101E16016E00B176A4 /* ProductRepayPlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B0F1E16016E00B176A4 /* ProductRepayPlanModel.m */; };
 		3D7A3B131E160AD100B176A4 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B121E160AD100B176A4 /* ProductDetailModel.m */; };
 		3D7A3B161E163F6C00B176A4 /* PApplicationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B151E163F6C00B176A4 /* PApplicationModel.m */; };
+		3D7A3B191E16520B00B176A4 /* pApplicationCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B181E16520B00B176A4 /* pApplicationCheckModel.m */; };
 		3DA320F31E10F9E30029F745 /* NoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F21E10F9E30029F745 /* NoticeModel.m */; };
 		3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */; };
 		3DF312B51E1390E40038FC45 /* DHFGesOpenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF312B41E1390E40038FC45 /* DHFGesOpenVC.m */; };
@@ -145,6 +146,8 @@
 		C34FFF311E091E8D00FF8C05 /* ProductCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF201E091E8D00FF8C05 /* ProductCenterViewController.m */; };
 		C354E2921E13579500C652B7 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C354E2911E13579500C652B7 /* UserInfo.m */; };
 		C38D526A1E13A30E0009E5A0 /* BasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C38D52691E13A30E0009E5A0 /* BasicInfo.m */; };
+		EA1F05321E19022500DCE82C /* ZZChangeBoundPhoneNumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1F05311E19022500DCE82C /* ZZChangeBoundPhoneNumVC.m */; };
+		EA1F05351E1947C700DCE82C /* DHFForgerhandVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1F05341E1947C700DCE82C /* DHFForgerhandVC.m */; };
 		EA3C06801E129C1D009E02D4 /* IPAddressConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C067D1E129C1D009E02D4 /* IPAddressConfig.m */; };
 		EA3C06811E129C1D009E02D4 /* IPToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C067F1E129C1D009E02D4 /* IPToolManager.m */; };
 		EA3C06841E129E53009E02D4 /* DHFcommonWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C06831E129E53009E02D4 /* DHFcommonWebViewVC.m */; };
@@ -194,6 +197,8 @@
 		EABA08751E0D6A9B00B3CC61 /* DHFThreeProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA08741E0D6A9B00B3CC61 /* DHFThreeProductDetailViewController.m */; };
 		EABA08781E0D6AB100B3CC61 /* DHFTwoProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA08771E0D6AB100B3CC61 /* DHFTwoProductDetailViewController.m */; };
 		EABA08841E0D841900B3CC61 /* ProductDetailFirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EABA08831E0D841900B3CC61 /* ProductDetailFirstTableViewCell.m */; };
+		EAD2BC5C1E1683D200E0C2EB /* InformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD2BC5B1E1683D200E0C2EB /* InformationModel.m */; };
+		EAD2BC5F1E169C5D00E0C2EB /* PopViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD2BC5E1E169C5D00E0C2EB /* PopViewTableViewCell.m */; };
 		EAD6BCB51E0C0FC8005782AA /* GetColor16.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD6BCB21E0C0FC8005782AA /* GetColor16.m */; };
 		EAD6BCB61E0C0FC8005782AA /* HeightWithString.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD6BCB41E0C0FC8005782AA /* HeightWithString.m */; };
 		FBC856F2F528C582AE374F05 /* Pods_mingjieloanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78136D54AFFD20F4F0C6D733 /* Pods_mingjieloanTests.framework */; };
@@ -230,6 +235,8 @@
 		3D7A3B121E160AD100B176A4 /* ProductDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetailModel.m; path = mingjieloan/MoreInfo/Controller/ProductDetailModel.m; sourceTree = SOURCE_ROOT; };
 		3D7A3B141E163F6C00B176A4 /* PApplicationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PApplicationModel.h; path = mingjieloan/MoreInfo/Controller/PApplicationModel.h; sourceTree = SOURCE_ROOT; };
 		3D7A3B151E163F6C00B176A4 /* PApplicationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PApplicationModel.m; path = mingjieloan/MoreInfo/Controller/PApplicationModel.m; sourceTree = SOURCE_ROOT; };
+		3D7A3B171E16520B00B176A4 /* pApplicationCheckModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pApplicationCheckModel.h; path = mingjieloan/MoreInfo/Controller/pApplicationCheckModel.h; sourceTree = SOURCE_ROOT; };
+		3D7A3B181E16520B00B176A4 /* pApplicationCheckModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = pApplicationCheckModel.m; path = mingjieloan/MoreInfo/Controller/pApplicationCheckModel.m; sourceTree = SOURCE_ROOT; };
 		3DA320F11E10F9E30029F745 /* NoticeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeModel.h; path = mingjieloan/MoreInfo/Controller/NoticeModel.h; sourceTree = SOURCE_ROOT; };
 		3DA320F21E10F9E30029F745 /* NoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeModel.m; path = mingjieloan/MoreInfo/Controller/NoticeModel.m; sourceTree = SOURCE_ROOT; };
 		3DA320F41E111A920029F745 /* DHFNoticeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFNoticeDetailViewController.h; sourceTree = "<group>"; };
@@ -498,6 +505,10 @@
 		C38D52681E13A30E0009E5A0 /* BasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfo.h; sourceTree = "<group>"; };
 		C38D52691E13A30E0009E5A0 /* BasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfo.m; sourceTree = "<group>"; };
 		D3B12F56096B5F62670A8211 /* Pods-mingjieloanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanUITests/Pods-mingjieloanUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EA1F05301E19022500DCE82C /* ZZChangeBoundPhoneNumVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZChangeBoundPhoneNumVC.h; sourceTree = "<group>"; };
+		EA1F05311E19022500DCE82C /* ZZChangeBoundPhoneNumVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZChangeBoundPhoneNumVC.m; sourceTree = "<group>"; };
+		EA1F05331E1947C700DCE82C /* DHFForgerhandVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFForgerhandVC.h; sourceTree = "<group>"; };
+		EA1F05341E1947C700DCE82C /* DHFForgerhandVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFForgerhandVC.m; sourceTree = "<group>"; };
 		EA3C067C1E129C1D009E02D4 /* IPAddressConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddressConfig.h; sourceTree = "<group>"; };
 		EA3C067D1E129C1D009E02D4 /* IPAddressConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPAddressConfig.m; sourceTree = "<group>"; };
 		EA3C067E1E129C1D009E02D4 /* IPToolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPToolManager.h; sourceTree = "<group>"; };
@@ -593,6 +604,10 @@
 		EABA08771E0D6AB100B3CC61 /* DHFTwoProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFTwoProductDetailViewController.m; sourceTree = "<group>"; };
 		EABA08821E0D841900B3CC61 /* ProductDetailFirstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetailFirstTableViewCell.h; path = mingjieloan/ProductCenter/Controller/ProductDetailFirstTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		EABA08831E0D841900B3CC61 /* ProductDetailFirstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetailFirstTableViewCell.m; path = mingjieloan/ProductCenter/Controller/ProductDetailFirstTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		EAD2BC5A1E1683D200E0C2EB /* InformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InformationModel.h; path = mingjieloan/MyAccount/Controller/InformationModel.h; sourceTree = SOURCE_ROOT; };
+		EAD2BC5B1E1683D200E0C2EB /* InformationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InformationModel.m; path = mingjieloan/MyAccount/Controller/InformationModel.m; sourceTree = SOURCE_ROOT; };
+		EAD2BC5D1E169C5D00E0C2EB /* PopViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopViewTableViewCell.h; path = mingjieloan/MyAccount/Controller/PopViewTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		EAD2BC5E1E169C5D00E0C2EB /* PopViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopViewTableViewCell.m; path = mingjieloan/MyAccount/Controller/PopViewTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		EAD6BCB11E0C0FC8005782AA /* GetColor16.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetColor16.h; sourceTree = "<group>"; };
 		EAD6BCB21E0C0FC8005782AA /* GetColor16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetColor16.m; sourceTree = "<group>"; };
 		EAD6BCB31E0C0FC8005782AA /* HeightWithString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightWithString.h; sourceTree = "<group>"; };
@@ -1407,6 +1422,8 @@
 				3DF8F5C61E12549900D4922C /* DHFSetUserNameViewController.m */,
 				3DF8F5C81E1254F000D4922C /* DHFChangPhoneViewController.h */,
 				3DF8F5C91E1254F000D4922C /* DHFChangPhoneViewController.m */,
+				EA1F05301E19022500DCE82C /* ZZChangeBoundPhoneNumVC.h */,
+				EA1F05311E19022500DCE82C /* ZZChangeBoundPhoneNumVC.m */,
 				3DF8F5CB1E12590E00D4922C /* DHFSetCardViewController.h */,
 				3DF8F5CC1E12590E00D4922C /* DHFSetCardViewController.m */,
 				EA3C06821E129E53009E02D4 /* DHFcommonWebViewVC.h */,
@@ -1415,6 +1432,8 @@
 				EA3C068D1E12A8DF009E02D4 /* DHFGesturePassVC.m */,
 				EA3C068F1E12B771009E02D4 /* DHFGestureCloseVC.h */,
 				EA3C06901E12B771009E02D4 /* DHFGestureCloseVC.m */,
+				EA1F05331E1947C700DCE82C /* DHFForgerhandVC.h */,
+				EA1F05341E1947C700DCE82C /* DHFForgerhandVC.m */,
 				3DF8F5D51E12702300D4922C /* DHFChangeLogPassWordVC.h */,
 				3DF8F5D61E12702300D4922C /* DHFChangeLogPassWordVC.m */,
 			);
@@ -1484,6 +1503,10 @@
 				3D7A3B121E160AD100B176A4 /* ProductDetailModel.m */,
 				3D7A3B141E163F6C00B176A4 /* PApplicationModel.h */,
 				3D7A3B151E163F6C00B176A4 /* PApplicationModel.m */,
+				3D7A3B171E16520B00B176A4 /* pApplicationCheckModel.h */,
+				3D7A3B181E16520B00B176A4 /* pApplicationCheckModel.m */,
+				EAD2BC5A1E1683D200E0C2EB /* InformationModel.h */,
+				EAD2BC5B1E1683D200E0C2EB /* InformationModel.m */,
 				3D7A3B0B1E15F54100B176A4 /* ProductOrdersModel.h */,
 				3D7A3B0C1E15F54100B176A4 /* ProductOrdersModel.m */,
 				3D7A3B0E1E16016E00B176A4 /* ProductRepayPlanModel.h */,
@@ -1519,6 +1542,8 @@
 				3DF4466D1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m */,
 				EA6BB91D1E0EF9F900F28E8C /* PopView.h */,
 				EA6BB91E1E0EF9F900F28E8C /* PopView.m */,
+				EAD2BC5D1E169C5D00E0C2EB /* PopViewTableViewCell.h */,
+				EAD2BC5E1E169C5D00E0C2EB /* PopViewTableViewCell.m */,
 				EA6BB9001E0EE71000F28E8C /* ProductShenheTableViewCell.h */,
 				EA6BB9011E0EE71000F28E8C /* ProductShenheTableViewCell.m */,
 				EA49A4331E0F5E680079A8DB /* HKJHTableViewCell.h */,
@@ -1982,6 +2007,8 @@
 				990873B11E12455800354802 /* ReturningModel.m in Sources */,
 				9957F70F1E134E27004A8F66 /* AccountHeadView.m in Sources */,
 				9908739A1E12455800354802 /* SRHBViewController.m in Sources */,
+				3D7A3B191E16520B00B176A4 /* pApplicationCheckModel.m in Sources */,
+				EA1F05321E19022500DCE82C /* ZZChangeBoundPhoneNumVC.m in Sources */,
 				EA49A4471E0F91C40079A8DB /* DHFReportTableViewCell.m in Sources */,
 				990873B01E12455800354802 /* ReturnedModel.m in Sources */,
 				990873D71E12455800354802 /* SQZR2TableViewCell.m in Sources */,
@@ -1995,11 +2022,13 @@
 				C34FFF241E091E8D00FF8C05 /* AppDelegate.m in Sources */,
 				EA6BB8F01E0EB71000F28E8C /* ProductIntroductionTableViewCell.m in Sources */,
 				990873B61E12455800354802 /* JFDetailModel.m in Sources */,
+				EAD2BC5F1E169C5D00E0C2EB /* PopViewTableViewCell.m in Sources */,
 				990873A71E12455800354802 /* TZJLDetailViewController.m in Sources */,
 				EA49A4611E0F95EC0079A8DB /* MJRefreshConst.m in Sources */,
 				C354E2921E13579500C652B7 /* UserInfo.m in Sources */,
 				990873B91E12455800354802 /* JFSRCell.m in Sources */,
 				990873C11E12455800354802 /* JFGZCell.m in Sources */,
+				EA1F05351E1947C700DCE82C /* DHFForgerhandVC.m in Sources */,
 				3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */,
 				990873C81E12455800354802 /* WDXXMonthlyReportModel.m in Sources */,
 				99C27CA41E10BEB000C0B013 /* JGProgressHUD+Add.m in Sources */,
@@ -2102,6 +2131,7 @@
 				C34FFF301E091E8D00FF8C05 /* MyAccountViewController.m in Sources */,
 				990873E81E12545F00354802 /* UIView+Extension.m in Sources */,
 				990873D11E12455800354802 /* WDXXYBViewController.m in Sources */,
+				EAD2BC5C1E1683D200E0C2EB /* InformationModel.m in Sources */,
 				EA49A4381E0F6BA60079A8DB /* TBJLTableViewCell.m in Sources */,
 				990873C31E12455800354802 /* ExchangeViewController.m in Sources */,
 				EA6BB9181E0EF93C00F28E8C /* LewPopupViewAnimationSpring.m in Sources */,

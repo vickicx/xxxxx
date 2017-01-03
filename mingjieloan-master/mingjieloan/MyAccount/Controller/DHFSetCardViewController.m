@@ -42,6 +42,33 @@
         _warningLab.frame = CGRectMake(70, 110 + 64 + 20, kWIDTH - 140, 30);
         _YesBtn.frame = CGRectMake(70, 150 + 64 + 20, kWIDTH - 140, 50);
     }
+    else
+    {
+        IPToolManager *ipManager = [IPToolManager sharedManager];
+        JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+        
+        hud.textLabel.text = @"loading...";
+        
+        [hud showInView:self.view];
+        NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] valueForKey:@"sid"],
+                              @"realName" : self.nameField.text,
+                              @"idCard" : self.numberField.text,
+                              @"clientIp" : [ipManager currentIpAddress]};
+        [VVNetWorkTool postWithUrl:Url(ACCOUNTREGISTER) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+            
+            
+        } success:^(id result) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+            [hud dismiss];
+            //        NSLog(@"dic == %@", dic);
+            [self.navigationController popViewControllerAnimated:YES];
+            
+            
+        } fail:^(NSError *error) {
+            
+            [hud dismiss];
+        }];
+    }
     
 }
 

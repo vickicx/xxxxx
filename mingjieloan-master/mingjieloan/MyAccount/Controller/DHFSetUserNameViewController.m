@@ -36,7 +36,29 @@
         self.warning.hidden = NO;
         _warningLab.frame = CGRectMake(0, 70 + 64 + 20, kWIDTH, 20);
         _YesBtn.frame = CGRectMake(70, 90 + 64 + 20, kWIDTH - 140, 50);
+    }
+    else
+    {
+        JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
         
+        hud.textLabel.text = @"loading...";
+        
+        [hud showInView:self.view];
+        NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] valueForKey:@"sid"],@"name":self.nameField.text};
+        [VVNetWorkTool postWithUrl:Url(NAME) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+            
+            
+        } success:^(id result) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+            [hud dismiss];
+            //        NSLog(@"dic == %@", dic);
+            [self.navigationController popViewControllerAnimated:YES];
+            
+            
+        } fail:^(NSError *error) {
+            
+            [hud dismiss];
+        }];
     }
 }
 

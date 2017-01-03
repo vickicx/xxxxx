@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "MJRefresh.h"
 #import "PopView.h"//弹出视图
 #import "LewPopupViewAnimationFade.h"
 #import "ProductDetailFirstTableViewCell.h"//项目说明
@@ -22,9 +23,10 @@
 #import "ProductRepayPlanModel.h"
 #import "ProductDetailModel.h"//项目详情Model
 #import "PApplicationModel.h"//借款 人信息Model
+#import "pApplicationCheckModel.h"//审核信息
+#import "InformationModel.h"
 
-@interface DHFThreeProductDetailViewController : BaseViewController
-    
+@interface DHFThreeProductDetailViewController : BaseViewController    
 @property (nonatomic, strong)UIButton *CPXQButton;
 @property (nonatomic, strong)UIButton *HKJHButton;
 @property (nonatomic, strong)UIButton *TBJLButton;
@@ -38,8 +40,11 @@
 
 @property (nonatomic, copy)NSString *idNumber;
 
+
 @property (nonatomic, strong)NSMutableArray *TBJLArray;
 @property (nonatomic, strong)NSMutableArray *HKJHArray;
 @property (nonatomic, strong)ProductDetailModel *detailModel;
 @property (nonatomic, strong)PApplicationModel *pApplocationModel;
+@property (nonatomic, strong)pApplicationCheckModel *checkModel;
+@property (nonatomic, strong)NSMutableArray *informaModel;
 @end

@@ -21,6 +21,11 @@
     }
     
 - (void)createViews{
+    
+    self.informaModel = [NSMutableArray array];
+    self.shenheArray = [NSMutableArray arrayWithObjects:@"身份证", @"机动车登记证", @"婚姻证明", @"户口本", @"信用报告", @"机构担保审核", nil];
+    
+    
     self.danbaoTitleImg = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12, 13, 16)];
     _danbaoTitleImg.image = [UIImage imageNamed:@"danbaofangjieshao"];
     [self.contentView addSubview:_danbaoTitleImg];
@@ -82,12 +87,12 @@
    CGFloat anquanHeight =  50+hight2+25 + danbaoHight + 10;
     
     
-    self.ziliaoTitleImg = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12 + anquanHeight, 14.5, 12.5)];
+    self.ziliaoTitleImg = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12 + anquanHeight +13, 14.5, 12.5)];
     _ziliaoTitleImg.image = [UIImage imageNamed:@"xinxipilou"];
     [self.contentView addSubview:_ziliaoTitleImg];
     
-    self.ziliaoTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(35, 12 +anquanHeight, 100, 15)];
-    _shenheTitleLab.font = [UIFont systemFontOfSize:14];
+    self.ziliaoTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(35, 12 + anquanHeight +13, 100, 15)];
+    _ziliaoTitleLab.font = [UIFont systemFontOfSize:14];
     _ziliaoTitleLab.text = @"项目资料";
     [self.contentView addSubview:_ziliaoTitleLab];
     
@@ -101,7 +106,7 @@
     flowLayout.minimumLineSpacing = 30 * FitHeight;
     flowLayout.sectionInset = UIEdgeInsetsMake(30, 30 * FitWidth, 30, 30 * FitWidth);
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, anquanHeight + 33, kWIDTH, 130 * FitHeight) collectionViewLayout:flowLayout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, anquanHeight + 33, kWIDTH, 130) collectionViewLayout:flowLayout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor whiteColor];
@@ -109,25 +114,25 @@
     
     [self.collectionView registerClass:[ProductDetailCollectionViewCell class] forCellWithReuseIdentifier:@"coCell"];
     
-    self.bottomView3 = [[UIView alloc] initWithFrame:CGRectMake(0, anquanHeight + 130 * FitHeight + 33 , kWIDTH, 10)];
+    self.bottomView3 = [[UIView alloc] initWithFrame:CGRectMake(0, anquanHeight + 130 + 33 , kWIDTH, 10)];
     _bottomView3.backgroundColor = GetColor(@"e8e8e8");
     [self.contentView addSubview:_bottomView3];
     
-    self.ziliaoTitleImg = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12 + anquanHeight + 33 + 130 * FitHeight + 10, 15, 15)];
+    self.ziliaoTitleImg = [[UIImageView alloc] initWithFrame:CGRectMake(12, 12 + anquanHeight + 33 + 130 + 10, 15, 15)];
     _ziliaoTitleImg.image = [UIImage imageNamed:@"shenhejilu"];
     [self.contentView addSubview:_ziliaoTitleImg];
     
-    self.ziliaoTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(35, 12 +anquanHeight + 33  + 130 * FitHeight + 10, 100, 15)];
+    self.ziliaoTitleLab = [[UILabel alloc] initWithFrame:CGRectMake(35, 12 +anquanHeight + 33  + 130 + 10, 100, 15)];
     _shenheTitleLab.font = [UIFont systemFontOfSize:14];
     _ziliaoTitleLab.text = @"审核记录";
     [self.contentView addSubview:_ziliaoTitleLab];
     
-    self.lineView4 = [[UIView alloc] initWithFrame:CGRectMake(12, 12 + anquanHeight + 33 + 130 * FitHeight + 10 + 24, kWIDTH - 24, 1)];
+    self.lineView4 = [[UIView alloc] initWithFrame:CGRectMake(12, 12 + anquanHeight + 33 + 130 + 10 + 24, kWIDTH - 24, 1)];
     _lineView4.backgroundColor = GetColor(@"#e8e8e8");
     [self.contentView addSubview:_lineView4];
     
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,  12 + anquanHeight + 33 + 130 * FitHeight + 10 + 25, kWIDTH, 150) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,  12 + anquanHeight + 33 + 130 + 10 + 25, kWIDTH, 150) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -138,20 +143,26 @@
     
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-        return 3;
+        return _informaModel.count;
 }
     
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
     {
         ProductDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"coCell" forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor blackColor];
+        cell.backgroundColor = [UIColor whiteColor];
+    
+        InformationModel *infomaModel = [self.informaModel objectAtIndex:indexPath.item];
+        cell.titleLab.text = infomaModel.typeName[0];
+        NSLog(@"cel%@", cell.titleLab.text);
+        [cell.titleImg sd_setImageWithURL:infomaModel.typeImageUrl[0]];
+        
         return cell;
     }
     
     // 点击触发方法
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self.delegate popViewAction];
+    [self.delegate popViewAction:indexPath.item];
 }
     
     
@@ -169,6 +180,44 @@
     if (cell == nil) {
         cell = [[ProductShenheTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
+    cell.titleLab.text = [self.shenheArray objectAtIndex:indexPath.row];
+    if(self.checkModel.credibilityCheckFlg == 1){
+        cell.titleImg.image = [UIImage imageNamed:@"shenhejilu_right"];
+    }
+    else{
+        cell.titleImg.image = [UIImage imageNamed:@"ex_fail"];
+    }
+    if(self.checkModel.estateCheckFlg == 1){
+        cell.titleImg.image = [UIImage imageNamed:@"shenhejilu_right"];
+    }
+    else{
+        cell.titleImg.image = [UIImage imageNamed:@"ex_fail"];
+    }
+    if(self.checkModel.guaranteeCheckFlg == 1){
+        cell.titleImg.image = [UIImage imageNamed:@"shenhejilu_right"];
+    }
+    else{
+        cell.titleImg.image = [UIImage imageNamed:@"ex_fail"];
+    }
+    if(self.checkModel.householdCheckFlg == 1){
+        cell.titleImg.image = [UIImage imageNamed:@"shenhejilu_right"];
+    }
+    else{
+        cell.titleImg.image = [UIImage imageNamed:@"ex_fail"];
+    }
+    if(self.checkModel.idCardCheckFlg == 1){
+        cell.titleImg.image = [UIImage imageNamed:@"shenhejilu_right"];
+    }
+    else{
+        cell.titleImg.image = [UIImage imageNamed:@"ex_fail"];
+    }
+    if(self.checkModel.marriageCheckFlg == 1){
+        cell.titleImg.image = [UIImage imageNamed:@"shenhejilu_right"];
+    }
+    else{
+        cell.titleImg.image = [UIImage imageNamed:@"ex_fail"];
+    }
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -177,7 +226,7 @@
 - (void)setDetailPModel:(ProductDetailModel *)detailPModel{
     _detailPModel = detailPModel;
     
-    _danbaoDetailLab.text = _detailPModel.description;
+    _danbaoDetailLab.text = _detailPModel.descriptionJS;
     CGFloat hight1 = [HeightWithString heightForTextLable:_danbaoDetailLab.text width:kWIDTH - 24 fontSize:13];
     _danbaoDetailLab.frame = CGRectMake(13, 47, kWIDTH - 26, hight1);
     
@@ -197,21 +246,30 @@
     CGFloat anquanHeight =  50+hight2+25 + danbaoHight + 10;
     
     
-    self.ziliaoTitleImg.frame = CGRectMake(12, 12 + anquanHeight, 14.5, 12.5);
-    self.ziliaoTitleLab.frame = CGRectMake(35, 12 +anquanHeight, 100, 15);
+    self.ziliaoTitleImg.frame = CGRectMake(12, 12 + anquanHeight +13, 14.5, 12.5);
+    self.ziliaoTitleLab.frame = CGRectMake(35, 12 +anquanHeight +13, 100, 15);
     
     self.lineView3.frame = CGRectMake(12, 32 +anquanHeight, kWIDTH - 24, 1);
 
-    self.collectionView.frame = CGRectMake(0, anquanHeight + 33, kWIDTH, 130 * FitHeight);
-    self.bottomView3.frame = CGRectMake(0, anquanHeight + 130 * FitHeight + 33 , kWIDTH, 10);
-    self.ziliaoTitleImg.frame = CGRectMake(12, 12 + anquanHeight + 33 + 130 * FitHeight + 10, 15, 15);
-    self.ziliaoTitleLab.frame = CGRectMake(35, 12 +anquanHeight + 33  + 130 * FitHeight + 10, 100, 15);
-    self.lineView4.frame = CGRectMake(12, 12 + anquanHeight + 33 + 130 * FitHeight + 10 + 24, kWIDTH - 24, 1);
+    self.collectionView.frame = CGRectMake(0, anquanHeight + 33, kWIDTH, 130);
+    self.bottomView3.frame = CGRectMake(0, anquanHeight + 130 + 33, kWIDTH, 10);
+    self.ziliaoTitleImg.frame = CGRectMake(12, 12 + anquanHeight + 33 + 130  + 10, 15, 15);
+    self.ziliaoTitleLab.frame = CGRectMake(35, 12 +anquanHeight + 33  + 130  + 10, 100, 15);
+    self.lineView4.frame = CGRectMake(12, 12 + anquanHeight + 33 + 130 + 10 + 24, kWIDTH - 24, 1);
     
-    self.tableView.frame = CGRectMake(0,  12 + anquanHeight + 33 + 130 * FitHeight + 10 + 25, kWIDTH, 150);
-    NSLog(@"cell height ===== %f", 12 + anquanHeight + 33 + 130 * FitHeight + 10 + 25);
+    self.tableView.frame = CGRectMake(0,  12 + anquanHeight + 33 + 130 + 10 + 25, kWIDTH, 150);
+//    NSLog(@"cell height ===== %f", 12 + anquanHeight + 33 + 130 * FitHeight + 10 + 25);
 }
 
+- (void)setCheckModel:(pApplicationCheckModel *)checkModel{
+    _checkModel = checkModel;
+    [self.tableView reloadData];
+}
+
+- (void)setInformaModel:(NSMutableArray *)informaModel{
+    _informaModel = informaModel;
+    [self.collectionView reloadData];
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

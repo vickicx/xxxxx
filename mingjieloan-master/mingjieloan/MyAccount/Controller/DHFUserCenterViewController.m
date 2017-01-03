@@ -85,6 +85,14 @@
         cell.rightImg.hidden = YES;
         cell.textLab.frame = CGRectMake(kWIDTH - 216, 0, 200, 50);
         cell.textLab.text = _nameStr;
+        if(self.nameValidated == 1)
+        {
+            cell.titleLab.text = @"用户名";
+        }
+        else
+        {
+            cell.titleLab.text = @"设置用户名";
+        }
     }
     
     if(indexPath.row == 1){
@@ -208,7 +216,7 @@
         if (self.accountStatus == 2)
         {
             //DHFcommonWebViewVC 网页
-            [self getCommonWebViewVC];
+            [self getCommonWebViewVC];          //pay.sina.com.cn/zjtg/website/view/debit_card.html?ft=aded0135-7aad-460b-bc4f-01c60aa8881b
         }
 
         
@@ -227,21 +235,49 @@
     }
     else if(indexPath.row == 6){
         //如果身份证已经认证 则直接跳转到充值界面
-        if(self.cardStatus == 2)
+        if(self.cardStatus == 2 && self.cardStatus == 2)
         {
-            //应该是充值页面
-            [self getCommonWebViewVC];
+
+            [self getchangePassWorldWebViewVC];
         }
         else
         {
-            JGProgressHUD *hud = [[JGProgressHUD alloc]init];
-            hud.tag = 1;
-            hud.indicatorView = nil;
-            hud.textLabel.text = @"请先绑定身份证";
-            hud.delegate = self;
-            hud.position = 0;
-            [hud showInView:self.view];
-            [hud dismissAfterDelay:2.0];
+            if(self.accountStatus != 2)
+            {
+                JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+                hud.tag = 1;
+                hud.indicatorView = nil;
+                hud.textLabel.text = @"请先实名认证";
+                hud.delegate = self;
+                hud.position = 0;
+                [hud showInView:self.view];
+                [hud dismissAfterDelay:2.0];
+            }
+            else
+            {
+                if(self.cardStatus == 0)
+                {
+                    JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+                    hud.tag = 1;
+                    hud.indicatorView = nil;
+                    hud.textLabel.text = @"请先绑定银行卡";
+                    hud.delegate = self;
+                    hud.position = 0;
+                    [hud showInView:self.view];
+                    [hud dismissAfterDelay:2.0];
+                }
+                else if (self.cardStatus == 1)
+                {
+                    JGProgressHUD *hud = [[JGProgressHUD alloc]init];
+                    hud.tag = 1;
+                    hud.indicatorView = nil;
+                    hud.textLabel.text = @"您的银行卡正在审核中，审核结果将通过短信通知您";
+                    hud.delegate = self;
+                    hud.position = 0;
+                    [hud showInView:self.view];
+                    [hud dismissAfterDelay:2.0];
+                }
+            }
         }
         // 和绑定银行卡 是一个页面
         //银行卡是否有效
@@ -281,7 +317,7 @@
     } success:^(id result) {
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         [hud dismiss];
-        //        NSLog(@"dic == %@", dic);
+//                NSLog(@"dic == %@", dic);
         DHFcommonWebViewVC *commonVC = [[DHFcommonWebViewVC alloc] init];
         commonVC.redirectUrl = [dic objectForKey:@"redirectUrl"];
         [self.navigationController pushViewController:commonVC animated:YES];
@@ -292,6 +328,35 @@
         [hud dismiss];
     }];
     
+}
+
+//修改交易密码
+- (void)getchangePassWorldWebViewVC{
+    IPToolManager *ipManager = [IPToolManager sharedManager];
+    
+    
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
+    NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] valueForKey:@"sid"],@"clientIp":[ipManager currentIpAddress]};
+    [VVNetWorkTool postWithUrl:Url(CHANGETRADINGPASSWORD) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        
+        
+    } success:^(id result) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        [hud dismiss];
+//                NSLog(@"dic修改交易密码 == %@", dic);
+        DHFcommonWebViewVC *commonVC = [[DHFcommonWebViewVC alloc] init];
+        commonVC.redirectUrl = [dic objectForKey:@"redirectUrl"];
+        [self.navigationController pushViewController:commonVC animated:YES];
+        
+        
+    } fail:^(NSError *error) {
+        
+        [hud dismiss];
+    }];
 }
 
 

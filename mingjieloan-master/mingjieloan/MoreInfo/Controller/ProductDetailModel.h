@@ -14,7 +14,7 @@
 @property (nonatomic, copy)NSString *annualizedGain;// = "4.8";
 @property (nonatomic, assign)NSInteger baseLimitAmount;// = 10000;
 @property (nonatomic, copy)NSString *collateralDescription;// = "";
-@property (nonatomic, copy)NSString *description;//担保方介绍
+@property (nonatomic, copy)NSString *descriptionJS;//担保方介绍
 @property (nonatomic, copy)NSString *descriptionRiskDescri;//安全保障
 @property (nonatomic, copy)NSString *detailDescription;// 项目简介
 @property (nonatomic, copy)NSString *expirationDate;// = "4\U592911\U65f637\U5206";

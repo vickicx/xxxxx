@@ -76,7 +76,7 @@
     _inviteNum.font = [UIFont systemFontOfSize:13 * FitHeight];
     _inviteNum.textColor = [UIColor whiteColor];
     _inviteNum.textAlignment = NSTextAlignmentCenter;
-    _inviteNum.text = @"5";
+    _inviteNum.text = [NSString stringWithFormat:@"%ld", _cashReturned];
     [self.view addSubview:_inviteNum];
     
     UIView *shuView1 = [[UIView alloc] initWithFrame:CGRectMake(kWIDTH / 3, 5, 1, 82.5 * kHEIGHT / 667 - 10)];
@@ -98,7 +98,7 @@
     _jifenNum.font = [UIFont systemFontOfSize:13 * FitHeight];
     _jifenNum.textColor = [UIColor whiteColor];
     _jifenNum.textAlignment = NSTextAlignmentCenter;
-    _jifenNum.text = @"100";
+    _jifenNum.text = [NSString stringWithFormat:@"%ld", _invitationCount];
     [self.view addSubview:_jifenNum];
     
     self.xianJinQuanLab = [[UILabel alloc] initWithFrame:CGRectMake(kWIDTH / 3 * 2, 25 * FitHeight + headHight, kWIDTH / 3, 15)];
@@ -112,7 +112,7 @@
     _xianJinNum.font = [UIFont systemFontOfSize:13 * FitHeight];
     _xianJinNum.textColor = [UIColor whiteColor];
     _xianJinNum.textAlignment = NSTextAlignmentCenter;
-    _xianJinNum.text = @"10000";
+    _xianJinNum.text = [NSString stringWithFormat:@"%ld", _incentive_commission];;
     [self.view addSubview:_xianJinNum];
     
     self.yaoQingMalab = [[UILabel alloc] initWithFrame:CGRectMake(15, 82.5 * kHEIGHT / 667 + headHight, kWIDTH - 15, 50 * FitHeight)];
@@ -124,7 +124,7 @@
     _yaoQingMatext.font = [UIFont systemFontOfSize:14*FitHeight];
     _yaoQingMatext.textAlignment = NSTextAlignmentRight;
     _yaoQingMatext.textColor = [XXColor labGoldenColor];
-    _yaoQingMatext.text = @"4KZC";
+    _yaoQingMatext.text = _refCode;
     [_yaoQingMalab addSubview:_yaoQingMatext];
     
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(5, 49 * FitHeight, kWIDTH - 20, 1)];

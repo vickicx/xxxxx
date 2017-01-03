@@ -32,6 +32,9 @@
     // Do any additional setup after loading the view.
     
     self.modelArray = [NSMutableArray array];
+    self.detailModel = [[ProductDetailModel alloc]init];
+    self.pApplocationModel = [[PApplicationModel alloc] init];
+    self.checkModel = [[pApplicationCheckModel alloc] init];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellAccessoryNone;
@@ -213,15 +216,16 @@
     self.hidesBottomBarWhenPushed=YES;
     
     ProductModel *productModel = [self.modelArray objectAtIndex:indexPath.row];
-    
-    
-    DHFThreeProductDetailViewController *ThreeVC = [[DHFThreeProductDetailViewController alloc] init];
-    UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]init];
-    backbutton.title = @"产品中心";
-    ThreeVC.idNumber = productModel.strId;
-    self.navigationItem.backBarButtonItem = backbutton;
-    [self.navigationController pushViewController:ThreeVC animated:YES];
-    self.hidesBottomBarWhenPushed=NO;
+//    NSLog(@"%ld", (long)productModel.statu);
+    if(productModel.newstatus == 3 || productModel.newstatus == 5){
+        [self getDetailInfoTwo:productModel.strId];
+        
+    }
+    else
+    {
+        
+        [self getDetailInfoThree:productModel.strId];
+    }
 }
 
 - (void)createBanner{
@@ -266,6 +270,108 @@
         
     }];
     
+}
+
+
+//有还款计划页面
+- (void)getDetailInfoThree:(NSString *)str{
+        
+        JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+        
+        hud.textLabel.text = @"loading...";
+        
+        [hud showInView:self.view];
+        
+        NSString *idStr = @"id";
+        NSDictionary *dic = @{idStr:str,
+                              @"sid" : @"",
+                              @"page" : @"0"};
+        
+        NSString *urlStr = [NSString stringWithFormat:@"%@/%@", Url(PRODUCTDETAIL), str];
+        //    NSString *csStr = [NSString stringWithFormat:@"jiahairan123.55555.io:19883/mapp/product/personal-loan/detail/%@", _idNumber];
+        //    NSLog(@"urlStr=========%@",urlStr);
+        [VVNetWorkTool postWithUrl:urlStr body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+            //        NSLog(@"progress ===== %@", progress);
+            
+        } success:^(id result) {
+            [hud dismiss];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+           // NSLog(@"%@",dic);
+//                    NSLog(@"dic = %@", dic);
+           // 借款人信息Model
+            [self.pApplocationModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplication"]];
+            
+            //项目详情Model
+            [self.detailModel setValuesForKeysWithDictionary:[dic objectForKey:@"product"]];
+            
+            //审核信息model
+            [self.checkModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplicationCheck"]];
+            
+            DHFThreeProductDetailViewController *ThreeVC = [[DHFThreeProductDetailViewController alloc] init];
+
+            ThreeVC.detailModel = self.detailModel;
+            ThreeVC.pApplocationModel = self.pApplocationModel;
+            ThreeVC.checkModel = self.checkModel;
+            UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]init];
+            backbutton.title = @"产品中心";
+            ThreeVC.idNumber = str;
+            self.navigationItem.backBarButtonItem = backbutton;
+            [self.navigationController pushViewController:ThreeVC animated:YES];
+            self.hidesBottomBarWhenPushed=NO;
+        } fail:^(NSError *error) {
+            [hud dismiss];
+//            NSLog(@"error  %@",error);
+        }];
+        
+}
+
+//无还款计划页面
+- (void)getDetailInfoTwo:(NSString *)str{
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
+    
+    NSString *idStr = @"id";
+    NSDictionary *dic = @{idStr:str,
+                          @"sid" : @"",
+                          @"page" : @"0"};
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@/%@", Url(PRODUCTDETAIL), str];
+    //    NSString *csStr = [NSString stringWithFormat:@"jiahairan123.55555.io:19883/mapp/product/personal-loan/detail/%@", _idNumber];
+    //    NSLog(@"urlStr=========%@",urlStr);
+    [VVNetWorkTool postWithUrl:urlStr body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        //        NSLog(@"progress ===== %@", progress);
+        
+    } success:^(id result) {
+        [hud dismiss];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        // NSLog(@"%@",dic);
+        //                    NSLog(@"dic = %@", dic);
+        // 借款人信息Model
+        [self.pApplocationModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplication"]];
+        
+        //项目详情Model
+        [self.detailModel setValuesForKeysWithDictionary:[dic objectForKey:@"product"]];
+        
+        //审核信息model
+        [self.checkModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplicationCheck"]];
+        
+        DHFTwoProductDetailViewController *TwoVC = [[DHFTwoProductDetailViewController alloc] init];
+        UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]init];
+        backbutton.title = @"产品中心";
+        TwoVC.detailModel = self.detailModel;
+        TwoVC.pApplocationModel = self.pApplocationModel;
+        TwoVC.checkModel = self.checkModel;
+        TwoVC.idNumber = str;
+        self.navigationItem.backBarButtonItem = backbutton;
+        [self.navigationController pushViewController:TwoVC animated:YES];
+        self.hidesBottomBarWhenPushed=NO;
+    } fail:^(NSError *error) {
+        [hud dismiss];
+        //            NSLog(@"error  %@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

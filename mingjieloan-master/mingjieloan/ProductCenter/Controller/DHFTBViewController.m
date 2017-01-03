@@ -151,6 +151,7 @@
     self.agreeBtn = [[UIButton alloc] initWithFrame:CGRectMake(60, 65, 30, 30)];
     [_agreeBtn setImage:[UIImage imageNamed:@"cashNotSelected"] forState:UIControlStateNormal];
     [_agreeBtn setImage:[UIImage imageNamed:@"cashSelected"] forState:UIControlStateSelected];
+    _agreeBtn.selected = YES;
     _agreeBtn.imageEdgeInsets = UIEdgeInsetsMake(15, 0, 0, 15);
     [_agreeBtn addTarget:self action:@selector(agreeProtolAction) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:_agreeBtn];

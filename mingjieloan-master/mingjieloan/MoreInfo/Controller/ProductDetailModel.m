@@ -10,4 +10,11 @@
 
 @implementation ProductDetailModel
 
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    if ([key isEqualToString:@"description"]) {
+        _descriptionJS = value;
+    }
+}
+
 @end

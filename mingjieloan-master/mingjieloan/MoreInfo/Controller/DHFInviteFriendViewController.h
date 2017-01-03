@@ -31,6 +31,11 @@
 
 
 @property (nonatomic, copy)NSString *recommendationUrl;
-
+@property (nonatomic, assign)NSInteger cashReturned;//邀请人数
+@property (nonatomic, assign)NSInteger cashToReturn;//已返现金
+@property (nonatomic, assign)NSInteger couponCashSum;//待返现金
+@property (nonatomic, assign)NSInteger incentive_commission;//获得现金券
+@property (nonatomic, assign)NSInteger invitationCount;//已返积分
+@property (nonatomic, copy)NSString *refCode;
 
 @end

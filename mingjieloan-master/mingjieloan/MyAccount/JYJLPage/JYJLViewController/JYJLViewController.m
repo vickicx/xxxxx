@@ -147,9 +147,8 @@
  */
 - (void)menuDataHandle {
     
-    NSString *url = [NSString stringWithFormat:@"%@/account/isloan", HOSTURL];
     NSDictionary *dic = @{@"sid":self.sid};
-    [VVNetWorkTool postWithUrl:url body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:Url(@"/account/isloan") body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
 
@@ -191,7 +190,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, JYJL];
     
-    [VVNetWorkTool postWithUrl:url body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+    [VVNetWorkTool postWithUrl:Url(@"/account/isloan") body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
         
@@ -394,7 +393,7 @@
 - (void)createTableView {
     
     self.jyjlTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kWIDTH, kHEIGHT - 64) style:UITableViewStyleGrouped];
-    self.jyjlTableView.backgroundColor = [UIColor redColor];
+//    self.jyjlTableView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.jyjlTableView];
     
     self.jyjlTableView.delegate = self;

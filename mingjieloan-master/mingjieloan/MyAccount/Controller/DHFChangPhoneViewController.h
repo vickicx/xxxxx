@@ -7,6 +7,7 @@
 //
 
 #import "SubBaseViewController.h"
+#import "ZZChangeBoundPhoneNumVC.h"
 
 @interface DHFChangPhoneViewController : SubBaseViewController
 

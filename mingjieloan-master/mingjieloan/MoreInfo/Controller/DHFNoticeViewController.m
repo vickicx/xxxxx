@@ -12,12 +12,12 @@
 
 @property (nonatomic, assign)BOOL isUPLoad;//判断上下
 @property (nonatomic, assign) NSInteger page;
-
+@property (nonatomic, assign) NSInteger maxPageId;
 
 
 @property (nonatomic, strong) NSMutableArray *mainArr;
 
-@property (nonatomic, assign) NSInteger maxPageId;
+
 
 @end
 

@@ -23,7 +23,6 @@
 
 @implementation LoginViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"登录";
@@ -32,6 +31,8 @@
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setBarTintColor:[XXColor labGoldenColor]];
     
+
+//    }
     
     [self createView];
     

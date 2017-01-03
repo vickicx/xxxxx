@@ -30,7 +30,7 @@
     _titleLab.text = @"机动车登记证";
     [self.contentView addSubview:_titleLab];
     
-    
+    //ex_fail
     
 }
     

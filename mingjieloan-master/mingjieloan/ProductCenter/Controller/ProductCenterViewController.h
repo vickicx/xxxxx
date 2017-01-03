@@ -13,6 +13,12 @@
 #import "DHFThreeProductDetailViewController.h"
 #import "ProductModel.h"
 
+#import "ProductOrdersModel.h"
+#import "ProductRepayPlanModel.h"
+#import "ProductDetailModel.h"//项目详情Model
+#import "PApplicationModel.h"//借款 人信息Model
+#import "pApplicationCheckModel.h"//审核信息
+
 @interface ProductCenterViewController : BaseViewController
 
 @property (nonatomic, strong)SDCycleScrollView *sdcScrollView;
@@ -20,5 +26,8 @@
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *modelArray;
 
+@property (nonatomic, strong)ProductDetailModel *detailModel;
+@property (nonatomic, strong)PApplicationModel *pApplocationModel;
+@property (nonatomic, strong)pApplicationCheckModel *checkModel;
 
 @end

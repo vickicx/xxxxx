@@ -85,6 +85,7 @@
 }
 
 - (void)changeNaviVC:(NSNotification *)notification {
+    self.window.rootViewController = self.tabbar;
     self.tabbar.viewControllers      = @[self.productNavi,self.accountNavi,self.moreNavi];
 }
 
@@ -103,6 +104,13 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSDateFormatter *pickerFormatter1 = [[NSDateFormatter alloc] init];// 创建一个日期格式
+    [pickerFormatter1 setDateFormat:@"YY-MM-dd HH:mm"];
+    NSString *enterBackgroundTime = [pickerFormatter1 stringFromDate:[NSDate date]];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:enterBackgroundTime forKey:@"gestureTime"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
 }
 
 
@@ -113,6 +121,43 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    NSString *enterBackgroundTime = [[NSUserDefaults standardUserDefaults]objectForKey:@"gestureTime"];
+    if (enterBackgroundTime != nil)
+    {
+        NSLog(@"a1sd");
+        NSDateFormatter *pickerFormatter1 = [[NSDateFormatter alloc] init];// 创建一个日期格式
+        [pickerFormatter1 setDateFormat:@"YY-MM-dd HH:mm"];
+        NSDate * date = [pickerFormatter1 dateFromString:enterBackgroundTime];
+        NSTimeInterval time2 =[date timeIntervalSinceNow];
+        int min=((int)time2)/60;
+        if(min > 1)
+        {
+            NSString *gesturePass = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
+            if (gesturePass != nil && ![gesturePass  isEqual: @""])
+            {
+                DHFGesOpenVC *openVC = [[DHFGesOpenVC alloc] init];
+                [self.window.rootViewController.navigationController pushViewController:openVC animated:NO];
+            }
+        }
+    }
+    else
+    {
+        NSString *gesturePass = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
+        if (gesturePass != nil && ![gesturePass isEqualToString:@""])
+        {
+            NSLog(@"asdfasdfasdf");
+            DHFGesOpenVC *openVC = [[DHFGesOpenVC alloc] init];
+            
+            self.window.rootViewController = openVC;
+            UINavigationController *_nav = (UINavigationController*) (self.tabbar.viewControllers[1]);
+            [_nav.navigationController presentViewController:openVC animated:NO completion:^{
+                
+                NSLog(@"as草泥马dfasdf");
+            }];
+//            [self.tabbar.navigationController pushViewController:openVC animated:NO];
+        }
+    }
 }
 
 

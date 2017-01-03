@@ -10,4 +10,21 @@
 
 @implementation ProductDetailCollectionViewCell
 
+- (instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self createViews];
+    }
+    return self;
+}
+
+- (void)createViews{
+    self.titleImg = [[UIImageView alloc] initWithFrame:CGRectMake(15, 0, 60, 60)];
+    [self.contentView addSubview:_titleImg];
+    self.titleLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 70, 90, 20)];
+    _titleLab.textAlignment = NSTextAlignmentCenter;
+    _titleLab.font = [UIFont systemFontOfSize:13];
+    [self.contentView addSubview:_titleLab];
+}
+
 @end

@@ -8,6 +8,7 @@
 
 #import "SubBaseViewController.h"
 #import "KKGestureLockView.h"
+#import "DHFForgerhandVC.h"
 @interface DHFGesOpenVC : SubBaseViewController
 
 @property (nonatomic, strong)UILabel *tipLab;
