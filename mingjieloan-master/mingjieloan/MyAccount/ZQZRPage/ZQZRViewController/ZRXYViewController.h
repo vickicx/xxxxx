@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface ZRXYViewController : BaseViewController
+@interface ZRXYViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *url;
 

@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface FBSuccessViewController : BaseViewController
+@interface FBSuccessViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *pageTag;
 

@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define eWIDTH ([UIScreen mainScreen].bounds.size.width/375)
-#define eHEIGHT ([UIScreen mainScreen].bounds.size.height/667)
+
 
 @interface ExchangeView : UIView
 

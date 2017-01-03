@@ -33,18 +33,18 @@
 {
     [super layoutSubviews];
     
-    self.dateLabel.frame = CGRectMake(15 * kWIDTH, 10 * kHEIGHT, 200 * kWIDTH, 30 * kHEIGHT);
+    self.dateLabel.frame = CGRectMake(15 * FitWidth, 10 * FitHeight, 200 * FitWidth, 30 * FitHeight);
     self.dateLabel.font = [UIFont systemFontOfSize:13];
     self.dateLabel.textColor = [UIColor grayColor];
 //    self.dateLabel.backgroundColor = [UIColor cyanColor];
     
-    self.descriptionLabel.frame = CGRectMake(375 * kWIDTH - 250 * kWIDTH - 15 * kWIDTH, 10 * kHEIGHT + self.dateLabel.frame.size.height, 250 * kWIDTH, 30 * kHEIGHT);
+    self.descriptionLabel.frame = CGRectMake(kWIDTH - 250 * FitWidth - 15 * FitWidth, 10 * FitHeight + self.dateLabel.frame.size.height, 250 * FitWidth, 30 * FitHeight);
     self.descriptionLabel.font = [UIFont systemFontOfSize:14];
     self.descriptionLabel.textColor = [UIColor darkGrayColor];
     self.descriptionLabel.textAlignment = NSTextAlignmentRight;
 //    self.descriptionLabel.backgroundColor = [UIColor redColor];
     
-    self.priceLabel.frame = CGRectMake(15 * kWIDTH, 10 * kHEIGHT + self.dateLabel.frame.size.height, 200 * kWIDTH, 30 * kHEIGHT);
+    self.priceLabel.frame = CGRectMake(15 * FitWidth, 10 * FitHeight + self.dateLabel.frame.size.height, 200 * FitWidth, 30 * FitHeight);
     self.priceLabel.font = [UIFont systemFontOfSize:14];
 //    self.priceLabel.backgroundColor = [UIColor yellowColor];
 

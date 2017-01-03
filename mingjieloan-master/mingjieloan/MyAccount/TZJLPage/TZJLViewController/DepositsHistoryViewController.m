@@ -260,7 +260,7 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, INVEST];
     
-    NSDictionary *body = @{@"sid":MySid};
+    NSDictionary *body = @{@"sid":self.sid};
     
     JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
     
@@ -297,7 +297,7 @@
  */
 - (void)returningDataHandle {
 
-    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
+    NSDictionary *body = @{@"sid":self.sid,@"page":@"1"};
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNING];
     
     JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
@@ -372,7 +372,7 @@
  */
 - (void)confirmDataHandle {
     
-    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
+    NSDictionary *body = @{@"sid":self.sid,@"page":@"1"};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, CONFIRM];
     
@@ -441,7 +441,7 @@
  */
 - (void)returnedDataHandle {
     
-    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
+    NSDictionary *body = @{@"sid":self.sid,@"page":@"1"};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNED];
     
@@ -869,7 +869,7 @@
     [self.returningMainArr removeAllObjects];
     
     [self.returningArr removeAllObjects];
-    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
+    NSDictionary *body = @{@"sid":self.sid,@"page":@"1"};
 //    NSString *body = [NSString stringWithFormat:@"sid=%@&page=1", self.sid];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNING];
@@ -948,7 +948,8 @@
     [self.returningArr removeAllObjects];
     
 
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(long)self.returningPage, nil];
+    
+      NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%ld",self.returningPage]};
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNING];
     
     JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
@@ -1051,7 +1052,7 @@
     
     [self.confirmArr removeAllObjects];
 
-    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
+    NSDictionary *body = @{@"sid":self.sid,@"page":@"1"};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, CONFIRM];
     
@@ -1128,7 +1129,8 @@
     [self.confirmArr removeAllObjects];
     
 
-     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",self.confirmPage, nil];
+    
+      NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%ld",self.confirmPage]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, CONFIRM];
     
@@ -1232,7 +1234,7 @@
     
     [self.returnedArr removeAllObjects];
     
-    NSDictionary *body = @{@"sid":MySid,@"page":@"1"};
+    NSDictionary *body = @{@"sid":self.sid,@"page":@"1"};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNED];
     
@@ -1309,7 +1311,8 @@
     [self.returnedArr removeAllObjects];
     
   
-     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",self.returnedPage, nil];
+   
+       NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%ld",self.returnedPage]};
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNED];
     
     JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];

@@ -128,6 +128,7 @@
     NSString *page = [NSString stringWithFormat:@"%ld", self.page];
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"], @"sid",page, @"page", nil];
+     
     [VVNetWorkTool postWithUrl:Url(INVITATION) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
         //        NSLog(@"progress ===== %@", progress);
         

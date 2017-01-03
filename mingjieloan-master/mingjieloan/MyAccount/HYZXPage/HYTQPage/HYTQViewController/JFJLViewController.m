@@ -272,7 +272,9 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, JFJL];
     
   
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"vip",self.vip, nil];
+    
+    NSDictionary *body = @{@"sid":self.sid,@"vip":[NSString stringWithFormat:@"%ld",self.vip]};
+    
 
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         

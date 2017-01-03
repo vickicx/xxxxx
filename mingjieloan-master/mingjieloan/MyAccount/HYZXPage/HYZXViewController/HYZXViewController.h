@@ -6,9 +6,9 @@
 //  Copyright © 2016年 Louding. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "SubBaseViewController.h"
 
-@interface HYZXViewController : BaseViewController
+@interface HYZXViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *sid;
 

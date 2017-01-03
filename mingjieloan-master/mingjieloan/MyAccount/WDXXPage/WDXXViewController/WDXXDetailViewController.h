@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface WDXXDetailViewController : BaseViewController
+@interface WDXXDetailViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *msgTitle;
 

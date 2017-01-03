@@ -33,22 +33,22 @@
     
     [super layoutSubviews];
     
-    CGFloat height =[[self class] heightOfLabel:self.str andWith:kWIDTH * 375];
+    CGFloat height =[[self class] heightOfLabel:self.str andWith:kWIDTH];
     
     if ([self.str containsString:@"1. 新手注册送"]) {
         
-        height = 220 * kHEIGHT;
+        height = 220 * FitHeight;
         
     }
     
     
     if ([self.str containsString:@"1. 积分可兑换铭捷贷现金券及实物商品等；"]) {
         
-        height = 190 * kHEIGHT;
+        height = 190 * FitHeight;
         
     }
     
-    self.msgTitleLabel.frame = CGRectMake(15 * kWIDTH, 5 * kHEIGHT, 375 * kWIDTH - 20, height);
+    self.msgTitleLabel.frame = CGRectMake(15 * FitWidth, 5 * FitHeight, kWIDTH - 20, height);
     
     self.msgTitleLabel.numberOfLines = 0;
     
@@ -68,8 +68,10 @@
 
 
 - (void)setStr:(NSString *)str {
-    
-    _str = str;
+    if (_str != str) {
+         _str = str;
+    }
+   
     
     self.msgTitleLabel.text = str;
     

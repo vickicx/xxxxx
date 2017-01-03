@@ -467,7 +467,7 @@
             return height;
         }else{
             
-//            CGFloat height = [HYGZCell heightOfLabel:self.secondStr andWith:375 * KWIDTH];
+
             
             return 70 * FitHeight + 130 * FitHeight;
         }

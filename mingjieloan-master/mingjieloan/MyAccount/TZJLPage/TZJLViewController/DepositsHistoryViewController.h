@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface DepositsHistoryViewController : BaseViewController
+@interface DepositsHistoryViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *sid;
 

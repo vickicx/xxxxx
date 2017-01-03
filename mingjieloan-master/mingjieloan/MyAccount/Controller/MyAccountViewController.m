@@ -130,13 +130,13 @@
                 //签到获取积分
                 
             }else if (indexPath.row  ==1){
-                //会员中心
+                //会员中心(完成)
                 HYZXViewController *hyzxVC = [[HYZXViewController alloc] init];
                 hyzxVC.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
                 [self.navigationController pushViewController:hyzxVC animated:YES];
                 
             }else if (indexPath.row  ==2){
-                //我的积分
+                //我的积分（完成）
                 
                 JFViewController *jfViewController = [[JFViewController alloc] init];
                 
@@ -151,9 +151,15 @@
         case 1:
             if (indexPath.row == 0) {
                 //债权转让
+                LDY_RightChangeViewController *zqzrVC = [[LDY_RightChangeViewController alloc] init];
+                
+                zqzrVC.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
+                
+                [self.navigationController pushViewController:zqzrVC animated:YES];
+                
                 
             }else if (indexPath.row  ==1){
-                //回款计划
+                //回款计划(完成)
                 DepositsHistoryViewController *depositsHVC = [[DepositsHistoryViewController alloc] init];
                   depositsHVC.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
                  [self.navigationController pushViewController:depositsHVC animated:YES];

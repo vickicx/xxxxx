@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface WDXXYBViewController : BaseViewController
+@interface WDXXYBViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *sid;
 

@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface WDJFViewController : BaseViewController
+@interface WDJFViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *sid;
 

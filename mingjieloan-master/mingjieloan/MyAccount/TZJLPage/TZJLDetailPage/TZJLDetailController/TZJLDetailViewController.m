@@ -74,7 +74,7 @@
 - (void)dataHandle
 {
     
-     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"oid_tender_id",self.oid_tender_id,@"tender_from",self.tender_from, nil];
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",self.sid,@"oid_tender_id",self.oid_tender_id,@"tender_from",self.tender_from, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, RETURNDETAIL];
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {

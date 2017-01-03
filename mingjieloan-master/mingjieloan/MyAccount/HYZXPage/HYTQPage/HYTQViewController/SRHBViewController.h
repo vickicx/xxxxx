@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface SRHBViewController : BaseViewController
+@interface SRHBViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *sid;
 

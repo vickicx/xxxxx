@@ -206,8 +206,8 @@
             
             self.hyzxHead2View.shengrihongbaoButton.hidden = NO;
             self.hyzxHead2View.shengrihongbaoLabel.hidden = NO;
-            self.hyzxHead2View.shengrihongbaoButton.frame = CGRectMake(152 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
-            self.hyzxHead2View.shengrihongbaoLabel.frame = CGRectMake(152 * FitWidth, 50 * FitHeight + self.hyzxHead2View.shengrihongbaoButton.frame.size.height, 70 * FitWidth, 25 * FitWidth);
+            self.hyzxHead2View.shengrihongbaoButton.frame = CGRectMake(175 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
+            self.hyzxHead2View.shengrihongbaoLabel.frame = CGRectMake(175 * FitWidth, 50 * FitHeight + self.hyzxHead2View.shengrihongbaoButton.frame.size.height, 70 * FitWidth, 25 * FitWidth);
             
             self.hyzxHead2View.moreImageView.hidden = NO;
             self.hyzxHead2View.jingqingqidaiLabel.hidden = NO;
@@ -229,8 +229,8 @@
             
             self.hyzxHead2View.moreImageView.hidden = NO;
             self.hyzxHead2View.jingqingqidaiLabel.hidden = NO;
-            self.hyzxHead2View.moreImageView.frame = CGRectMake(152 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
-            self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(152 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitWidth);
+            self.hyzxHead2View.moreImageView.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
+            self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitWidth);
             
             self.hyzxHead2View.tequanLabel.text = [NSString stringWithFormat:@"V%ld特权", self.currentSelect + 1];
             self.hyzxHead2View.tequanNumLabel.text = @"共1项";
@@ -707,13 +707,13 @@
         
         self.hyzxHead2View.shengrihongbaoButton.hidden = NO;
         self.hyzxHead2View.shengrihongbaoLabel.hidden = NO;
-        self.hyzxHead2View.shengrihongbaoButton.frame = CGRectMake(152 *  FitWidth, 50 * FitHeight, 70 *  FitWidth, 70 *  FitWidth);
-        self.hyzxHead2View.shengrihongbaoLabel.frame = CGRectMake(152 *  FitWidth, 50 * FitHeight + self.hyzxHead2View.shengrihongbaoButton.frame.size.height, 70 *  FitWidth, 25 *  FitWidth);
+        self.hyzxHead2View.shengrihongbaoButton.frame = CGRectMake(175 *  FitWidth, 50 * FitHeight, 70 *  FitWidth, 70 *  FitWidth);
+        self.hyzxHead2View.shengrihongbaoLabel.frame = CGRectMake(175 *  FitWidth, 50 * FitHeight + self.hyzxHead2View.shengrihongbaoButton.frame.size.height, 70 *  FitWidth, 25 *  FitWidth);
         
         self.hyzxHead2View.moreImageView.hidden = NO;
         self.hyzxHead2View.jingqingqidaiLabel.hidden = NO;
-        self.hyzxHead2View.moreImageView.frame = CGRectMake(375 *  FitWidth - 110 *  FitWidth, 50 * FitHeight, 70 *  FitWidth, 70 * FitHeight);
-        self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(375 *  FitWidth - 110 *  FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 *  FitWidth, 25 * FitHeight);
+        self.hyzxHead2View.moreImageView.frame = CGRectMake(kWIDTH - 110 *  FitWidth, 50 * FitHeight, 70 *  FitWidth, 70 * FitHeight);
+        self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(kWIDTH - 110 *  FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 *  FitWidth, 25 * FitHeight);
         
         self.hyzxHead2View.tequanLabel.text = [NSString stringWithFormat:@"V%ld特权", self.currentSelect + 1];
         self.hyzxHead2View.tequanNumLabel.text = @"共2项";
@@ -730,8 +730,8 @@
         
         self.hyzxHead2View.moreImageView.hidden = NO;
         self.hyzxHead2View.jingqingqidaiLabel.hidden = NO;
-        self.hyzxHead2View.moreImageView.frame = CGRectMake(152 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
-        self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(152 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitWidth);
+        self.hyzxHead2View.moreImageView.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
+        self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitWidth);
         
         self.hyzxHead2View.tequanLabel.text = [NSString stringWithFormat:@"V%ld特权", self.currentSelect + 1];
         self.hyzxHead2View.tequanNumLabel.text = @"共1项";
@@ -785,8 +785,8 @@
             
             self.hyzxHead2View.shengrihongbaoButton.hidden = NO;
             self.hyzxHead2View.shengrihongbaoLabel.hidden = NO;
-            self.hyzxHead2View.shengrihongbaoButton.frame = CGRectMake(152 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
-            self.hyzxHead2View.shengrihongbaoLabel.frame = CGRectMake(152 * FitWidth, 50 * FitHeight + self.hyzxHead2View.shengrihongbaoButton.frame.size.height, 70 * FitWidth, 25 * FitWidth);
+            self.hyzxHead2View.shengrihongbaoButton.frame = CGRectMake(175 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
+            self.hyzxHead2View.shengrihongbaoLabel.frame = CGRectMake(175 * FitWidth, 50 * FitHeight + self.hyzxHead2View.shengrihongbaoButton.frame.size.height, 70 * FitWidth, 25 * FitWidth);
             
             self.hyzxHead2View.moreImageView.hidden = NO;
             self.hyzxHead2View.jingqingqidaiLabel.hidden = NO;
@@ -808,8 +808,8 @@
             
             self.hyzxHead2View.moreImageView.hidden = NO;
             self.hyzxHead2View.jingqingqidaiLabel.hidden = NO;
-            self.hyzxHead2View.moreImageView.frame = CGRectMake(152 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
-            self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(152 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitWidth);
+            self.hyzxHead2View.moreImageView.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight, 70 * FitWidth, 70 * FitWidth);
+            self.hyzxHead2View.jingqingqidaiLabel.frame = CGRectMake(kWIDTH - 110 * FitWidth, 50 * FitHeight + self.hyzxHead2View.moreImageView.frame.size.height, 70 * FitWidth, 25 * FitWidth);
             
             self.hyzxHead2View.tequanLabel.text = [NSString stringWithFormat:@"V%ld特权", self.currentSelect + 1];
             self.hyzxHead2View.tequanNumLabel.text = @"共1项";

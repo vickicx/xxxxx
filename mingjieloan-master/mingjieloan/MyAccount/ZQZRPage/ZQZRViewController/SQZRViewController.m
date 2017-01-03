@@ -157,9 +157,9 @@
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
     
     // 设置富文本对象的颜色
-    attributes[NSFontAttributeName] = [UIFont systemFontOfSize:13 * KWIDTH];
+    attributes[NSFontAttributeName] = [UIFont systemFontOfSize:13 * FitWidth];
     
-    self.zheRangLXJETextField = [[UITextField alloc] initWithFrame:CGRectMake(160 * KWIDTH, 135 * KHEIGHT + 45.5 * KHEIGHT * 2, 180 * KWIDTH, 30 * KHEIGHT)];
+    self.zheRangLXJETextField = [[UITextField alloc] initWithFrame:CGRectMake(160 * FitWidth, 135 * FitHeight + 45.5 * FitHeight * 2, 180 * FitWidth, 30 * FitHeight)];
     
     [self.sQZRTableView addSubview:self.zheRangLXJETextField];
     
@@ -181,7 +181,7 @@
     
     UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    sendButton.frame = CGRectMake(13 * KWIDTH, 667 * KHEIGHT - 3 * KHEIGHT - 32 * KHEIGHT - 80 * KHEIGHT, KWIDTH * 375 - KWIDTH - 26 * KWIDTH, 32 * KHEIGHT);
+    sendButton.frame = CGRectMake(13 * FitWidth, kHEIGHT - 3 * FitHeight - 32 * FitHeight - 80 * FitHeight, kWIDTH - FitWidth - 26 * FitWidth, 32 * FitHeight);
     
     [self.sQZRTableView addSubview:sendButton];
     
@@ -196,7 +196,7 @@
     [sendButton addTarget:self action:@selector(sendButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
     //提示button
-    UIImageView *tishi1ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 75, KHEIGHT * 140, KWIDTH * 14, KHEIGHT * 14)];
+    UIImageView *tishi1ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 75, FitHeight * 140, FitWidth * 14, FitHeight * 14)];
     
     [self.sQZRTableView addSubview:tishi1ImageView];
     
@@ -204,7 +204,7 @@
     
     self.btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    self.btn1.frame = CGRectMake(KWIDTH * 70, KHEIGHT * 140, KWIDTH * 20, KHEIGHT * 20);
+    self.btn1.frame = CGRectMake(FitWidth * 70, FitHeight * 140, FitWidth * 20, FitHeight * 20);
     
     [self.sQZRTableView addSubview:self.btn1];
     
@@ -212,7 +212,7 @@
     
     [self.btn1 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIImageView *tishi2ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 105, KHEIGHT * 140 + 45.5 * KHEIGHT, KWIDTH * 14, KHEIGHT * 14)];
+    UIImageView *tishi2ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 105, FitHeight * 140 + 45.5 * FitHeight, FitWidth * 14, FitHeight * 14)];
     
     [self.sQZRTableView addSubview:tishi2ImageView];
     
@@ -220,7 +220,7 @@
     
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    btn2.frame = CGRectMake(KWIDTH * 105, KHEIGHT * 140 + 45.5 * KHEIGHT, KWIDTH * 20, KHEIGHT * 20);
+    btn2.frame = CGRectMake(FitWidth * 105, FitHeight * 140 + 45.5 * FitHeight, FitWidth * 20, FitHeight * 20);
     
     [self.sQZRTableView addSubview:btn2];
     
@@ -228,7 +228,7 @@
     
     [btn2 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIImageView *tishi3ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 105, KHEIGHT * 140 + 45.5 * KHEIGHT * 2, KWIDTH * 14, KHEIGHT * 14)];
+    UIImageView *tishi3ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 105, FitHeight * 140 + 45.5 * FitHeight * 2, FitWidth * 14, FitHeight * 14)];
     
     [self.sQZRTableView addSubview:tishi3ImageView];
     
@@ -236,7 +236,7 @@
     
     self.btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    self.btn3.frame = CGRectMake(KWIDTH * 105, KHEIGHT * 140 + 45.5 * KHEIGHT * 2, KWIDTH * 20, KHEIGHT * 20);
+    self.btn3.frame = CGRectMake(FitWidth * 105, FitHeight * 140 + 45.5 * FitHeight * 2, FitWidth * 20, FitHeight * 20);
     
     [self.sQZRTableView addSubview:self.btn3];
     
@@ -244,7 +244,7 @@
 
     [self.btn3 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIImageView *tishi4ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 93, KHEIGHT * 140 + 45 * KHEIGHT * 3, KWIDTH * 14, KHEIGHT * 14)];
+    UIImageView *tishi4ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 93, FitHeight * 140 + 45 * FitHeight * 3, FitWidth * 14, FitHeight * 14)];
     
     [self.sQZRTableView addSubview:tishi4ImageView];
     
@@ -252,7 +252,7 @@
     
     UIButton *btn4 = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    btn4.frame = CGRectMake(KWIDTH * 93, KHEIGHT * 140 + 45 * KHEIGHT * 3, KWIDTH * 20, KHEIGHT * 20);
+    btn4.frame = CGRectMake(FitWidth * 93, FitHeight * 140 + 45 * FitHeight * 3, FitWidth * 20, FitHeight * 20);
     
     [self.sQZRTableView addSubview:btn4];
     
@@ -261,90 +261,90 @@
     [btn4 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    UIImageView *tishi5ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 76, KHEIGHT * 140 + 44.5 * KHEIGHT * 4, KWIDTH * 14, KHEIGHT * 14)];
+    UIImageView *tishi5ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 76, FitHeight * 140 + 44.5 * FitHeight * 4, FitWidth * 14, FitHeight * 14)];
     [self.sQZRTableView addSubview:tishi5ImageView];
     tishi5ImageView.image = [UIImage imageNamed:@"tishi"];
     
     UIButton *btn5 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn5.frame = CGRectMake(KWIDTH * 76, KHEIGHT * 140 + 44.5 * KHEIGHT * 4, KWIDTH * 20, KHEIGHT * 20);
+    btn5.frame = CGRectMake(FitWidth * 76, FitHeight * 140 + 44.5 * FitHeight * 4, FitWidth * 20, FitHeight * 20);
     [self.sQZRTableView addSubview:btn5];
     btn5.tag = 15000;
 
     [btn5 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIImageView *tishi7ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 90, KHEIGHT * 140 + 44.5 * KHEIGHT * 6, KWIDTH * 14, KHEIGHT * 14)];
+    UIImageView *tishi7ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 90, FitHeight * 140 + 44.5 * FitHeight * 6, FitWidth * 14, FitHeight * 14)];
     [self.sQZRTableView addSubview:tishi7ImageView];
     tishi7ImageView.image = [UIImage imageNamed:@"tishi"];
     
     UIButton *btn7 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn7.frame = CGRectMake(KWIDTH * 90, KHEIGHT * 140 + 44.5 * KHEIGHT * 6, KWIDTH * 20, KHEIGHT * 20);
+    btn7.frame = CGRectMake(FitWidth * 90, FitHeight * 140 + 44.5 * FitHeight * 6, FitWidth * 20, FitHeight * 20);
     [self.sQZRTableView addSubview:btn7];
     btn7.tag = 17000;
 
     [btn7 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    UIImageView *tishi6ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 76, KHEIGHT * 140 + 44.5 * KHEIGHT * 7, KWIDTH * 14, KHEIGHT * 14)];
+    UIImageView *tishi6ImageView = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 76, FitHeight * 140 + 44.5 * FitHeight * 7, FitWidth * 14, FitHeight * 14)];
     [self.sQZRTableView addSubview:tishi6ImageView];
     tishi6ImageView.image = [UIImage imageNamed:@"tishi"];
     
     UIButton *btn6 = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn6.frame = CGRectMake(KWIDTH * 76, KHEIGHT * 140 + 44.5 * KHEIGHT * 7, KWIDTH * 20, KHEIGHT * 20);
+    btn6.frame = CGRectMake(FitWidth * 76, FitHeight * 140 + 44.5 * FitHeight * 7, FitWidth * 20, FitHeight * 20);
     [self.sQZRTableView addSubview:btn6];
     btn6.tag = 16000;
 
     [btn6 addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.image1View = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 73, 150 * KHEIGHT, KWIDTH * 55, KHEIGHT * 25)];
+    self.image1View = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 73, 150 * FitHeight, FitWidth * 55, FitHeight * 25)];
     [self.sQZRTableView addSubview:self.image1View];
     self.image1View.image = [UIImage imageNamed:@"zhuanrangbenjin"];
     self.image1View.hidden = YES;
     
-    self.image2View = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 49, 150 * KHEIGHT + 44.5 * KHEIGHT, KWIDTH * 245, KHEIGHT * 25)];
+    self.image2View = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 49, 150 * FitHeight + 44.5 * FitHeight, FitWidth * 245, FitHeight * 25)];
     [self.sQZRTableView addSubview:self.image2View];
     self.image2View.image = [UIImage imageNamed:@"yuqisuodelixi"];
     self.image2View.hidden = YES;
 
-    self.image3View = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 93, 150 * KHEIGHT + 44.5 * KHEIGHT * 2, KWIDTH * 170, KHEIGHT * 25)];
+    self.image3View = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 93, 150 * FitHeight + 44.5 * FitHeight * 2, FitWidth * 170, FitHeight * 25)];
     [self.sQZRTableView addSubview:self.image3View];
     self.image3View.image = [UIImage imageNamed:@"zheranglixijine"];
     self.image3View.hidden = YES;
 
-    self.image4View = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 46, 150 * KHEIGHT + 44.5 * KHEIGHT * 3, KWIDTH * 240, KHEIGHT * 40)];
+    self.image4View = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 46, 150 * FitHeight + 44.5 * FitHeight * 3, FitWidth * 240, FitHeight * 40)];
     [self.sQZRTableView addSubview:self.image4View];
     self.image4View.image = [UIImage imageNamed:@"zhuanrangshouxufei"];
     self.image4View.hidden = YES;
 
-    self.image5View = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 48, 150 * KHEIGHT + 44.5 * KHEIGHT * 4, KWIDTH * 200, KHEIGHT * 25)];
+    self.image5View = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 48, 150 * FitHeight + 44.5 * FitHeight * 4, FitWidth * 200, FitHeight * 25)];
     [self.sQZRTableView addSubview:self.image5View];
     self.image5View.image = [UIImage imageNamed:@"zhuanrangjiage"];
     self.image5View.hidden = YES;
 
-    self.image7View = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 80, 150 * KHEIGHT + 44.5 * KHEIGHT * 6, KWIDTH * 105, KHEIGHT * 25)];
+    self.image7View = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 80, 150 * FitHeight + 44.5 * FitHeight * 6, FitWidth * 105, FitHeight * 25)];
     [self.sQZRTableView addSubview:self.image7View];
     self.image7View.image = [UIImage imageNamed:@"guapaishouyilv"];
     self.image7View.hidden = YES;
     
-    self.image6View = [[UIImageView alloc] initWithFrame:CGRectMake(KWIDTH * 24, 150 * KHEIGHT + 44.5 * KHEIGHT * 7, KWIDTH * 270, KHEIGHT * 45)];
+    self.image6View = [[UIImageView alloc] initWithFrame:CGRectMake(FitWidth * 24, 150 * FitHeight + 44.5 * FitHeight * 7, FitWidth * 270, FitHeight * 45)];
     [self.sQZRTableView addSubview:self.image6View];
     self.image6View.image = [UIImage imageNamed:@"choukuanqixian"];
     self.image6View.hidden = YES;
     
     
     //UIButton *zrxyButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.zrxyButton.frame = CGRectMake(180 * KWIDTH, 667 * KHEIGHT - 35 * KHEIGHT - sendButton.frame.size.height - 80 * KHEIGHT, KWIDTH * 150, KHEIGHT * 30);
+    self.zrxyButton.frame = CGRectMake(180 * FitWidth, kHEIGHT - 35 * FitHeight - sendButton.frame.size.height - 80 * FitHeight, FitWidth * 150, FitHeight * 30);
     [self.sQZRTableView addSubview:self.zrxyButton];
-    self.zrxyButton.titleLabel.font = [UIFont systemFontOfSize:12 * KWIDTH];
+    self.zrxyButton.titleLabel.font = [UIFont systemFontOfSize:12 * FitWidth];
     [self.zrxyButton setTitleColor:[XXColor goldenColor] forState:UIControlStateNormal];
     [self.zrxyButton addTarget:self action:@selector(zrxyButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    UILabel *bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(100 * KWIDTH, 667 * KHEIGHT - 35 * KHEIGHT - sendButton.frame.size.height - 80 * KHEIGHT, 375 * KWIDTH - 150 * KWIDTH, 30 * KHEIGHT)];
+    UILabel *bottomLabel = [[UILabel alloc] initWithFrame:CGRectMake(100 * FitWidth, kHEIGHT - 35 * FitHeight - sendButton.frame.size.height - 80 * FitHeight, kWIDTH - 150 * FitWidth, 30 * FitHeight)];
     [self.sQZRTableView addSubview:bottomLabel];
-    bottomLabel.font = [UIFont systemFontOfSize:12 * KWIDTH];
+    bottomLabel.font = [UIFont systemFontOfSize:12 * FitWidth];
     bottomLabel.text = @"我已仔细阅读并签署";
     self.bottomLabel = bottomLabel;
     [bottomLabel sizeToFit];
-    bottomLabel.height =  30 * KHEIGHT;
+    bottomLabel.height =  30 * FitHeight;
     self.zrxyButton.x = CGRectGetMaxX(self.bottomLabel.frame);
     
 }
@@ -388,7 +388,7 @@
 - (void)publishDataHandle {
     
   
-     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"products_title",self.products_title,@"oid_tender_id",self.oid_tender_id,@"transfer_capital",self.tender_amount,@"discount_amount",self.zheRangLXJETextField.text,@"tender_from",self.tender_from, nil];
+     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",self.sid,@"products_title",self.products_title,@"oid_tender_id",self.oid_tender_id,@"transfer_capital",self.tender_amount,@"discount_amount",self.zheRangLXJETextField.text,@"tender_from",self.tender_from, nil];
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, FBZR];
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
@@ -697,7 +697,7 @@
                 UIAlertAction *defautAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                     
                     
-                     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"products_title",self.products_title,@"oid_tender_id",self.oid_tender_id,@"transfer_capital",self.tender_amount,@"discount_amount",self.zheRangLXJETextField.text,@"tender_from",self.tender_from, nil];
+                     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",self.sid,@"products_title",self.products_title,@"oid_tender_id",self.oid_tender_id,@"transfer_capital",self.tender_amount,@"discount_amount",self.zheRangLXJETextField.text,@"tender_from",self.tender_from, nil];
                     
                     
                     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, FBZR];
@@ -772,12 +772,12 @@
     
     if ([self.zheRangLXJETextField.text isEqualToString:@""]) {
         
-        body = [NSDictionary dictionaryWithObjectsAndKeys:@"tender_from",self.tender_from,@"oid_tender_id",self.oid_tender_id,@"discount",0,@"sid",MySid, nil];
+        body = [NSDictionary dictionaryWithObjectsAndKeys:@"tender_from",self.tender_from,@"oid_tender_id",self.oid_tender_id,@"discount",0,@"sid",self.sid, nil];
         
     }else{
         
         
-         body = [NSDictionary dictionaryWithObjectsAndKeys:@"tender_from",self.tender_from,@"oid_tender_id",self.oid_tender_id,@"discount",self.zheRangLXJETextField.text,@"sid",MySid, nil];
+         body = [NSDictionary dictionaryWithObjectsAndKeys:@"tender_from",self.tender_from,@"oid_tender_id",self.oid_tender_id,@"discount",self.zheRangLXJETextField.text,@"sid",self.sid, nil];
 
     }
 
@@ -847,7 +847,7 @@
 
 - (void)createTableView
 {
-    self.sQZRTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 - 1 * KHEIGHT, KWIDTH * 375, 667 * KHEIGHT - 64) style:UITableViewStyleGrouped];
+    self.sQZRTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64 *FitHeight - 1 * FitHeight, kWIDTH ,  kHEIGHT - 64) style:UITableViewStyleGrouped];
     [self.view addSubview:self.sQZRTableView];
     self.sQZRTableView.delegate = self;
     self.sQZRTableView.dataSource = self;
@@ -873,7 +873,7 @@
         }
         
         titleCell.textLabel.text = self.products_title;
-        titleCell.textLabel.font = [UIFont systemFontOfSize:14.5 * KWIDTH];
+        titleCell.textLabel.font = [UIFont systemFontOfSize:14.5 * FitWidth];
         titleCell.textLabel.textColor = [UIColor colorWithRed:47 / 255.0 green:55 / 255.0 blue:85 / 255.0 alpha:1.0];
         
         [titleCell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -964,13 +964,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return 40 * KHEIGHT;
+        return 40 * FitHeight;
     }else if (indexPath.section == 1){
         
-        return 75 * KHEIGHT;
+        return 75 * FitHeight;
     }else{
         
-        return 400 * KHEIGHT;
+        return 400 * FitHeight;
     }
 }
 
@@ -978,17 +978,17 @@
 {
     if (section == 0) {
         
-        return 1 * KHEIGHT;
+        return 1 * FitHeight;
         
     }else{
         
-    return 2.4 * KHEIGHT;
+    return 2.4 * FitHeight;
     
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 1 * KHEIGHT;
+    return 1 * FitHeight;
 }
 
 

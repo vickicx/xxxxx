@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface ZRGZ_ViewController : BaseViewController
+@interface ZRGZ_ViewController : SubBaseViewController
 
 @end

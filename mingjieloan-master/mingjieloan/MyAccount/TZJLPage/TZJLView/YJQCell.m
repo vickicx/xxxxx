@@ -61,8 +61,8 @@
 {
     [super layoutSubviews];
     
-    self.touziLabel.frame = CGRectMake(10 * kWIDTH, 5 * kHEIGHT, 40 * kWIDTH, 30 * kHEIGHT);
-    self.touziLabel.font = [UIFont systemFontOfSize:13 * kWIDTH];
+    self.touziLabel.frame = CGRectMake(10 * FitWidth, 5 * FitHeight, 40 * FitWidth, 30 * FitHeight);
+    self.touziLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
     self.touziLabel.textAlignment = NSTextAlignmentCenter;
     
     //不明颜色
@@ -70,14 +70,14 @@
     self.touziLabel.text = @"投资";
 //    self.touziLabel.backgroundColor = [UIColor redColor];
     
-    self.touziPriceLabel.frame = CGRectMake(10 * kWIDTH +self.touziLabel.frame.size.width, 5 * kHEIGHT, 200 * kWIDTH, 30 * kHEIGHT);
+    self.touziPriceLabel.frame = CGRectMake(10 * FitWidth +self.touziLabel.frame.size.width, 5 * FitHeight, 200 * FitWidth, 30 * FitHeight);
     
     //不明颜色
     self.touziPriceLabel.textColor = [XXColor goldenColor];
-    self.touziPriceLabel.font = [UIFont systemFontOfSize:13 * kWIDTH];
+    self.touziPriceLabel.font = [UIFont systemFontOfSize:13 * FitWidth];
 //    self.touziPriceLabel.backgroundColor = [UIColor yellowColor];
     
-    self.huiquanzhongLabel.frame = CGRectMake(self.contentView.frame.size.width - 5 * kWIDTH - 70 * kWIDTH, 5 * kWIDTH, 70 * kWIDTH, 30 * kHEIGHT);
+    self.huiquanzhongLabel.frame = CGRectMake(self.contentView.frame.size.width - 5 * FitWidth - 70 * FitWidth, 5 * FitWidth, 70 * FitWidth, 30 * FitHeight);
     
     //不明颜色
     self.huiquanzhongLabel.textColor = [UIColor colorWithRed:47 / 255.0 green:55 / 255.0 blue:85 / 255.0 alpha:1.0];
@@ -86,16 +86,16 @@
     self.huiquanzhongLabel.textColor = [UIColor colorWithRed:47 / 255.0 green:55 / 255.0 blue:85 / 255.0 alpha:1.0];
     self.huiquanzhongLabel.text = @"已结清";
     
-    self.lineView.frame = CGRectMake(0, 0 * kHEIGHT + self.touziLabel.frame.size.width, self.contentView.frame.size.width, 1);
+    self.lineView.frame = CGRectMake(0, 0 * FitHeight + self.touziLabel.frame.size.width, self.contentView.frame.size.width, 1);
     self.lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    self.titleNameLabel.frame = CGRectMake(10 * kWIDTH, 20 * kHEIGHT + self.touziLabel.frame.size.height, 230 * kWIDTH, 20 * kHEIGHT);
-    self.titleNameLabel.font = [UIFont systemFontOfSize:12 * kWIDTH];
+    self.titleNameLabel.frame = CGRectMake(10 * FitWidth, 20 * FitHeight + self.touziLabel.frame.size.height, 230 * FitWidth, 20 * FitHeight);
+    self.titleNameLabel.font = [UIFont systemFontOfSize:12 * FitWidth];
     self.titleNameLabel.textColor = [UIColor darkGrayColor];
 //    self.titleNameLabel.backgroundColor = [UIColor cyanColor];
     
-    self.interestLabel.frame = CGRectMake(250 * kWIDTH, 20 * kHEIGHT + self.touziLabel.frame.size.height, 70 * kWIDTH, 20 * kHEIGHT);
-    self.interestLabel.font = [UIFont systemFontOfSize:12 * kWIDTH];
+    self.interestLabel.frame = CGRectMake(250 * FitWidth, 20 * FitHeight + self.touziLabel.frame.size.height, 70 * FitWidth, 20 * FitHeight);
+    self.interestLabel.font = [UIFont systemFontOfSize:12 * FitWidth];
     self.interestLabel.textAlignment = NSTextAlignmentRight;
     self.interestLabel.textColor = [UIColor darkGrayColor];
 //    self.interestLabel.backgroundColor = [UIColor blueColor];
@@ -103,14 +103,14 @@
     
     
     
-    CGFloat width = [[self class] widthOfLabel:self.extaStr andWith: 16 * kHEIGHT];
+    CGFloat width = [[self class] widthOfLabel:self.extaStr andWith: 16 * FitHeight];
     
-    self.extraLabel.frame = CGRectMake(252 * kWIDTH + self.interestLabel.frame.size.width, 22 * kHEIGHT + self.touziLabel.frame.size.height, width, 16 * kHEIGHT);
+    self.extraLabel.frame = CGRectMake(252 * FitWidth + self.interestLabel.frame.size.width, 22 * FitHeight + self.touziLabel.frame.size.height, width, 16 * FitHeight);
     self.extraLabel.font = [UIFont systemFontOfSize:10];
     self.extraLabel.textAlignment = NSTextAlignmentLeft;
     self.extraLabel.textColor = [UIColor whiteColor];
     self.extraLabel.backgroundColor = [UIColor colorWithRed:521 / 255.0 green:109 / 255.0 blue:28 / 255.0 alpha:1.0];
-    self.extraLabel.layer.cornerRadius = 3 * kWIDTH;
+    self.extraLabel.layer.cornerRadius = 3 * FitWidth;
     self.extraLabel.layer.masksToBounds = YES;
     
     if ([self.extaStr isEqualToString:@""]) {
@@ -124,23 +124,23 @@
     
 //    self.extraLabel.hidden = YES;
     
-    self.qixiDateLabel.frame = CGRectMake(10 * kWIDTH, 80 * kHEIGHT, 150 * kWIDTH, 20 * kHEIGHT);
-    self.qixiDateLabel.font = [UIFont systemFontOfSize:12 * kWIDTH];
+    self.qixiDateLabel.frame = CGRectMake(10 * FitWidth, 80 * FitHeight, 150 * FitWidth, 20 * FitHeight);
+    self.qixiDateLabel.font = [UIFont systemFontOfSize:12 * FitWidth];
     self.qixiDateLabel.textColor = [UIColor darkGrayColor];
 //    self.qixiDateLabel.backgroundColor = [UIColor purpleColor];
     
-    self.qishuLabel.frame = CGRectMake(170 * kWIDTH, 80 * kHEIGHT, 80 * kWIDTH, 20 * kHEIGHT);
-    self.qishuLabel.font = [UIFont systemFontOfSize:12 * kWIDTH];
+    self.qishuLabel.frame = CGRectMake(170 * FitWidth, 80 * FitHeight, 80 * FitWidth, 20 * FitHeight);
+    self.qishuLabel.font = [UIFont systemFontOfSize:12 * FitWidth];
     self.qishuLabel.textColor = [UIColor darkGrayColor];
 //    self.qishuLabel.backgroundColor = [UIColor redColor];
     
-    self.deadLineLabel.frame = CGRectMake(10 * kWIDTH, 80 * kHEIGHT + self.qixiDateLabel.frame.size.height, 150 * kWIDTH, 20 * kHEIGHT);
-    self.deadLineLabel.font = [UIFont systemFontOfSize:12 * kWIDTH];
+    self.deadLineLabel.frame = CGRectMake(10 * FitWidth, 80 * FitHeight + self.qixiDateLabel.frame.size.height, 150 * FitWidth, 20 * FitHeight);
+    self.deadLineLabel.font = [UIFont systemFontOfSize:12 * FitWidth];
     self.deadLineLabel.textColor = [UIColor darkGrayColor];
 //    self.deadLineLabel.backgroundColor = [UIColor orangeColor];
     
-    self.yihuiLabel.frame = CGRectMake(170 * kWIDTH, 80 * kHEIGHT + self.qixiDateLabel.frame.size.height, 120 * kWIDTH, 20 * kHEIGHT);
-    self.yihuiLabel.font = [UIFont systemFontOfSize:12 * kWIDTH];
+    self.yihuiLabel.frame = CGRectMake(170 * FitWidth, 80 * FitHeight + self.qixiDateLabel.frame.size.height, 120 * FitWidth, 20 * FitHeight);
+    self.yihuiLabel.font = [UIFont systemFontOfSize:12 * FitWidth];
     self.yihuiLabel.textColor = [UIColor darkGrayColor];
 //    self.yihuiLabel.backgroundColor = [UIColor yellowColor];
     

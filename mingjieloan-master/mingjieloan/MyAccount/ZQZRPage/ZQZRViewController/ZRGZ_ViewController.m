@@ -29,19 +29,19 @@
     self.navigationItem.title = @"转让规则";
     
     
-    UILabel *ruleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kWIDTH, 0 * kHEIGHT + 64, 200 * kWIDTH, 45 * kHEIGHT)];
+    UILabel *ruleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * FitWidth, 0 * FitHeight + 64, 200 * FitWidth, 45 * FitHeight)];
     [self.view addSubview:ruleTitleLabel];
     ruleTitleLabel.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    UILabel *ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kWIDTH, 0 * kHEIGHT + 64 + ruleTitleLabel.frame.size.height, kWIDTH * 375 - 25 * kWIDTH, 400 * kHEIGHT)];
+    UILabel *ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * FitWidth, 0 * FitHeight + 64 + ruleTitleLabel.frame.size.height, kWIDTH - 25 * FitWidth, 400 * FitHeight)];
     [self.view addSubview:ruleLabel];
     ruleLabel.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    ruleTitleLabel.font = [UIFont systemFontOfSize:17 * kWIDTH];
+    ruleTitleLabel.font = [UIFont systemFontOfSize:17 * FitWidth];
     ruleTitleLabel.textColor = [UIColor colorWithRed:39 / 255.0 green:39 / 255.0 blue:39 / 255.0 alpha:1.0];
     ruleTitleLabel.text = @"债权转让规则";
     
-    ruleLabel.font = [UIFont systemFontOfSize:14 * kWIDTH];
+    ruleLabel.font = [UIFont systemFontOfSize:14 * FitWidth];
     ruleLabel.textColor = [UIColor colorWithRed:71 / 255.0 green:71 / 255.0 blue:71 / 255.0 alpha:1.0];
     ruleLabel.numberOfLines = 0;
     

@@ -61,18 +61,15 @@
 /**
  * XXXXXXX
  */
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        
-        self.dataArr = [NSMutableArray array];
-        
-        self.mainArr = [NSMutableArray array];
-    }
-    
-    return self;
-}
+//- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    
+//    if (self) {
+//        
+//          }
+//    
+//    return self;
+//}
 
 /**
  * XXXXXXX
@@ -80,7 +77,10 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-   
+    self.dataArr = [NSMutableArray array];
+    
+    self.mainArr = [NSMutableArray array];
+
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -179,7 +179,13 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, JFMALLEXCHANGE];
     
 
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"commodity_id",self.commodity_id,@"red_packet_id",self.red_packet_id,@"cost_point",self.cost_point, nil];
+
+    NSDictionary *body =
+                              @{@"sid":self.sid,
+                                @"commodity_id":self.commodity_id,
+                                @"red_packet_id":self.red_packet_id,
+                                @"cost_point":self.cost_point
+                                  };
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
@@ -236,7 +242,8 @@
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, JFMALL];
     
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"type", (long)self.type, nil];
+
+    NSDictionary *body = @{@"sid":self.sid,@"type":[NSString stringWithFormat:@"%ld",self.type]};
     
     
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
@@ -326,7 +333,7 @@
     self.headSegmentedControl.frame = CGRectMake(15 * FitWidth, 10 * FitHeight + self.headImageView.frame.size.height, kWIDTH - 30 * FitWidth, 30 * FitHeight);
     self.viewXX1 = [[UIView alloc] init];
     self.viewXX1.backgroundColor = [UIColor clearColor];
-    self.viewXX1.frame = CGRectMake(15 * FitWidth + 20, 10 * FitHeight + self.headImageView.frame.size.height + self.headSegmentedControl.frame.size.height, (kWIDTH - 30 * FitWidth - 40),2);
+    self.viewXX1.frame = CGRectMake(15 * FitWidth + 20 * FitWidth, 10 * FitHeight + self.headImageView.frame.size.height + self.headSegmentedControl.frame.size.height, (kWIDTH - 30 * FitWidth - 40* FitWidth),2* FitHeight);
     [self.headView addSubview:self.viewXX1];
     
     self.viewXX2 = [[UIView alloc] init];
@@ -365,7 +372,7 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, JFMALL];
     
     
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"type", (long)self.type, nil];
+   NSDictionary *body = @{@"sid":self.sid,@"type":[NSString stringWithFormat:@"%ld",self.type]};
     
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
@@ -513,7 +520,7 @@
  */
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    return CGSizeMake((kWIDTH - 5) / 2, FitHeight * 220);
+    return CGSizeMake((kWIDTH - FitHeight *5) / 2, FitHeight * 220);
 }
 
 

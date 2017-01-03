@@ -9,8 +9,7 @@
 #import "DidExchangedView.h"
 #import "XXColor.h"
 
-#define exWIDTH ([UIScreen mainScreen].bounds.size.width/375)
-#define exHEIGHT ([UIScreen mainScreen].bounds.size.height/667)
+
 
 @implementation DidExchangedView
 
@@ -51,9 +50,9 @@
     self.exchangeBackView.backgroundColor = [UIColor blackColor];
     self.exchangeBackView.alpha = 0.3;
     
-    self.alertView.frame = CGRectMake(60 * exWIDTH, 220 * exHEIGHT, 375 * exWIDTH - 120 * exWIDTH, 667 * exHEIGHT - 253 * exHEIGHT * 2);
+    self.alertView.frame = CGRectMake(60 * FitWidth, 220 * FitHeight, kWIDTH - 120 * FitWidth, kHEIGHT - 253 * FitHeight * 2);
     self.alertView.backgroundColor = [UIColor whiteColor];
-    self.alertView.layer.cornerRadius = 5 * exWIDTH;
+    self.alertView.layer.cornerRadius = 5 * FitWidth;
     self.alertView.layer.masksToBounds = YES;
     
     self.closeButton.frame = CGRectMake(self.alertView.frame.size.width - 20, 3, 18, 18);
@@ -61,13 +60,13 @@
 //    self.closeButton.backgroundColor = [UIColor grayColor];
     self.closeButton.userInteractionEnabled = YES;
     
-    self.picImageView.frame = CGRectMake(70 * exWIDTH, 50 * exHEIGHT, 28 * exWIDTH, 28 * exHEIGHT);
+    self.picImageView.frame = CGRectMake(70 * FitWidth, 50 * FitHeight, 28 * FitWidth, 28 * FitHeight);
     
-    self.titleLabel.frame = CGRectMake(80 * exWIDTH + self.picImageView.frame.size.width, 50 * exHEIGHT, 100 * exWIDTH, 30 * exHEIGHT);
+    self.titleLabel.frame = CGRectMake(80 * FitWidth + self.picImageView.frame.size.width, 50 * FitHeight, 100 * FitWidth, 30 * FitHeight);
     self.titleLabel.textColor = [UIColor colorWithRed:251 / 255.0 green:114 / 255.0 blue:43 / 255.0 alpha:1.0];
     self.titleLabel.font = [UIFont systemFontOfSize:16];
     
-    self.msgLabel.frame = CGRectMake(0, 50 * exHEIGHT + self.titleLabel.frame.size.height, self.alertView.frame.size.width, 30 * exHEIGHT);
+    self.msgLabel.frame = CGRectMake(0, 50 * FitHeight + self.titleLabel.frame.size.height, self.alertView.frame.size.width, 30 * FitHeight);
     self.msgLabel.textAlignment = NSTextAlignmentCenter;
     
     self.msgLabel.font = [UIFont systemFontOfSize:15];

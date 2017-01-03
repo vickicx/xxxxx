@@ -104,6 +104,8 @@
     [hud showInView:self.view];
     
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", @"sid",page, @"page", nil];
+    
+    
     [VVNetWorkTool postWithUrl:Url(PRODUCTALL) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
         //        NSLog(@"progress ===== %@", progress);
         

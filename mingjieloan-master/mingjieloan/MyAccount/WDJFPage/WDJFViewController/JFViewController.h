@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface JFViewController : BaseViewController
+@interface JFViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *sid;
 

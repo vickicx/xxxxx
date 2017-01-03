@@ -49,9 +49,9 @@
     
     self.contentView.backgroundColor = [UIColor whiteColor];
     
-    self.picImageView.frame = CGRectMake(cWIDTH / 3, 10 * kHEIGHT, cWIDTH / 3, cHEIGHT / 90 * 41);
+    self.picImageView.frame = CGRectMake(cWIDTH / 3, 10 * FitHeight, cWIDTH / 3, cHEIGHT / 90 * 41);
     
-    self.titleLabel.frame = CGRectMake(0, 15 * kHEIGHT + self.picImageView.frame.size.height, cWIDTH, 25 * kHEIGHT);
+    self.titleLabel.frame = CGRectMake(0, 15 * FitHeight + self.picImageView.frame.size.height, cWIDTH, 25 * FitHeight);
     
     self.titleLabel.font = [UIFont systemFontOfSize:12];
     
@@ -59,7 +59,7 @@
     
     self.titleLabel.textColor = [UIColor darkGrayColor];
     
-    self.descriptionLabel.frame = CGRectMake(cWIDTH / 11, 10 * kHEIGHT + self.picImageView.frame.size.height + self.titleLabel.frame.size.height, cWIDTH / 11 * 9, 37 * kHEIGHT);
+    self.descriptionLabel.frame = CGRectMake(cWIDTH / 11, 10 * FitHeight + self.picImageView.frame.size.height + self.titleLabel.frame.size.height, cWIDTH / 11 * 9, 37 * FitHeight);
     
     self.descriptionLabel.font = [UIFont systemFontOfSize:9];
     
@@ -67,7 +67,7 @@
     
     self.descriptionLabel.numberOfLines = 2;
     
-    self.exchangeBtn.frame = CGRectMake(cWIDTH / 6, 10 * kHEIGHT + self.picImageView.frame.size.height + self.titleLabel.frame.size.height + self.descriptionLabel.frame.size.height, cWIDTH / 3 * 2, 30 * kHEIGHT);
+    self.exchangeBtn.frame = CGRectMake(cWIDTH / 6, 10 * FitHeight + self.picImageView.frame.size.height + self.titleLabel.frame.size.height + self.descriptionLabel.frame.size.height, cWIDTH / 3 * 2, 30 * FitHeight);
     
     [self.exchangeBtn setTitle:@"我要兑换" forState:UIControlStateNormal];
     
@@ -80,7 +80,7 @@
     [self.exchangeBtn.layer setBorderWidth:1.0];
     
     
-    self.restLabel.frame = CGRectMake(0, 10 * kHEIGHT + self.picImageView.frame.size.height + self.titleLabel.frame.size.height + self.descriptionLabel.frame.size.height + self.exchangeBtn.frame.size.height, self.contentView.frame.size.width, 15 * kHEIGHT);
+    self.restLabel.frame = CGRectMake(0, 10 * FitHeight + self.picImageView.frame.size.height + self.titleLabel.frame.size.height + self.descriptionLabel.frame.size.height + self.exchangeBtn.frame.size.height, self.contentView.frame.size.width, 15 * FitHeight);
     
     self.restLabel.font = [UIFont systemFontOfSize:10];
     

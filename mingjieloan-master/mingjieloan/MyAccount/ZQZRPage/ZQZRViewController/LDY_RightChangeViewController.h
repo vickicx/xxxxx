@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define KWIDTH ([UIScreen mainScreen].bounds.size.width/375)
-#define KHEIGHT ([UIScreen mainScreen].bounds.size.height/667)
+
 
 @interface LDY_RightChangeViewController : UIViewController
 

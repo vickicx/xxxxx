@@ -137,7 +137,7 @@
     //可转让按钮
     self.kzrBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    self.kzrBtn.frame = CGRectMake(10 * KWIDTH, 55 + 20 * KHEIGHT, (self.view.frame.size.width - 20 * KWIDTH) / 3, 35 * KHEIGHT);
+    self.kzrBtn.frame = CGRectMake(10 * FitWidth, 55 + 20 * FitHeight, (self.view.frame.size.width - 20 * FitWidth) / 3, 35 * FitHeight);
     
     [self.view addSubview:self.kzrBtn];
     
@@ -166,7 +166,7 @@
     //转让中按钮
     self.zrzBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    self.zrzBtn.frame = CGRectMake(10 * KWIDTH + self.kzrBtn.frame.size.width, 55 + 20 * KHEIGHT, (self.view.frame.size.width - 20 * KWIDTH) / 3, 35 * KHEIGHT);
+    self.zrzBtn.frame = CGRectMake(10 * FitWidth + self.kzrBtn.frame.size.width, 55 + 20 * FitHeight, (self.view.frame.size.width - 20 * FitWidth) / 3, 35 * FitHeight);
     
     [self.view addSubview:self.zrzBtn];
     
@@ -191,7 +191,7 @@
     //已转让按钮
     self.yzrBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    self.yzrBtn.frame = CGRectMake(10 * KWIDTH + self.kzrBtn.frame.size.width * 2, 55 + 20 * KHEIGHT, (self.view.frame.size.width - 20 * KWIDTH) / 3, 35 * KHEIGHT);
+    self.yzrBtn.frame = CGRectMake(10 * FitWidth + self.kzrBtn.frame.size.width * 2, 55 + 20 * FitHeight, (self.view.frame.size.width - 20 * FitWidth) / 3, 35 * FitHeight);
     
     [self.view addSubview:self.yzrBtn];
     
@@ -213,7 +213,7 @@
     
     self.line3View.backgroundColor = [UIColor whiteColor];
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 35 * KHEIGHT + 20 * KHEIGHT + 64, 375 * KWIDTH, [UIScreen mainScreen].bounds.size.height - 30 * KHEIGHT - 64)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 35 * FitHeight + 20 * FitHeight + 64, kWIDTH, [UIScreen mainScreen].bounds.size.height - 30 * FitHeight - 64)];
     
     [self.view addSubview:self.scrollView];
     
@@ -245,13 +245,13 @@
     
     [self createYZRtableView];
     
-    self.kzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * KWIDTH, 270 * KHEIGHT - 64, 375 * KWIDTH - 210 * KWIDTH, 110 * KHEIGHT)];
+    self.kzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, kWIDTH - 210 * FitWidth, 110 * FitHeight)];
     
     [self.kZRTableView addSubview:self.kzrEmptyImageView];
     
     self.kzrEmptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.kzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * KWIDTH , 280 * KHEIGHT + self.kzrEmptyImageView.frame.size.height - 64, 375 * KWIDTH - 210 * KWIDTH, 40 * KHEIGHT)];
+    self.kzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.kzrEmptyImageView.frame.size.height - 64, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     
     [self.kZRTableView addSubview:self.kzrEmptyLabel];
     
@@ -267,13 +267,13 @@
     
     self.kzrEmptyLabel.hidden = YES;
     
-    self.zrzEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * KWIDTH, 270 * KHEIGHT - 64, 375 * KWIDTH - 210 * KWIDTH, 110 * KHEIGHT)];
+    self.zrzEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, kWIDTH - 210 * FitWidth, 110 * FitHeight)];
     
     [self.zRZTableView addSubview:self.zrzEmptyImageView];
     
     self.zrzEmptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.zrzEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * KWIDTH , 280 * KHEIGHT + self.zrzEmptyImageView.frame.size.height - 64, 375 * KWIDTH - 210 * KWIDTH, 40 * KHEIGHT)];
+    self.zrzEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.zrzEmptyImageView.frame.size.height - 64, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     
     [self.zRZTableView addSubview:self.zrzEmptyLabel];
     
@@ -290,13 +290,13 @@
     self.zrzEmptyLabel.hidden = YES;
     
     
-    self.yzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * KWIDTH, 270 * KHEIGHT - 64, 375 * KWIDTH - 210 * KWIDTH, 110 * KHEIGHT)];
+    self.yzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, kWIDTH - 210 * FitWidth, 110 * FitHeight)];
     
     [self.yZRTableView addSubview:self.yzrEmptyImageView];
     
     self.yzrEmptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.yzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * KWIDTH , 280 * KHEIGHT + self.yzrEmptyImageView.frame.size.height - 64, 375 * KWIDTH - 210 * KWIDTH, 40 * KHEIGHT)];
+    self.yzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.yzrEmptyImageView.frame.size.height - 64, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     
     [self.yZRTableView addSubview:self.yzrEmptyLabel];
     
@@ -314,13 +314,13 @@
     
     self.zrgzButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    self.zrgzButton.frame = CGRectMake(220 * KWIDTH, 25 * KHEIGHT, 80 * KWIDTH, 30 * KHEIGHT);
+    self.zrgzButton.frame = CGRectMake(220 * FitWidth, 25 * FitHeight, 80 * FitWidth, 30 * FitHeight);
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:self.zrgzButton];
     
     self.navigationItem.rightBarButtonItem = rightItem;
     
-    self.zrgzButton.titleLabel.font = [UIFont systemFontOfSize:16 * KWIDTH];
+    self.zrgzButton.titleLabel.font = [UIFont systemFontOfSize:16 * FitWidth];
     
     self.zrgzButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -466,7 +466,8 @@
 - (void)KZRDataHandle {
     
    
-     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.kzrPage, nil];
+   
+      NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%d",self.kzrPage]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, KZR];
     
@@ -515,7 +516,8 @@
  */
 - (void)ZRZDataHandle {
     
-   NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",self.zrzPage, nil];
+
+     NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%d",self.zrzPage]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, ZRZ];
     
@@ -564,7 +566,8 @@
  */
 - (void)YZRDataHandle {
     
-     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.yzrPage, nil];
+    
+    NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%d",self.yzrPage]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, YZR];
     
@@ -613,7 +616,7 @@
  */
 - (void)createKZRtableView {
     
-    self.kZRTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 375 * KWIDTH, [UIScreen mainScreen].bounds.size.height - 64 - 55 * KHEIGHT) style:UITableViewStyleGrouped];
+    self.kZRTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, [UIScreen mainScreen].bounds.size.height - 64 * FitHeight - 55 * FitHeight) style:UITableViewStyleGrouped];
     
     [self.scrollView addSubview:self.kZRTableView];
     
@@ -623,7 +626,7 @@
     
     self.kZRTableView.dataSource = self;
     
-    self.kZRTableView.rowHeight = 150 * KHEIGHT;
+    self.kZRTableView.rowHeight = 150 * FitHeight;
     
     [self.kZRTableView addHeaderWithTarget:self action:@selector(kZRTableViewHeaderRefreshing)];
     
@@ -661,7 +664,8 @@
         [self.kzrArr removeAllObjects];
     }
     
-     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.kzrPage, nil];
+    
+       NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%d",self.kzrPage]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, KZR];
     
@@ -713,7 +717,7 @@
  */
 - (void)createZRZtableView {
     
-    self.zRZTableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 0, 375 * KWIDTH, [UIScreen mainScreen].bounds.size.height - 64 - 55 * KHEIGHT) style:UITableViewStyleGrouped];
+    self.zRZTableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 0, kWIDTH, [UIScreen mainScreen].bounds.size.height - 64*FitHeight - 55 * FitHeight) style:UITableViewStyleGrouped];
     
     [self.scrollView addSubview:self.zRZTableView];
     
@@ -723,7 +727,7 @@
     
     self.zRZTableView.dataSource = self;
     
-    self.zRZTableView.rowHeight = 177 * KHEIGHT;
+    self.zRZTableView.rowHeight = 177 * FitHeight;
     
     [self.zRZTableView addHeaderWithTarget:self action:@selector(zRZTableViewHeaderRefreshing)];
     
@@ -762,7 +766,8 @@
         [self.zrzArr removeAllObjects];
     }
     
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.zrzPage, nil];
+   
+     NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%d",self.zrzPage]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, ZRZ];
     
@@ -813,7 +818,7 @@
  */
 - (void)createYZRtableView {
     
-    self.yZRTableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 2, 0, 375 * KWIDTH, [UIScreen mainScreen].bounds.size.height - 64 - 55 * KHEIGHT) style:UITableViewStyleGrouped];
+    self.yZRTableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 2, 0, kWIDTH, [UIScreen mainScreen].bounds.size.height - 64 *FitHeight - 55 * FitHeight) style:UITableViewStyleGrouped];
     
     [self.scrollView addSubview:self.yZRTableView];
     
@@ -823,7 +828,7 @@
     
     self.yZRTableView.dataSource = self;
     
-    self.yZRTableView.rowHeight = 120 * KHEIGHT;
+    self.yZRTableView.rowHeight = 120 * FitHeight;
     
     [self.yZRTableView addHeaderWithTarget:self action:@selector(yZRTableViewHeaderRefreshing)];
     
@@ -861,7 +866,8 @@
         [self.yzrArr removeAllObjects];
     }
     
-     NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid",MySid,@"page",(int)self.yzrPage, nil];
+    
+       NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%d",self.yzrPage]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, YZR];
     
@@ -1085,7 +1091,7 @@
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return KHEIGHT * 7;
+    return FitHeight * 7;
 }
 
 /**

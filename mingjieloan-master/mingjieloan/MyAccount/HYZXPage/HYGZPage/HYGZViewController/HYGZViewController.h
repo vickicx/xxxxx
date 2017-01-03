@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "DepositsHistoryViewController.h"
 
-@interface HYGZViewController : BaseViewController
+@interface HYGZViewController : SubBaseViewController
 
 @property (nonatomic, assign) NSInteger zongzichan;
 

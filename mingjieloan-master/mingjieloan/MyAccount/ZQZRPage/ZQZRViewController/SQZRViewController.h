@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "ZQZRModel.h"
 
-@interface SQZRViewController : BaseViewController
+@interface SQZRViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *sid;
 

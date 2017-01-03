@@ -41,10 +41,10 @@
     self.exchangeBackView.backgroundColor = [UIColor blackColor];
     self.exchangeBackView.alpha = 0.3;
     
-    self.alertView.frame = CGRectMake(60 * eWIDTH, 220 * eHEIGHT, 375 * eWIDTH - 120 * eWIDTH, 667 * eHEIGHT - 253 * eHEIGHT * 2);
+    self.alertView.frame = CGRectMake(60 * FitWidth, 220 * FitHeight, kWIDTH - 120 * FitWidth, kHEIGHT - 253 * FitHeight * 2);
     self.alertView.backgroundColor = [UIColor whiteColor];
 
-    self.exchangeTitleLabel.frame = CGRectMake(50 * eWIDTH, 35 * eHEIGHT , self.alertView.frame.size.width - 100 * eWIDTH, 60 * eHEIGHT);
+    self.exchangeTitleLabel.frame = CGRectMake(50 * FitWidth, 35 * FitHeight , self.alertView.frame.size.width - 100 * FitWidth, 60 * FitHeight);
     self.exchangeTitleLabel.font = [UIFont systemFontOfSize:13];
     self.exchangeTitleLabel.numberOfLines = 0;
     self.exchangeTitleLabel.textColor = [UIColor colorWithRed:251 / 255.0 green:114 / 255.0 blue:43 / 255.0 alpha:1.0];
@@ -55,7 +55,7 @@
 //    self.closeButton.backgroundColor = [UIColor grayColor];
     self.closeButton.userInteractionEnabled = YES;
     
-    self.okButton.frame = CGRectMake(35 * eWIDTH, 45 * eHEIGHT + self.exchangeTitleLabel.frame.size.height, self.alertView.frame.size.width - 70 * eWIDTH, 40 * eHEIGHT);
+    self.okButton.frame = CGRectMake(35 * FitWidth, 45 * FitHeight + self.exchangeTitleLabel.frame.size.height, self.alertView.frame.size.width - 70 * FitWidth, 40 * FitHeight);
     self.okButton.backgroundColor = [XXColor btnGoldenColor];
     [self.okButton setTitle:@"确定兑换" forState:UIControlStateNormal];
     [self.okButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

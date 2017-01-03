@@ -52,18 +52,6 @@
 
 @implementation JFViewController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.titleArr = [NSArray array];
-        self.dataArr = [NSMutableArray array];
-        self.mainArr = [NSMutableArray array];
-    }
-    
-    return self;
-}
-
 
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -73,7 +61,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.titleArr = [NSArray array];
+    self.dataArr = [NSMutableArray array];
+    self.mainArr = [NSMutableArray array];
+
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -149,7 +140,7 @@
 {
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDJF];
     
-    NSDictionary *body = @{@"sid":MySid};
+    NSDictionary *body = @{@"sid":self.sid};
     
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         

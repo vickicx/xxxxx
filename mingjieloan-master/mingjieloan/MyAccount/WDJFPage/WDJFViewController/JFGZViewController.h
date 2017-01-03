@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface JFGZViewController : BaseViewController
+@interface JFGZViewController : SubBaseViewController
 
 @property (nonatomic, copy) NSString *sid;
 
