@@ -23,13 +23,14 @@
 #if (SERVER_LEVEL==TEST_SERVER_LEVEL)
 //开发环境
 //#define HOSTURL @"http://123.56.207.145:8082/mapp"
-#define HOSTURL @"http://www.dlmjcf.com/mapp"
+//#define HOSTURL @"http://www.dlmjcf.com/mapp"
+#define HOSTURL @"jiahairan123.55555.io:19883"
 //#define HOSTURL @"http://192.168.1.169:8080/mapp"
 #define ProtocolURL @"http://www.dlmjcf.com"
 #else
 //发布的正式地址
-
-#define HOSTURL @"http://www.dlmjcf.com/mapp"
+#define HOSTURL @"jiahairan123.55555.io:19883"
+//#define HOSTURL @"http://www.dlmjcf.com/mapp"
 #define ProtocolURL @"http://www.dlmjcf.com"
 #endif
 
