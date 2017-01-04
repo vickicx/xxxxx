@@ -19,6 +19,8 @@
     self.status = @"1";
     self.page   = 1;
     [self createTableView];
+    [self addHeader];
+    [self addFooter];
     [self getCard];
 }
 
@@ -86,6 +88,20 @@
     } success:^(id result) {
         NSLog(@"%@",result);
     } fail:^(NSError *error) {
+        
+    }];
+}
+
+- (void)addHeader {
+    WeakObj(self);
+    [self.tableView addHeaderWithCallback:^{
+        
+    }];
+}
+
+- (void)addFooter {
+    WeakObj(self);
+    [self.tableView addFooterWithCallback:^{
         
     }];
 }
