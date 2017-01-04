@@ -22,7 +22,7 @@
     // Do any additional setup after loading the view.
     self.title  = @"我的卡券";
     self.status = @"1";
-    self.page   = 20;
+    self.page   = 1;
     [self getCard];
 }
 
