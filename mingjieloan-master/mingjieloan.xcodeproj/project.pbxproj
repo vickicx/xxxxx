@@ -121,6 +121,7 @@
 		9957F70F1E134E27004A8F66 /* AccountHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9957F70B1E134E27004A8F66 /* AccountHeadView.m */; };
 		9957F7101E134E27004A8F66 /* MyAccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9957F70D1E134E27004A8F66 /* MyAccountTableViewCell.m */; };
 		9957F7111E134E27004A8F66 /* MyAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9957F70E1E134E27004A8F66 /* MyAccountTableViewCell.xib */; };
+		99646C721E1C952A00555EEC /* AccountRechargeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99646C711E1C952A00555EEC /* AccountRechargeTableViewController.m */; };
 		9969969C1E0A257C00CEF850 /* XXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9969969B1E0A257C00CEF850 /* XXColor.m */; };
 		996996A01E0A2F7200CEF850 /* VVNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9969969F1E0A2F7200CEF850 /* VVNetWorkTool.m */; };
 		99C27C9F1E10BE0800C0B013 /* ForgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C27C9A1E10BE0800C0B013 /* ForgetViewController.m */; };
@@ -456,6 +457,8 @@
 		9957F70C1E134E27004A8F66 /* MyAccountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountTableViewCell.h; sourceTree = "<group>"; };
 		9957F70D1E134E27004A8F66 /* MyAccountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountTableViewCell.m; sourceTree = "<group>"; };
 		9957F70E1E134E27004A8F66 /* MyAccountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAccountTableViewCell.xib; sourceTree = "<group>"; };
+		99646C701E1C952A00555EEC /* AccountRechargeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountRechargeTableViewController.h; sourceTree = "<group>"; };
+		99646C711E1C952A00555EEC /* AccountRechargeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountRechargeTableViewController.m; sourceTree = "<group>"; };
 		9969969A1E0A257C00CEF850 /* XXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXColor.h; sourceTree = "<group>"; };
 		9969969B1E0A257C00CEF850 /* XXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXColor.m; sourceTree = "<group>"; };
 		9969969E1E0A2F7200CEF850 /* VVNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VVNetWorkTool.h; path = VVNetWork/VVNetWorkTool.h; sourceTree = "<group>"; };
@@ -1445,6 +1448,8 @@
 				EA1F05341E1947C700DCE82C /* DHFForgerhandVC.m */,
 				3DF8F5D51E12702300D4922C /* DHFChangeLogPassWordVC.h */,
 				3DF8F5D61E12702300D4922C /* DHFChangeLogPassWordVC.m */,
+				99646C701E1C952A00555EEC /* AccountRechargeTableViewController.h */,
+				99646C711E1C952A00555EEC /* AccountRechargeTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2132,6 +2137,7 @@
 				9908739B1E12455800354802 /* HYZXModel.m in Sources */,
 				EA3C06911E12B771009E02D4 /* DHFGestureCloseVC.m in Sources */,
 				3DF8F5C71E12549900D4922C /* DHFSetUserNameViewController.m in Sources */,
+				99646C721E1C952A00555EEC /* AccountRechargeTableViewController.m in Sources */,
 				EA49A44D1E0F92CE0079A8DB /* DHFReportDetailViewController.m in Sources */,
 				990873C01E12455800354802 /* ExchangeView.m in Sources */,
 				EA49A4411E0F91940079A8DB /* DHFReportViewController.m in Sources */,

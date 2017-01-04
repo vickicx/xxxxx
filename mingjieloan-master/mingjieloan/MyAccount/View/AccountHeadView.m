@@ -29,15 +29,16 @@
         
         
         //预期代收收益
-        self.yuqishouyiLab = [[UILabel alloc] initWithFrame:CGRectMake(10, kHEIGHT *   0.1, kWIDTH * 0.5, 30)];
+        self.yuqishouyiLab = [[UILabel alloc] initWithFrame:CGRectMake(10, kHEIGHT *   0.1, kWIDTH * 0.7, 30)];
         self.yuqishouyiLab.text = @"预期待收收益(元) 0.00";
         self.yuqishouyiLab.textColor = [UIColor whiteColor];
         [view addSubview:self.yuqishouyiLab];
         
         //交易记录
         UIButton *recordsbutton = [UIButton buttonWithType:UIButtonTypeCustom];
-        recordsbutton.frame = CGRectMake(kWIDTH - kWIDTH * 0.4, kHEIGHT * 0.1, kWIDTH * 0.5, 30);
+        recordsbutton.frame = CGRectMake(kWIDTH - kWIDTH * 0.25, kHEIGHT * 0.1, kWIDTH * 0.25, 30);
         recordsbutton.titleLabel.font = [UIFont systemFontOfSize:15];
+        [recordsbutton.titleLabel setTextAlignment:0];
         [recordsbutton setTitle:@"交易记录>>" forState:0];
         [recordsbutton addTarget:self action:@selector(recordsbutton:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:recordsbutton];
@@ -181,7 +182,7 @@
 
 //充值按钮点击事件
 - (void)topUpButton:(UIButton *)yy{
-    NSLog(@"%d",11);
+    [self.recharge Recharge];
 }
 
 //提现按钮点击事件

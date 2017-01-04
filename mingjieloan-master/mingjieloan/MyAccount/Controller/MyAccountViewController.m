@@ -9,9 +9,10 @@
 #import "MyAccountViewController.h"
 #import "MyAccountTableViewCell.h"
 #import "AccountHeadView.h"
+#import "AccountRechargeTableViewController.h"
 
 
-@interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource,TrageRecordDelegate>
+@interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource,TrageRecordDelegate,RechargeDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -55,6 +56,7 @@
 
     self.headView = [[AccountHeadView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT * 0.584)];
     _headView.delegate = self;
+    _headView.recharge = self;
     [self.view addSubview:_headView];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
@@ -77,6 +79,12 @@
     jyjlVc.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
     [self.navigationController pushViewController:jyjlVc animated:YES];
     
+}
+
+- (void)Recharge {
+    AccountRechargeTableViewController * arVc = [[AccountRechargeTableViewController alloc] init];
+    arVc.sid = [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
+    [self.navigationController pushViewController:arVc animated:YES];
 }
 
 

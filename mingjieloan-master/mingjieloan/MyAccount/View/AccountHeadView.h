@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "JYJLViewController.h"
 
+
 @protocol TrageRecordDelegate <NSObject>
 
 - (void)tradeRecord;
+
+@end
+
+@protocol RechargeDelegate <NSObject>
+
+- (void)Recharge;
 
 @end
 
@@ -42,6 +49,7 @@
 @property (nonatomic, strong) UILabel *boxlabel;
 
 @property (weak, nonatomic) id<TrageRecordDelegate>delegate;
+@property (weak, nonatomic) id<RechargeDelegate> recharge;
 - (instancetype)initWithFrame:(CGRect)frame;
 
 
