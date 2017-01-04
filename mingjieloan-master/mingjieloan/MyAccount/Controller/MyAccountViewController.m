@@ -11,6 +11,7 @@
 #import "AccountHeadView.h"
 #import "AccountRechargeTableViewController.h"
 #import "WDXXViewController.h"
+#import "MyCardViewController.h"
 
 
 @interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource,TrageRecordDelegate,RechargeDelegate>

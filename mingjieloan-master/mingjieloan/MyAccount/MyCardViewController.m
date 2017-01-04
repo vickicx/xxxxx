@@ -8,12 +8,7 @@
 
 #import "MyCardViewController.h"
 
-@interface MyCardViewController ()
 
-// 未使用1  已使用2  已过期99
-@property (strong, nonatomic) NSString * status;
-
-@end
 
 @implementation MyCardViewController
 
@@ -25,6 +20,7 @@
     self.page   = 1;
     [self getCard];
 }
+
 
 - (void)getCard {
     
