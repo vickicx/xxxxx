@@ -12,8 +12,6 @@
 
 @property (strong, nonatomic) UITableView   * tableView;
 @property (strong, nonatomic) NSArray       * dataSource;
-@property (assign, nonatomic) int             page;
-
 @property (assign, nonatomic) int  page;
 @property (strong, nonatomic) NSString * status;
 
