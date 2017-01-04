@@ -31,7 +31,7 @@
     _cashBG.image = [UIImage imageNamed:@"cashBG"];
     [self.contentView addSubview:_cashBG];
     
-    self.cricle_smal = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 65, 65)];
+    self.cricle_smal = [[UIImageView alloc] initWithFrame:CGRectMake(30 * FitWidth, 10, 65, 65)];
     _cricle_smal.image = [UIImage imageNamed:@"circle_small"];
     [_cashBG addSubview:_cricle_smal];
     
@@ -42,7 +42,7 @@
     _cashPrice.text = @"¥100元";
     [_cricle_smal addSubview:_cashPrice];
     
-    self.cashDes = [[UILabel alloc] initWithFrame:CGRectMake(100, 10, kWIDTH - 180, 65)];
+    self.cashDes = [[UILabel alloc] initWithFrame:CGRectMake(130 * FitWidth, 10, kWIDTH - 210 * FitWidth, 65)];
     _cashDes.textColor = [UIColor whiteColor];
     _cashDes.font = [UIFont systemFontOfSize:11 * FitHeight];
     _cashDes.textAlignment = NSTextAlignmentCenter;
@@ -50,13 +50,14 @@
     _cashDes.text = @"单笔投资上限100，000元适用于6个月以上的项目";
     [_cashBG addSubview:_cashDes];
     
-    self.quanTypeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 75, 100, 20)];
+    self.quanTypeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 75, 130 * FitWidth, 20)];
     _quanTypeLabel.font = [UIFont systemFontOfSize:15 * FitHeight];
     _quanTypeLabel.textColor = GetColor(@"#F7FED9");
+    _quanTypeLabel.text = @"现金券";
     _quanTypeLabel.textAlignment = NSTextAlignmentCenter;
     [_cashBG addSubview:_quanTypeLabel];
     
-    self.activeTime = [[UILabel alloc] initWithFrame:CGRectMake(100, 75, kWIDTH - 180, 20)];
+    self.activeTime = [[UILabel alloc] initWithFrame:CGRectMake(130 * FitWidth, 75, kWIDTH - 210 * FitWidth, 20)];
     _activeTime.textColor = [UIColor whiteColor];
     _activeTime.font = [UIFont systemFontOfSize:12 * FitHeight];
     _activeTime.textAlignment = NSTextAlignmentCenter;

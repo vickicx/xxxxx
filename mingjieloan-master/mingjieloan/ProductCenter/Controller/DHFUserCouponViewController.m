@@ -37,7 +37,7 @@
     
     self.tabBarController.tabBar.hidden=YES;
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT - 60) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellAccessoryNone;
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -66,7 +66,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _mainArr.count;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -78,18 +78,29 @@
     if (_mainArr.count > 0) {
         
     }
+    if(cell.isSelected)
+    {
+        cell.selectedImg.image = [UIImage imageNamed:@"circle_small"];
+    }
+    else
+    {
+        cell.selectedImg.image = [UIImage imageNamed:@"cashNotSelectedCircle"];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DHFUseCouponTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (!cell.isSelected) {
-        self.selectedIndexPath = indexPath;
+    NSArray *array = [tableView visibleCells];
+    for (DHFUseCouponTableViewCell *cell in array) {
+
+        cell.isSelected = NO;
     }
-    else
-    {
-        self.selectedIndexPath = nil;
+    
+    DHFUseCouponTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.isSelected = !cell.isSelected;
+    if (cell.isSelected) {
+        self.selectedIndexPath = indexPath;
     }
     [self.tableView reloadData];
 }
@@ -127,10 +138,11 @@
 }
 
 - (void)getCoupon{
+    
     NSDictionary *dic = @{@"sid":
     [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"],
                          @"productid":_productID,
-                         @"amount":self.amount,
+                         @"amount":@"1000",
                          @"page":[NSString stringWithFormat:@"%ld", self.page]};
     
     [VVNetWorkTool postWithUrl:Url(ENABLECASH) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
@@ -176,17 +188,17 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 60)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, 60)];
     headerView.backgroundColor =  [UIColor colorWithRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1.0];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 200, 20)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, kWIDTH, 20)];
     [headerView addSubview:label];
     label.text = @"   选择当前可用的卡券";
     label.textColor = [UIColor darkGrayColor];
     label.backgroundColor = [UIColor colorWithRed:244.0/255.0 green:244.0/255.0 blue:244.0/255.0 alpha:1.0];
     label.font = [UIFont systemFontOfSize:14];
     
-    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 350, 20)];
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, kWIDTH, 20)];
     [headerView addSubview:label2];
     label2.text = @"   温馨提示:限每个投资项目仅可使用1张卡券";
     label2.textColor = [UIColor darkGrayColor];
@@ -199,7 +211,7 @@
 
 - (void)initBottomView{
     
-    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, kHEIGHT, kWIDTH, 60)];
+    UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, kHEIGHT - 60, kWIDTH, 60)];
     bottomView.backgroundColor = [UIColor whiteColor];
     
     UIButton *confirmUseCashListBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10,kWIDTH-20, 40)];

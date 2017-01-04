@@ -61,6 +61,7 @@
 //跳到优惠券界面
 - (void)userQuanAction{
     DHFUserCouponViewController *useCouponVC = [[DHFUserCouponViewController alloc] init];
+    useCouponVC.productID = self.idNumber;
     [useCouponVC returnCouponBlock:^(NSString *CouponStr) {
     
     
@@ -91,7 +92,7 @@
     } success:^(id result) {
         [hud dismiss];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"dic ========== %@",dic);
+        NSLog(@"dic ====== %@",dic);
         //                    NSLog(@"dic = %@", dic);
         // 借款人信息Model
         
