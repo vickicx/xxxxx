@@ -9,5 +9,11 @@
 #import "BaseModel.h"
 
 @interface MyCardModel : BaseModel
-
+@property (strong, nonatomic) NSString * end_time;
+@property (strong, nonatomic) NSString * cash_price;
+@property (strong, nonatomic) NSString * type_flag;
+@property (strong, nonatomic) NSString * used_time;
+@property (strong, nonatomic) NSString * start_time;
+@property (strong, nonatomic) NSString * casha_desc;
+@property (strong, nonatomic) NSString * status;
 @end
