@@ -153,6 +153,8 @@
                 [self.navigationController pushViewController:jfViewController animated:YES];
             }else {
                 //我的卡卷
+                MyCardViewController *mycardVC = [[MyCardViewController alloc] init];
+                [self.navigationController pushViewController:mycardVC animated:YES];
             }
            
             break;
