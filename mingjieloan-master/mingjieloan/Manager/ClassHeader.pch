@@ -21,9 +21,6 @@
 // 我的账户
 #import "MyAccountViewController.h"
 #import "UserInfo.h"
-#import "MyCardModel.h"
-#import "MyCardTableViewCell.h"
-#import "MyCardViewController.h"
 
 // 更多信息
 #import "MoreInfoViewController.h"

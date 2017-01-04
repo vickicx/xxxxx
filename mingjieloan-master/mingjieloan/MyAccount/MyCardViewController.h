@@ -8,10 +8,6 @@
 
 #import "SubBaseViewController.h"
 
-@interface MyCardViewController : SubBaseViewController<UITableViewDelegate,UITableViewDataSource>
-
-@property (strong, nonatomic) UITableView   * tableView;
-@property (strong, nonatomic) NSArray       * dataSource;
-@property (assign, nonatomic) int             page;
+@interface MyCardViewController : SubBaseViewController
 
 @end

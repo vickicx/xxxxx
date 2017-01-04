@@ -299,11 +299,6 @@ THE SOFTWARE.
 Copyright 2011 - 2016 UMeng.com. All rights reserved.
 
 
-## UMengUShare
-
-Copyright 2011 - 2016 UMeng.com. All rights reserved.
-
-
 ## shareSDK
 
 The MIT License (MIT)
