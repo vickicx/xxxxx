@@ -18,6 +18,8 @@ target 'mingjieloan' do
    pod 'PICircularProgressView'
    pod 'UMengSocial'
    pod 'IQKeyboardManager'
+   pod 'UMengUShare/UI'
+   pod 'UMengUShare/Social/WeChat'
    
 
   # Pods for mingjieloan
