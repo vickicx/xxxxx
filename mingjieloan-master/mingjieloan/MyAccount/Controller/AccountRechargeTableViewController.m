@@ -106,12 +106,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 4;
+    return 5;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 2) {
-        return 100*FitHeight;
+        return 80*FitHeight;
     }else {
         return 60*FitHeight;
     }
@@ -148,24 +148,38 @@
     
     }else if(indexPath.row == 2) {
         self.czBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.czBtn.frame = CGRectMake((kWIDTH - cell.width + 40) / 2, 20 , cell.width - 40 , cell.height - 40);
+        self.czBtn.frame = CGRectMake((kWIDTH - cell.width + 40) / 2, 20 , cell.width - 40 , 35);
         self.czBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         self.czBtn.backgroundColor = [XXColor btnGoldenColor];
         self.czBtn.titleLabel.textColor = [UIColor whiteColor];
-        self.czBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+        
         [self.czBtn setTitle:@"确定充值" forState:0];
         [self.czBtn addTarget:self action:@selector(rechargebutton:) forControlEvents:UIControlEventTouchUpInside];
         [cell addSubview:self.czBtn];
-     
-        
+    }else if(indexPath.row == 3) {
+        UIButton *dsf = [UIButton buttonWithType:UIButtonTypeCustom];
+        dsf.frame = CGRectMake(30*FitWidth, 5 * FitHeight, 120 * FitWidth, 35);
+        dsf.titleLabel.font = [UIFont systemFontOfSize:13];
+        dsf.titleLabel.textColor = [UIColor lightGrayColor];
+        [dsf setTitle:@"平台第三方合作充值渠道：" forState:0];
+        [cell addSubview:dsf];
     }
     
     
     
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+}
 //充值按钮点击事件
 -(void)rechargebutton:(UIButton *)button {
+    
+}
+//第三方合作充值渠道
+-(void)dsfbutton:(UIButton *)button {
     
 }
 
