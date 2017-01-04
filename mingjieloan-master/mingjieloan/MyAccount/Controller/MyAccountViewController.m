@@ -10,6 +10,7 @@
 #import "MyAccountTableViewCell.h"
 #import "AccountHeadView.h"
 #import "AccountRechargeTableViewController.h"
+#import "WDXXViewController.h"
 
 
 @interface MyAccountViewController ()<UITableViewDelegate,UITableViewDataSource,TrageRecordDelegate,RechargeDelegate>
@@ -26,6 +27,14 @@
 @implementation MyAccountViewController
 
 - (void)viewDidLoad {
+    UIImageView *imageV= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tab_logo"]];
+    self.navigationItem.titleView = imageV;
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.frame = CGRectMake(0, 0, 22, 15);
+    [rightButton setBackgroundImage:[UIImage imageNamed:@"mailBox"] forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(rightButton:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = rightItem;
     UIBarButtonItem *backIetm = [[UIBarButtonItem alloc] init];
     
     backIetm.title =@"我的账户";
@@ -41,6 +50,11 @@
     
     
 }
+-(void)rightButton:(UIButton *)button {
+    WDXXViewController *wdxxVc = [[WDXXViewController alloc] init];
+    wdxxVc.sid =  [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
+    [self.navigationController pushViewController:wdxxVc animated:YES];
+}
 
 - (void)createView {
     self.titleText = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, 100*FitWidth, 20 * FitHeight)];
@@ -48,11 +62,11 @@
    [_titleText setTextAlignment:NSTextAlignmentRight];
     self.levelImgV = [[UIImageView alloc] initWithFrame:CGRectMake(_titleText.right, _titleText.top, 60 * FitWidth, _titleText.font.lineHeight)];
     
-    UIView * titleViews = [[UIView alloc] initWithFrame:CGRectMake(160*FitWidth, 0, _titleText.width + _levelImgV.width,_titleText.height)];
-    [titleViews addSubview:_titleText];
-    [titleViews addSubview:_levelImgV];
+    self.titleViews = [[UIView alloc] initWithFrame:CGRectMake(160*FitWidth, 0, _titleText.width + _levelImgV.width,_titleText.height)];
+    [self.titleViews addSubview:_titleText];
+    [self.titleViews addSubview:_levelImgV];
     
-    self.navigationItem.titleView=titleViews;
+    
 
     self.headView = [[AccountHeadView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT * 0.584)];
     _headView.delegate = self;
@@ -220,6 +234,7 @@
         _titleText.text = self.basicInfo.name;
         NSString *VipImageName = [NSString stringWithFormat:@"vip_%@",self.basicInfo.member_level];
         _levelImgV.image = [UIImage imageNamed:VipImageName];
+        self.navigationItem.titleView=self.titleViews;
         
         
     } fail:^(NSError *error) {

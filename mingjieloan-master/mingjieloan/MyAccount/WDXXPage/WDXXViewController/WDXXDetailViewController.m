@@ -119,7 +119,7 @@
     
     CGFloat height1 = [WDXXDetailTableViewCell heightOfLabel:self.msgTitle andWith:200 * FitWidth];
     
-    CGFloat height2 = [WDXXDetailTableViewCell heightOfLabel:self.msg andWith:345 * FitWidth];
+    CGFloat height2 = [WDXXDetailTableViewCell heightOfLabel:self.msg andWith:kWIDTH];
     
     return height1 + height2;
 }

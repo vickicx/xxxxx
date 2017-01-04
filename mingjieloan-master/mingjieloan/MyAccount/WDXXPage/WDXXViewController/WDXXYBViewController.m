@@ -69,10 +69,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        self.dataArr = [NSMutableArray array];
-        self.data2Arr = [NSMutableArray array];
-        self.mainArr = [NSMutableArray array];
-        self.main2Arr = [NSMutableArray array];
+       
 
     }
     
@@ -83,6 +80,10 @@
     
     [super viewDidLoad];
     
+    self.dataArr = [NSMutableArray array];
+    self.data2Arr = [NSMutableArray array];
+    self.mainArr = [NSMutableArray array];
+    self.main2Arr = [NSMutableArray array];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -105,7 +106,8 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXXYB];
     
     
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"month", self.month, nil];
+    
+    NSDictionary *body = @{@"sid":self.sid,@"month":self.month};
     
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         

@@ -43,36 +43,36 @@
 {
     [super layoutSubviews];
     
-    self.firstLabel.frame = CGRectMake(5 * kWIDTH, 0, cWIDTH + 10 * kWIDTH, cHEIGHT);
+    self.firstLabel.frame = CGRectMake(5 * FitWidth, 0, cWIDTH + 10 * FitWidth, cHEIGHT);
     self.firstLabel.textAlignment = NSTextAlignmentLeft;
-    self.firstLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.firstLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
 
 //    self.firstLabel.backgroundColor = [UIColor yellowColor];
     
-    self.secondLabel.frame = CGRectMake(cWIDTH + 5 * kWIDTH, 0, cWIDTH + 5 * kWIDTH, cHEIGHT);
+    self.secondLabel.frame = CGRectMake(cWIDTH + 5 * kWIDTH, 0, cWIDTH + 5 * FitWidth, cHEIGHT);
     self.secondLabel.textAlignment = NSTextAlignmentRight;
 
-    self.secondLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.secondLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
 //    self.secondLabel.backgroundColor = [UIColor redColor];
     
-    self.thirdLabel.frame = CGRectMake(cWIDTH * 2 + 5 * kWIDTH, 0, cWIDTH + 5 * kWIDTH, cHEIGHT);
+    self.thirdLabel.frame = CGRectMake(cWIDTH * 2 + 5 * FitWidth, 0, cWIDTH + 5 * FitWidth, cHEIGHT);
     self.thirdLabel.textAlignment = NSTextAlignmentRight;
 
-    self.thirdLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.thirdLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
 
 //    self.thirdLabel.backgroundColor = [UIColor yellowColor];
     
-    self.fourthLabel.frame = CGRectMake(cWIDTH * 3 + 10 * kWIDTH, 0, cWIDTH + 5 * kWIDTH, cHEIGHT);
+    self.fourthLabel.frame = CGRectMake(cWIDTH * 3 + 10 * FitWidth, 0, cWIDTH + 5 * FitWidth, cHEIGHT);
     self.fourthLabel.textAlignment = NSTextAlignmentRight;
 
-    self.fourthLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.fourthLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
 
 //    self.fourthLabel.backgroundColor = [UIColor redColor];
     
-    self.fifthLabel.frame = CGRectMake(cWIDTH * 4, 0, cWIDTH + 5 * kWIDTH, cHEIGHT);
+    self.fifthLabel.frame = CGRectMake(cWIDTH * 4, 0, cWIDTH + 5 * FitWidth, cHEIGHT);
     self.fifthLabel.textAlignment = NSTextAlignmentRight;
 
-    self.fifthLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.fifthLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
 
 //    self.fifthLabel.backgroundColor = [UIColor yellowColor];
 }

@@ -46,43 +46,43 @@
 {
     [super layoutSubviews];
     
-    self.firstLabel.frame = CGRectMake(5 * kWIDTH, 0, cWIDTH - 25 * kWIDTH, cHEIGHT);
+    self.firstLabel.frame = CGRectMake(5 * FitWidth, 0, cWIDTH - 25 * FitWidth, cHEIGHT);
     self.firstLabel.textAlignment = NSTextAlignmentLeft;
-    self.firstLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.firstLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
     
 //    self.firstLabel.backgroundColor = [UIColor yellowColor];
     
-    self.secondLabel.frame = CGRectMake(cWIDTH - 30 * kWIDTH, 0, cWIDTH + 10 * kWIDTH, cHEIGHT);
+    self.secondLabel.frame = CGRectMake(cWIDTH - 30 * FitWidth, 0, cWIDTH + 10 * FitWidth, cHEIGHT);
     self.secondLabel.textAlignment = NSTextAlignmentRight;
     
-    self.secondLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.secondLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
 //    self.secondLabel.backgroundColor = [UIColor redColor];
     
-    self.thirdLabel.frame = CGRectMake(cWIDTH * 2 - 19 * kWIDTH, 0, cWIDTH + 10 * kWIDTH, cHEIGHT);
+    self.thirdLabel.frame = CGRectMake(cWIDTH * 2 - 19 * FitWidth, 0, cWIDTH + 10 * FitWidth, cHEIGHT);
     self.thirdLabel.textAlignment = NSTextAlignmentRight;
     
-    self.thirdLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.thirdLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
     
 //    self.thirdLabel.backgroundColor = [UIColor yellowColor];
     
-    self.fourthLabel.frame = CGRectMake(cWIDTH * 3 - 8 * kWIDTH, 0, cWIDTH + 10 * kWIDTH, cHEIGHT);
+    self.fourthLabel.frame = CGRectMake(cWIDTH * 3 - 8 * FitWidth, 0, cWIDTH + 10 * FitWidth, cHEIGHT);
     self.fourthLabel.textAlignment = NSTextAlignmentRight;
     
-    self.fourthLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.fourthLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
     
 //    self.fourthLabel.backgroundColor = [UIColor redColor];
     
-    self.fifthLabel.frame = CGRectMake(cWIDTH * 4 + 3 * kWIDTH, 0, cWIDTH + kWIDTH * 10, cHEIGHT);
+    self.fifthLabel.frame = CGRectMake(cWIDTH * 4 + 3 * FitWidth, 0, cWIDTH + FitWidth * 10, cHEIGHT);
     self.fifthLabel.textAlignment = NSTextAlignmentRight;
     
-    self.fifthLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.fifthLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
     
 //    self.fifthLabel.backgroundColor = [UIColor yellowColor];
     
-    self.sixthLabel.frame = CGRectMake(cWIDTH * 5 + 13 * kWIDTH, 0, cWIDTH + 5 * kWIDTH, cHEIGHT);
+    self.sixthLabel.frame = CGRectMake(cWIDTH * 5 + 13 * FitWidth, 0, cWIDTH + 5 * FitWidth, cHEIGHT);
     self.sixthLabel.textAlignment = NSTextAlignmentRight;
     
-    self.sixthLabel.font = [UIFont systemFontOfSize:10 * kWIDTH];
+    self.sixthLabel.font = [UIFont systemFontOfSize:10 * FitWidth];
 //    self.sixthLabel.backgroundColor = [UIColor redColor];
 }
 

@@ -25,6 +25,8 @@
 
 @property (nonatomic,strong) UITableView *MyAccountTableView;
 
+@property (nonatomic, strong)   UIView * titleViews;
+
 
 
 

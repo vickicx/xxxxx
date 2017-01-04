@@ -41,26 +41,26 @@
     
     [super layoutSubviews];
     
-    CGFloat height =[[self class] heightOfLabel:self.msgTitleStr andWith:375 * kWIDTH - 170];
+    CGFloat height =[[self class] heightOfLabel:self.msgTitleStr andWith:kWIDTH - 170];
 
-    self.msgTitleLabel.frame = CGRectMake(15 * kWIDTH, 8 * kHEIGHT, 375 * kWIDTH - 170 * kWIDTH, height);
-    self.msgTitleLabel.font = [UIFont systemFontOfSize:14.5 * kWIDTH];
+    self.msgTitleLabel.frame = CGRectMake(15 * FitWidth, 8 * FitHeight, kWIDTH - 170 * FitWidth, height);
+    self.msgTitleLabel.font = [UIFont systemFontOfSize:14.5 * FitWidth];
     self.msgTitleLabel.numberOfLines = 0;
     
-    self.dateLabel.frame = CGRectMake(375 * kWIDTH - 15 * kWIDTH - 150 * kWIDTH, 8 * kHEIGHT, 150 * kWIDTH, 30 * kHEIGHT);
+    self.dateLabel.frame = CGRectMake(kWIDTH - 15 * FitWidth - 150 * FitWidth, 8 * FitHeight, 150 * FitWidth, 30 * FitHeight);
     self.dateLabel.textAlignment = NSTextAlignmentRight;
-    self.dateLabel.font = [UIFont systemFontOfSize:13.5 * kWIDTH];
+    self.dateLabel.font = [UIFont systemFontOfSize:13.5 * FitWidth];
     
-    self.lineView.frame = CGRectMake(0, 11 * kHEIGHT + self.msgTitleLabel.frame.size.height, 375 * kWIDTH, 1.5 * kHEIGHT);
+    self.lineView.frame = CGRectMake(0, 11 * FitWidth + self.msgTitleLabel.frame.size.height,  kWIDTH, 1.5 * FitHeight);
     self.lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    self.msgLabel.frame = CGRectMake(15 * kWIDTH, 25 * kHEIGHT + self.msgTitleLabel.frame.size.height + self.lineView.frame.size.height, 375 * kWIDTH - 50 * kWIDTH, 60 * kHEIGHT);
+    self.msgLabel.frame = CGRectMake(15 * FitWidth, 25 * FitHeight + self.msgTitleLabel.frame.size.height + self.lineView.frame.size.height,  kWIDTH - 50 * FitWidth, 60 * FitHeight);
     self.msgLabel.textColor = [UIColor grayColor];
     self.msgLabel.numberOfLines = 2;
-    self.msgLabel.font = [UIFont systemFontOfSize:13.5 * kWIDTH];
+    self.msgLabel.font = [UIFont systemFontOfSize:13.5 * FitWidth];
     self.msgLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     
-    self.enterImageView.frame = CGRectMake(375 * kWIDTH - 5 * kWIDTH - 30 * kWIDTH, height, 20 * kWIDTH, 20 * kHEIGHT);
+    self.enterImageView.frame = CGRectMake(kWIDTH - 5 * FitWidth - 30 * FitWidth, height, 20 * FitWidth, 20 * FitHeight);
     self.enterImageView.image = [UIImage imageNamed:@"enter_1"];
     
     CGPoint pointXX = self.enterImageView.center;

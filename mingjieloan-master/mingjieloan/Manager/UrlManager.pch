@@ -41,8 +41,8 @@
 //自己的测试地址192.168.1.134
 //#define HOSTURL @"http://192.168.1.151:8080/mapp"
 //#define ProtocolURL @"http://192.168.1.151:8080"
-#define Host @"http://jiahairan123.55555.io:16583/mapp"
-//#define Host @"http://www.dlmjcf.com/mapp"
+//#define Host @"http://jiahairan123.55555.io:16583/mapp"
+#define Host @"http://www.dlmjcf.com/mapp"
 #define TestHost @"http://www.dlmjcf.com"
 #define Url(string) [NSString stringWithFormat:@"%@%@", Host, string]
 
