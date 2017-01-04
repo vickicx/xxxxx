@@ -35,28 +35,28 @@
     
     [super layoutSubviews];
     
-    CGFloat titleHeight =[[self class] heightOfLabel:self.msgTitleStr andWith:200 * kWIDTH];
+    CGFloat titleHeight =[[self class] heightOfLabel:self.msgTitleStr andWith:200 * FitWidth];
     
-    self.msgTitleLabel.frame = CGRectMake(15 * kWIDTH, 8 * kHEIGHT, 200 * kWIDTH, titleHeight);
-    self.msgTitleLabel.font = [UIFont systemFontOfSize:14.5 * kWIDTH];
+    self.msgTitleLabel.frame = CGRectMake(15 * FitWidth, 8 * kHEIGHT, 200 * FitWidth, titleHeight);
+    self.msgTitleLabel.font = [UIFont systemFontOfSize:14.5 * FitWidth];
     self.msgTitleLabel.textColor = [XXColor goldenColor];
     self.msgTitleLabel.numberOfLines = 0;
     
-    self.dateLabel.frame = CGRectMake(375 * kWIDTH - 15 * kWIDTH - 200 * kWIDTH, 8 * kHEIGHT, 200 * kWIDTH, 30 * kHEIGHT);
+    self.dateLabel.frame = CGRectMake(kWIDTH - 15 * FitWidth - 200 * FitWidth, 8 * FitHeight, 200 * FitWidth, 30 * FitHeight);
     self.dateLabel.textAlignment = NSTextAlignmentRight;
-    self.dateLabel.font = [UIFont systemFontOfSize:13.5 * kWIDTH];
+    self.dateLabel.font = [UIFont systemFontOfSize:13.5 * FitWidth];
     self.dateLabel.textColor = [XXColor goldenColor];
     
-    self.lineView.frame = CGRectMake(15 * kWIDTH, 11 * kHEIGHT + self.msgTitleLabel.frame.size.height, 375 * kWIDTH - 30 * kWIDTH, 1.5 * kHEIGHT);
+    self.lineView.frame = CGRectMake(15 * FitWidth, 11 * FitHeight + self.msgTitleLabel.frame.size.height,  kWIDTH - 30 * FitWidth, 1.5 * FitHeight);
     self.lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     
-    CGFloat height =[[self class] heightOfLabel:self.msgStr andWith:375 * kWIDTH - 30 * kWIDTH];
+    CGFloat height =[[self class] heightOfLabel:self.msgStr andWith: kWIDTH - 30 * FitWidth];
     
-    self.msgLabel.frame = CGRectMake(15 * kWIDTH, 25 * kHEIGHT + self.msgTitleLabel.frame.size.height + self.lineView.frame.size.height, 375 * kWIDTH - 30 * kWIDTH, height);
+    self.msgLabel.frame = CGRectMake(15 * FitWidth, 25 * FitHeight + self.msgTitleLabel.frame.size.height + self.lineView.frame.size.height, kWIDTH - 30 * FitWidth, height);
     self.msgLabel.textColor = [UIColor darkGrayColor];
     self.msgLabel.numberOfLines = 0;
-    self.msgLabel.font = [UIFont systemFontOfSize:13.5 * kWIDTH];
+    self.msgLabel.font = [UIFont systemFontOfSize:13.5 * FitWidth];
     self.msgLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     
     //改变行间距

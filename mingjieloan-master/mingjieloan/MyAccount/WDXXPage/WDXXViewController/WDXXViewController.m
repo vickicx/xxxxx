@@ -51,21 +51,7 @@
 /**
  *加载控制器
  */
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        
-        self.page = 1;
-        
-        self.dataArr = [NSMutableArray array];
-        
-        self.mainArr = [NSMutableArray array];
-    }
-    
-    return self;
-}
+
 
 
 /**
@@ -84,6 +70,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.page = 1;
+    
+    self.dataArr = [NSMutableArray array];
+    
+    self.mainArr = [NSMutableArray array];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -102,6 +93,7 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"全部消息" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     [self createTableView];
+    [self dataHandle];
 }
 
 
@@ -111,7 +103,8 @@
 - (void)dataHandle {
     
     
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"page", (long)self.page, nil];
+    
+    NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%ld",self.page]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
@@ -173,7 +166,7 @@
     
     self.page = 1;
     
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"page", (long)self.page, nil];
+    NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%ld",self.page]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
@@ -223,7 +216,7 @@
 - (void)footerRefreshing
 {
     self.page++;
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"sid", MySid,@"page", self.page, nil];
+   NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%ld",self.page]};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
@@ -405,7 +398,8 @@
 - (void)sendData {
     
     
-    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"id", self.myID,nil];
+   
+    NSDictionary *body = @{@"id":self.myID};
     
     NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXXREAD];
     
