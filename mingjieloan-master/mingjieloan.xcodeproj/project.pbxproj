@@ -147,6 +147,9 @@
 		C34FFF311E091E8D00FF8C05 /* ProductCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF201E091E8D00FF8C05 /* ProductCenterViewController.m */; };
 		C354E2921E13579500C652B7 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C354E2911E13579500C652B7 /* UserInfo.m */; };
 		C38D526A1E13A30E0009E5A0 /* BasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C38D52691E13A30E0009E5A0 /* BasicInfo.m */; };
+		C3E83BE11E1CD0CD006D11A9 /* MyCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E83BE01E1CD0CD006D11A9 /* MyCardViewController.m */; };
+		C3E83BE41E1CD0DF006D11A9 /* MyCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E83BE31E1CD0DF006D11A9 /* MyCardTableViewCell.m */; };
+		C3E83BE71E1CD0F0006D11A9 /* MyCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E83BE61E1CD0F0006D11A9 /* MyCardModel.m */; };
 		EA1F05321E19022500DCE82C /* ZZChangeBoundPhoneNumVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1F05311E19022500DCE82C /* ZZChangeBoundPhoneNumVC.m */; };
 		EA1F05351E1947C700DCE82C /* DHFForgerhandVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1F05341E1947C700DCE82C /* DHFForgerhandVC.m */; };
 		EA3C06801E129C1D009E02D4 /* IPAddressConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C067D1E129C1D009E02D4 /* IPAddressConfig.m */; };
@@ -510,6 +513,12 @@
 		C354E2911E13579500C652B7 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		C38D52681E13A30E0009E5A0 /* BasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfo.h; sourceTree = "<group>"; };
 		C38D52691E13A30E0009E5A0 /* BasicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicInfo.m; sourceTree = "<group>"; };
+		C3E83BDF1E1CD0CD006D11A9 /* MyCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardViewController.h; sourceTree = "<group>"; };
+		C3E83BE01E1CD0CD006D11A9 /* MyCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardViewController.m; sourceTree = "<group>"; };
+		C3E83BE21E1CD0DF006D11A9 /* MyCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardTableViewCell.h; sourceTree = "<group>"; };
+		C3E83BE31E1CD0DF006D11A9 /* MyCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardTableViewCell.m; sourceTree = "<group>"; };
+		C3E83BE51E1CD0F0006D11A9 /* MyCardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCardModel.h; sourceTree = "<group>"; };
+		C3E83BE61E1CD0F0006D11A9 /* MyCardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCardModel.m; sourceTree = "<group>"; };
 		D3B12F56096B5F62670A8211 /* Pods-mingjieloanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanUITests/Pods-mingjieloanUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EA1F05301E19022500DCE82C /* ZZChangeBoundPhoneNumVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZChangeBoundPhoneNumVC.h; sourceTree = "<group>"; };
 		EA1F05311E19022500DCE82C /* ZZChangeBoundPhoneNumVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZChangeBoundPhoneNumVC.m; sourceTree = "<group>"; };
@@ -1410,6 +1419,7 @@
 		C34FFF161E091E8D00FF8C05 /* MyAccount */ = {
 			isa = PBXGroup;
 			children = (
+				C3E83BDB1E1CD087006D11A9 /* WDKQPage */,
 				990872CC1E12455800354802 /* HYZXPage */,
 				990872F71E12455800354802 /* JYJLPage */,
 				990873031E12455800354802 /* TZJLPage */,
@@ -1588,6 +1598,43 @@
 				990873EA1E1259BE00354802 /* UIhelper.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		C3E83BDB1E1CD087006D11A9 /* WDKQPage */ = {
+			isa = PBXGroup;
+			children = (
+				C3E83BDE1E1CD0BC006D11A9 /* MyCardController */,
+				C3E83BDD1E1CD0AF006D11A9 /* MyCardView */,
+				C3E83BDC1E1CD0A0006D11A9 /* MyCardModel */,
+			);
+			name = WDKQPage;
+			sourceTree = "<group>";
+		};
+		C3E83BDC1E1CD0A0006D11A9 /* MyCardModel */ = {
+			isa = PBXGroup;
+			children = (
+				C3E83BE51E1CD0F0006D11A9 /* MyCardModel.h */,
+				C3E83BE61E1CD0F0006D11A9 /* MyCardModel.m */,
+			);
+			name = MyCardModel;
+			sourceTree = "<group>";
+		};
+		C3E83BDD1E1CD0AF006D11A9 /* MyCardView */ = {
+			isa = PBXGroup;
+			children = (
+				C3E83BE21E1CD0DF006D11A9 /* MyCardTableViewCell.h */,
+				C3E83BE31E1CD0DF006D11A9 /* MyCardTableViewCell.m */,
+			);
+			name = MyCardView;
+			sourceTree = "<group>";
+		};
+		C3E83BDE1E1CD0BC006D11A9 /* MyCardController */ = {
+			isa = PBXGroup;
+			children = (
+				C3E83BDF1E1CD0CD006D11A9 /* MyCardViewController.h */,
+				C3E83BE01E1CD0CD006D11A9 /* MyCardViewController.m */,
+			);
+			name = MyCardController;
 			sourceTree = "<group>";
 		};
 		EA3C067B1E129C1D009E02D4 /* IPTool */ = {
@@ -2063,6 +2110,7 @@
 				990873CD1E12455800354802 /* WDXXDetailTableViewCell.m in Sources */,
 				9969969C1E0A257C00CEF850 /* XXColor.m in Sources */,
 				EA6BB8F31E0EC15F00F28E8C /* ProductUserInforTableViewCell.m in Sources */,
+				C3E83BE71E1CD0F0006D11A9 /* MyCardModel.m in Sources */,
 				996996A01E0A2F7200CEF850 /* VVNetWorkTool.m in Sources */,
 				990873931E12455800354802 /* HYGZModel.m in Sources */,
 				EA49A43E1E0F8B710079A8DB /* DHFAboutMJViewController.m in Sources */,
@@ -2078,6 +2126,7 @@
 				990873D01E12455800354802 /* WDXXViewController.m in Sources */,
 				990873A21E12455800354802 /* JYJLModel.m in Sources */,
 				990873A91E12455800354802 /* TZJLDetailModel.m in Sources */,
+				C3E83BE41E1CD0DF006D11A9 /* MyCardTableViewCell.m in Sources */,
 				990873D81E12455800354802 /* SQZR3TableViewCell.m in Sources */,
 				C34FFF281E091E8D00FF8C05 /* BaseViewController.m in Sources */,
 				EA49A4801E0FB70F0079A8DB /* DHFNoticeTableViewCell.m in Sources */,
@@ -2119,6 +2168,7 @@
 				990873AD1E12455800354802 /* TZJLDetailContractCell.m in Sources */,
 				990873BD1E12455800354802 /* JFSCModel.m in Sources */,
 				990873DB1E12455800354802 /* ZRZTableViewCell.m in Sources */,
+				C3E83BE11E1CD0CD006D11A9 /* MyCardViewController.m in Sources */,
 				990873C51E12455800354802 /* JFViewController.m in Sources */,
 				990873A01E12455800354802 /* OTPageView.m in Sources */,
 				990873A31E12455800354802 /* JYJLTableViewCell.m in Sources */,
