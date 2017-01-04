@@ -12,10 +12,8 @@
 #import "DHFUserCenterViewController.h"
 #import "DepositsHistoryViewController.h"
 #import "LDY_RightChangeViewController.h"
-<<<<<<< .merge_file_j1EVOS
-=======
 #import "MyCardViewController.h"
->>>>>>> .merge_file_8omG8P
+
 
 
 @interface MyAccountViewController : BaseViewController

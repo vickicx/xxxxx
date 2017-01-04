@@ -24,30 +24,6 @@
     self.status = @"1";
     self.page   = 20;
     [self getCard];
-<<<<<<< HEAD
-=======
-}
-
-- (void)getCard {
-    
-    //    et params: [String : AnyObject]! = [
-    //                                        "sid" : sid,
-    //                                        "status" : "\(useStatus)",
-    //                                        "page":page
-    //                                        ]
-    NSDictionary *dic = @{
-                          @"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"],
-                          @"status":self.status,
-                          @"page":[NSString stringWithFormat:@"%d",self.page]
-                          };
-    [VVNetWorkTool postWithUrl:Url(MYCASH) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
-        
-    } success:^(id result) {
-        NSLog(@"%@",result);
-    } fail:^(NSError *error) {
-        
-    }];
->>>>>>> 1080c590e0f9cf57c6090713e2982e4e0507f226
 }
 
 - (void)getCard {
