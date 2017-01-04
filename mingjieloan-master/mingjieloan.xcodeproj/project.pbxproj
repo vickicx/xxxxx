@@ -145,6 +145,7 @@
 		C34FFF2F1E091E8D00FF8C05 /* MoreInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF131E091E8D00FF8C05 /* MoreInfoViewController.m */; };
 		C34FFF301E091E8D00FF8C05 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF191E091E8D00FF8C05 /* MyAccountViewController.m */; };
 		C34FFF311E091E8D00FF8C05 /* ProductCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34FFF201E091E8D00FF8C05 /* ProductCenterViewController.m */; };
+		C35452471E1CE74B00DC0EF4 /* MyCardTalbeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C35452461E1CE74B00DC0EF4 /* MyCardTalbeViewCell.xib */; };
 		C354E2921E13579500C652B7 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C354E2911E13579500C652B7 /* UserInfo.m */; };
 		C38D526A1E13A30E0009E5A0 /* BasicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C38D52691E13A30E0009E5A0 /* BasicInfo.m */; };
 		C3E83BE11E1CD0CD006D11A9 /* MyCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E83BE01E1CD0CD006D11A9 /* MyCardViewController.m */; };
@@ -509,6 +510,7 @@
 		C34FFF191E091E8D00FF8C05 /* MyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountViewController.m; sourceTree = "<group>"; };
 		C34FFF1F1E091E8D00FF8C05 /* ProductCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCenterViewController.h; sourceTree = "<group>"; };
 		C34FFF201E091E8D00FF8C05 /* ProductCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCenterViewController.m; sourceTree = "<group>"; };
+		C35452461E1CE74B00DC0EF4 /* MyCardTalbeViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCardTalbeViewCell.xib; sourceTree = "<group>"; };
 		C354E2901E13579500C652B7 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		C354E2911E13579500C652B7 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		C38D52681E13A30E0009E5A0 /* BasicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicInfo.h; sourceTree = "<group>"; };
@@ -1624,6 +1626,7 @@
 			children = (
 				C3E83BE21E1CD0DF006D11A9 /* MyCardTableViewCell.h */,
 				C3E83BE31E1CD0DF006D11A9 /* MyCardTableViewCell.m */,
+				C35452461E1CE74B00DC0EF4 /* MyCardTalbeViewCell.xib */,
 			);
 			name = MyCardView;
 			sourceTree = "<group>";
@@ -1869,6 +1872,7 @@
 				C34FFF2B1E091E8D00FF8C05 /* Info.plist in Resources */,
 				EA49A45F1E0F95EC0079A8DB /* MJRefresh.bundle in Resources */,
 				C328FE021E09282F00F541FA /* Assets.xcassets in Resources */,
+				C35452471E1CE74B00DC0EF4 /* MyCardTalbeViewCell.xib in Resources */,
 				EA49A4771E0FAB6F0079A8DB /* alert_right@2x.png in Resources */,
 				C34FFF271E091E8D00FF8C05 /* Main.storyboard in Resources */,
 				9957F7111E134E27004A8F66 /* MyAccountTableViewCell.xib in Resources */,
