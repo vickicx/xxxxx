@@ -35,7 +35,7 @@
     self.lockView.lineColor = GetColor(@"#19AFCC");
     self.lockView.lineWidth = 4;
     self.lockView.delegate = self;
-    self.lockView.contentInsets = UIEdgeInsetsMake(120 * FitWidth, 40 * FitHeight, 250 * FitWidth, 40 * FitHeight);
+    self.lockView.contentInsets = UIEdgeInsetsMake(120 * FitWidth, 40 * FitHeight, 200 * FitWidth, 40 * FitHeight);
     self.lockView.tag = 1;
     [self.view addSubview:_lockView];
     
@@ -52,9 +52,28 @@
     _tipLab.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_tipLab];
     
-//    self.forgetBtn = [UIButton alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>);
-//   self.otherBtn;
-//    
+    self.tipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 130, kWIDTH, 20)];
+    _tipLab.text = @"请绘制解锁密码";
+    _tipLab.textColor = [UIColor whiteColor];
+    _tipLab.font = [UIFont systemFontOfSize:15];
+    _tipLab.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_tipLab];
+    
+    
+    self.forgetBtn = [[UIButton alloc] initWithFrame:CGRectMake(25, 550 * FitHeight, kWIDTH / 2 -25, 20)];
+    [_forgetBtn  addTarget:self action:@selector(forgetPassAction) forControlEvents:UIControlEventTouchUpInside];
+    [_forgetBtn setTitle:@"忘记手势密码" forState:UIControlStateNormal];
+    _forgetBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [_forgetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:_forgetBtn];
+    
+    
+    self.otherBtn = [[UIButton alloc] initWithFrame:CGRectMake( kWIDTH / 2 -25, 550 * FitHeight, kWIDTH / 2 -25, 20)];
+    [_otherBtn  addTarget:self action:@selector(otherLoginAction) forControlEvents:UIControlEventTouchUpInside];
+    [_otherBtn setTitle:@"用其他帐户登陆" forState:UIControlStateNormal];
+    _otherBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+    [_otherBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:_otherBtn];
     
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -89,6 +108,17 @@
 
 
 
+
+//换号
+- (void)otherLoginAction{
+    LoginViewController *logInVc = [[LoginViewController alloc] init];
+    [self.navigationController pushViewController:logInVc animated:YES];
+}
+//忘记密码
+- (void)forgetPassAction{
+    DHFForgerhandVC *forgertVC = [[DHFForgerhandVC alloc] init];
+    [self.navigationController pushViewController:forgertVC animated:YES];
+}
 
 
 - (void)gestureLockView:(KKGestureLockView *)gestureLockView didBeginWithPasscode:(NSString *)passcode{
@@ -138,13 +168,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

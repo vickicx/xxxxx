@@ -201,6 +201,9 @@
 		EAD2BC5F1E169C5D00E0C2EB /* PopViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD2BC5E1E169C5D00E0C2EB /* PopViewTableViewCell.m */; };
 		EAD6BCB51E0C0FC8005782AA /* GetColor16.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD6BCB21E0C0FC8005782AA /* GetColor16.m */; };
 		EAD6BCB61E0C0FC8005782AA /* HeightWithString.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD6BCB41E0C0FC8005782AA /* HeightWithString.m */; };
+		EAF944861E1BDF2B005D0A26 /* DHFZRProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF944851E1BDF2B005D0A26 /* DHFZRProductDetailViewController.m */; };
+		EAF9448A1E1BE57A005D0A26 /* DHFUserCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF944891E1BE57A005D0A26 /* DHFUserCouponViewController.m */; };
+		EAF944901E1BF079005D0A26 /* DHFUseCouponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF9448F1E1BF079005D0A26 /* DHFUseCouponTableViewCell.m */; };
 		FBC856F2F528C582AE374F05 /* Pods_mingjieloanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78136D54AFFD20F4F0C6D733 /* Pods_mingjieloanTests.framework */; };
 		FFA52CCCA8332BE7F165AFD3 /* Pods_mingjieloanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F27772DFC1AA86771D77D694 /* Pods_mingjieloanUITests.framework */; };
 /* End PBXBuildFile section */
@@ -612,6 +615,12 @@
 		EAD6BCB21E0C0FC8005782AA /* GetColor16.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetColor16.m; sourceTree = "<group>"; };
 		EAD6BCB31E0C0FC8005782AA /* HeightWithString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeightWithString.h; sourceTree = "<group>"; };
 		EAD6BCB41E0C0FC8005782AA /* HeightWithString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeightWithString.m; sourceTree = "<group>"; };
+		EAF944841E1BDF2B005D0A26 /* DHFZRProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFZRProductDetailViewController.h; sourceTree = "<group>"; };
+		EAF944851E1BDF2B005D0A26 /* DHFZRProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFZRProductDetailViewController.m; sourceTree = "<group>"; };
+		EAF944881E1BE57A005D0A26 /* DHFUserCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFUserCouponViewController.h; sourceTree = "<group>"; };
+		EAF944891E1BE57A005D0A26 /* DHFUserCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFUserCouponViewController.m; sourceTree = "<group>"; };
+		EAF9448E1E1BF079005D0A26 /* DHFUseCouponTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFUseCouponTableViewCell.h; path = mingjieloan/ProductCenter/Controller/DHFUseCouponTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		EAF9448F1E1BF079005D0A26 /* DHFUseCouponTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFUseCouponTableViewCell.m; path = mingjieloan/ProductCenter/Controller/DHFUseCouponTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		F27772DFC1AA86771D77D694 /* Pods_mingjieloanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mingjieloanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7FEC886A258842085C7BA34 /* Pods-mingjieloanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloanTests/Pods-mingjieloanTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1488,6 +1497,10 @@
 				EABA08771E0D6AB100B3CC61 /* DHFTwoProductDetailViewController.m */,
 				EABA08731E0D6A9B00B3CC61 /* DHFThreeProductDetailViewController.h */,
 				EABA08741E0D6A9B00B3CC61 /* DHFThreeProductDetailViewController.m */,
+				EAF944881E1BE57A005D0A26 /* DHFUserCouponViewController.h */,
+				EAF944891E1BE57A005D0A26 /* DHFUserCouponViewController.m */,
+				EAF944841E1BDF2B005D0A26 /* DHFZRProductDetailViewController.h */,
+				EAF944851E1BDF2B005D0A26 /* DHFZRProductDetailViewController.m */,
 				EA49A4811E0FE4D30079A8DB /* DHFTBViewController.h */,
 				EA49A4821E0FE4D30079A8DB /* DHFTBViewController.m */,
 			);
@@ -1540,6 +1553,8 @@
 				3DF4466B1E14F5C9005FFF85 /* DHFProductDetailCompanyInfoCell.m */,
 				3DF4466C1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.h */,
 				3DF4466D1E14F5C9005FFF85 /* DHFProductDtail_DYQKCell.m */,
+				EAF9448E1E1BF079005D0A26 /* DHFUseCouponTableViewCell.h */,
+				EAF9448F1E1BF079005D0A26 /* DHFUseCouponTableViewCell.m */,
 				EA6BB91D1E0EF9F900F28E8C /* PopView.h */,
 				EA6BB91E1E0EF9F900F28E8C /* PopView.m */,
 				EAD2BC5D1E169C5D00E0C2EB /* PopViewTableViewCell.h */,
@@ -1991,6 +2006,7 @@
 				993422931E0A806F004C8A2B /* LoginModel.m in Sources */,
 				C34FFF291E091E8D00FF8C05 /* SubBaseViewController.m in Sources */,
 				3DF8F5D71E12702300D4922C /* DHFChangeLogPassWordVC.m in Sources */,
+				EAF9448A1E1BE57A005D0A26 /* DHFUserCouponViewController.m in Sources */,
 				EA3C06801E129C1D009E02D4 /* IPAddressConfig.m in Sources */,
 				3D7A3B101E16016E00B176A4 /* ProductRepayPlanModel.m in Sources */,
 				C34FFF2F1E091E8D00FF8C05 /* MoreInfoViewController.m in Sources */,
@@ -2021,6 +2037,7 @@
 				EA49A43B1E0F7E070079A8DB /* DHFMoreTableViewCell.m in Sources */,
 				C34FFF241E091E8D00FF8C05 /* AppDelegate.m in Sources */,
 				EA6BB8F01E0EB71000F28E8C /* ProductIntroductionTableViewCell.m in Sources */,
+				EAF944901E1BF079005D0A26 /* DHFUseCouponTableViewCell.m in Sources */,
 				990873B61E12455800354802 /* JFDetailModel.m in Sources */,
 				EAD2BC5F1E169C5D00E0C2EB /* PopViewTableViewCell.m in Sources */,
 				990873A71E12455800354802 /* TZJLDetailViewController.m in Sources */,
@@ -2074,6 +2091,7 @@
 				9908739F1E12455800354802 /* OTPageScrollView.m in Sources */,
 				990873C61E12455800354802 /* WDJFViewController.m in Sources */,
 				3DF4466E1E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.m in Sources */,
+				EAF944861E1BDF2B005D0A26 /* DHFZRProductDetailViewController.m in Sources */,
 				EA6BB9161E0EF93C00F28E8C /* LewPopupViewAnimationFade.m in Sources */,
 				990873A61E12455800354802 /* ContractWebViewController.m in Sources */,
 				3D7A3B161E163F6C00B176A4 /* PApplicationModel.m in Sources */,

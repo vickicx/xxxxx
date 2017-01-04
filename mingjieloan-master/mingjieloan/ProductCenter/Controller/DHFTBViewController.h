@@ -6,10 +6,23 @@
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "SubBaseViewController.h"
 #import "ProductDetailFirstTableViewCell.h"
 #import "TBTableViewCell.h"
-@interface DHFTBViewController : BaseViewController
+
+#import "ProductOrdersModel.h"
+#import "ProductRepayPlanModel.h"
+#import "ProductDetailModel.h"//项目详情Model
+#import "PApplicationModel.h"//借款 人信息Model
+#import "pApplicationCheckModel.h"//审核信息
+#import "InformationModel.h"
+
+#import "DHFcommonWebViewVC.h"
+
+#import "BasicInfo.h"
+#import "DHFUserCouponViewController.h"//使用优惠券
+
+@interface DHFTBViewController : SubBaseViewController
 
 @property (nonatomic, strong)UITableView *tableView;
 
@@ -24,5 +37,16 @@
 @property (nonatomic, strong)UIButton *protolBtn;
 @property (nonatomic, strong)UIButton *touziBtn;
 @property (nonatomic, strong)UILabel *warningLabel;
+
+@property (nonatomic, copy)NSString *coupon;
+@property (nonatomic, copy)NSString *money;
+@property (nonatomic, copy)NSString *idNumber;
+@property (nonatomic, strong)ProductDetailModel *detailModel;
+@property (nonatomic, strong)PApplicationModel *pApplocationModel;
+@property (nonatomic, strong)pApplicationCheckModel *checkModel;
+@property (nonatomic, strong)NSMutableArray *informaModel;
+@property (nonatomic, strong)NSMutableDictionary *productDic;
+
+
 
 @end

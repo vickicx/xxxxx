@@ -107,7 +107,7 @@
     self.TBJLButton.titleLabel.font = [UIFont systemFontOfSize:17];
     [self.TBJLButton addTarget:self action:@selector(TBJLAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.TBJLButton];
-
+    
     
     self.bottomView = [[UIView alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2, 64+43, 280/2, 2)];
     _bottomView.backgroundColor = selectColor;
@@ -326,6 +326,9 @@
             backbutton.title = @"产品中心";
             self.navigationItem.backBarButtonItem = backbutton;
             DHFTBViewController *tbVC = [[DHFTBViewController alloc] init];
+            tbVC.idNumber = self.idNumber;
+            tbVC.productDic = [NSMutableDictionary dictionaryWithDictionary:self.productDic];
+            tbVC.detailModel = self.detailModel;
             [self.navigationController pushViewController:tbVC animated:YES];
         }
         
@@ -398,13 +401,13 @@
             [orderModel setValuesForKeysWithDictionary:dic];
             [self.TBJLArray addObject:orderModel];
         }
-//        //还款计划的数据
-//        NSMutableArray *planArray = [dic objectForKey:@"productRepayPlan"];
-//        for (NSDictionary *dic in planArray) {
-//            ProductRepayPlanModel *planModel = [[ProductRepayPlanModel alloc] init];
-//            [planModel setValuesForKeysWithDictionary:dic];
-//            [self.HKJHArray addObject:planModel];
-//        }
+        //        //还款计划的数据
+        //        NSMutableArray *planArray = [dic objectForKey:@"productRepayPlan"];
+        //        for (NSDictionary *dic in planArray) {
+        //            ProductRepayPlanModel *planModel = [[ProductRepayPlanModel alloc] init];
+        //            [planModel setValuesForKeysWithDictionary:dic];
+        //            [self.HKJHArray addObject:planModel];
+        //        }
         
         //最大页数
         self.maxPageId = [[[dic objectForKey:@"productOrders"] objectForKey:@"maxPage"] intValue];

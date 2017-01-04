@@ -6,7 +6,7 @@
 //  Copyright © 2016年 mingjie. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "SubBaseViewController.h"
 #import "MJRefresh.h"
 #import "PopView.h"//弹出视图
 #import "LewPopupViewAnimationFade.h"
@@ -26,12 +26,14 @@
 #import "pApplicationCheckModel.h"//审核信息
 #import "InformationModel.h"
 
-@interface DHFThreeProductDetailViewController : BaseViewController    
+#import "DHFProductDetailCompanyInfoCell.h"
+
+@interface DHFThreeProductDetailViewController : SubBaseViewController
 @property (nonatomic, strong)UIButton *CPXQButton;
 @property (nonatomic, strong)UIButton *HKJHButton;
 @property (nonatomic, strong)UIButton *TBJLButton;
 @property (nonatomic, strong)UIView *bottomView;
-    
+
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)PopView *popView;
 
@@ -47,4 +49,5 @@
 @property (nonatomic, strong)PApplicationModel *pApplocationModel;
 @property (nonatomic, strong)pApplicationCheckModel *checkModel;
 @property (nonatomic, strong)NSMutableArray *informaModel;
+@property (nonatomic, strong)NSMutableDictionary *productDic;
 @end

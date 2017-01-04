@@ -8,13 +8,16 @@
 
 #import "DHFTBViewController.h"
 
-@interface DHFTBViewController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
+@interface DHFTBViewController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate, JGProgressHUDDelegate>
 
 @end
 
 @implementation DHFTBViewController
 
 - (void)viewWillAppear:(BOOL)animated{
+    
+    self.tabBarController.tabBar.hidden = YES;
+    
     self.title = @"投标";
     
     NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
@@ -27,12 +30,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, kWIDTH, kHEIGHT ) style:UITableViewStylePlain];
-        _tableView.separatorStyle = UITableViewCellAccessoryNone;;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        
-        [self.view addSubview:_tableView];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, kWIDTH, kHEIGHT ) style:UITableViewStylePlain];
+    _tableView.separatorStyle = UITableViewCellAccessoryNone;;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    [self.view addSubview:_tableView];
     
     [self initTabelViewFootView];
     
@@ -45,6 +48,7 @@
     UITextField *textFiled = ification.object;
     
     self.moneyLab.text = [NSString stringWithFormat:@"%@元", textFiled.text];
+    self.money = textFiled.text;
     
 }
 - (void)dealloc
@@ -56,7 +60,12 @@
 
 //跳到优惠券界面
 - (void)userQuanAction{
+    DHFUserCouponViewController *useCouponVC = [[DHFUserCouponViewController alloc] init];
+    [useCouponVC returnCouponBlock:^(NSString *CouponStr) {
     
+    
+    }];
+    [self.navigationController pushViewController:useCouponVC animated:YES];
 }
 
 //同意协议
@@ -65,30 +74,239 @@
 }
 //看协议
 - (void)showProtolAction{
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
     
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
+    
+    NSString *idStr = @"id";
+    NSDictionary *dic = @{idStr:self.idNumber,
+                          @"sid" : [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]};
+    NSLog(@"idStrdic ===== %@", dic);
+    NSString *strUrl = [NSString stringWithFormat:@"%@/%@",Url(CONTRACT),_idNumber];
+    [VVNetWorkTool postWithUrl:Url(CONTRACT) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        //        NSLog(@"progress ===== %@", progress);
+        
+    } success:^(id result) {
+        [hud dismiss];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"dic ========== %@",dic);
+        //                    NSLog(@"dic = %@", dic);
+        // 借款人信息Model
+        
+    } fail:^(NSError *error) {
+        [hud dismiss];
+        NSLog(@"error  %@",error);
+    }];
 }
 
 //投资
 - (void)touZiAction{
     
+    int money  = [self.money intValue];
+    if (self.agreeBtn.selected == YES) {
+        //2，用户输入金额不能为空
+        if(self.money < 0){
+            //3，检查用户输入的金额必须小于等于用户可用余额 available
+            if (money <= [[BasicInfo sharedInstance].available intValue]){
+                //4，检查用户输入的金额必须是baseLimitAmount的整数倍
+                double x = money / self.detailModel.singlePurchaseLowerLimit;
+                if ((int)x == x) {
+                    //检查用户输入的金额必须大于最小购买金额 singlePurchaseLowerLimit
+                    if (money > self.detailModel.singlePurchaseLowerLimit) {
+                        //6，检查用户输入的金额必须小于等于产品剩余可购买金额 remainingInvestmentAmount
+                        if (money <= self.detailModel.remainingInvestmentAmount) {
+                            //投标
+                            [self TBAction];
+                        }
+                        else
+                        {
+                            JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+                            hud1.tag = 1;
+                            hud1.indicatorView = nil;
+                            hud1.textLabel.text = @"投资金额必须小于等于产品剩余可购买金额 ";
+                            hud1.delegate = self;
+                            hud1.position = 0;
+                            [hud1 showInView:self.view];
+                            [hud1 dismissAfterDelay:2.0];
+                        }
+                    }
+                    else
+                    {
+                        JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+                        hud1.tag = 1;
+                        hud1.indicatorView = nil;
+                        hud1.textLabel.text = @"投资金额必须大于最小购买金额";
+                        hud1.delegate = self;
+                        hud1.position = 0;
+                        [hud1 showInView:self.view];
+                        [hud1 dismissAfterDelay:2.0];
+                    }
+                }
+                else
+                {
+                    JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+                    hud1.tag = 1;
+                    hud1.indicatorView = nil;
+                    hud1.textLabel.text = @"投资金额必须是起投金额的整数倍";
+                    hud1.delegate = self;
+                    hud1.position = 0;
+                    [hud1 showInView:self.view];
+                    [hud1 dismissAfterDelay:2.0];
+                }
+            }
+            else
+            {
+                JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+                hud1.tag = 1;
+                hud1.indicatorView = nil;
+                hud1.textLabel.text = @"投资金额需要小于等于用户可用余额";
+                hud1.delegate = self;
+                hud1.position = 0;
+                [hud1 showInView:self.view];
+                [hud1 dismissAfterDelay:2.0];
+            }
+        }
+        else
+        {
+            JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+            hud1.tag = 1;
+            hud1.indicatorView = nil;
+            hud1.textLabel.text = @"投资金额不能为零";
+            hud1.delegate = self;
+            hud1.position = 0;
+            [hud1 showInView:self.view];
+            [hud1 dismissAfterDelay:2.0];
+        }
+        
+    }
+    else
+    {
+        
+        JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+        hud1.tag = 1;
+        hud1.indicatorView = nil;
+        hud1.textLabel.text = @"请同意协议合同";
+        hud1.delegate = self;
+        hud1.position = 0;
+        [hud1 showInView:self.view];
+        [hud1 dismissAfterDelay:2.0];
+    }
 }
 
 
+
+- (void)TBAction{
+    
+    
+    
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
+    
+    NSString *idStr = @"id";
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    //没选择优惠券
+    if (self.coupon == nil) {
+        dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.idNumber, idStr, [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"], @"sid", self.money, @"amount", nil];
+    }
+    else
+    {
+        dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.idNumber, idStr, [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"], @"sid", self.money, @"amount", @"", @"cash", @"", @"type_flag", @"", @"rate_coupon_send_id", nil];
+    }
+    
+    NSString *pinjie = [NSString stringWithFormat:@"/product/%@/order/pay", _idNumber];
+    NSString *urlStr = Url(pinjie);
+    
+    [VVNetWorkTool postWithUrl:urlStr body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        //        NSLog(@"progress ===== %@", progress);
+        
+        
+    } success:^(id result) {
+        [hud dismiss];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        int status = [[dic objectForKey:@"status"] intValue];
+        if (status == 0) {
+            NSString *uri = [dic objectForKey:@"uri"];
+            NSString *req = [dic objectForKey:@"req"];
+            NSString *sign = [dic objectForKey:@"sign"];
+            NSString *provider = [dic objectForKey:@"pay.provider"];
+            if ([provider isEqualToString:@"SINAPAY"]) {
+                req = [dic objectForKey:@"postStr"];
+                sign = provider;
+            }
+            if (uri == nil) {
+                if (req != nil) {
+                    //成功跳到支付页面
+                    DHFcommonWebViewVC *webVC = [[DHFcommonWebViewVC alloc] init];
+                    webVC.redirectUrl = req;
+                }
+                else
+                {
+                    JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+                    hud1.tag = 1;
+                    hud1.indicatorView = nil;
+                    hud1.textLabel.text = @"链接错误";
+                    hud1.delegate = self;
+                    hud1.position = 0;
+                    [hud1 showInView:self.view];
+                    [hud1 dismissAfterDelay:2.0];
+                }
+            }
+            else
+            {
+                JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+                hud1.tag = 1;
+                hud1.indicatorView = nil;
+                hud1.textLabel.text = @"两个账号不能同时登入";
+                hud1.delegate = self;
+                hud1.position = 0;
+                [hud1 showInView:self.view];
+                [hud1 dismissAfterDelay:2.0];
+            }
+        }
+        else
+        {
+            JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+            hud1.tag = 1;
+            hud1.indicatorView = nil;
+            hud1.textLabel.text = [dic objectForKey:@"msg"];
+            hud1.delegate = self;
+            hud1.position = 0;
+            [hud1 showInView:self.view];
+            [hud1 dismissAfterDelay:2.0];
+        }
+        
+    } fail:^(NSError *error) {
+        [hud dismiss];
+        //            NSLog(@"error  %@",error);
+    }];
+    
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-        if (indexPath.row == 0) {
-            ProductDetailFirstTableViewCell *cell = [[ProductDetailFirstTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-            
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.botView.hidden = YES;
-            return  cell;
-        }
+    if (indexPath.row == 0) {
+        ProductDetailFirstTableViewCell *cell = [[ProductDetailFirstTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        cell.detailPModel = self.detailModel;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.botView.hidden = YES;
+        return  cell;
+    }
+    
+    int money =  [[BasicInfo sharedInstance].available intValue];
     if(indexPath.row == 1){
         TBTableViewCell *cell = [[TBTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TBcell"];
-        
+        NSMutableAttributedString *ketoustr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"可用金额: %d", money]];
+        [ketoustr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,4)];
+        cell.useMoneyLab.attributedText = ketoustr;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.inPutField.delegate = self;
-
+        
         return  cell;
     }
     return nil;
@@ -96,8 +314,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //产品详情高度
-            return 160;
-
+    return 160;
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -187,13 +405,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

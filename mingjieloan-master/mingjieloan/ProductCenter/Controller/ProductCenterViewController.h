@@ -11,6 +11,7 @@
 #import "DHFProductCenterCell.h"
 #import "DHFTwoProductDetailViewController.h"
 #import "DHFThreeProductDetailViewController.h"
+#import "DHFZRProductDetailViewController.h"//转让标
 #import "ProductModel.h"
 
 #import "ProductOrdersModel.h"
@@ -25,6 +26,7 @@
 @property (strong , nonatomic)NSArray *netImages;  //网络图片
 @property (nonatomic, strong)UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *modelArray;
+
 
 @property (nonatomic, strong)ProductDetailModel *detailModel;
 @property (nonatomic, strong)PApplicationModel *pApplocationModel;

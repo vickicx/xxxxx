@@ -17,16 +17,16 @@
 
 @implementation DHFThreeProductDetailViewController
 
-    - (void)viewWillAppear:(BOOL)animated{
-        self.title = @"产品详情";
-
-        NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
-        self.navigationController.navigationBar.titleTextAttributes = titleDict;
-        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        
-        [self getProductDetail];
-    }
+- (void)viewWillAppear:(BOOL)animated{
+    self.title = @"产品详情";
     
+    NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
+    self.navigationController.navigationBar.titleTextAttributes = titleDict;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    [self getProductDetail];
+}
+
 - (void)viewDidLoad {
     
     
@@ -34,7 +34,7 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
     self.TBJLArray = [NSMutableArray array];
     self.HKJHArray = [NSMutableArray array];
     self.informaModel = [[NSMutableArray alloc] init];
@@ -44,59 +44,59 @@
     [self initBottomView];
     
     _isUPLoad = NO;
-
+    
 }
 
 //设置下拉刷新
 -(void)addHeaderRefresh
 {
-//    if (self.TBJLButton.selected == YES) {
-//        [self.TBJLArray removeAllObjects];
-        __block DHFThreeProductDetailViewController *blockSelf = self;
-        [self.tableView addHeaderWithCallback:^{
-            _isUPLoad = NO;
-            _page = 1;
-            
-            //重新请求数据
-            [blockSelf getProductDetail];
-        }];
-//        [self.tableView headerBeginRefreshing];
-//
-//    }
-
+    //    if (self.TBJLButton.selected == YES) {
+    //        [self.TBJLArray removeAllObjects];
+    __block DHFThreeProductDetailViewController *blockSelf = self;
+    [self.tableView addHeaderWithCallback:^{
+        _isUPLoad = NO;
+        _page = 1;
+        
+        //重新请求数据
+        [blockSelf getProductDetail];
+    }];
+    //        [self.tableView headerBeginRefreshing];
+    //
+    //    }
+    
 }
 
 
 //上拉
 - (void)addFooterRefresh
 {
-//    if (self.TBJLButton.selected == YES) {
-        if (self.page < self.maxPageId) {
-            __block DHFThreeProductDetailViewController *blockSelf = self;
-            self.page++;
-            [self.tableView addFooterWithCallback:^{
-                
-                _isUPLoad = YES;
-                
-                [blockSelf getProductDetail];
-             }];
-            [self.tableView footerBeginRefreshing];
-        }
-        
-//    }
+    //    if (self.TBJLButton.selected == YES) {
+    if (self.page < self.maxPageId) {
+        __block DHFThreeProductDetailViewController *blockSelf = self;
+        self.page++;
+        [self.tableView addFooterWithCallback:^{
+            
+            _isUPLoad = YES;
+            
+            [blockSelf getProductDetail];
+        }];
+        [self.tableView footerBeginRefreshing];
+    }
+    
+    //    }
 }
 
 - (void)initButton{
-        //产品详情Button
-        self.CPXQButton = [[UIButton alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2, 64, 280 / 3, 45)];
-        [self.CPXQButton setTitle:@"产品详情" forState:UIControlStateNormal];
-        UIColor *selectColor = [XXColor goldenColor];
-        [self.CPXQButton setTitleColor:selectColor forState:UIControlStateSelected];
-        [self.CPXQButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        self.CPXQButton.titleLabel.font = [UIFont systemFontOfSize:17];
+    //产品详情Button
+    self.CPXQButton = [[UIButton alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2, 64, 280 / 3, 45)];
+    [self.CPXQButton setTitle:@"产品详情" forState:UIControlStateNormal];
+    UIColor *selectColor = [XXColor goldenColor];
+    [self.CPXQButton setTitleColor:selectColor forState:UIControlStateSelected];
+    [self.CPXQButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.CPXQButton.titleLabel.font = [UIFont systemFontOfSize:17];
     [self.CPXQButton addTarget:self action:@selector(CPXQAction:) forControlEvents:UIControlEventTouchUpInside];
-     _CPXQButton.selected = YES;
-        [self.view addSubview:self.CPXQButton];
+    _CPXQButton.selected = YES;
+    [self.view addSubview:self.CPXQButton];
     
     //还款计划Button
     self.HKJHButton = [[UIButton alloc] initWithFrame:CGRectMake((kWIDTH - 280) / 2 + 280/3, 64, 280 / 3, 45)];
@@ -122,7 +122,7 @@
     [self.view addSubview:_bottomView];
     
 }
-    
+
 //产品详情
 -(void)CPXQAction:(UIButton *)btn{
     _CPXQButton.selected = YES;
@@ -135,7 +135,7 @@
         self.bottomView.frame = CGRectMake((kWIDTH - 280) / 2, 64+43, 280/3, 2);
     }];
 }
-    
+
 //还款计划
 -(void)HKJHAction:(UIButton *)btn{
     _CPXQButton.selected = NO;
@@ -149,7 +149,7 @@
     }];
 }
 
-    //投标记录
+//投标记录
 -(void)TBJLAction:(UIButton *)btn{
     _CPXQButton.selected = NO;
     _TBJLButton.selected = YES;
@@ -162,7 +162,7 @@
         self.bottomView.frame = CGRectMake((kWIDTH - 280) / 2 + 280/3*2, 64+43, 280/3, 2);
     }];
 }
-    
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //产品详情
     if (self.CPXQButton.selected == YES) {
@@ -175,8 +175,8 @@
     {
         return (self.TBJLArray.count + 1);
     }
-    }
-    
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //产品详情高度
     if (self.CPXQButton.selected == YES) {
@@ -186,8 +186,17 @@
         }
         else if (indexPath.row == 1)
         {
-            CGFloat hight = [HeightWithString heightForTextLable:_detailModel.detailDescription width:kWIDTH - 26 fontSize:13];
-            return 47+hight+20;
+            if([[self.productDic objectForKey:@"personTypeKbn"]intValue] == 1 || [[self.productDic objectForKey:@"personTypeKbn"]intValue] == 2)
+            {
+                CGFloat hight = [HeightWithString heightForTextLable:_detailModel.detailDescription width:kWIDTH - 26 fontSize:13];
+                return 47+hight+20;
+            }
+            else if([[self.productDic objectForKey:@"personTypeKbn"]intValue] == 3)
+            {
+                CGFloat hight = [HeightWithString heightForTextLable:_detailModel.detailDescription width:kWIDTH - 26 fontSize:13];
+                return 135 + hight;
+            }
+            return 0;
         }
         else if (indexPath.row == 2)
         {
@@ -213,41 +222,61 @@
     
     
 }
-    
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //产品详情
     if (self.CPXQButton.selected == YES) {
-    if (indexPath.row == 0) {
-        ProductDetailFirstTableViewCell *cell = [[ProductDetailFirstTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        cell.detailPModel = self.detailModel;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return  cell;
-    }
-    else if (indexPath.row == 1)
-    {
-        ProductIntroductionTableViewCell *cell = [[ProductIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        cell.detailPModel = self.detailModel;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return  cell;
-    }
-    else if (indexPath.row == 2)
-    {
-    ProductUserInforTableViewCell *cell = [[ProductUserInforTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        cell.pApplocationModel = self.pApplocationModel;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return  cell;
-    }
-    else
-    {
-    ProductDetailThreeTableViewCell *cell = [[ProductDetailThreeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-        cell.delegate = self;
-        cell.detailPModel = self.detailModel;
-        cell.checkModel = self.checkModel;
-        cell.informaModel = _informaModel;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return  cell;
-    }
+        if (indexPath.row == 0) {
+            ProductDetailFirstTableViewCell *cell = [[ProductDetailFirstTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+            cell.detailPModel = self.detailModel;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return  cell;
+        }
+        else if (indexPath.row == 1)
+        {
+            ProductIntroductionTableViewCell *cell = [[ProductIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+            cell.detailPModel = self.detailModel;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return  cell;
+        }
+        else if (indexPath.row == 2)
+        {
+            if ([[self.productDic objectForKey:@"personTypeKbn"]intValue] == 1 )
+            {
+                ProductUserInforTableViewCell *cell = [[ProductUserInforTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+                cell.pApplocationModel = self.pApplocationModel;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                return  cell;
+            }
+            else if ([[self.productDic objectForKey:@"personTypeKbn"]intValue] == 2)
+            {
+                ProductUserInforTableViewCell *cell = [[ProductUserInforTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+                cell.pApplocationModel = self.pApplocationModel;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                return  cell;
+            }
+            else if ([[self.productDic objectForKey:@"personTypeKbn"]intValue]  == 3)
+            {
+                DHFProductDetailCompanyInfoCell *cell = [[DHFProductDetailCompanyInfoCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+                //            cell.pApplocationModel = self.pApplocationModel;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                return  cell;
+                
+            }
+            return nil;
+            
+        }
+        else
+        {
+            ProductDetailThreeTableViewCell *cell = [[ProductDetailThreeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+            cell.delegate = self;
+            cell.detailPModel = self.detailModel;
+            cell.checkModel = self.checkModel;
+            cell.informaModel = _informaModel;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return  cell;
+        }
     }
     else if(self.HKJHButton.selected == YES)
     {
@@ -299,19 +328,19 @@
     InformationModel *model = [_informaModel objectAtIndex:num];
     _popView.imgUrlArray = model.informationImageList;
     self.popView.parentVC = self;
-
+    
     [self lew_presentPopupView:self.popView animation:[LewPopupViewAnimationSlide new] dismissed:^{
         
-                NSLog(@"动画结束");
+        NSLog(@"动画结束");
         
     }];
 }
-    
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
 }
-    
-    
+
+
 - (void)initTableView{
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45 + 64, kWIDTH, kHEIGHT - 45 - 64 - 80) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellAccessoryNone;;
@@ -338,33 +367,33 @@
 }
 
 - (void)toubiaoAction{
-//    /*
-//     1，检查是否登录
-//     2，用户输入金额不能为空
-//     3，检查用户输入的金额必须小于等于用户可用余额 available
-//     4，检查用户输入的金额必须是baseLimitAmount的整数倍
-//     5，检查用户输入的金额必须大于最小购买金额 singlePurchaseLowerLimit
-//     6，检查用户输入的金额必须小于等于产品剩余可购买金额 remainingInvestmentAmount
-//     */
-//    
-//    //1，检查是否登录
-//    if LoginUser.readLoginUser() == nil {
-//        
-//        UIhelper.loginTimeout()
-//        
-//        return
-//    }
-//    
-//    let submitOrderTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SubmitOrderTableViewController") as! SubmitOrderTableViewController
-//    
-//    
-//    submitOrderTableViewController.productId = self.productId
-//    
-//    submitOrderTableViewController.productInfo = productInfo!
-//    
-//    submitOrderTableViewController.product = product!
-//    
-//    self.navigationController!.showViewController(submitOrderTableViewController, sender: nil)
+    //    /*
+    //     1，检查是否登录
+    //     2，用户输入金额不能为空
+    //     3，检查用户输入的金额必须小于等于用户可用余额 available
+    //     4，检查用户输入的金额必须是baseLimitAmount的整数倍
+    //     5，检查用户输入的金额必须大于最小购买金额 singlePurchaseLowerLimit
+    //     6，检查用户输入的金额必须小于等于产品剩余可购买金额 remainingInvestmentAmount
+    //     */
+    //
+    //    //1，检查是否登录
+    //    if LoginUser.readLoginUser() == nil {
+    //
+    //        UIhelper.loginTimeout()
+    //
+    //        return
+    //    }
+    //
+    //    let submitOrderTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SubmitOrderTableViewController") as! SubmitOrderTableViewController
+    //
+    //
+    //    submitOrderTableViewController.productId = self.productId
+    //
+    //    submitOrderTableViewController.productInfo = productInfo!
+    //
+    //    submitOrderTableViewController.product = product!
+    //
+    //    self.navigationController!.showViewController(submitOrderTableViewController, sender: nil)
     NSString *longinStr =[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
     if (longinStr.length > 0) {
         
@@ -373,10 +402,13 @@
             backbutton.title = @"产品中心";
             self.navigationItem.backBarButtonItem = backbutton;
             DHFTBViewController *tbVC = [[DHFTBViewController alloc] init];
+            tbVC.productDic = [NSMutableDictionary dictionaryWithDictionary:self.productDic];
+            tbVC.detailModel = self.detailModel;
+            
             [self.navigationController pushViewController:tbVC animated:YES];
         }
         
-       
+        
     }
     else
     {
@@ -406,10 +438,10 @@
     NSDictionary *dic = @{idStr:_idNumber,
                           @"sid" : @"",
                           @"page" : @"0"};
-
+    
     NSString *urlStr = [NSString stringWithFormat:@"%@/%@", Url(PRODUCTDETAIL), self.idNumber];
     //    NSString *csStr = [NSString stringWithFormat:@"jiahairan123.55555.io:19883/mapp/product/personal-loan/detail/%@", _idNumber];
-//    NSLog(@"urlStr=========%@",urlStr);
+    //    NSLog(@"urlStr=========%@",urlStr);
     [VVNetWorkTool postWithUrl:urlStr body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
         //        NSLog(@"progress ===== %@", progress);
         
@@ -417,7 +449,7 @@
         [hud dismiss];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@",dic);
-                NSLog(@"dic = %@", dic);
+        NSLog(@"dic = %@", dic);
         //项目资料
         NSMutableArray *inforArray = [dic objectForKey:@"information"];
         for (NSDictionary *dic in inforArray) {
@@ -438,7 +470,7 @@
         if(_isUPLoad == NO){
             [self.TBJLArray removeAllObjects];
         }
-        //投标记录的数据 
+        //投标记录的数据
         NSMutableArray *orderArray = [[dic objectForKey:@"productOrders"] objectForKey:@"items"];
         for (NSDictionary *dic in orderArray) {
             ProductOrdersModel *orderModel = [[ProductOrdersModel alloc] init];
@@ -470,7 +502,7 @@
         [hud dismiss];
         [_tableView headerEndRefreshing];
         [_tableView footerEndRefreshing];
-        NSLog(@"error  %@",error);
+        //        NSLog(@"error  %@",error);
     }];
     
 }
@@ -481,13 +513,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

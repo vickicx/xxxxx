@@ -46,7 +46,7 @@
     self.lockView.lineColor = GetColor(@"#19AFCC");
     self.lockView.lineWidth = 4;
     self.lockView.delegate = self;
-    self.lockView.contentInsets = UIEdgeInsetsMake(120 * FitWidth, 40 * FitHeight, 250 * FitWidth, 40 * FitHeight);
+    self.lockView.contentInsets = UIEdgeInsetsMake(120 * FitWidth, 40 * FitHeight, 200 * FitWidth, 40 * FitHeight);
     self.lockView.tag = 1;
     [self.view addSubview:_lockView];
     
@@ -58,13 +58,14 @@
     [self.view addSubview:_welcomeLabel];
     
     self.tipLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 130, kWIDTH, 20)];
+    _tipLab.text = @"请绘制解锁密码";
     _tipLab.textColor = [UIColor whiteColor];
     _tipLab.font = [UIFont systemFontOfSize:15];
     _tipLab.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_tipLab];
     
     
-    self.forgetBtn = [[UIButton alloc] initWithFrame:CGRectMake(25, 500 * FitHeight, kWIDTH / 2 -25, 20)];
+    self.forgetBtn = [[UIButton alloc] initWithFrame:CGRectMake(25, 550 * FitHeight, kWIDTH / 2 -25, 20)];
     [_forgetBtn  addTarget:self action:@selector(forgetPassAction) forControlEvents:UIControlEventTouchUpInside];
     [_forgetBtn setTitle:@"忘记手势密码" forState:UIControlStateNormal];
     _forgetBtn.titleLabel.font = [UIFont systemFontOfSize:12];
@@ -72,7 +73,7 @@
     [self.view addSubview:_forgetBtn];
     
     
-    self.otherBtn = [[UIButton alloc] initWithFrame:CGRectMake( kWIDTH / 2 -25, 500 * FitHeight, kWIDTH / 2 -25, 20)];
+    self.otherBtn = [[UIButton alloc] initWithFrame:CGRectMake( kWIDTH / 2 -25, 550 * FitHeight, kWIDTH / 2 -25, 20)];
     [_otherBtn  addTarget:self action:@selector(otherLoginAction) forControlEvents:UIControlEventTouchUpInside];
     [_otherBtn setTitle:@"用其他帐户登陆" forState:UIControlStateNormal];
     _otherBtn.titleLabel.font = [UIFont systemFontOfSize:12];
@@ -87,24 +88,24 @@
     if (self.isShutDownGesturePassword == NO)
     {
         NSString *phoneNumber = [userDefaults objectForKey:@"username"];
-//        let realName = userDefaults.stringForKey(UserDefaults_KEY_BasicInfo.realName.rawValue)
-//        if realName != nil && realName != "" {
+        //        let realName = userDefaults.stringForKey(UserDefaults_KEY_BasicInfo.realName.rawValue)
+        //        if realName != nil && realName != "" {
         self.welcomeLabel.text = [NSString stringWithFormat:@"欢迎您，%@", phoneNumber];
-//        }else if phoneNumber != nil && phoneNumber != "" {
-//            let startIndex = phoneNumber!.startIndex.advancedBy(3) // Start at the second character
-//            let endIndex   = startIndex.advancedBy(4) // point ahead two characters
-//            let range      = Range(start:startIndex, end:endIndex)
-//            //      let validPhone = phoneNumber!.stringByReplacingCharactersInRange(range, withString: "****")
-//            let validPhone = phoneNumber!
+        //        }else if phoneNumber != nil && phoneNumber != "" {
+        //            let startIndex = phoneNumber!.startIndex.advancedBy(3) // Start at the second character
+        //            let endIndex   = startIndex.advancedBy(4) // point ahead two characters
+        //            let range      = Range(start:startIndex, end:endIndex)
+        //            //      let validPhone = phoneNumber!.stringByReplacingCharactersInRange(range, withString: "****")
+        //            let validPhone = phoneNumber!
         
-//        self.welcomeLabel.text = [NSString stringWithFormat:@""];
+        //        self.welcomeLabel.text = [NSString stringWithFormat:@""];
     }
-//            else
-//            {
-//            self.welcomeLabel.text = @"欢迎您";
-//            }
-//        
-//    }
+    //            else
+    //            {
+    //            self.welcomeLabel.text = @"欢迎您";
+    //            }
+    //
+    //    }
     else
     {
         self.welcomeLabel.text = @"";
@@ -136,7 +137,7 @@
 }
 
 - (void)gestureLockView:(KKGestureLockView *)gestureLockView didEndWithPasscode:(NSString *)passcode{
-        NSString *gesturePass = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
+    NSString *gesturePass = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
     if ([gesturePass isEqualToString: passcode])
     {
         self.tipLab.text = @"手势密码解锁成功";
@@ -148,15 +149,15 @@
         
         self.tipLab.text = @"手势密码错误";
     }
-
+    
 }
 
 
 
 - (void)pass{
-
-        [self.navigationController popViewControllerAnimated:YES];
-
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (void)noFunction{
@@ -169,13 +170,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

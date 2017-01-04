@@ -108,6 +108,7 @@
     self.navigationController.navigationBar.titleTextAttributes = dict;
     
     self.navigationItem.title = @"交易记录";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self dataHandle];
     
@@ -311,7 +312,7 @@
     
     grayView.alpha = 0.3;
     
-    self.menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(kWIDTH, 0, kWIDTH - 150 * FitWidth, 200) style:UITableViewStyleGrouped];
+    self.menuTableView = [[UITableView alloc] initWithFrame:CGRectMake(kWIDTH, 64, kWIDTH - 150 * FitWidth, 200) style:UITableViewStyleGrouped];
     [UIView animateWithDuration:1.0 animations:^{
         
     }];

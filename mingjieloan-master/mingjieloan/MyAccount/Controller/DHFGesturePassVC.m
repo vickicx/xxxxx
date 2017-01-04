@@ -34,11 +34,11 @@
     
     NSString *gesturePass = [[NSUserDefaults standardUserDefaults ] objectForKey:@"UserGesturePassword"];
     
-//    UIImageView *backImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, FitWidth, FitHeight - 64)];
-//    backImg.image = [UIImage imageNamed:@"gesture_passbg.png"];
-//    [self.view addSubview:backImg];
+    //    UIImageView *backImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, FitWidth, FitHeight - 64)];
+    //    backImg.image = [UIImage imageNamed:@"gesture_passbg.png"];
+    //    [self.view addSubview:backImg];
     
-//    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"gesture_passbg"]];
+    //    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"gesture_passbg"]];
     UIImageView *imageView=[[UIImageView alloc]initWithFrame:self.view.bounds];
     imageView.image=[UIImage imageNamed:@"gesture_passbg"];
     [self.view insertSubview:imageView atIndex:0];
@@ -49,7 +49,7 @@
     self.lockView.lineColor = GetColor(@"#19AFCC");
     self.lockView.lineWidth = 4;
     self.lockView.delegate = self;
-    self.lockView.contentInsets = UIEdgeInsetsMake(120 * FitWidth, 40 * FitHeight, 250 * FitWidth, 40 * FitHeight);
+    self.lockView.contentInsets = UIEdgeInsetsMake(120 * FitWidth, 40 * FitHeight, 200 * FitWidth, 40 * FitHeight);
     self.lockView.tag = 1;
     [self.view addSubview:_lockView];
     
@@ -141,7 +141,7 @@
     else if (self.gestureMoudle == changePassword)
     {
         NSString *gesturePass = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserGesturePassword"];
-//        NSLog(@"%@", gesturePass);
+        //        NSLog(@"%@", gesturePass);
         if ([gesturePass isEqualToString: passcode])
         {
             self.tipLab.text = @"绘制解锁图案";
@@ -179,13 +179,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
