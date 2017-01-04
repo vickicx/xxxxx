@@ -17,11 +17,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title  = @"我的卡券";
+    self.status = @"1";
+    self.page   = 20;
+    [self getCard];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)getCard {
+    
+    //    et params: [String : AnyObject]! = [
+    //                                        "sid" : sid,
+    //                                        "status" : "\(useStatus)",
+    //                                        "page":page
+    //                                        ]
+    NSDictionary *dic = @{
+                          @"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"],
+                          @"status":self.status,
+                          @"page":[NSString stringWithFormat:@"%d",self.page]
+                          };
+    [VVNetWorkTool postWithUrl:Url(MYCASH) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
+        NSLog(@"%@",result);
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 /*

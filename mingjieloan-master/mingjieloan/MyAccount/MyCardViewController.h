@@ -10,4 +10,7 @@
 
 @interface MyCardViewController : SubBaseViewController
 
+@property (assign, nonatomic) int  page;
+@property (strong, nonatomic) NSString * status;
+
 @end
