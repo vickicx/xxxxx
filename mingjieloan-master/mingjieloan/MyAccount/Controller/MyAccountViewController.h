@@ -13,6 +13,7 @@
 #import "DepositsHistoryViewController.h"
 #import "LDY_RightChangeViewController.h"
 #import "MyCardViewController.h"
+#import "DHFInviteFriendViewController.h"
 
 
 

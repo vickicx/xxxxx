@@ -106,7 +106,7 @@
     
     NSDictionary *body = @{@"sid":self.sid,@"page":[NSString stringWithFormat:@"%ld",self.page]};
     
-    NSString *url = [NSString stringWithFormat:@"%@%@", ProtocolURL, WDXX];
+    NSString *url = [NSString stringWithFormat:@"%@%@", HOSTURL, WDXX];
     
     [VVNetWorkTool postWithUrl:url body:body bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         

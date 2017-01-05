@@ -160,6 +160,7 @@
 		EA3C068B1E12A8A4009E02D4 /* KKGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C06891E12A8A4009E02D4 /* KKGestureLockView.m */; };
 		EA3C068E1E12A8DF009E02D4 /* DHFGesturePassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C068D1E12A8DF009E02D4 /* DHFGesturePassVC.m */; };
 		EA3C06911E12B771009E02D4 /* DHFGestureCloseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA3C06901E12B771009E02D4 /* DHFGestureCloseVC.m */; };
+		EA485AFE1E1D3D3200BDE51F /* DHFZRProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA485AFD1E1D3D3200BDE51F /* DHFZRProductCell.m */; };
 		EA49A4351E0F5E680079A8DB /* HKJHTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA49A4341E0F5E680079A8DB /* HKJHTableViewCell.m */; };
 		EA49A4381E0F6BA60079A8DB /* TBJLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA49A4371E0F6BA60079A8DB /* TBJLTableViewCell.m */; };
 		EA49A43B1E0F7E070079A8DB /* DHFMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA49A43A1E0F7E070079A8DB /* DHFMoreTableViewCell.m */; };
@@ -540,6 +541,8 @@
 		EA3C068D1E12A8DF009E02D4 /* DHFGesturePassVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFGesturePassVC.m; sourceTree = "<group>"; };
 		EA3C068F1E12B771009E02D4 /* DHFGestureCloseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFGestureCloseVC.h; sourceTree = "<group>"; };
 		EA3C06901E12B771009E02D4 /* DHFGestureCloseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFGestureCloseVC.m; sourceTree = "<group>"; };
+		EA485AFC1E1D3D3200BDE51F /* DHFZRProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFZRProductCell.h; path = mingjieloan/ProductCenter/Controller/DHFZRProductCell.h; sourceTree = SOURCE_ROOT; };
+		EA485AFD1E1D3D3200BDE51F /* DHFZRProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFZRProductCell.m; path = mingjieloan/ProductCenter/Controller/DHFZRProductCell.m; sourceTree = SOURCE_ROOT; };
 		EA49A4331E0F5E680079A8DB /* HKJHTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKJHTableViewCell.h; path = mingjieloan/ProductCenter/Controller/HKJHTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		EA49A4341E0F5E680079A8DB /* HKJHTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKJHTableViewCell.m; path = mingjieloan/ProductCenter/Controller/HKJHTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		EA49A4361E0F6BA60079A8DB /* TBJLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBJLTableViewCell.h; path = mingjieloan/ProductCenter/Controller/TBJLTableViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -1548,6 +1551,7 @@
 		C34FFF221E091E8D00FF8C05 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EA485AFB1E1D3CAD00BDE51F /* ZRCell */,
 				3D1ED81E1E0BCB8800C99500 /* DHFProductCenterCell.h */,
 				3D1ED81F1E0BCB8800C99500 /* DHFProductCenterCell.m */,
 				EABA08821E0D841900B3CC61 /* ProductDetailFirstTableViewCell.h */,
@@ -1660,6 +1664,15 @@
 				EA3C06891E12A8A4009E02D4 /* KKGestureLockView.m */,
 			);
 			path = KKGestureLockView;
+			sourceTree = "<group>";
+		};
+		EA485AFB1E1D3CAD00BDE51F /* ZRCell */ = {
+			isa = PBXGroup;
+			children = (
+				EA485AFC1E1D3D3200BDE51F /* DHFZRProductCell.h */,
+				EA485AFD1E1D3D3200BDE51F /* DHFZRProductCell.m */,
+			);
+			name = ZRCell;
 			sourceTree = "<group>";
 		};
 		EA49A44E1E0F95EC0079A8DB /* MJRefresh */ = {
@@ -2116,6 +2129,7 @@
 				EA6BB8F31E0EC15F00F28E8C /* ProductUserInforTableViewCell.m in Sources */,
 				C3E83BE71E1CD0F0006D11A9 /* MyCardModel.m in Sources */,
 				996996A01E0A2F7200CEF850 /* VVNetWorkTool.m in Sources */,
+				EA485AFE1E1D3D3200BDE51F /* DHFZRProductCell.m in Sources */,
 				990873931E12455800354802 /* HYGZModel.m in Sources */,
 				EA49A43E1E0F8B710079A8DB /* DHFAboutMJViewController.m in Sources */,
 				EA6BB91F1E0EF9F900F28E8C /* PopView.m in Sources */,
