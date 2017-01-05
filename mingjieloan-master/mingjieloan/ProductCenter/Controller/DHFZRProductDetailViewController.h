@@ -9,8 +9,10 @@
 #import "SubBaseViewController.h"
 #import "MJRefresh.h"
 #import "DHFZRProductCell.h"//项目说明
-#import "ProductIntroductionTableViewCell.h"//项目简介
-#import "ProductUserInforTableViewCell.h"//借款人信息
+#import "DHFZRIntroductionCell.h"//债权转让介绍
+#import "DHFProductZRR_Cell.h"//转让人信息
+#import "DHFZRUserInfoCell.h"//借款人信息
+#import "DHFZRCompanyInfoCell.h"//借款公司信息
 
 #import "ProductDetailThreeTableViewCell.h"
 #import "HKJHTableViewCell.h"//还款计划
@@ -21,7 +23,7 @@
 #import "PApplicationModel.h"//借款 人信息Model
 #import "pApplicationCheckModel.h"//审核信息
 #import "InformationModel.h"
-
+#import "DHFZRTBViewController.h"
 
 @interface DHFZRProductDetailViewController : SubBaseViewController
 

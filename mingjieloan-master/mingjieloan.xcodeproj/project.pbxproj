@@ -15,6 +15,11 @@
 		3D7A3B191E16520B00B176A4 /* pApplicationCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B181E16520B00B176A4 /* pApplicationCheckModel.m */; };
 		3DA320F31E10F9E30029F745 /* NoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F21E10F9E30029F745 /* NoticeModel.m */; };
 		3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */; };
+		3DA6C0CE1E1E28450028F871 /* DHFZRTBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6C0CD1E1E28450028F871 /* DHFZRTBViewController.m */; };
+		3DA6C0D31E1E29150028F871 /* DHFZRCompanyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6C0D01E1E29150028F871 /* DHFZRCompanyInfoCell.m */; };
+		3DA6C0D41E1E29150028F871 /* DHFZRUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6C0D21E1E29150028F871 /* DHFZRUserInfoCell.m */; };
+		3DA6C0D71E1E29700028F871 /* DHFZRIntroductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6C0D61E1E29700028F871 /* DHFZRIntroductionCell.m */; };
+		3DA6C0DA1E1E29B50028F871 /* DHFProductZRR_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6C0D91E1E29B50028F871 /* DHFProductZRR_Cell.m */; };
 		3DF312B51E1390E40038FC45 /* DHFGesOpenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF312B41E1390E40038FC45 /* DHFGesOpenVC.m */; };
 		3DF312D21E13AE540038FC45 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF312D11E13AE540038FC45 /* ProductModel.m */; };
 		3DF4466E1E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF446651E14F5C9005FFF85 /* DHFProductDetail_GRXXCell.m */; };
@@ -253,6 +258,16 @@
 		3DA320F21E10F9E30029F745 /* NoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeModel.m; path = mingjieloan/MoreInfo/Controller/NoticeModel.m; sourceTree = SOURCE_ROOT; };
 		3DA320F41E111A920029F745 /* DHFNoticeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFNoticeDetailViewController.h; sourceTree = "<group>"; };
 		3DA320F51E111A930029F745 /* DHFNoticeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFNoticeDetailViewController.m; sourceTree = "<group>"; };
+		3DA6C0CC1E1E28450028F871 /* DHFZRTBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFZRTBViewController.h; sourceTree = "<group>"; };
+		3DA6C0CD1E1E28450028F871 /* DHFZRTBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFZRTBViewController.m; sourceTree = "<group>"; };
+		3DA6C0CF1E1E29150028F871 /* DHFZRCompanyInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFZRCompanyInfoCell.h; path = mingjieloan/ProductCenter/Controller/DHFZRCompanyInfoCell.h; sourceTree = SOURCE_ROOT; };
+		3DA6C0D01E1E29150028F871 /* DHFZRCompanyInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFZRCompanyInfoCell.m; path = mingjieloan/ProductCenter/Controller/DHFZRCompanyInfoCell.m; sourceTree = SOURCE_ROOT; };
+		3DA6C0D11E1E29150028F871 /* DHFZRUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFZRUserInfoCell.h; path = mingjieloan/ProductCenter/Controller/DHFZRUserInfoCell.h; sourceTree = SOURCE_ROOT; };
+		3DA6C0D21E1E29150028F871 /* DHFZRUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFZRUserInfoCell.m; path = mingjieloan/ProductCenter/Controller/DHFZRUserInfoCell.m; sourceTree = SOURCE_ROOT; };
+		3DA6C0D51E1E29700028F871 /* DHFZRIntroductionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFZRIntroductionCell.h; path = mingjieloan/ProductCenter/Controller/DHFZRIntroductionCell.h; sourceTree = SOURCE_ROOT; };
+		3DA6C0D61E1E29700028F871 /* DHFZRIntroductionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFZRIntroductionCell.m; path = mingjieloan/ProductCenter/Controller/DHFZRIntroductionCell.m; sourceTree = SOURCE_ROOT; };
+		3DA6C0D81E1E29B50028F871 /* DHFProductZRR_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFProductZRR_Cell.h; path = mingjieloan/ProductCenter/Controller/DHFProductZRR_Cell.h; sourceTree = SOURCE_ROOT; };
+		3DA6C0D91E1E29B50028F871 /* DHFProductZRR_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductZRR_Cell.m; path = mingjieloan/ProductCenter/Controller/DHFProductZRR_Cell.m; sourceTree = SOURCE_ROOT; };
 		3DF312B31E1390E40038FC45 /* DHFGesOpenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFGesOpenVC.h; sourceTree = "<group>"; };
 		3DF312B41E1390E40038FC45 /* DHFGesOpenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFGesOpenVC.m; sourceTree = "<group>"; };
 		3DF312D01E13AE540038FC45 /* ProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductModel.h; path = mingjieloan/ProductModel.h; sourceTree = SOURCE_ROOT; };
@@ -1536,6 +1551,8 @@
 				EAF944891E1BE57A005D0A26 /* DHFUserCouponViewController.m */,
 				EAF944841E1BDF2B005D0A26 /* DHFZRProductDetailViewController.h */,
 				EAF944851E1BDF2B005D0A26 /* DHFZRProductDetailViewController.m */,
+				3DA6C0CC1E1E28450028F871 /* DHFZRTBViewController.h */,
+				3DA6C0CD1E1E28450028F871 /* DHFZRTBViewController.m */,
 				EA49A4811E0FE4D30079A8DB /* DHFTBViewController.h */,
 				EA49A4821E0FE4D30079A8DB /* DHFTBViewController.m */,
 			);
@@ -1686,6 +1703,14 @@
 			children = (
 				EA485AFC1E1D3D3200BDE51F /* DHFZRProductCell.h */,
 				EA485AFD1E1D3D3200BDE51F /* DHFZRProductCell.m */,
+				3DA6C0CF1E1E29150028F871 /* DHFZRCompanyInfoCell.h */,
+				3DA6C0D01E1E29150028F871 /* DHFZRCompanyInfoCell.m */,
+				3DA6C0D11E1E29150028F871 /* DHFZRUserInfoCell.h */,
+				3DA6C0D21E1E29150028F871 /* DHFZRUserInfoCell.m */,
+				3DA6C0D51E1E29700028F871 /* DHFZRIntroductionCell.h */,
+				3DA6C0D61E1E29700028F871 /* DHFZRIntroductionCell.m */,
+				3DA6C0D81E1E29B50028F871 /* DHFProductZRR_Cell.h */,
+				3DA6C0D91E1E29B50028F871 /* DHFProductZRR_Cell.m */,
 			);
 			name = ZRCell;
 			sourceTree = "<group>";
@@ -2073,9 +2098,11 @@
 				990873B51E12455800354802 /* DepositsHistoryViewController.m in Sources */,
 				990873DF1E12455800354802 /* ZRGZ_ViewController.m in Sources */,
 				EA6BB9021E0EE71000F28E8C /* ProductShenheTableViewCell.m in Sources */,
+				3DA6C0CE1E1E28450028F871 /* DHFZRTBViewController.m in Sources */,
 				990873EB1E1259BE00354802 /* UIhelper.m in Sources */,
 				990873961E12455800354802 /* HYGZViewController.m in Sources */,
 				EA49A4631E0F95EC0079A8DB /* MJRefreshHeaderView.m in Sources */,
+				3DA6C0D41E1E29150028F871 /* DHFZRUserInfoCell.m in Sources */,
 				9934228D1E0A7E75004C8A2B /* LoginUser.m in Sources */,
 				990873BB1E12455800354802 /* YGQCell.m in Sources */,
 				EAD6BCB51E0C0FC8005782AA /* GetColor16.m in Sources */,
@@ -2111,6 +2138,7 @@
 				EA1F05321E19022500DCE82C /* ZZChangeBoundPhoneNumVC.m in Sources */,
 				EA49A4471E0F91C40079A8DB /* DHFReportTableViewCell.m in Sources */,
 				990873B01E12455800354802 /* ReturnedModel.m in Sources */,
+				3DA6C0D31E1E29150028F871 /* DHFZRCompanyInfoCell.m in Sources */,
 				990873D71E12455800354802 /* SQZR2TableViewCell.m in Sources */,
 				990873DA1E12455800354802 /* YZRTableViewCell.m in Sources */,
 				990873AF1E12455800354802 /* ConfirmModel.m in Sources */,
@@ -2142,7 +2170,9 @@
 				990873CD1E12455800354802 /* WDXXDetailTableViewCell.m in Sources */,
 				9969969C1E0A257C00CEF850 /* XXColor.m in Sources */,
 				EA6BB8F31E0EC15F00F28E8C /* ProductUserInforTableViewCell.m in Sources */,
+				3DA6C0D71E1E29700028F871 /* DHFZRIntroductionCell.m in Sources */,
 				C3E83BE71E1CD0F0006D11A9 /* MyCardModel.m in Sources */,
+				3DA6C0DA1E1E29B50028F871 /* DHFProductZRR_Cell.m in Sources */,
 				996996A01E0A2F7200CEF850 /* VVNetWorkTool.m in Sources */,
 				EA485AFE1E1D3D3200BDE51F /* DHFZRProductCell.m in Sources */,
 				990873931E12455800354802 /* HYGZModel.m in Sources */,

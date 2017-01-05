@@ -7,6 +7,8 @@
 //
 
 #import "DHFZRProductDetailViewController.h"
+#import "DHFTwoProductDetailViewController.h"
+#import "DHFThreeProductDetailViewController.h"
 
 @interface DHFZRProductDetailViewController ()<UITableViewDelegate, UITableViewDataSource, JGProgressHUDDelegate>
 
@@ -162,23 +164,31 @@
         }
         else if (indexPath.row == 1)
         {
-            CGFloat hight = [HeightWithString heightForTextLable:_detailModel.detailDescription width:kWIDTH - 26 fontSize:13];
-            return 47+hight+20;
+            CGFloat hight = [HeightWithString heightForTextLable:@"除了自己全都抵押了除了自己全都抵押了除了自己全都抵押了除了自己全都抵押了除了自己全都抵押了除了自己全都抵押了" width:kWIDTH - 30 fontSize:13];
+            return 40+hight+5;
         }
         else if (indexPath.row == 2)
         {
-            NSString *str = [NSString stringWithFormat:@"资金用途：%@", self.pApplocationModel.pPurpose];
-            CGFloat hight = [HeightWithString heightForTextLable:str width:kWIDTH - 24 fontSize:13];
-            return 80+hight+20+10;
+            return 80;
         }
         else     {
-            NSString *str1 = self.detailModel.descriptionJS;
-            CGFloat hight = [HeightWithString heightForTextLable:str1 width:kWIDTH - 24 fontSize:13];
-            
-            CGFloat danbaoHight = 47 + hight + 10+10;
-            NSString *str2 = self.detailModel.descriptionRiskDescri;
-            CGFloat hight1 = [HeightWithString heightForTextLable:str2 width:kWIDTH - 24 fontSize:13];
-            return 50+hight1+25+10 + danbaoHight + 130 * FitHeight + 33  + 10 + 150+33+20+ 10;
+            if ([[self.productDic objectForKey:@"personTypeKbn"]intValue] == 1 )
+            {
+                CGFloat hight = [HeightWithString heightForTextLable:@"资金用途:买房子买媳妇买车买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买" width:kWIDTH - 30 fontSize:13];
+                return  80+hight+60 + 20;
+            }
+            else if ([[self.productDic objectForKey:@"personTypeKbn"]intValue] == 2)
+            {
+                CGFloat hight = [HeightWithString heightForTextLable:@"资金用途:买房子买媳妇买车买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买买" width:kWIDTH - 30 fontSize:13];
+                return  80+hight+60 + 20;
+            }
+            else if ([[self.productDic objectForKey:@"personTypeKbn"]intValue]  == 3)
+            {
+                
+                return  190;
+                
+            }
+            return 0;
         }
     }
     //还款计划和投标记录的高度是一样的
@@ -202,27 +212,44 @@
         }
         else if (indexPath.row == 1)
         {
-            ProductIntroductionTableViewCell *cell = [[ProductIntroductionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-            cell.detailPModel = self.detailModel;
+            DHFZRIntroductionCell *cell = [[DHFZRIntroductionCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+            //            cell.detailPModel = self.detailModel;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return  cell;
         }
         else if (indexPath.row == 2)
         {
-            ProductUserInforTableViewCell *cell = [[ProductUserInforTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-            cell.pApplocationModel = self.pApplocationModel;
+            DHFProductZRR_Cell *cell = [[DHFProductZRR_Cell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+            //            cell.pApplocationModel = self.pApplocationModel;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return  cell;
         }
         else
         {
-            ProductDetailThreeTableViewCell *cell = [[ProductDetailThreeTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-//            cell.delegate = self;
-//            cell.detailPModel = self.detailModel;
-//            cell.checkModel = self.checkModel;
-            cell.informaModel = _informaModel;
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            return  cell;
+            if ([[self.productDic objectForKey:@"personTypeKbn"]intValue] == 1 )
+            {
+                DHFZRUserInfoCell *cell = [[DHFZRUserInfoCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                [cell.lookBtn addTarget:self action:@selector(lookProductDetail) forControlEvents:UIControlEventTouchUpInside];
+                return  cell;
+            }
+            else if ([[self.productDic objectForKey:@"personTypeKbn"]intValue] == 2)
+            {
+                DHFZRUserInfoCell *cell = [[DHFZRUserInfoCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                [cell.lookBtn addTarget:self action:@selector(lookProductDetail) forControlEvents:UIControlEventTouchUpInside];
+                return  cell;
+            }
+            else if ([[self.productDic objectForKey:@"personTypeKbn"]intValue]  == 3)
+            {
+                DHFZRCompanyInfoCell *cell = [[DHFZRCompanyInfoCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+                //            cell.pApplocationModel = self.pApplocationModel;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                [cell.lookBtn addTarget:self action:@selector(lookProductDetail) forControlEvents:UIControlEventTouchUpInside];
+                return  cell;
+                
+            }
+            return nil;
         }
     }
     else
@@ -248,22 +275,36 @@
     }
 }
 
-- (void)popViewAction:(NSInteger )num{
-    self.popView = [PopView defaultPopupView];
-    InformationModel *model = [_informaModel objectAtIndex:num];
-    _popView.imgUrlArray = model.informationImageList;
-    self.popView.parentVC = self;
-    
-    [self lew_presentPopupView:self.popView animation:[LewPopupViewAnimationSlide new] dismissed:^{
+//查看原始项目信息
+- (void)lookProductDetail{
+    if(self.detailModel.newstatus == 3 || self.detailModel.newstatus == 5){
         
-        NSLog(@"动画结束");
+        DHFTwoProductDetailViewController *twoVC = [[DHFTwoProductDetailViewController alloc] init];
+        twoVC.productDic = self.productDic;
+        twoVC.idNumber = self.idNumber;
+        twoVC.detailModel = self.detailModel;
+        twoVC.pApplocationModel = self.pApplocationModel;
+        twoVC.checkModel = self.checkModel;
         
-    }];
+        [self.navigationController pushViewController:twoVC animated:YES];
+        
+    }
+    else
+    {
+        DHFThreeProductDetailViewController *threeVC = [[DHFThreeProductDetailViewController alloc] init];
+        threeVC.productDic = self.productDic;
+        threeVC.idNumber = self.idNumber;
+        threeVC.detailModel = self.detailModel;
+        threeVC.pApplocationModel = self.pApplocationModel;
+        threeVC.checkModel = self.checkModel;
+        [self.navigationController pushViewController:threeVC animated:YES];
+    }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
+
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//}
 
 
 - (void)initTableView{
@@ -299,7 +340,7 @@
             UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]init];
             backbutton.title = @"产品中心";
             self.navigationItem.backBarButtonItem = backbutton;
-            DHFTBViewController *tbVC = [[DHFTBViewController alloc] init];
+            DHFZRTBViewController *tbVC = [[DHFZRTBViewController alloc] init];
             tbVC.idNumber = self.idNumber;
             tbVC.productDic = [NSMutableDictionary dictionaryWithDictionary:self.productDic];
             tbVC.detailModel = self.detailModel;
@@ -410,13 +451,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
