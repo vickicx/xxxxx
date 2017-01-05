@@ -37,6 +37,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.translucent = YES;
+    
     self.title = @"邀请好友";
     self.view.backgroundColor = [UIColor whiteColor];
     NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];

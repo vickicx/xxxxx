@@ -46,6 +46,7 @@
     self.navigationController.navigationBar.titleTextAttributes = titleDict;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
+    self.navigationController.navigationBar.translucent = YES;
     [self createViews];
 
 }

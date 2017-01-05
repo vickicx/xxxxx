@@ -27,6 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"设置手势密码";
+    self.navigationController.navigationBar.translucent = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes = titleDict;

@@ -34,6 +34,7 @@
     _tableView.separatorStyle = UITableViewCellAccessoryNone;;
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    self.navigationController.navigationBar.translucent = YES;
     
     [self.view addSubview:_tableView];
     

@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = YES;
     // Do any additional setup after loading the view.
     self.title = @"绑定身份证";
     self.view.backgroundColor = [UIColor whiteColor];

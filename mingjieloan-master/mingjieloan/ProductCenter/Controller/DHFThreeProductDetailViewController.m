@@ -34,7 +34,7 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.navigationController.navigationBar.translucent = YES;
     self.TBJLArray = [NSMutableArray array];
     self.HKJHArray = [NSMutableArray array];
     self.informaModel = [[NSMutableArray alloc] init];

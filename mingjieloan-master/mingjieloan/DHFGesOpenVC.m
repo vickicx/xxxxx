@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationController.navigationBar.translucent = YES;
     self.title = @"手势密码解锁";
     self.view.backgroundColor = [UIColor whiteColor];
     NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
@@ -28,6 +29,7 @@
     UIImageView *imageView=[[UIImageView alloc]initWithFrame:self.view.bounds];
     imageView.image=[UIImage imageNamed:@"gesture_passbg"];
     [self.view insertSubview:imageView atIndex:0];
+    
     
     self.lockView = [[KKGestureLockView alloc] initWithFrame:CGRectMake(0, 64, kWIDTH, kHEIGHT - 64)];
     self.lockView.normalGestureNodeImage = [UIImage imageNamed:@"gesture_node_normal.png"];

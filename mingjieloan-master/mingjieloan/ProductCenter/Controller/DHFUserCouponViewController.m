@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.navigationController.navigationBar.translucent = YES;
     self.title = @"使用卡券";
     
     self.mainArr = [NSMutableArray array];

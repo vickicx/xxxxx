@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.translucent = YES;
     self.navigationItem.title = @"铭捷贷";
     
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];

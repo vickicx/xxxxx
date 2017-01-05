@@ -42,6 +42,8 @@
     self.TBJLArray = [NSMutableArray array];
     self.HKJHArray = [NSMutableArray array];
     self.informaModel = [[NSMutableArray alloc] init];
+    self.navigationController.navigationBar.translucent = YES;
+    
     
     [self initButton];
     [self initTableView];

@@ -30,6 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationController.navigationBar.translucent = YES;
+    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0, kWIDTH, kHEIGHT ) style:UITableViewStylePlain];
     _tableView.separatorStyle = UITableViewCellAccessoryNone;;
     _tableView.delegate = self;
