@@ -160,7 +160,6 @@
                 }else {
                     self.qiandao = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];
                     [self getSigin];
-                
                     [self.view addSubview:self.qiandao];
                     
                 }
