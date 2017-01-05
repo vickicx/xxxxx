@@ -37,5 +37,5 @@
 @property (nonatomic, assign)NSInteger incentive_commission;//获得现金券
 @property (nonatomic, assign)NSInteger invitationCount;//已返积分
 @property (nonatomic, copy)NSString *refCode;
-
+@property (nonatomic, copy)NSString *recommendationStr;
 @end

@@ -11,13 +11,13 @@ target 'mingjieloan' do
    pod 'Masonry'
    pod 'RegExCategories'
    pod 'SDWebImage'
-   pod 'shareSDK'
    pod 'SDCycleScrollView'
    pod 'KKGestureLockView'
    pod 'MJRefresh'
    pod 'PICircularProgressView'
-   pod 'UMengSocial'
    pod 'IQKeyboardManager'
+   pod 'UMengUShare/UI'
+   pod 'UMengUShare/Social/WeChat'
    
 
   # Pods for mingjieloan

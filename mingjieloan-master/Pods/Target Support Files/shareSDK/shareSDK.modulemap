@@ -1,6 +1,0 @@
-framework module shareSDK {
-  umbrella header "shareSDK-umbrella.h"
-
-  export *
-  module * { export * }
-}

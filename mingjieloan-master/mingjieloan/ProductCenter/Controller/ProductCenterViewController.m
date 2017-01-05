@@ -313,10 +313,11 @@
         [self.checkModel setValuesForKeysWithDictionary:[dic objectForKey:@"pApplicationCheck"]];
         
         DHFZRProductDetailViewController *ThreeVC = [[DHFZRProductDetailViewController alloc] init];
-        //        ThreeVC.productDic = [NSMutableDictionary dictionaryWithDictionary:dic];
-        //        ThreeVC.detailModel = self.detailModel;
-        //        ThreeVC.pApplocationModel = self.pApplocationModel;
-        //        ThreeVC.checkModel = self.checkModel;
+                ThreeVC.productDic = [NSMutableDictionary dictionaryWithDictionary:dic];
+                ThreeVC.idNumber = str;
+                ThreeVC.detailModel = self.detailModel;
+                ThreeVC.pApplocationModel = self.pApplocationModel;
+                ThreeVC.checkModel = self.checkModel;
         UIBarButtonItem *backbutton = [[UIBarButtonItem alloc]init];
         backbutton.title = @"产品中心";
         //        ThreeVC.idNumber = str;

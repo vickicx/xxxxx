@@ -7,7 +7,7 @@
 //
 
 #import "DHFInviteFriendViewController.h"
-//#import <UShareUI/UShareUI.h>
+#import <UShareUI/UShareUI.h>
 
 @interface DHFInviteFriendViewController ()
 
@@ -55,40 +55,74 @@
 //邀请好友
 - (void)inviteFriendAction{
     
-//    __weak DHFInviteFriendViewController *weakSelf = self;
-//    //显示分享面板
-//    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-//        // 根据获取的platformType确定所选平台进行下一步操作
-//        [weakSelf ];
-//    }];
+    __weak DHFInviteFriendViewController *weakSelf = self;
+    //显示分享面板
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        // 根据获取的platformType确定所选平台进行下一步操作
+        [weakSelf shareTextToPlatformType:platformType];
+    }];
     
 }
 
-//- (void)shareTextToPlatformType:(UMSocialPlatformType)platformType
-//{
-//    //创建分享消息对象
-//    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-//    //设置文本
-//    messageObject.text = @"社会化组件UShare将各大社交平台接入您的应用，快速武装App。";
-//    
-//    //调用分享接口
-//    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
-//        NSString *message = nil;
-//        if (!error) {
-//            message = [NSString stringWithFormat:@"分享成功"];
-//        } else {
-//            message = [NSString stringWithFormat:@"失败原因Code: %d\n",(int)error.code];
-//            
-//        }
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"share"
-//                                                        message:message
-//                                                       delegate:nil
-//                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-//                                              otherButtonTitles:nil];
-//        [alert show];
-//        
-//    }];
-//}
+- (void)shareTextToPlatformType:(UMSocialPlatformType)platformType
+{
+    
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //设置文本
+    messageObject.text = [NSString stringWithFormat:@"%@%@", self.recommendationStr, _recommendationUrl];
+    [UMShareObject shareObjectWithTitle:@"铭捷贷" descr:[NSString stringWithFormat:@"%@%@", self.recommendationStr, _recommendationUrl] thumImage:[UIImage imageNamed:@"logo.png"]];
+    
+    //调用分享接口
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+        NSString *message = nil;
+        if (!error) {
+            message = [NSString stringWithFormat:@"分享成功"];
+        } else {
+            message = [NSString stringWithFormat:@"失败原因Code: %d\n",(int)error.code];
+            
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"share"
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    }];
+}
+
+
+
+
+- (void)getDataList {
+
+    
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"], @"sid",@"0", @"page", nil];
+    
+    [VVNetWorkTool postWithUrl:Url(INVITATION) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+        //        NSLog(@"progress ===== %@", progress);
+        
+    } success:^(id result) {
+        
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"asdfasdfasdfadsf %@",dic);
+        
+        self.recommendationStr = [dic objectForKey:@"recommendationStr"];
+        self.recommendationUrl = [dic objectForKey:@"recommendationUrl"];
+        
+        //        }
+        
+        
+    } fail:^(NSError *error) {
+        
+        NSLog(@"%@",error);
+    }];
+    
+    
+}
+
 
 - (void)createViews{
     

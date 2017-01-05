@@ -39,8 +39,6 @@
 #import "SDAutoLayout.h"
 #import "SDCycleScrollView-umbrella.h"
 #import "SDWebImage-umbrella.h"
-#import "shareSDK-umbrella.h"
-#import "UMSocial.h"
 #import "XXColor.h"
 #import "VVNetWorkTool.h"
 #import "GetColor16.h"

@@ -16,6 +16,25 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.3.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx6bea3b94952c7e87</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wb1736434024</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -52,5 +71,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <!-- 微信 URL Scheme 白名单-->
+        <string>wechat</string>
+        <string>weixin</string>
+    </array>
 </dict>
 </plist>

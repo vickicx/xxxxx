@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
-//#import "UMSocialCore/UMSocialCore.h"
+#import "UMSocialCore/UMSocialCore.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) UINavigationController * productNavi;
@@ -25,13 +25,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     
-//    //打开调试日志
-//    [[UMSocialManager defaultManager] openLog:YES];
-//    //设置友盟appkey
-//    [[UMSocialManager defaultManager] setUmSocialAppkey:@"15ec6c26de02c"];
-//    //设置微信的appKey和appSecret
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx6bea3b94952c7e87" appSecret:@"206b36490b3737fc2f99d819fba6ccc2" redirectURL:@"http://mobile.umeng.com/social"];
-//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatTimeLine appKey:@"wx6bea3b94952c7e87" appSecret:@"206b36490b3737fc2f99d819fba6ccc2" redirectURL:@"http://mobile.umeng.com/social"];
+    //打开调试日志
+    [[UMSocialManager defaultManager] openLog:YES];
+    //设置友盟appkey
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"15ec6c26de02c"];
+    //设置微信的appKey和appSecret
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx6bea3b94952c7e87" appSecret:@"206b36490b3737fc2f99d819fba6ccc2" redirectURL:@"http://mobile.umeng.com/social"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatTimeLine appKey:@"wx6bea3b94952c7e87" appSecret:@"206b36490b3737fc2f99d819fba6ccc2" redirectURL:@"http://mobile.umeng.com/social"];
     
     
     
@@ -171,15 +171,15 @@
 }
 
 
-// 支持所有iOS系统
-//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-//{
-//    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
-//    if (!result) {
-//        // 其他如支付等SDK的回调
-//    }
-//    return result;
-//}
+ //支持所有iOS系统
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
