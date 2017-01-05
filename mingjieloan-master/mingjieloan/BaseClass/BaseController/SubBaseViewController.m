@@ -22,6 +22,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    UIColor * color = [UIColor whiteColor];
+    NSDictionary * dict=[NSDictionary dictionaryWithObject:color forKey:NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = dict;
 }
 
 - (void)didReceiveMemoryWarning {

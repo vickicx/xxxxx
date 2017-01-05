@@ -15,7 +15,13 @@
 @property (assign, nonatomic) int  page;
 @property (strong, nonatomic) NSString * status;
 
+@property (strong, nonatomic) UIView * lineView;
+
 @property (strong, nonatomic) MyCardModel * model;
+
+@property (strong, nonatomic) UIImageView * emptyImageView;
+
+@property (strong, nonatomic) UILabel * emptyLabel;
 
 @end
 
