@@ -14,6 +14,7 @@
 #import "LDY_RightChangeViewController.h"
 #import "MyCardViewController.h"
 #import "DHFInviteFriendViewController.h"
+#import "signModel.h"
 
 
 
@@ -46,7 +47,7 @@
 
 @property (nonatomic, strong) UIButton *wdxxButton;
 
-@property (nonatomic, strong) UIView *qiandaoView;
+@property (nonatomic, strong) UIView * qiandao;
 
 @property (nonatomic, strong) UIImageView *qiandaoImageView;
 
@@ -69,6 +70,8 @@
 @property (nonatomic, strong) UIButton *chongzhiBtn;
 
 @property (nonatomic, strong) UIButton *tixianBtn;
+
+@property (strong, nonatomic) signModel * signModel;
 
 
 
