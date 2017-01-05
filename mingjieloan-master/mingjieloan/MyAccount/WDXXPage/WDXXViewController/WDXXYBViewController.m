@@ -64,17 +64,7 @@
 
 @implementation WDXXYBViewController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-       
 
-    }
-    
-    return self;
-}
 
 - (void)viewDidLoad {
     
@@ -174,7 +164,7 @@
 
 - (void)creatTableView
 {
-    self.monthlyReportTableView = [[UITableView alloc] initWithFrame:CGRectMake(5 * FitWidth, 64, kWIDTH - 10 * FitWidth, FitHeight * 667 - 64) style:UITableViewStyleGrouped];
+    self.monthlyReportTableView = [[UITableView alloc] initWithFrame:CGRectMake(5 * FitWidth, 0, kWIDTH - 10 * FitWidth, kHEIGHT) style:UITableViewStyleGrouped];
     [self.view addSubview:self.monthlyReportTableView];
     self.monthlyReportTableView.backgroundColor = [UIColor whiteColor];
     

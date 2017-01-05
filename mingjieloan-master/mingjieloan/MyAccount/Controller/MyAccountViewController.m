@@ -80,6 +80,7 @@
     self.tableView.dataSource = self;
     self.tableView.sectionHeaderHeight = 10 * FitHeight;
     self.tableView.sectionFooterHeight = 0;
+    self.tableView.showsVerticalScrollIndicator = NO;
     UINib *nib = [UINib nibWithNibName:@"MyAccountTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"UITableViewCellIdentifier"];
     
@@ -195,6 +196,49 @@
         case 2:
             if (indexPath.row == 0) {
                 //我的邀请
+                JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+                
+                hud.textLabel.text = @"loading...";
+                
+                [hud showInView:self.view];
+                NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] valueForKey:@"sid"],@"page":@"0"};
+                [VVNetWorkTool postWithUrl:Url(INVITATION) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
+                    
+                    
+                } success:^(id result) {
+                    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+                    [hud dismiss];
+                    //        NSLog(@"dic == %@", dic);
+                    
+                    if([[dic objectForKey:@"uid_level"] intValue] == 3){
+                        DHFInviteFriendViewController  *InviteVC = [[DHFInviteFriendViewController alloc] init];
+                        InviteVC.recommendationUrl = [dic objectForKey:@"recommendationUrl"];
+                        InviteVC.cashReturned = [[dic objectForKey:@"cashReturned"] integerValue];//邀请人数
+                        InviteVC.cashToReturn = [[dic objectForKey:@"cashToReturn"] integerValue];//已返现金
+                        InviteVC.couponCashSum = [[dic objectForKey:@"couponCashSum"] integerValue];//待返现金
+                        InviteVC.incentive_commission = [[dic objectForKey:@"incentive_commission"] integerValue];//获得现金券
+                        InviteVC.invitationCount = [[dic objectForKey:@"invitationCount"] integerValue];//已返积分
+                        InviteVC.refCode = [dic objectForKey:@"refCode"];
+                        [self.navigationController pushViewController:InviteVC animated:YES];
+                    }
+                    else if ([[dic objectForKey:@"uid_level"] intValue] == 2)
+                    {
+                        HDFInviteFriendOtherViewController *otherVc = [[HDFInviteFriendOtherViewController alloc] init];
+                        otherVc.recommendationUrl = [dic objectForKey:@"recommendationUrl"];
+                        otherVc.cashReturned = [[dic objectForKey:@"cashReturned"] integerValue];//邀请人数
+                        otherVc.cashToReturn = [[dic objectForKey:@"cashToReturn"] integerValue];//已返现金
+                        otherVc.couponCashSum = [[dic objectForKey:@"couponCashSum"] integerValue];//待返现金
+                        otherVc.incentive_commission = [[dic objectForKey:@"incentive_commission"] integerValue];//获得现金券
+                        otherVc.invitationCount = [[dic objectForKey:@"invitationCount"] integerValue];//已返积分
+                        otherVc.refCode = [dic objectForKey:@"refCode"];
+                        [self.navigationController pushViewController:otherVc animated:YES];
+                        
+                    }
+                } fail:^(NSError *error) {
+                    
+                    [hud dismiss];
+                }];
+
                 
             }else if (indexPath.row  ==1){
                 //账户中心
