@@ -20,10 +20,12 @@
     self.title  = @"我的卡券";
     self.status = @"1";
     self.page   = 1;
+    self.num = true;
     [self createTableView];
     [self createView];
     [self addHeader];
     [self addFooter];
+  
     [self getCard];
 }
 
@@ -200,10 +202,14 @@
 
 - (void)addFooter {
     WeakObj(self);
-    self.page ++;
-    [self.tableView addFooterWithCallback:^{
-        [selfWeak getCard];
+    
+    if (self.num == false) {
+        self.page ++;
+    }
+        [self.tableView addFooterWithCallback:^{
+        [selfWeak getCard];            
     }];
+    self.num = false;
 }
 
 /*

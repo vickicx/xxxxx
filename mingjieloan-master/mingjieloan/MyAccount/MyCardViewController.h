@@ -23,6 +23,7 @@
 @property (strong, nonatomic) UIImageView * emptyImageView;
 
 @property (strong, nonatomic) UILabel * emptyLabel;
+@property (assign, nonatomic) BOOL num;
 
 @end
 
