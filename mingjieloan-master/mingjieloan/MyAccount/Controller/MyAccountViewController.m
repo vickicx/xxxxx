@@ -48,7 +48,7 @@
     [self createView];
     [self getMYInfo];
     [self getBasicInfo];
-    [self getSigin];
+   
     
     
 }
@@ -159,8 +159,10 @@
                     [alert show];
                 }else {
                     self.qiandao = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];
+                    [self getSigin];
                     [self createqiandaoView];
                     [self.view addSubview:self.qiandao];
+                    
                 }
                 
                 
