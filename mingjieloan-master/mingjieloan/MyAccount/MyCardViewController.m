@@ -86,7 +86,7 @@
     [VVNetWorkTool postWithUrl:Url(MYCASH) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
-        NSLog(@"%@",result);
+        
     } fail:^(NSError *error) {
         
     }];
