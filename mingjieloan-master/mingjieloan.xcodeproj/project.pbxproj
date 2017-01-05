@@ -129,6 +129,9 @@
 		99C27CA11E10BE0800C0B013 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C27C9E1E10BE0800C0B013 /* RegisterViewController.m */; };
 		99C27CA41E10BEB000C0B013 /* JGProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C27CA31E10BEB000C0B013 /* JGProgressHUD+Add.m */; };
 		99C27CAB1E10BEFE00C0B013 /* BaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C27CA61E10BEFE00C0B013 /* BaseService.m */; };
+		99D46DA51E1DEA6A0057BE55 /* qiandaoVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D46DA41E1DEA6A0057BE55 /* qiandaoVCViewController.m */; };
+		99DD60741E1DEEA0002F0C39 /* qiandaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DD60731E1DEEA0002F0C39 /* qiandaoView.m */; };
+		99DD60771E1E1203002F0C39 /* signModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DD60761E1E1203002F0C39 /* signModel.m */; };
 		C328FDFF1E09259B00F541FA /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C328FDFE1E09259B00F541FA /* AFNetworking.framework */; };
 		C328FE021E09282F00F541FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C328FE011E09282F00F541FA /* Assets.xcassets */; };
 		C328FE041E0928D000F541FA /* XXXXXXXXXXX.png in Resources */ = {isa = PBXBuildFile; fileRef = C328FE031E0928D000F541FA /* XXXXXXXXXXX.png */; };
@@ -482,6 +485,12 @@
 		99C27CA81E10BEFE00C0B013 /* Confi&Para.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Confi&Para.pch"; sourceTree = "<group>"; };
 		99C27CA91E10BEFE00C0B013 /* Final.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Final.pch; sourceTree = "<group>"; };
 		99C27CAA1E10BEFE00C0B013 /* UrlManager.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlManager.pch; sourceTree = "<group>"; };
+		99D46DA31E1DEA6A0057BE55 /* qiandaoVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qiandaoVCViewController.h; sourceTree = "<group>"; };
+		99D46DA41E1DEA6A0057BE55 /* qiandaoVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qiandaoVCViewController.m; sourceTree = "<group>"; };
+		99DD60721E1DEEA0002F0C39 /* qiandaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qiandaoView.h; sourceTree = "<group>"; };
+		99DD60731E1DEEA0002F0C39 /* qiandaoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qiandaoView.m; sourceTree = "<group>"; };
+		99DD60751E1E1203002F0C39 /* signModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = signModel.h; path = mingjieloan/MyAccount/View/signModel.h; sourceTree = SOURCE_ROOT; };
+		99DD60761E1E1203002F0C39 /* signModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = signModel.m; path = mingjieloan/MyAccount/View/signModel.m; sourceTree = SOURCE_ROOT; };
 		9BBAB3B4865752B3E365A667 /* Pods_mingjieloan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mingjieloan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C328FDFE1E09259B00F541FA /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "../../Library/Developer/Xcode/DerivedData/mingjieloan-cawitpiheydtebhjjrcuuarlexvl/Build/Products/Debug-iphonesimulator/AFNetworking/AFNetworking.framework"; sourceTree = "<group>"; };
 		C328FE011E09282F00F541FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1465,6 +1474,8 @@
 				3DF8F5D61E12702300D4922C /* DHFChangeLogPassWordVC.m */,
 				99646C701E1C952A00555EEC /* AccountRechargeTableViewController.h */,
 				99646C711E1C952A00555EEC /* AccountRechargeTableViewController.m */,
+				99D46DA31E1DEA6A0057BE55 /* qiandaoVCViewController.h */,
+				99D46DA41E1DEA6A0057BE55 /* qiandaoVCViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1472,6 +1483,8 @@
 		C34FFF1A1E091E8D00FF8C05 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				99DD60751E1E1203002F0C39 /* signModel.h */,
+				99DD60761E1E1203002F0C39 /* signModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1486,6 +1499,8 @@
 				9957F70C1E134E27004A8F66 /* MyAccountTableViewCell.h */,
 				9957F70D1E134E27004A8F66 /* MyAccountTableViewCell.m */,
 				9957F70E1E134E27004A8F66 /* MyAccountTableViewCell.xib */,
+				99DD60721E1DEEA0002F0C39 /* qiandaoView.h */,
+				99DD60731E1DEEA0002F0C39 /* qiandaoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2135,6 +2150,7 @@
 				EA6BB91F1E0EF9F900F28E8C /* PopView.m in Sources */,
 				C38D526A1E13A30E0009E5A0 /* BasicInfo.m in Sources */,
 				9908739D1E12455800354802 /* HYZXHead2View.m in Sources */,
+				99DD60741E1DEEA0002F0C39 /* qiandaoView.m in Sources */,
 				EA5802371E11537800F1A144 /* DHFInviteFriendViewController.m in Sources */,
 				EA6BB8FC1E0ED5CF00F28E8C /* ProductDetailThreeTableViewCell.m in Sources */,
 				990873DE1E12455800354802 /* SQZRViewController.m in Sources */,
@@ -2213,6 +2229,7 @@
 				990873B31E12455800354802 /* HKZCell.m in Sources */,
 				990873DD1E12455800354802 /* LDY_RightChangeViewController.m in Sources */,
 				990873CA1E12455800354802 /* MonthlyReporthFiveCell.m in Sources */,
+				99DD60771E1E1203002F0C39 /* signModel.m in Sources */,
 				990873A81E12455800354802 /* ReturnItems.m in Sources */,
 				9908739C1E12455800354802 /* HYZXCell.m in Sources */,
 				EA6BB9061E0EF1E100F28E8C /* PICircularProgressView.m in Sources */,
@@ -2232,6 +2249,7 @@
 				EA49A4861E0FE8430079A8DB /* TBTableViewCell.m in Sources */,
 				990873981E12455800354802 /* HYTQCell.m in Sources */,
 				990873D61E12455800354802 /* SQZR1TableViewCell.m in Sources */,
+				99D46DA51E1DEA6A0057BE55 /* qiandaoVCViewController.m in Sources */,
 				990873C21E12455800354802 /* WDJFCollectionViewCell.m in Sources */,
 				EA49A4831E0FE4D30079A8DB /* DHFTBViewController.m in Sources */,
 				3DF8F5C11E123EF300D4922C /* DHFUserCenterCell.m in Sources */,

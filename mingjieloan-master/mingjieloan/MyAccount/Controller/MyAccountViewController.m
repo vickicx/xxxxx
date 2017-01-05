@@ -48,6 +48,7 @@
     [self createView];
     [self getMYInfo];
     [self getBasicInfo];
+    [self getSigin];
     
     
 }
@@ -150,8 +151,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0:
+            //签到获取积分
+
             if (indexPath.row == 0) {
-                //签到获取积分
+                if (self.userInfo.is_sign.boolValue == true) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您已签到" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                    [alert show];
+                }else {
+                    self.qiandao = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];
+                    [self createqiandaoView];
+                    [self.view addSubview:self.qiandao];
+                }
+                
                 
             }else if (indexPath.row  ==1){
                 //会员中心(完成)
@@ -252,6 +263,55 @@
             break;
     }
     NSLog(@"%ld, %ld", indexPath.row, indexPath.section);
+}
+
+//签到
+-(void)createqiandaoView {
+  
+    UIView *background = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.qiandao.width, self.qiandao.height)];
+    background.backgroundColor = [UIColor grayColor];
+    background.alpha = 0.8;
+    [self.qiandao addSubview: background];
+    
+    UIImageView *images = [[UIImageView alloc] initWithFrame:CGRectMake(29 *FitWidth, 159 * FitHeight, kWIDTH - 60 *FitWidth, kHEIGHT - 300 * FitHeight)];
+    
+    UILabel *qiandaolabel = [[UILabel alloc] initWithFrame:CGRectMake(130 *FitWidth, 300*FitHeight, 160 * FitWidth, 40 * FitHeight)];
+    
+    if ([self.signModel.signCnt isEqualToString:@"0"]) {
+         images.image = [UIImage imageNamed:@"sign-60"];
+        qiandaolabel.text = @"连续签到7天";
+    }else {
+        images.image = [UIImage imageNamed:@"sign-10"];
+        qiandaolabel.text = [NSString stringWithFormat:@"连续签到%@天",self.signModel.signCnt];
+    }
+    
+    
+    UIButton *knowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    knowBtn.frame = CGRectMake(130 * FitWidth, kHEIGHT - 225 * FitHeight, 160 * FitWidth, 60 * FitHeight);
+    [knowBtn addTarget:self action:@selector(knowBtnDidSelected:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [self.qiandao addSubview:images];
+    [self.qiandao addSubview:qiandaolabel];
+    [self.qiandao addSubview:knowBtn];
+
+    
+}
+
+-(void)knowBtnDidSelected:(UIButton *)button {
+    [self.qiandao removeFromSuperview];
+}
+
+-(void)getSigin{
+    NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]};
+    [VVNetWorkTool postWithUrl:Url(SIGN) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
+        self.signModel = [[signModel alloc] initWithDictionary:result];
+        
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 - (void)getMYInfo {
