@@ -160,11 +160,11 @@
                 }else {
                     self.qiandao = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT)];
                     [self getSigin];
-                    [self createqiandaoView];
+                
                     [self.view addSubview:self.qiandao];
                     
                 }
-                
+            
                 
             }else if (indexPath.row  ==1){
                 //会员中心(完成)
@@ -277,7 +277,8 @@
     
     UIImageView *images = [[UIImageView alloc] initWithFrame:CGRectMake(29 *FitWidth, 159 * FitHeight, kWIDTH - 60 *FitWidth, kHEIGHT - 300 * FitHeight)];
     
-    UILabel *qiandaolabel = [[UILabel alloc] initWithFrame:CGRectMake(130 *FitWidth, 300*FitHeight, 160 * FitWidth, 40 * FitHeight)];
+    UILabel *qiandaolabel = [[UILabel alloc] initWithFrame:CGRectMake(150 *FitWidth, 225*FitHeight, 160 * FitWidth, 40 * FitHeight)];
+    qiandaolabel.textColor = [XXColor labelGoldenColor];
     
     if ([self.signModel.signCnt isEqualToString:@"0"]) {
          images.image = [UIImage imageNamed:@"sign-60"];
@@ -310,7 +311,7 @@
         
     } success:^(id result) {
         self.signModel = [[signModel alloc] initWithDictionary:result];
-        
+         [self createqiandaoView];
     } fail:^(NSError *error) {
         
     }];
