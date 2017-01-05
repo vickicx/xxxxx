@@ -135,12 +135,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MyCardTableViewCell *cell = [[MyCardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    
     if (!cell) {
         cell = [[MyCardTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"%ldcell",indexPath.row]];
     }
     cell.model = self.dataSource[indexPath.row];
+    cell.delegate = self;
     
     return cell;
+}
+
+- (void)useCard {
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -186,6 +192,7 @@
 
 - (void)addHeader {
     WeakObj(self);
+    self.page = 1;
     [self.tableView addHeaderWithCallback:^{
         [selfWeak getCard];
     }];
@@ -193,6 +200,7 @@
 
 - (void)addFooter {
     WeakObj(self);
+    self.page ++;
     [self.tableView addFooterWithCallback:^{
         [selfWeak getCard];
     }];

@@ -7,8 +7,9 @@
 //
 
 #import "SubBaseViewController.h"
+#import "MyCardTableViewCell.h"
 #import "MyCardModel.h"
-@interface MyCardViewController : SubBaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface MyCardViewController : SubBaseViewController<UITableViewDelegate,UITableViewDataSource,UseCardDeledate>
 
 @property (strong, nonatomic) UITableView   * tableView;
 @property (strong, nonatomic) NSArray       * dataSource;
