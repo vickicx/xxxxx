@@ -7,13 +7,15 @@
 //
 
 #import "SubBaseViewController.h"
-
+#import "MyCardModel.h"
 @interface MyCardViewController : SubBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView   * tableView;
 @property (strong, nonatomic) NSArray       * dataSource;
 @property (assign, nonatomic) int  page;
 @property (strong, nonatomic) NSString * status;
+
+@property (strong, nonatomic) MyCardModel * model;
 
 @end
 

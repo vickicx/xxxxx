@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyCardModel.h"
+
+@protocol UseCardDeledate <NSObject>
+
+- (void)useCard;
+
+@end
 
 @interface MyCardTableViewCell : UITableViewCell
 @property (strong, nonatomic) UIImageView   * bgIV;
@@ -18,6 +25,10 @@
 @property (strong, nonatomic) UIButton      * useBtn;
 @property (strong, nonatomic) UIImageView   * circleImageView;
 @property (strong, nonatomic) UILabel       * quanTypeLabel;
-@property (strong, nonatomic) UIImageView   * userImageView;
+@property (strong, nonatomic) UIImageView   * usedImageView;
+
+@property (assign, nonatomic) id<UseCardDeledate>delegate;
+
+@property (strong, nonatomic) MyCardModel * model;
 
 @end
