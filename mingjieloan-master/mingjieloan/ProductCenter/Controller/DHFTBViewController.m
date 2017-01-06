@@ -20,6 +20,11 @@
     
     self.title = @"投标";
     
+    [self getMYInfo];
+    
+    [self getBasicInfo];
+
+    
     NSDictionary * titleDict=[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:UITextAttributeTextColor];
     self.navigationController.navigationBar.titleTextAttributes = titleDict;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -62,13 +67,31 @@
 
 //跳到优惠券界面
 - (void)userQuanAction{
+    if([self.money intValue] > 0)
+    {
     DHFUserCouponViewController *useCouponVC = [[DHFUserCouponViewController alloc] init];
     useCouponVC.productID = self.idNumber;
-    [useCouponVC returnCouponBlock:^(NSString *CouponStr) {
     
+    __weak DHFTBViewController *weakSelf = self;
+    [useCouponVC returnCouponBlock:^(DHFCouponModel *couponModel) {
+        weakSelf.couponModel = couponModel;
+        
+        [_userButton setTitle:[NSString stringWithFormat:@"%@元", weakSelf.couponModel.cash_price] forState:UIControlStateNormal];
     
     }];
     [self.navigationController pushViewController:useCouponVC animated:YES];
+    }
+    else
+    {
+        JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+        hud1.tag = 1;
+        hud1.indicatorView = nil;
+        hud1.textLabel.text = @"请先填写投资金额";
+        hud1.delegate = self;
+        hud1.position = 0;
+        [hud1 showInView:self.view];
+        [hud1 dismissAfterDelay:2.0];
+    }
 }
 
 //同意协议
@@ -110,16 +133,16 @@
     int money  = [self.money intValue];
     if (self.agreeBtn.selected == YES) {
         //2，用户输入金额不能为空
-        if(self.money < 0){
+        if(self.money > 0){
             //3，检查用户输入的金额必须小于等于用户可用余额 available
             if (money <= [[BasicInfo sharedInstance].available intValue]){
                 //4，检查用户输入的金额必须是baseLimitAmount的整数倍
-                double x = money / self.detailModel.singlePurchaseLowerLimit;
+                double x = money / self.detailModel.singlePurchaseLowerLimit / 100;
                 if ((int)x == x) {
                     //检查用户输入的金额必须大于最小购买金额 singlePurchaseLowerLimit
-                    if (money > self.detailModel.singlePurchaseLowerLimit) {
+                    if (money >= self.detailModel.singlePurchaseLowerLimit / 100) {
                         //6，检查用户输入的金额必须小于等于产品剩余可购买金额 remainingInvestmentAmount
-                        if (money <= self.detailModel.remainingInvestmentAmount) {
+                        if (money <= self.detailModel.remainingInvestmentAmount / 100) {
                             //投标
                             [self TBAction];
                         }
@@ -164,7 +187,7 @@
                 JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
                 hud1.tag = 1;
                 hud1.indicatorView = nil;
-                hud1.textLabel.text = @"投资金额需要小于等于用户可用余额";
+                hud1.textLabel.text = @"余额不足请充值";
                 hud1.delegate = self;
                 hud1.position = 0;
                 [hud1 showInView:self.view];
@@ -212,13 +235,14 @@
     
     NSString *idStr = @"id";
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    NSLog(@"%@", self.money);
     //没选择优惠券
-    if (self.coupon == nil) {
+    if (self.couponModel == nil) {
         dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.idNumber, idStr, [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"], @"sid", self.money, @"amount", nil];
     }
     else
     {
-        dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.idNumber, idStr, [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"], @"sid", self.money, @"amount", @"", @"cash", @"", @"type_flag", @"", @"rate_coupon_send_id", nil];
+        dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.idNumber, idStr, [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"], @"sid", self.money, @"amount", self.couponModel.cash_price, @"cash", [NSString stringWithFormat:@"%ld", self.couponModel.type_flag], @"type_flag", [NSString stringWithFormat:@"%ld", self.couponModel.rate_coupon_send_id], @"rate_coupon_send_id", nil];
     }
     
     NSString *pinjie = [NSString stringWithFormat:@"/product/%@/order/pay", _idNumber];
@@ -230,8 +254,18 @@
         
     } success:^(id result) {
         [hud dismiss];
+        
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@", dic);
         int status = [[dic objectForKey:@"status"] intValue];
+//        JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+//        hud1.tag = 1;
+//        hud1.indicatorView = nil;
+//        hud1.textLabel.text = [dic objectForKey:@"msg"];
+//        hud1.delegate = self;
+//        hud1.position = 0;
+//        [hud1 showInView:self.view];
+//        [hud1 dismissAfterDelay:2.0];
         if (status == 0) {
             NSString *uri = [dic objectForKey:@"uri"];
             NSString *req = [dic objectForKey:@"req"];
@@ -301,10 +335,10 @@
         return  cell;
     }
     
-    int money =  [[BasicInfo sharedInstance].available intValue];
+    float money =  [[BasicInfo sharedInstance].available intValue] / 100.f;
     if(indexPath.row == 1){
         TBTableViewCell *cell = [[TBTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TBcell"];
-        NSMutableAttributedString *ketoustr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"可用金额: %d", money]];
+        NSMutableAttributedString *ketoustr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"可用金额: %.2f", money]];
         [ketoustr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,4)];
         cell.useMoneyLab.attributedText = ketoustr;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -337,11 +371,12 @@
     _myCardLab.text = @"我的卡券";
     [bottomView addSubview:_myCardLab];
     
-    self.userButton = [[UIButton alloc] initWithFrame:CGRectMake(kWIDTH - 55, 0, 40, 45)];
+    self.userButton = [[UIButton alloc] initWithFrame:CGRectMake(kWIDTH - 90, 0, 65, 45)];
     [_userButton addTarget:self action:@selector(userQuanAction) forControlEvents:UIControlEventTouchUpInside];
     [_userButton setTitleColor:[XXColor labelGoldenColor] forState:UIControlStateNormal];
     [_userButton setTitle:@"使用" forState:UIControlStateNormal];
     _userButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    _userButton.titleLabel.textAlignment = NSTextAlignmentRight;
     [bottomView addSubview:_userButton];
     
     self.rightImg = [[UIImageView alloc] initWithFrame:CGRectMake(kWIDTH - 25, 14, 16, 16)];
@@ -399,6 +434,32 @@
     [bottomView addSubview:_warningLabel];
     
     self.tableView.tableFooterView = bottomView;
+}
+
+- (void)getMYInfo {
+    NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]};
+    [VVNetWorkTool postWithUrl:Url(MY) body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
+        [self.userInfo setValuesForKeysWithDictionary:result];
+        [self.tableView reloadData];
+    } fail:^(NSError *error) {
+        
+    }];
+}
+
+
+
+- (void)getBasicInfo {
+    NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]};
+    [VVNetWorkTool postWithUrl:Url(MYBASIC) body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
+        
+    } success:^(id result) {
+        [self.basicInfo setValuesForKeysWithDictionary:result];
+        [self.tableView reloadData];
+    } fail:^(NSError *error) {
+        
+    }];
 }
 
 

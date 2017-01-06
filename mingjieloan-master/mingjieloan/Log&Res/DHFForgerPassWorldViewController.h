@@ -1,15 +1,14 @@
 //
-//  RegisterViewController.h
+//  DHFForgerPassWorldViewController.h
 //  mingjieloan
 //
-//  Created by vicki on 2016/12/20.
-//  Copyright © 2016年 vicki. All rights reserved.
+//  Created by kang on 17/1/6.
+//  Copyright © 2017年 mingjie. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "SubBaseViewController.h"
 
-
-@interface RegisterViewController : BaseViewController
+@interface DHFForgerPassWorldViewController : SubBaseViewController
 
 @property (strong, nonatomic) UITextField * nameField;
 @property (strong, nonatomic) UITextField * duanxinField;

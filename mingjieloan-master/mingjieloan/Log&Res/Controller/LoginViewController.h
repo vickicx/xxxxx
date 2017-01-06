@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "DHFForgerPassWorldViewController.h"
 
 @interface LoginViewController : BaseViewController
 

@@ -8,8 +8,9 @@
 
 #import "SubBaseViewController.h"
 #import "DHFUseCouponTableViewCell.h"
+#import "DHFCouponModel.h"
 
-typedef void(^ReturnCouponInfo)(NSString *CouponStr);
+typedef void(^ReturnCouponInfo)(DHFCouponModel *couponModel);
 
 
 @interface DHFUserCouponViewController : SubBaseViewController

@@ -35,7 +35,7 @@
     _cricle_smal.image = [UIImage imageNamed:@"circle_small"];
     [_cashBG addSubview:_cricle_smal];
     
-    self.cashPrice = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 65, 25)];
+    self.cashPrice = [[UILabel alloc] initWithFrame:CGRectMake(-10, 20, 85, 25)];
     _cashPrice.font = [UIFont systemFontOfSize: 16 * FitHeight];
     _cashPrice.textAlignment = NSTextAlignmentCenter;
     _cashPrice.textColor = [UIColor whiteColor];
@@ -63,6 +63,18 @@
     _activeTime.textAlignment = NSTextAlignmentCenter;
     _activeTime.text = @"(有效期至：2017.01.23)";
     [_cashBG addSubview:_activeTime];
+    
+    
+    
+}
+
+
+- (void)setCouponModel:(DHFCouponModel *)couponModel{
+    _couponModel = couponModel;
+    
+    _cashPrice.text = [NSString stringWithFormat:@"￥%@元", _couponModel.cash_price];
+    _cashDes.text = _couponModel.cash_desc;
+    _activeTime.text = _couponModel.end_time;
     
     
     

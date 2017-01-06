@@ -21,7 +21,7 @@
 
 #import "BasicInfo.h"
 #import "DHFUserCouponViewController.h"//使用优惠券
-
+#import "DHFCouponModel.h"
 @interface DHFTBViewController : SubBaseViewController
 
 @property (nonatomic, strong)UITableView *tableView;
@@ -38,7 +38,10 @@
 @property (nonatomic, strong)UIButton *touziBtn;
 @property (nonatomic, strong)UILabel *warningLabel;
 
-@property (nonatomic, copy)NSString *coupon;
+@property (strong, nonatomic) UserInfo * userInfo;
+
+@property (strong, nonatomic) BasicInfo * basicInfo;
+
 @property (nonatomic, copy)NSString *money;
 @property (nonatomic, copy)NSString *idNumber;
 @property (nonatomic, strong)ProductDetailModel *detailModel;
@@ -46,7 +49,7 @@
 @property (nonatomic, strong)pApplicationCheckModel *checkModel;
 @property (nonatomic, strong)NSMutableArray *informaModel;
 @property (nonatomic, strong)NSMutableDictionary *productDic;
-
+@property (nonatomic, strong)DHFCouponModel *couponModel;
 
 
 @end

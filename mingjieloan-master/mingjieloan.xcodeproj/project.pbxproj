@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D1ED8201E0BCB8800C99500 /* DHFProductCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D1ED81F1E0BCB8800C99500 /* DHFProductCenterCell.m */; };
+		3D2CA6601E1F61CE0076A8F3 /* DHFCouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2CA65F1E1F61CE0076A8F3 /* DHFCouponModel.m */; };
+		3D2CA6631E1F79600076A8F3 /* DHFForgerPassWorldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2CA6621E1F79600076A8F3 /* DHFForgerPassWorldViewController.m */; };
 		3D7A3B0D1E15F54100B176A4 /* ProductOrdersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B0C1E15F54100B176A4 /* ProductOrdersModel.m */; };
 		3D7A3B101E16016E00B176A4 /* ProductRepayPlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B0F1E16016E00B176A4 /* ProductRepayPlanModel.m */; };
 		3D7A3B131E160AD100B176A4 /* ProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7A3B121E160AD100B176A4 /* ProductDetailModel.m */; };
@@ -244,6 +246,10 @@
 		26881E88DCFA1D6C6A4F40A0 /* Pods-mingjieloan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mingjieloan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mingjieloan/Pods-mingjieloan.debug.xcconfig"; sourceTree = "<group>"; };
 		3D1ED81E1E0BCB8800C99500 /* DHFProductCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFProductCenterCell.h; path = mingjieloan/ProductCenter/Controller/DHFProductCenterCell.h; sourceTree = SOURCE_ROOT; };
 		3D1ED81F1E0BCB8800C99500 /* DHFProductCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFProductCenterCell.m; path = mingjieloan/ProductCenter/Controller/DHFProductCenterCell.m; sourceTree = SOURCE_ROOT; };
+		3D2CA65E1E1F61CE0076A8F3 /* DHFCouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHFCouponModel.h; path = mingjieloan/ProductCenter/Controller/DHFCouponModel.h; sourceTree = SOURCE_ROOT; };
+		3D2CA65F1E1F61CE0076A8F3 /* DHFCouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DHFCouponModel.m; path = mingjieloan/ProductCenter/Controller/DHFCouponModel.m; sourceTree = SOURCE_ROOT; };
+		3D2CA6611E1F79600076A8F3 /* DHFForgerPassWorldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHFForgerPassWorldViewController.h; sourceTree = "<group>"; };
+		3D2CA6621E1F79600076A8F3 /* DHFForgerPassWorldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHFForgerPassWorldViewController.m; sourceTree = "<group>"; };
 		3D7A3B0B1E15F54100B176A4 /* ProductOrdersModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductOrdersModel.h; path = mingjieloan/MoreInfo/Controller/ProductOrdersModel.h; sourceTree = SOURCE_ROOT; };
 		3D7A3B0C1E15F54100B176A4 /* ProductOrdersModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductOrdersModel.m; path = mingjieloan/MoreInfo/Controller/ProductOrdersModel.m; sourceTree = SOURCE_ROOT; };
 		3D7A3B0E1E16016E00B176A4 /* ProductRepayPlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductRepayPlanModel.h; path = mingjieloan/MoreInfo/Controller/ProductRepayPlanModel.h; sourceTree = SOURCE_ROOT; };
@@ -1232,6 +1238,8 @@
 				99C27C9C1E10BE0800C0B013 /* LoginViewController.m */,
 				99C27C9D1E10BE0800C0B013 /* RegisterViewController.h */,
 				99C27C9E1E10BE0800C0B013 /* RegisterViewController.m */,
+				3D2CA6611E1F79600076A8F3 /* DHFForgerPassWorldViewController.h */,
+				3D2CA6621E1F79600076A8F3 /* DHFForgerPassWorldViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1576,6 +1584,8 @@
 				3D7A3B0C1E15F54100B176A4 /* ProductOrdersModel.m */,
 				3D7A3B0E1E16016E00B176A4 /* ProductRepayPlanModel.h */,
 				3D7A3B0F1E16016E00B176A4 /* ProductRepayPlanModel.m */,
+				3D2CA65E1E1F61CE0076A8F3 /* DHFCouponModel.h */,
+				3D2CA65F1E1F61CE0076A8F3 /* DHFCouponModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2159,6 +2169,7 @@
 				990873B91E12455800354802 /* JFSRCell.m in Sources */,
 				990873C11E12455800354802 /* JFGZCell.m in Sources */,
 				EA1F05351E1947C700DCE82C /* DHFForgerhandVC.m in Sources */,
+				3D2CA6601E1F61CE0076A8F3 /* DHFCouponModel.m in Sources */,
 				3DA320F61E111A930029F745 /* DHFNoticeDetailViewController.m in Sources */,
 				990873C81E12455800354802 /* WDXXMonthlyReportModel.m in Sources */,
 				99C27CA41E10BEB000C0B013 /* JGProgressHUD+Add.m in Sources */,
@@ -2257,6 +2268,7 @@
 				990873C01E12455800354802 /* ExchangeView.m in Sources */,
 				EA49A4411E0F91940079A8DB /* DHFReportViewController.m in Sources */,
 				3DF446701E14F5C9005FFF85 /* DHFProductDetail_GZXXCell.m in Sources */,
+				3D2CA6631E1F79600076A8F3 /* DHFForgerPassWorldViewController.m in Sources */,
 				990873B31E12455800354802 /* HKZCell.m in Sources */,
 				990873DD1E12455800354802 /* LDY_RightChangeViewController.m in Sources */,
 				990873CA1E12455800354802 /* MonthlyReporthFiveCell.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DHFCouponModel.h"
 
 @interface DHFUseCouponTableViewCell : UITableViewCell
 
@@ -18,5 +19,6 @@
 @property (nonatomic, strong)UILabel *activeTime;
 @property (nonatomic, strong)UILabel *quanTypeLabel;
 @property (nonatomic, assign)BOOL isSelected;
+@property (nonatomic, strong)DHFCouponModel *couponModel;
 
 @end

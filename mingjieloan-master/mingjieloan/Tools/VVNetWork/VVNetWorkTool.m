@@ -181,7 +181,7 @@
     }
     
     //5.判断返回值所接收的具体类型
-    [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil]];
+    [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", @"image/jpeg", nil]];
     //6.post请求
     
     NSString *resultStr = url;

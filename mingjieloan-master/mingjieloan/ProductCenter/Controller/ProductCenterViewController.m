@@ -22,6 +22,7 @@
     
     self.tabBarController.tabBar.hidden = false;
     [self dataDownHandle];
+
 }
 
 
@@ -432,6 +433,10 @@
         //            NSLog(@"error  %@",error);
     }];
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

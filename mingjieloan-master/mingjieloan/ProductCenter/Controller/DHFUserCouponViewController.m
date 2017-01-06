@@ -10,7 +10,7 @@
 
 @interface DHFUserCouponViewController ()
 
-<UITableViewDelegate, UITableViewDataSource>
+<UITableViewDelegate, UITableViewDataSource, JGProgressHUDDelegate>
 
 @property (nonatomic, assign)BOOL isUPLoad;//判断上下
 @property (nonatomic, assign) NSInteger page;
@@ -58,9 +58,27 @@
     self.returnCouponBlock = block;
 }
 - (void)confirmUseCashList{
-    if (self.returnCouponBlock != nil) {
-        self.returnCouponBlock(@"呵呵哒");
+    
+    if (self.selectedIndexPath != nil) {
+        DHFCouponModel *couponModel = [self.mainArr objectAtIndex:_selectedIndexPath.row];
+        if (self.returnCouponBlock != nil) {
+            self.returnCouponBlock(couponModel);
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
+    else
+    {
+        JGProgressHUD *hud1 = [[JGProgressHUD alloc]init];
+        hud1.tag = 1;
+        hud1.indicatorView = nil;
+        hud1.textLabel.text = @"请选择优惠券";
+        hud1.delegate = self;
+        hud1.position = 0;
+        [hud1 showInView:self.view];
+        [hud1 dismissAfterDelay:2.0];
+    }
+    
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -68,7 +86,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.mainArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -77,9 +95,7 @@
     if (cell == nil) {
         cell = [[DHFUseCouponTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    if (_mainArr.count > 0) {
-        
-    }
+    cell.couponModel = [self.mainArr objectAtIndex:indexPath.row];
     if(cell.isSelected)
     {
         cell.selectedImg.image = [UIImage imageNamed:@"circle_small"];
@@ -155,21 +171,12 @@
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableContainers error:nil];
         NSLog(@"%@",dic);
         
-        NSMutableArray *dataArray = [[dic objectForKey:@"articles"] objectForKey:@"items"];
+        NSMutableArray *dataArray = [dic objectForKey:@"val"];
         
         for (NSDictionary *dic in dataArray) {
-            
-            NoticeModel *model = [[NoticeModel alloc] init];
-            
-            [model setValuesForKeysWithDictionary:dic];
-            
-            
-            [self.mainArr addObject:model];
-        }
-        
-        if (self.mainArr.count > 0) {
-            
-     
+            DHFCouponModel *couponModel = [[DHFCouponModel alloc] init];
+            [couponModel setValuesForKeysWithDictionary:dic];
+            [self.mainArr addObject:couponModel];
         }
         [_tableView headerEndRefreshing];
         [_tableView footerEndRefreshing];

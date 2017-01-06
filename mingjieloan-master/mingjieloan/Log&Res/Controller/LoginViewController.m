@@ -145,8 +145,8 @@
 }
 
 - (void)forgetButton:(UIButton *)button {
-    ForgetViewController *forget = [[ForgetViewController alloc] init];
-    [self.navigationController pushViewController:forget animated:YES];
+    DHFForgerPassWorldViewController *forgetVC = [[DHFForgerPassWorldViewController alloc] init];
+    [self.navigationController pushViewController:forgetVC animated:YES];
 }
 
 - (void)loginButton:(UIButton *)button {

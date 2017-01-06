@@ -23,7 +23,7 @@
 #import "PApplicationModel.h"//借款 人信息Model
 #import "pApplicationCheckModel.h"//审核信息
 #import "InformationModel.h"
-
+#import "DHFCouponModel.h"
 
 @interface DHFTwoProductDetailViewController : SubBaseViewController
 @property (nonatomic, strong)UIButton *TBJLButton;

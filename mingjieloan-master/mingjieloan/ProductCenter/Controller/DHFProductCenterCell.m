@@ -110,6 +110,7 @@
     
     self.nameLab.text = productModel.name;
     
+    _purchaseBtn.frame = CGRectMake(kWIDTH - 75, 30, 60, 30);
     
     switch (_productModel.newstatus) {
         case 1:
@@ -122,7 +123,8 @@
             break;
             
         case 3:
-            _purchaseBtn.text = @"预约";
+            _purchaseBtn.frame = CGRectMake(kWIDTH - 135, 30, 120, 30);
+            _purchaseBtn.text = @"12/29 14:00";
             _purchaseBtn.backgroundColor = [XXColor purchaseBtnBgrdColor];
             break;
         case 4:

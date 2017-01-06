@@ -48,10 +48,11 @@
     [self createView];
     [self getMYInfo];
     [self getBasicInfo];
-   
-    
+
     
 }
+
+
 -(void)rightButton:(UIButton *)button {
     WDXXViewController *wdxxVc = [[WDXXViewController alloc] init];
     wdxxVc.sid =  [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"];
@@ -75,7 +76,7 @@
     _headView.recharge = self;
     [self.view addSubview:_headView];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH, kHEIGHT ) style:UITableViewStyleGrouped];
     self.tableView.tableHeaderView = _headView;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -332,10 +333,17 @@
 
 
 - (void)getBasicInfo {
+    JGProgressHUD *hud = [[JGProgressHUD alloc] initWithStyle:0];
+    
+    hud.textLabel.text = @"loading...";
+    
+    [hud showInView:self.view];
+
     NSDictionary *dic = @{@"sid":[[NSUserDefaults standardUserDefaults] objectForKey:@"sid"]};
     [VVNetWorkTool postWithUrl:Url(MYBASIC) body:dic bodyType:1 httpHeader:nil responseType:0 progress:^(NSProgress *progress) {
         
     } success:^(id result) {
+        [hud dismiss];
         [self.basicInfo setValuesForKeysWithDictionary:result];
         self.headView.basicInfo = self.basicInfo;
         _titleText.text = self.basicInfo.name;
