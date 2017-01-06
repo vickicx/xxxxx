@@ -1881,6 +1881,7 @@
 				TargetAttributes = {
 					C34FFE8B1E0914CA00FF8C05 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = E56GQQ9W6V;
 						ProvisioningStyle = Automatic;
 					};
 					C34FFEA41E0914CA00FF8C05 = {
@@ -2438,6 +2439,7 @@
 			baseConfigurationReference = 26881E88DCFA1D6C6A4F40A0 /* Pods-mingjieloan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E56GQQ9W6V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -2458,6 +2460,7 @@
 			baseConfigurationReference = 00A76CC3E42835EA1D2C3A4D /* Pods-mingjieloan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E56GQQ9W6V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",

@@ -32,11 +32,11 @@
     
     
     
-    UILabel *ruleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * FitWidth, 0 * FitHeight + 64, 200 * FitWidth, 45 * FitHeight)];
+    UILabel *ruleTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * FitWidth, 0 * FitHeight, 200 * FitWidth, 45 * FitHeight)];
     [self.view addSubview:ruleTitleLabel];
     ruleTitleLabel.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    UILabel *ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * FitWidth, 0 * FitHeight + 64 + ruleTitleLabel.frame.size.height, kWIDTH - 25 * FitWidth, 400 * FitHeight)];
+    UILabel *ruleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * FitWidth, 0 * FitHeight + ruleTitleLabel.frame.size.height, kWIDTH - 25 * FitWidth, 400 * FitHeight)];
     [self.view addSubview:ruleLabel];
     ruleLabel.backgroundColor = [UIColor groupTableViewBackgroundColor];
     

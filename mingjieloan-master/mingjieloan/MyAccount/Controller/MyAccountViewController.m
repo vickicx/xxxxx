@@ -122,7 +122,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *imagearr = @[@"sign-11",@"huiyuanzhongxin",@"jiaoyijilu",@"xianjinquan",@"zhaiquanzhuanrang",@"yaoqingma",@"touzijilu",@"zhanghuzhongxin"];
-    NSArray *labelarr = @[@"签到获取积分",@"会员中心",@"我的积分",@"我的卡卷",@"债权转让",@"回款计划",@"我的邀请",@"账户中心"];
+    NSArray *labelarr = @[@"签到获取积分",@"会员中心",@"我的积分",@"我的卡劵",@"债权转让",@"回款计划",@"我的邀请",@"账户中心"];
     
     MyAccountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCellIdentifier"];
     
@@ -180,7 +180,7 @@
                 
                 [self.navigationController pushViewController:jfViewController animated:YES];
             }else {
-                //我的卡卷
+                //我的卡劵
                 MyCardViewController *mycard = [[MyCardViewController alloc] init];
                 [self.navigationController pushViewController:mycard animated:YES];
             }
@@ -274,9 +274,9 @@
     background.alpha = 0.8;
     [self.qiandao addSubview: background];
     
-    UIImageView *images = [[UIImageView alloc] initWithFrame:CGRectMake(29 *FitWidth, 159 * FitHeight, kWIDTH - 60 *FitWidth, kHEIGHT - 300 * FitHeight)];
+    UIImageView *images = [[UIImageView alloc] initWithFrame:CGRectMake(29 *FitWidth, 109 * FitHeight, kWIDTH - 60 *FitWidth, kHEIGHT - 300 * FitHeight)];
     
-    UILabel *qiandaolabel = [[UILabel alloc] initWithFrame:CGRectMake(150 *FitWidth, 225*FitHeight, 160 * FitWidth, 40 * FitHeight)];
+    UILabel *qiandaolabel = [[UILabel alloc] initWithFrame:CGRectMake(150 *FitWidth, 175*FitHeight, 160 * FitWidth, 40 * FitHeight)];
     qiandaolabel.textColor = [XXColor labelGoldenColor];
     
     if ([self.signModel.signCnt isEqualToString:@"0"]) {
@@ -289,7 +289,7 @@
     
     
     UIButton *knowBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    knowBtn.frame = CGRectMake(130 * FitWidth, kHEIGHT - 225 * FitHeight, 160 * FitWidth, 60 * FitHeight);
+    knowBtn.frame = CGRectMake(130 * FitWidth, kHEIGHT - 275 * FitHeight, 160 * FitWidth, 60 * FitHeight);
     [knowBtn addTarget:self action:@selector(knowBtnDidSelected:) forControlEvents:UIControlEventTouchUpInside];
     
     

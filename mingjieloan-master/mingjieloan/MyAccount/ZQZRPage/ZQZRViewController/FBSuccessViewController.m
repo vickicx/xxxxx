@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    UIImageView *successImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, kWIDTH,kHEIGHT - 54)];
+    UIImageView *successImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kWIDTH,kHEIGHT - 54)];
     [self.view addSubview:successImageView];
     successImageView.image = [UIImage imageNamed:@"shenqingyifabu"];
     

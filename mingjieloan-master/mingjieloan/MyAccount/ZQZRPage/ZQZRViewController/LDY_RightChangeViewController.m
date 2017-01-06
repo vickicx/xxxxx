@@ -81,21 +81,7 @@
 /**
  *XXXXXXX
  */
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
-    if (self) {
-        
-        self.kzrArr = [NSMutableArray array];
-        
-        self.zrzArr = [NSMutableArray array];
-        
-        self.yzrArr = [NSMutableArray array];
-    }
-    
-    return self;
-}
+
 
 /**
  *XXXXXXX
@@ -113,6 +99,12 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.kzrArr = [NSMutableArray array];
+    
+    self.zrzArr = [NSMutableArray array];
+    
+    self.yzrArr = [NSMutableArray array];
+
     
     self.kzrPage = 1;
     self.zrzPage = 1;
@@ -245,13 +237,13 @@
     
     [self createYZRtableView];
     
-    self.kzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, kWIDTH - 210 * FitWidth, 110 * FitHeight)];
+    self.kzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight , kWIDTH - 210 * FitWidth, 110 * FitHeight)];
     
     [self.kZRTableView addSubview:self.kzrEmptyImageView];
     
     self.kzrEmptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.kzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.kzrEmptyImageView.frame.size.height - 64, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
+    self.kzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.kzrEmptyImageView.frame.size.height, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     
     [self.kZRTableView addSubview:self.kzrEmptyLabel];
     
@@ -267,13 +259,13 @@
     
     self.kzrEmptyLabel.hidden = YES;
     
-    self.zrzEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, kWIDTH - 210 * FitWidth, 110 * FitHeight)];
+    self.zrzEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight , kWIDTH - 210 * FitWidth, 110 * FitHeight)];
     
     [self.zRZTableView addSubview:self.zrzEmptyImageView];
     
     self.zrzEmptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.zrzEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.zrzEmptyImageView.frame.size.height - 64, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
+    self.zrzEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.zrzEmptyImageView.frame.size.height , kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     
     [self.zRZTableView addSubview:self.zrzEmptyLabel];
     
@@ -290,13 +282,13 @@
     self.zrzEmptyLabel.hidden = YES;
     
     
-    self.yzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight - 64, kWIDTH - 210 * FitWidth, 110 * FitHeight)];
+    self.yzrEmptyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(105 * FitWidth, 270 * FitHeight , kWIDTH - 210 * FitWidth, 110 * FitHeight)];
     
     [self.yZRTableView addSubview:self.yzrEmptyImageView];
     
     self.yzrEmptyImageView.image = [UIImage imageNamed:@"empty"];
     
-    self.yzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.yzrEmptyImageView.frame.size.height - 64, kWIDTH - 210 * FitWidth, 40 * FitHeight)];
+    self.yzrEmptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(105 * FitWidth , 280 * FitHeight + self.yzrEmptyImageView.frame.size.height , kWIDTH - 210 * FitWidth, 40 * FitHeight)];
     
     [self.yZRTableView addSubview:self.yzrEmptyLabel];
     
@@ -818,7 +810,7 @@
  */
 - (void)createYZRtableView {
     
-    self.yZRTableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 2, 0, kWIDTH, [UIScreen mainScreen].bounds.size.height - 64 *FitHeight - 55 * FitHeight) style:UITableViewStyleGrouped];
+    self.yZRTableView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 2, 0, kWIDTH, [UIScreen mainScreen].bounds.size.height - 55 * FitHeight) style:UITableViewStyleGrouped];
     
     [self.scrollView addSubview:self.yZRTableView];
     

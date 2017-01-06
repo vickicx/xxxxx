@@ -131,7 +131,7 @@
     self.warnLabel =  [[UILabel alloc] initWithFrame:CGRectMake(54*FitWidth, imageView5.top + 25* FitHeight, self.view.width - 100*FitWidth, 20*FitHeight)];
     _warnLabel.font = [UIFont systemFontOfSize:12 * FitHeight];
     _warnLabel.textColor = [UIColor redColor];
-    _warnLabel.text = @"如果您的邀请人提供了邀请码，请务必填写，无责不填";
+    _warnLabel.text = @"如果您的邀请人提供了邀请码，请务必填写，无则不填";
     [self.view addSubview:_warnLabel];
     
     self.codeField.font = self.nameField.font = self.duanxinField.font = self.passwordField.font = self.passwordAgainField.font = RealFont(14);

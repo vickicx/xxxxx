@@ -176,7 +176,7 @@
     
     [self headerDataHandle];
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64 + 120 * FitHeight, kWIDTH, [UIScreen mainScreen].bounds.size.height - 64 - 120 * FitHeight)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,120 * FitHeight, kWIDTH, [UIScreen mainScreen].bounds.size.height - 120 * FitHeight)];
     
     [self.view addSubview:self.scrollView];
     
@@ -548,7 +548,7 @@
  */
 - (void)createHeadView {
     
-    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 120 * FitHeight)];
+    self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 120 * FitHeight)];
     
     [self.view addSubview:self.headView];
     

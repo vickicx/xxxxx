@@ -40,30 +40,30 @@
 {
     [super layoutSubviews];
     
-    self.shengYuQXlabel.frame = CGRectMake(15 * kWIDTH, 5 * kHEIGHT, 100 * kWIDTH, 30 * kHEIGHT);
-    self.shengYuQXlabel.font = [UIFont systemFontOfSize:14 * kWIDTH];
+    self.shengYuQXlabel.frame = CGRectMake(15 * FitWidth, 5 * FitHeight, 100 * FitWidth, 30 * FitHeight);
+    self.shengYuQXlabel.font = [UIFont systemFontOfSize:14 * FitWidth];
     self.shengYuQXlabel.textColor = [UIColor colorWithRed:47 / 255.0 green:55 / 255.0 blue:85 / 255.0 alpha:1.0];
 //    self.shengYuQXlabel.backgroundColor = [UIColor cyanColor];
     
-    self.restDayLabel.frame = CGRectMake(375 * kWIDTH - 15 * kWIDTH - 80 * kWIDTH, 5 * kHEIGHT, 80 * kWIDTH, 30 * kHEIGHT);
-    self.restDayLabel.font = [UIFont systemFontOfSize:14 * kWIDTH];
+    self.restDayLabel.frame = CGRectMake( kWIDTH - 15 * FitWidth - 80 * FitWidth, 5 * FitHeight, 80 * FitWidth, 30 * FitHeight);
+    self.restDayLabel.font = [UIFont systemFontOfSize:14 * FitWidth];
     self.restDayLabel.textColor = [XXColor goldenColor];
     self.restDayLabel.textAlignment = NSTextAlignmentRight;
 //    self.restDayLabel.backgroundColor = [UIColor yellowColor];
     
-    self.yuJiNHSYLLabel.frame = CGRectMake(15 * kWIDTH, 12 * kHEIGHT + self.shengYuQXlabel.frame.size.height, 200 * kWIDTH, 30 * kHEIGHT);
-    self.yuJiNHSYLLabel.font = [UIFont systemFontOfSize:14 * kWIDTH];
+    self.yuJiNHSYLLabel.frame = CGRectMake(15 * FitWidth, 12 * FitHeight + self.shengYuQXlabel.frame.size.height, 200 * FitWidth, 30 * FitHeight);
+    self.yuJiNHSYLLabel.font = [UIFont systemFontOfSize:14 * FitWidth];
     self.yuJiNHSYLLabel.textColor = [UIColor colorWithRed:47 / 255.0 green:55 / 255.0 blue:85 / 255.0 alpha:1.0];
 //    self.yuJiNHSYLLabel.backgroundColor = [UIColor redColor];
     
-    self.yuJiNHRateLabel.frame = CGRectMake(375 * kWIDTH - 15 * kWIDTH - 150 * kWIDTH, 12 * kHEIGHT + self.shengYuQXlabel.frame.size.height, 150 * kWIDTH, 30 * kHEIGHT);
-    self.yuJiNHRateLabel.font = [UIFont systemFontOfSize:14 * kWIDTH];
+    self.yuJiNHRateLabel.frame = CGRectMake( kWIDTH - 15 * FitWidth - 150 * FitWidth, 12 * FitHeight + self.shengYuQXlabel.frame.size.height, 150 * FitWidth, 30 * FitHeight);
+    self.yuJiNHRateLabel.font = [UIFont systemFontOfSize:14 * FitWidth];
     self.yuJiNHRateLabel.textColor = [XXColor goldenColor];
     self.yuJiNHRateLabel.textAlignment = NSTextAlignmentRight;
 //    self.yuJiNHRateLabel.backgroundColor = [UIColor cyanColor];
     
     
-    self.lineView.frame = CGRectMake(15 * kWIDTH, 7.5 * kHEIGHT + self.shengYuQXlabel.frame.size.height, 375 * kWIDTH - 30 * kWIDTH, 1.3 * kHEIGHT);
+    self.lineView.frame = CGRectMake(15 * FitWidth, 7.5 * FitHeight + self.shengYuQXlabel.frame.size.height, kWIDTH - 30 * FitWidth, 1.3 * FitHeight);
     self.lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
 }
 
