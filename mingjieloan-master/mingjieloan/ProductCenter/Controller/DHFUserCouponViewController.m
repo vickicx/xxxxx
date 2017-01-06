@@ -43,8 +43,10 @@
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     [self initBottomView];
+     _page = 1;
     [self getCoupon];
     
+   
     //默认不是上拉
     self.isUPLoad = NO;
     //上下拉刷新
@@ -142,11 +144,11 @@
     NSDictionary *dic = @{@"sid":
     [[NSUserDefaults standardUserDefaults] objectForKey:@"sid"],
                          @"productid":_productID,
-                         @"amount":@"1000",
+                         @"amount":@"100",
                          @"page":[NSString stringWithFormat:@"%ld", self.page]};
-    
+       NSLog(@"progress ===== %@", dic);
     [VVNetWorkTool postWithUrl:Url(ENABLECASH) body:dic bodyType:BodyTypeDictionary httpHeader:nil responseType:ResponseTypeDATA progress:^(NSProgress *progress) {
-        //        NSLog(@"progress ===== %@", progress);
+//
         
     } success:^(id result) {
         
@@ -167,11 +169,11 @@
         
         if (self.mainArr.count > 0) {
             
-            [_tableView headerEndRefreshing];
-            [_tableView footerEndRefreshing];
-            [_tableView reloadData];
+     
         }
-        
+        [_tableView headerEndRefreshing];
+        [_tableView footerEndRefreshing];
+        [_tableView reloadData];
         
     } fail:^(NSError *error) {
         
